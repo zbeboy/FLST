@@ -1,0 +1,16 @@
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
+  jooq:
+    sql-dialect: mysql
+  datasource:
+    url: jdbc:mysql://localhost/flst?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 8080
