@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -194,7 +194,7 @@
 					<div class="row">
 						<div class="col-md-4">
          					<img data-src="holder.js/100%x200" alt="100%x200" src="images/1.jpg" data-holder-rendered="true" style="height: 160px; width: 100%; display: block;">
-            				<h4>北京大学全面从严治党工作会暨学习贯彻党的十九大精神集中轮训开班式举行</h4>
+            				<h4 th:text="${path}">北京大学全面从严治党工作会暨学习贯彻党的十九大精神集中轮训开班式举行</h4>
             				<p>会议的主题是部署2018年全面从严治党工作，并进行全校中层干部参加学习贯彻党的十九大精神集中轮训的开班动员。</p>
 						</div>
 						<div class="col-md-8">
