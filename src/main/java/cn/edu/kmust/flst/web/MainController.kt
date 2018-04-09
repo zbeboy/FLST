@@ -28,7 +28,7 @@ open class MainController {
      */
     @RequestMapping("/index")
     fun index(modelMap: ModelMap,request: HttpServletRequest): String {
-        val path = request.getServletContext().getRealPath("/")
+        val path = request.session.servletContext.getRealPath(Workbook.DIRECTORY_SPLIT)
         modelMap.addAttribute("path",path)
         return "index"
     }
