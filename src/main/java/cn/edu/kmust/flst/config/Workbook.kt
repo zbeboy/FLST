@@ -25,5 +25,10 @@ open class Workbook {
        目录分隔符
         */
         const val DIRECTORY_SPLIT = "/"
+
+        /*
+        服务器根目录
+         */
+        const val DOCUMENT_ROOT = "root"
     }
 }

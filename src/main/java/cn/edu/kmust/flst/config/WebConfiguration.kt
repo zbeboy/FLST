@@ -1,27 +1,31 @@
 package cn.edu.kmust.flst.config
 
+import org.springframework.boot.web.embedded.undertow.UndertowServletWebServerFactory
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.core.Ordered
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry
+import org.springframework.core.env.Environment
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
+import java.io.File
+import javax.inject.Inject
 
 
 @Configuration
 open class WebConfiguration: WebMvcConfigurer {
 
-    /**
-     * 设置默认首页
-     * 注: 这里会指定该url为最高级，不会被spring security 影响到，否则会跳转到login页面.
-     * spring 默认支持首页index.html，这里添加是因为可以对首页做一些数据显示操作.
-     */
-    override fun addViewControllers(registry: ViewControllerRegistry?) {
+    @Inject
+    open lateinit var env: Environment
 
-        registry!!.addViewController("/").setViewName("forward:/index")
-
-        registry.setOrder(Ordered.HIGHEST_PRECEDENCE)
-
-        super.addViewControllers(registry)
-
+    @Bean
+    open fun undertow(): UndertowServletWebServerFactory {
+        val undertow = UndertowServletWebServerFactory()
+        if (this.env.acceptsProfiles(Workbook.SPRING_PROFILE_PRODUCTION)) {
+            val documentRoot = File(System.getProperty("user.dir") + Workbook.DIRECTORY_SPLIT + Workbook.DOCUMENT_ROOT)
+            if (!documentRoot.exists()) {
+                documentRoot.mkdirs()
+            }
+            undertow.documentRoot = documentRoot
+        }
+        return undertow
     }
 
 }
