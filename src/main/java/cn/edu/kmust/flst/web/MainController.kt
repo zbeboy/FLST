@@ -1,14 +1,23 @@
 package cn.edu.kmust.flst.web
 
-import org.springframework.core.Ordered
-import org.springframework.core.annotation.Order
+import cn.edu.kmust.flst.config.Workbook
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
-import org.springframework.util.ClassUtils
 import org.springframework.web.bind.annotation.RequestMapping
+import javax.servlet.http.HttpServletRequest
 
 @Controller
 open class MainController {
+
+    /**
+     * main page
+     *
+     * @return main page
+     */
+    @RequestMapping("/")
+    fun root(): String {
+        return "index"
+    }
 
     /**
      * Home page.
@@ -16,8 +25,8 @@ open class MainController {
      * @return home page
      */
     @RequestMapping("/index")
-    fun index(modelMap: ModelMap): String {
-        val path = ClassUtils.getDefaultClassLoader().getResource("").path
+    fun index(modelMap: ModelMap,request: HttpServletRequest): String {
+        val path = request.getServletContext().getRealPath("/")
         modelMap.addAttribute("path",path)
         return "index"
     }
