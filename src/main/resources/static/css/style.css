@@ -1,5 +1,5 @@
 .myheader {
-    background-image: url(../images/header-Bg.png);
+    background-image: url(/images/header-Bg.png);
     background-repeat: repeat-x;
     height: 118px;
 }
