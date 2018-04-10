@@ -4,7 +4,11 @@
 package cn.edu.kmust.flst.domain;
 
 
+import cn.edu.kmust.flst.domain.tables.Article;
+import cn.edu.kmust.flst.domain.tables.ArticleEn;
 import cn.edu.kmust.flst.domain.tables.Authorities;
+import cn.edu.kmust.flst.domain.tables.Banner;
+import cn.edu.kmust.flst.domain.tables.Menus;
 import cn.edu.kmust.flst.domain.tables.PersistentLogins;
 import cn.edu.kmust.flst.domain.tables.Users;
 
@@ -25,9 +29,29 @@ import javax.annotation.Generated;
 public class Tables {
 
     /**
+     * The table <code>flst.article</code>.
+     */
+    public static final Article ARTICLE = cn.edu.kmust.flst.domain.tables.Article.ARTICLE;
+
+    /**
+     * The table <code>flst.article_en</code>.
+     */
+    public static final ArticleEn ARTICLE_EN = cn.edu.kmust.flst.domain.tables.ArticleEn.ARTICLE_EN;
+
+    /**
      * The table <code>flst.authorities</code>.
      */
     public static final Authorities AUTHORITIES = cn.edu.kmust.flst.domain.tables.Authorities.AUTHORITIES;
+
+    /**
+     * The table <code>flst.banner</code>.
+     */
+    public static final Banner BANNER = cn.edu.kmust.flst.domain.tables.Banner.BANNER;
+
+    /**
+     * The table <code>flst.menus</code>.
+     */
+    public static final Menus MENUS = cn.edu.kmust.flst.domain.tables.Menus.MENUS;
 
     /**
      * The table <code>flst.persistent_logins</code>.

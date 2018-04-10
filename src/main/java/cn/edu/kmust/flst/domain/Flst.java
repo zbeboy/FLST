@@ -4,7 +4,11 @@
 package cn.edu.kmust.flst.domain;
 
 
+import cn.edu.kmust.flst.domain.tables.Article;
+import cn.edu.kmust.flst.domain.tables.ArticleEn;
 import cn.edu.kmust.flst.domain.tables.Authorities;
+import cn.edu.kmust.flst.domain.tables.Banner;
+import cn.edu.kmust.flst.domain.tables.Menus;
 import cn.edu.kmust.flst.domain.tables.PersistentLogins;
 import cn.edu.kmust.flst.domain.tables.Users;
 
@@ -32,7 +36,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Flst extends SchemaImpl {
 
-    private static final long serialVersionUID = 1874622496;
+    private static final long serialVersionUID = 1489276390;
 
     /**
      * The reference instance of <code>flst</code>
@@ -40,9 +44,29 @@ public class Flst extends SchemaImpl {
     public static final Flst FLST = new Flst();
 
     /**
+     * The table <code>flst.article</code>.
+     */
+    public final Article ARTICLE = cn.edu.kmust.flst.domain.tables.Article.ARTICLE;
+
+    /**
+     * The table <code>flst.article_en</code>.
+     */
+    public final ArticleEn ARTICLE_EN = cn.edu.kmust.flst.domain.tables.ArticleEn.ARTICLE_EN;
+
+    /**
      * The table <code>flst.authorities</code>.
      */
     public final Authorities AUTHORITIES = cn.edu.kmust.flst.domain.tables.Authorities.AUTHORITIES;
+
+    /**
+     * The table <code>flst.banner</code>.
+     */
+    public final Banner BANNER = cn.edu.kmust.flst.domain.tables.Banner.BANNER;
+
+    /**
+     * The table <code>flst.menus</code>.
+     */
+    public final Menus MENUS = cn.edu.kmust.flst.domain.tables.Menus.MENUS;
 
     /**
      * The table <code>flst.persistent_logins</code>.
@@ -79,7 +103,11 @@ public class Flst extends SchemaImpl {
 
     private final List<Table<?>> getTables0() {
         return Arrays.<Table<?>>asList(
+            Article.ARTICLE,
+            ArticleEn.ARTICLE_EN,
             Authorities.AUTHORITIES,
+            Banner.BANNER,
+            Menus.MENUS,
             PersistentLogins.PERSISTENT_LOGINS,
             Users.USERS);
     }

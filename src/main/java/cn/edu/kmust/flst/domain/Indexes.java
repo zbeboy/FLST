@@ -4,7 +4,11 @@
 package cn.edu.kmust.flst.domain;
 
 
+import cn.edu.kmust.flst.domain.tables.Article;
+import cn.edu.kmust.flst.domain.tables.ArticleEn;
 import cn.edu.kmust.flst.domain.tables.Authorities;
+import cn.edu.kmust.flst.domain.tables.Banner;
+import cn.edu.kmust.flst.domain.tables.Menus;
 import cn.edu.kmust.flst.domain.tables.PersistentLogins;
 import cn.edu.kmust.flst.domain.tables.Users;
 
@@ -32,7 +36,16 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
+    public static final Index ARTICLE_PRIMARY = Indexes0.ARTICLE_PRIMARY;
+    public static final Index ARTICLE_USERNAME = Indexes0.ARTICLE_USERNAME;
+    public static final Index ARTICLE_EN_PRIMARY = Indexes0.ARTICLE_EN_PRIMARY;
+    public static final Index ARTICLE_EN_USERNAME = Indexes0.ARTICLE_EN_USERNAME;
     public static final Index AUTHORITIES_PRIMARY = Indexes0.AUTHORITIES_PRIMARY;
+    public static final Index BANNER_MENU_ID = Indexes0.BANNER_MENU_ID;
+    public static final Index BANNER_PRIMARY = Indexes0.BANNER_PRIMARY;
+    public static final Index MENUS_MENU_NAME = Indexes0.MENUS_MENU_NAME;
+    public static final Index MENUS_MENU_NAME_EN = Indexes0.MENUS_MENU_NAME_EN;
+    public static final Index MENUS_PRIMARY = Indexes0.MENUS_PRIMARY;
     public static final Index PERSISTENT_LOGINS_PRIMARY = Indexes0.PERSISTENT_LOGINS_PRIMARY;
     public static final Index USERS_PRIMARY = Indexes0.USERS_PRIMARY;
 
@@ -41,7 +54,16 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
+        public static Index ARTICLE_PRIMARY = Internal.createIndex("PRIMARY", Article.ARTICLE, new OrderField[] { Article.ARTICLE.ARTICLE_ID }, true);
+        public static Index ARTICLE_USERNAME = Internal.createIndex("username", Article.ARTICLE, new OrderField[] { Article.ARTICLE.USERNAME }, false);
+        public static Index ARTICLE_EN_PRIMARY = Internal.createIndex("PRIMARY", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.ARTICLE_ID }, true);
+        public static Index ARTICLE_EN_USERNAME = Internal.createIndex("username", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.USERNAME }, false);
         public static Index AUTHORITIES_PRIMARY = Internal.createIndex("PRIMARY", Authorities.AUTHORITIES, new OrderField[] { Authorities.AUTHORITIES.USERNAME, Authorities.AUTHORITIES.AUTHORITY }, true);
+        public static Index BANNER_MENU_ID = Internal.createIndex("menu_id", Banner.BANNER, new OrderField[] { Banner.BANNER.MENU_ID }, false);
+        public static Index BANNER_PRIMARY = Internal.createIndex("PRIMARY", Banner.BANNER, new OrderField[] { Banner.BANNER.BANNER_ID }, true);
+        public static Index MENUS_MENU_NAME = Internal.createIndex("menu_name", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_NAME }, true);
+        public static Index MENUS_MENU_NAME_EN = Internal.createIndex("menu_name_en", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_NAME_EN }, true);
+        public static Index MENUS_PRIMARY = Internal.createIndex("PRIMARY", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_ID }, true);
         public static Index PERSISTENT_LOGINS_PRIMARY = Internal.createIndex("PRIMARY", PersistentLogins.PERSISTENT_LOGINS, new OrderField[] { PersistentLogins.PERSISTENT_LOGINS.SERIES }, true);
         public static Index USERS_PRIMARY = Internal.createIndex("PRIMARY", Users.USERS, new OrderField[] { Users.USERS.USERNAME }, true);
     }
