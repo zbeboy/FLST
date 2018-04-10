@@ -14,7 +14,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl
+import top.zbeboy.isy.filter.SecurityLoginFilter
 import javax.inject.Inject
 import javax.sql.DataSource
 
@@ -77,11 +79,12 @@ open class SecurityConfiguration : WebSecurityConfigurerAdapter() {
                 .antMatchers("/autoconfig/**").hasRole("ACTUATOR")
                 .antMatchers("/env/**").hasRole("ACTUATOR")
                 .antMatchers("/mappings/**").hasRole("ACTUATOR")
+                .and().addFilterBefore(SecurityLoginFilter(), UsernamePasswordAuthenticationFilter::class.java)
     }
 
     @Throws(Exception::class)
     public override fun configure(auth: AuthenticationManagerBuilder?) {
-        auth!!.jdbcAuthentication().passwordEncoder(passwordEncoder()).and().eraseCredentials(false)
+        auth!!.jdbcAuthentication().dataSource(dataSource).passwordEncoder(passwordEncoder()).and().eraseCredentials(false)
     }
 
     @Bean
