@@ -20,6 +20,10 @@ $('#dataTable').bootstrapTable('destroy')
         pageNumber: 1, //当前第几页
         sidePagination: "server", //表示服务端请求
         queryParamsType: "undefined",
+        queryParams: function queryParams(params) {   //设置查询参数
+            params.orderNum = "测试";
+            return params;
+        },
         search: false,
         onLoadSuccess: function () {  //加载成功时执行
             console.log("加载成功");
@@ -28,3 +32,17 @@ $('#dataTable').bootstrapTable('destroy')
             console.log("加载数据失败");
         }
     });
+
+function formatterShow(value, row, index, field) {
+    if (value === 1) {
+        return "是";
+    }
+    return "否";
+}
+
+function formatterPidName(value, row, index, field) {
+    if (!value) {
+        return "无";
+    }
+    return value;
+}

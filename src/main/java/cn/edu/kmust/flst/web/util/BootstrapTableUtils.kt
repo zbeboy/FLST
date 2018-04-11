@@ -24,9 +24,9 @@ open class BootstrapTableUtils<T> {
 
     var sortOrder: String? = null
 
-    var pageSize: Int? = null
+    var pageSize: Int = 0
 
-    var pageNumber: Int? = null
+    var pageNumber: Int = 0
 
     /*
    额外搜索参数

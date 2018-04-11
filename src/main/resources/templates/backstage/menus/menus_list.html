@@ -32,16 +32,16 @@
                     <table data-toggle="table" data-show-refresh="true"
                            data-show-columns="true"  data-search="true"
                            data-sort-name="menuName" data-show-toggle="true"
-                           data-sort-order="desc" data-locale="zh-CN" id="dataTable">
+                           data-sort-order="asc" data-locale="zh-CN" id="dataTable">
                         <thead>
                         <tr>
                             <th data-field="menuName" data-sortable="true">中文名</th>
                             <th data-field="menuNameEn" data-sortable="true">英文名</th>
                             <th data-field="menuLink">中文链接</th>
                             <th data-field="menuLinkEn">英文链接</th>
-                            <th data-field="menuPid">父级</th>
+                            <th data-field="menuPidName" data-formatter="formatterPidName">父级</th>
                             <th data-field="menuOrder">序号</th>
-                            <th data-field="menuShow">是否显示</th>
+                            <th data-field="menuShow" data-formatter="formatterShow">是否显示</th>
                         </tr>
                         </thead>
                     </table>
