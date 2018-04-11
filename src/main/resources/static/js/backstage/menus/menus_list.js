@@ -7,7 +7,7 @@
 */
 function getAjaxUrl() {
     return {
-        menus: '/web/backstage/menu/data'
+        menus: '/web/backstage/menus/data'
     };
 }
 
