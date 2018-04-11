@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: header(~{::meta},~{::title},~{::link})">
+    <!-- csrf -->
+    <meta name="_csrf" content="" th:content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" content="" th:content="${_csrf.headerName}"/>
+    <title>生命科学与技术学院-栏目管理</title>
+    <link href="css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="plugin/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"
+          th:href="@{/plugin/bootstrap-table/bootstrap-table.css}"/>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" th:include="nav::backstage">
+</nav>
+
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar" th:include="sidebar::backstage">
+</div><!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">栏目管理</h1>
+        </div>
+    </div><!--/.row-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">列表数据</div>
+                <div class="panel-body">
+                    <table data-toggle="table" data-show-refresh="true"
+                           data-show-columns="true"  data-search="true"
+                           data-sort-name="menuName" data-show-toggle="true"
+                           data-sort-order="desc" data-locale="zh-CN" id="dataTable">
+                        <thead>
+                        <tr>
+                            <th data-field="menuName" data-sortable="true">中文名</th>
+                            <th data-field="menuNameEn" data-sortable="true">英文名</th>
+                            <th data-field="menuLink">中文链接</th>
+                            <th data-field="menuLinkEn">英文链接</th>
+                            <th data-field="menuPid">父级</th>
+                            <th data-field="menuOrder">序号</th>
+                            <th data-field="menuShow">是否显示</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div><!--/.row-->
+</div>    <!--/.main-->
+<script th:inline="javascript">
+    var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
+</script>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js" th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
+<script src="js/csrf.js" th:src="@{/js/csrf.js}"></script>
+<script src="js/backstage-main.js" th:src="@{/js/backstage-main.js}"></script>
+<script src="plugin/bootstrap-table/bootstrap-table.js"
+        th:src="@{/plugin/bootstrap-table/bootstrap-table.js}"></script>
+<script src="plugin/bootstrap-table/locale/bootstrap-table-zh-CN.js"
+        th:src="@{/plugin/bootstrap-table/locale/bootstrap-table-zh-CN.js}"></script>
+<script src="js/backstage/menu/menu_list.js"
+        th:src="@{/js/backstage/menu/menu_list.js}"></script>
+</body>
+
+</html>

@@ -1,9 +1,7 @@
 package cn.edu.kmust.flst.web
 
-import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.service.system.AuthoritiesService
 import org.springframework.stereotype.Controller
-import org.springframework.ui.ModelMap
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import javax.annotation.Resource
@@ -21,9 +19,7 @@ open class MainController {
      * @return main page
      */
     @RequestMapping("/")
-    fun root(modelMap: ModelMap,request: HttpServletRequest): String {
-        val path = request.session.servletContext.getRealPath(Workbook.DIRECTORY_SPLIT)
-        modelMap.addAttribute("path",path)
+    fun root(): String {
         return "index"
     }
 
@@ -33,9 +29,7 @@ open class MainController {
      * @return home page
      */
     @RequestMapping("/index")
-    fun index(modelMap: ModelMap,request: HttpServletRequest): String {
-        val path = request.session.servletContext.getRealPath(Workbook.DIRECTORY_SPLIT)
-        modelMap.addAttribute("path",path)
+    fun index(): String {
         return "index"
     }
 
