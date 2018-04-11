@@ -1,7 +1,7 @@
 package top.zbeboy.isy.filter
 
 import cn.edu.kmust.flst.security.AjaxAuthenticationCode
-import cn.edu.kmust.flst.service.platform.UsersService
+import cn.edu.kmust.flst.service.system.UsersService
 import org.springframework.util.ObjectUtils
 import org.springframework.util.StringUtils
 import org.springframework.web.context.support.WebApplicationContextUtils

@@ -1,4 +1,4 @@
-package cn.edu.kmust.flst.service.platform
+package cn.edu.kmust.flst.service.system
 
 import cn.edu.kmust.flst.domain.tables.daos.UsersDao
 import cn.edu.kmust.flst.domain.tables.pojos.Users
