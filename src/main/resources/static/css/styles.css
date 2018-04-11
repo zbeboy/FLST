@@ -565,7 +565,8 @@ a.bg-danger:hover {
 
 .sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active,
 .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover,
-.sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
+.sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus,
+.sidebar ul.nav ul.children .active a:hover,.sidebar ul.nav ul.children .active a:focus{
 	color: #fff;
 	background-color: #30a5ff;
 }
@@ -585,8 +586,12 @@ a.bg-danger:hover {
 
 .sidebar ul.nav ul.children li a {
 	height: 40px;
+	text-decoration: none;
+}
+
+.sidebar ul.nav ul.children li a:hover {
 	background: #f9f9f9;
-	color: #30a5ff!important;
+	color: #30a5ff;
 }
 
 .sidebar ul.nav li.current a {
