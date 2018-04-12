@@ -45,10 +45,10 @@ dataTable.bootstrapTable('destroy')
         queryParamsType: "undefined",
         search: false,
         onLoadSuccess: function () {  //加载成功时执行
-            console.log("加载成功");
+            Messenger().post("加载数据成功！");
         },
         onLoadError: function () {  //加载失败时执行
-            console.log("加载数据失败");
+            Messenger().post("加载数据失败！");
         }
     });
 
@@ -116,21 +116,30 @@ function cleanParam() {
 /*
 刷新数据
  */
-function refreshTable(){
+function refreshTable() {
     dataTable.bootstrapTable('refresh', {
         silent: true,
         query: {
-            extraSearch:JSON.stringify(param)
+            extraSearch: JSON.stringify(param)
         }
     });
 }
 
 $(document).ready(function () {
+
+    /*
+    init message.
+    */
+    Messenger.options = {
+        extraClasses: 'messenger-fixed messenger-on-bottom messenger-on-right',
+        theme: 'air'
+    };
+
     $('#search').click(function () {
         initParam();
         refreshTable();
     });
-    
+
     $('#reset_search').click(function () {
         cleanParam();
         initParam();

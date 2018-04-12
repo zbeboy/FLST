@@ -5,10 +5,12 @@
     <meta name="_csrf" content="" th:content="${_csrf.token}"/>
     <!-- default header name is X-CSRF-TOKEN -->
     <meta name="_csrf_header" content="" th:content="${_csrf.headerName}"/>
-    <title>生命科学与技术学院-栏目管理</title>
+    <title>栏目管理-生命科学与技术学院</title>
     <link href="css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}"/>
     <link href="plugin/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"
           th:href="@{/plugin/bootstrap-table/bootstrap-table.css}"/>
+    <link href="plugin/messenger/css/messenger.css" rel="stylesheet" th:href="@{/plugin/messenger/css/messenger.css}"/>
+    <link href="plugin/messenger/css/messenger-theme-air.css" rel="stylesheet" th:href="@{/plugin/messenger/css/messenger-theme-air.css}"/>
 </head>
 
 <body>
@@ -94,6 +96,8 @@
         th:src="@{/plugin/bootstrap-table/bootstrap-table.js}"></script>
 <script src="plugin/bootstrap-table/locale/bootstrap-table-zh-CN.js"
         th:src="@{/plugin/bootstrap-table/locale/bootstrap-table-zh-CN.js}"></script>
+<script src="plugin/messenger/js/messenger.js"
+        th:src="@{/plugin/messenger/js/messenger.js}"></script>
 <script src="plugin/handlebars/handlebars.js"
         th:src="@{/plugin/handlebars/handlebars.js}"></script>
 <script src="js/backstage/menus/menus_list.js"
