@@ -21,10 +21,11 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
 
     private val create: DSLContext = dslContext
 
-    override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record7<String, String, String, String, String, Int, Byte>> {
+    override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record8<String, String, String, String, String, String, Int, Byte>> {
         val a = searchCondition(bootstrapTableUtils)
         val selectOnConditionStep = if (ObjectUtils.isEmpty(a)) {
             create.select(
+                    MENUS.`as`("M").MENU_ID,
                     MENUS.`as`("M").MENU_NAME,
                     MENUS.`as`("M").MENU_NAME_EN,
                     MENUS.`as`("M").MENU_LINK,
@@ -38,6 +39,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
                     .on(MENUS.`as`("M").field(MENUS.MENU_PID).eq(MENUS.`as`("N").field(MENUS.MENU_ID)))
         } else {
             create.select(
+                    MENUS.`as`("M").MENU_ID,
                     MENUS.`as`("M").MENU_NAME,
                     MENUS.`as`("M").MENU_NAME_EN,
                     MENUS.`as`("M").MENU_LINK,
@@ -95,6 +97,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
         if (!ObjectUtils.isEmpty(search)) {
             val menuName = StringUtils.trimWhitespace(search!!.getString("menuName"))
             val menuNameEn = StringUtils.trimWhitespace(search.getString("menuNameEn"))
+            val menuPidName = StringUtils.trimWhitespace(search.getString("menuPidName"))
             if (StringUtils.hasLength(menuName)) {
                 a = MENUS.`as`("M").MENU_NAME.like(SQLQueryUtils.likeAllParam(menuName))
             }
@@ -104,6 +107,14 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
                     MENUS.`as`("M").MENU_NAME_EN.like(SQLQueryUtils.likeAllParam(menuNameEn))
                 } else {
                     a!!.and(MENUS.`as`("M").MENU_NAME_EN.like(SQLQueryUtils.likeAllParam(menuNameEn)))
+                }
+            }
+
+            if (StringUtils.hasLength(menuPidName)) {
+                a = if (ObjectUtils.isEmpty(a)) {
+                    MENUS.`as`("N").MENU_NAME_EN.like(SQLQueryUtils.likeAllParam(menuPidName))
+                } else {
+                    a!!.and(MENUS.`as`("N").MENU_NAME_EN.like(SQLQueryUtils.likeAllParam(menuPidName)))
                 }
             }
 

@@ -26,30 +26,59 @@
     </div><!--/.row-->
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">列表数据</div>
-                <div class="panel-body">
-                    <table data-toggle="table" data-show-refresh="true"
-                           data-show-columns="true"  data-search="true"
-                           data-sort-name="menuName" data-show-toggle="true"
-                           data-sort-order="asc" data-locale="zh-CN" id="dataTable">
-                        <thead>
-                        <tr>
-                            <th data-field="menuName" data-sortable="true">中文名</th>
-                            <th data-field="menuNameEn" data-sortable="true">英文名</th>
-                            <th data-field="menuLink">中文链接</th>
-                            <th data-field="menuLinkEn">英文链接</th>
-                            <th data-field="menuPidName" data-formatter="formatterPidName">父级</th>
-                            <th data-field="menuOrder">序号</th>
-                            <th data-field="menuShow" data-formatter="formatterShow">是否显示</th>
-                        </tr>
-                        </thead>
-                    </table>
+            <form class="form-inline text-center">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="menuName"
+                           placeholder="中文名">
                 </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="menuNameEn"
+                           placeholder="英文名">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="menuPidName"
+                           placeholder="父级">
+                </div>
+            </form>
+            <div class="text-center" style="padding: 10px;">
+                <button type="button" id="search" class="btn btn-default">搜索</button>
+                <button type="button" id="reset_search" class="btn btn-default">重置</button>
             </div>
+            <div id="toolbar" class="btn-group">
+                <button id="add" type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                </button>
+            </div>
+            <table data-toggle="table" data-show-refresh="true"
+                   data-show-columns="true" data-search="true"
+                   data-sort-name="menuName" data-show-toggle="true"
+                   data-sort-order="asc" data-locale="zh-CN" id="dataTable">
+                <thead>
+                <tr>
+                    <th data-field="menuName" data-sortable="true">中文名</th>
+                    <th data-field="menuNameEn" data-sortable="true">英文名</th>
+                    <th data-field="menuLink">中文链接</th>
+                    <th data-field="menuLinkEn">英文链接</th>
+                    <th data-field="menuPidName" data-formatter="formatterPidName">父级</th>
+                    <th data-field="menuOrder">序号</th>
+                    <th data-field="menuShow" data-formatter="formatterShow">是否显示</th>
+                    <th data-formatter="operation">操作</th>
+                </tr>
+                </thead>
+            </table>
         </div>
     </div><!--/.row-->
 </div>    <!--/.main-->
+<!--定义操作列按钮模板-->
+<script id="operator_button" type="text/x-handlebars-template">
+    <div class="btn-group" role="group">
+        {{#each func}}
+        <button type="button" class="btn btn-{{this.type}} btn-sm {{this.css}}" data-id="{{this.id}}">
+            {{this.name}}
+        </button>
+        {{/each}}
+    </div>
+</script>
 <script th:inline="javascript">
     var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
 </script>
@@ -65,6 +94,8 @@
         th:src="@{/plugin/bootstrap-table/bootstrap-table.js}"></script>
 <script src="plugin/bootstrap-table/locale/bootstrap-table-zh-CN.js"
         th:src="@{/plugin/bootstrap-table/locale/bootstrap-table-zh-CN.js}"></script>
+<script src="plugin/handlebars/handlebars.js"
+        th:src="@{/plugin/handlebars/handlebars.js}"></script>
 <script src="js/backstage/menus/menus_list.js"
         th:src="@{/js/backstage/menus/menus_list.js}"></script>
 </body>
