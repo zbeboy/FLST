@@ -138,21 +138,8 @@ open class MenusController {
             menus.menuId = UUIDUtils.getUUID()
             menus.menuName = menusAddVo.menuName
             menus.menuNameEn = menusAddVo.menuNameEn
-
-            val menuLink = dealLink(menusAddVo.menuLink!!)
-            menus.menuLink = if (menuLink == "#") {
-                "#"
-            } else {
-                Workbook.LINK_ZH_PREFIX + menuLink
-            }
-
-            val menuLinkEn = dealLink(menusAddVo.menuLinkEn!!)
-            menus.menuLinkEn = if (menuLinkEn == "#") {
-                "#"
-            } else {
-                Workbook.LINK_EN_PREFIX + menuLinkEn
-            }
-
+            menus.menuLink = dealLink(menusAddVo.menuLink!!, Workbook.LINK_ZH_PREFIX)
+            menus.menuLinkEn = dealLink(menusAddVo.menuLinkEn!!, Workbook.LINK_EN_PREFIX)
             menus.menuPid = menusAddVo.menuPid
             menus.menuOrder = menusAddVo.menuOrder
             menus.menuShow = menusAddVo.menuShow
@@ -167,10 +154,16 @@ open class MenusController {
      * 处理链接特殊字符
      *
      * @param link 待处理链接
+     * @param prefix 链接前缀
      * @return 处理后链接
      */
-    private fun dealLink(link: String): String {
+    private fun dealLink(link: String, prefix: String): String {
         var lk = StringUtils.trimAllWhitespace(link)
+
+        if (lk.startsWith(Workbook.HTTP_PREFIX) || lk.startsWith(Workbook.HTTPS_PREFIX)) {
+            return lk
+        }
+
         if (lk.startsWith('/')) {
             lk = lk.substring(1)
         }
@@ -178,7 +171,11 @@ open class MenusController {
         if (lk.contains('\\')) {
             lk = lk.replace('\\', '/')
         }
-        return lk
+        return if (lk == "#") {
+            "#"
+        } else {
+            prefix + lk
+        }
     }
 
 }

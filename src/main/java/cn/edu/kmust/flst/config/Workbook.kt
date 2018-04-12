@@ -40,5 +40,8 @@ open class Workbook {
         英文链接前缀
          */
         const val LINK_EN_PREFIX = "/user/en/"
+
+        const val HTTP_PREFIX = "http://"
+        const val HTTPS_PREFIX = "https://"
     }
 }
