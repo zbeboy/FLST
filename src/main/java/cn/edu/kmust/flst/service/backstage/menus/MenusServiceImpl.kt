@@ -135,9 +135,17 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
 
             if (StringUtils.hasLength(menuPidName)) {
                 a = if (ObjectUtils.isEmpty(a)) {
-                    MENUS.`as`("N").MENU_NAME_EN.like(SQLQueryUtils.likeAllParam(menuPidName))
+                    if (menuPidName == "无") {
+                        MENUS.`as`("M").MENU_PID.eq("0")
+                    } else {
+                        MENUS.`as`("N").MENU_NAME.like(SQLQueryUtils.likeAllParam(menuPidName))
+                    }
                 } else {
-                    a!!.and(MENUS.`as`("N").MENU_NAME_EN.like(SQLQueryUtils.likeAllParam(menuPidName)))
+                    if (menuPidName == "无") {
+                        a!!.and(MENUS.`as`("M").MENU_PID.eq("0"))
+                    } else {
+                        a!!.and(MENUS.`as`("N").MENU_NAME.like(SQLQueryUtils.likeAllParam(menuPidName)))
+                    }
                 }
             }
 
@@ -149,7 +157,6 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
      * 应用数据排序
      *
      * @param bootstrapTableUtils bootstrapTable工具类
-     * @param selectConditionStep 条件
      */
     private fun sortCondition(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Array<SortField<*>?>? {
         val orderColumnName = bootstrapTableUtils.sortName
