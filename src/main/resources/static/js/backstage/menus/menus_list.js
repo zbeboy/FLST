@@ -83,6 +83,12 @@ function operation(value, row, index, field) {
                 "css": "show",
                 "type": "default",
                 "id": row.menuId
+            },
+            {
+                "name": "删除",
+                "css": "del",
+                "type": "danger",
+                "id": row.menuId
             }
         ]
     };

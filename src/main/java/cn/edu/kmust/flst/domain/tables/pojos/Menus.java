@@ -24,7 +24,7 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Menus implements Serializable {
 
-    private static final long serialVersionUID = -1295687820;
+    private static final long serialVersionUID = 2019323803;
 
     private String  menuId;
     private String  menuName;
@@ -34,6 +34,7 @@ public class Menus implements Serializable {
     private String  menuPid;
     private Integer menuOrder;
     private Byte    menuShow;
+    private Byte    menuFixed;
 
     public Menus() {}
 
@@ -46,6 +47,7 @@ public class Menus implements Serializable {
         this.menuPid = value.menuPid;
         this.menuOrder = value.menuOrder;
         this.menuShow = value.menuShow;
+        this.menuFixed = value.menuFixed;
     }
 
     public Menus(
@@ -56,7 +58,8 @@ public class Menus implements Serializable {
         String  menuLinkEn,
         String  menuPid,
         Integer menuOrder,
-        Byte    menuShow
+        Byte    menuShow,
+        Byte    menuFixed
     ) {
         this.menuId = menuId;
         this.menuName = menuName;
@@ -66,6 +69,7 @@ public class Menus implements Serializable {
         this.menuPid = menuPid;
         this.menuOrder = menuOrder;
         this.menuShow = menuShow;
+        this.menuFixed = menuFixed;
     }
 
     @NotNull
@@ -144,6 +148,14 @@ public class Menus implements Serializable {
         this.menuShow = menuShow;
     }
 
+    public Byte getMenuFixed() {
+        return this.menuFixed;
+    }
+
+    public void setMenuFixed(Byte menuFixed) {
+        this.menuFixed = menuFixed;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Menus (");
@@ -156,6 +168,7 @@ public class Menus implements Serializable {
         sb.append(", ").append(menuPid);
         sb.append(", ").append(menuOrder);
         sb.append(", ").append(menuShow);
+        sb.append(", ").append(menuFixed);
 
         sb.append(")");
         return sb.toString();

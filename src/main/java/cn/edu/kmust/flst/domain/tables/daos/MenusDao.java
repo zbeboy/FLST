@@ -130,4 +130,11 @@ public class MenusDao extends DAOImpl<MenusRecord, cn.edu.kmust.flst.domain.tabl
     public List<cn.edu.kmust.flst.domain.tables.pojos.Menus> fetchByMenuShow(Byte... values) {
         return fetch(Menus.MENUS.MENU_SHOW, values);
     }
+
+    /**
+     * Fetch records that have <code>menu_fixed IN (values)</code>
+     */
+    public List<cn.edu.kmust.flst.domain.tables.pojos.Menus> fetchByMenuFixed(Byte... values) {
+        return fetch(Menus.MENUS.MENU_FIXED, values);
+    }
 }
