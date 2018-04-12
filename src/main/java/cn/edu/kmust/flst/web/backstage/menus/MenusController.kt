@@ -1,16 +1,26 @@
 package cn.edu.kmust.flst.web.backstage.menus
 
+import cn.edu.kmust.flst.config.Workbook
+import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
+import cn.edu.kmust.flst.service.util.UUIDUtils
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
+import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
+import cn.edu.kmust.flst.web.vo.backstage.menus.MenusAddVo
 import org.springframework.stereotype.Controller
+import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
+import org.springframework.util.StringUtils
+import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
-import java.util.ArrayList
+import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
+import javax.validation.Valid
 
 /**
  * Created by zbeboy 2018-04-11 .
@@ -32,6 +42,18 @@ open class MenusController {
     }
 
     /**
+     * 栏目管理添加
+     *
+     * @return 栏目管理添加
+     */
+    @RequestMapping(value = ["/web/backstage/menus/add"], method = [(RequestMethod.GET)])
+    fun add(modelMap: ModelMap): String {
+        modelMap.addAttribute("linkZhPrefix", Workbook.LINK_ZH_PREFIX)
+        modelMap.addAttribute("linkEnPrefix", Workbook.LINK_EN_PREFIX)
+        return "backstage/menus/menus_add"
+    }
+
+    /**
      * 列表数据
      *
      * @return 数据
@@ -48,6 +70,115 @@ open class MenusController {
         bootstrapTableUtils.total = menusService.countByCondition(bootstrapTableUtils)
         bootstrapTableUtils.rows = menus
         return bootstrapTableUtils
+    }
+
+    /**
+     * 获取栏目父id数据
+     *
+     * @return 数据
+     */
+    @RequestMapping(value = ["/web/backstage/menus/pids"], method = [(RequestMethod.GET)])
+    @ResponseBody
+    fun pids(): AjaxUtils<Menus> {
+        return AjaxUtils.of<Menus>().success().msg("获取数据成功").listData(menusService.findByMenuFixed(0));
+    }
+
+    /**
+     * 栏目中文名检验
+     *
+     * @return 数据
+     */
+    @RequestMapping(value = ["/web/backstage/menus/add/valid/name"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun addValidName(@RequestParam("menuName") name: String): AjaxUtils<*> {
+        val menuName = StringUtils.trimAllWhitespace(name)
+        if (StringUtils.hasLength(menuName)) {
+            val menus = menusService.findByMenuName(menuName)
+            return if (ObjectUtils.isEmpty(menus)) {
+                AjaxUtils.of<Any>().success().msg("栏目不存在")
+            } else {
+                AjaxUtils.of<Any>().fail().msg("栏目已存在")
+            }
+        }
+        return AjaxUtils.of<Any>().fail().msg("栏目名不能为空")
+    }
+
+    /**
+     * 栏目英文名检验
+     *
+     * @return 数据
+     */
+    @RequestMapping(value = ["/web/backstage/menus/add/valid/name_en"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun addValidNameEn(@RequestParam("menuNameEn") name: String): AjaxUtils<*> {
+        val menuNameEn = StringUtils.trimAllWhitespace(name)
+        if (StringUtils.hasLength(menuNameEn)) {
+            val menus = menusService.findByMenuNameEn(menuNameEn)
+            return if (ObjectUtils.isEmpty(menus)) {
+                AjaxUtils.of<Any>().success().msg("栏目不存在")
+            } else {
+                AjaxUtils.of<Any>().fail().msg("栏目已存在")
+            }
+        }
+        return AjaxUtils.of<Any>().fail().msg("栏目名不能为空")
+    }
+
+    /**
+     * 保存
+     *
+     * @param menusAddVo 数据
+     * @param bindingResult 检验
+     * @return 保存结果
+     */
+    @RequestMapping(value = ["/web/backstage/menus/save"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun save(@Valid menusAddVo: MenusAddVo, bindingResult: BindingResult): AjaxUtils<*> {
+        if (!bindingResult.hasErrors()) {
+            val menus = Menus()
+            menus.menuId = UUIDUtils.getUUID()
+            menus.menuName = menusAddVo.menuName
+            menus.menuNameEn = menusAddVo.menuNameEn
+
+            val menuLink = dealLink(menusAddVo.menuLink!!)
+            menus.menuLink = if (menuLink == "#") {
+                "#"
+            } else {
+                Workbook.LINK_ZH_PREFIX + menuLink
+            }
+
+            val menuLinkEn = dealLink(menusAddVo.menuLinkEn!!)
+            menus.menuLinkEn = if (menuLinkEn == "#") {
+                "#"
+            } else {
+                Workbook.LINK_EN_PREFIX + menuLinkEn
+            }
+
+            menus.menuPid = menusAddVo.menuPid
+            menus.menuOrder = menusAddVo.menuOrder
+            menus.menuShow = menusAddVo.menuShow
+            menus.menuFixed = 0
+            menusService.save(menus)
+            return AjaxUtils.of<Any>().success().msg("保存成功")
+        }
+        return AjaxUtils.of<Any>().fail().msg("保存失败")
+    }
+
+    /**
+     * 处理链接特殊字符
+     *
+     * @param link 待处理链接
+     * @return 处理后链接
+     */
+    private fun dealLink(link: String): String {
+        var lk = StringUtils.trimAllWhitespace(link)
+        if (lk.startsWith('/')) {
+            lk = lk.substring(1)
+        }
+
+        if (lk.contains('\\')) {
+            lk = lk.replace('\\', '/')
+        }
+        return lk
     }
 
 }

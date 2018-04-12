@@ -30,5 +30,15 @@ open class Workbook {
         服务器根目录
          */
         const val DOCUMENT_ROOT = "root"
+
+        /*
+        中文链接前缀
+         */
+        const val LINK_ZH_PREFIX = "/user/zh/"
+
+        /*
+        英文链接前缀
+         */
+        const val LINK_EN_PREFIX = "/user/en/"
     }
 }

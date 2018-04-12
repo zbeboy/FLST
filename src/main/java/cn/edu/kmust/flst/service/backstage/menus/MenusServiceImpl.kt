@@ -1,6 +1,8 @@
 package cn.edu.kmust.flst.service.backstage.menus
 
 import cn.edu.kmust.flst.domain.Tables.MENUS
+import cn.edu.kmust.flst.domain.tables.daos.MenusDao
+import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
@@ -11,6 +13,7 @@ import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.util.ObjectUtils
 import org.springframework.util.StringUtils
+import javax.annotation.Resource
 
 /**
  * Created by zbeboy 2018-04-11 .
@@ -20,6 +23,26 @@ import org.springframework.util.StringUtils
 open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : MenusService {
 
     private val create: DSLContext = dslContext
+
+    @Resource
+    open lateinit var menusDao: MenusDao
+
+    override fun findByMenuName(menuName: String): List<Menus> {
+        return menusDao.fetchByMenuName(menuName)
+    }
+
+    override fun findByMenuNameEn(menuNameEn: String): List<Menus> {
+        return menusDao.fetchByMenuNameEn(menuNameEn)
+    }
+
+    override fun findByMenuFixed(menuFixed: Byte): List<Menus> {
+        return menusDao.fetchByMenuFixed(menuFixed)
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    override fun save(menus: Menus) {
+        menusDao.insert(menus)
+    }
 
     override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record8<String, String, String, String, String, String, Int, Byte>> {
         val a = searchCondition(bootstrapTableUtils)

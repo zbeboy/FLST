@@ -7,7 +7,8 @@
 */
 function getAjaxUrl() {
     return {
-        menus: '/web/backstage/menus/data'
+        menus: '/web/backstage/menus/data',
+        add: '/web/backstage/menus/add'
     };
 }
 
@@ -45,10 +46,20 @@ dataTable.bootstrapTable('destroy')
         queryParamsType: "undefined",
         search: false,
         onLoadSuccess: function () {  //加载成功时执行
-            Messenger().post("加载数据成功！");
+            Messenger().post({
+                message: '加载数据成功！',
+                type: 'info',
+                id: 'menuSuccess',
+                showCloseButton: true
+            });
         },
         onLoadError: function () {  //加载失败时执行
-            Messenger().post("加载数据失败！");
+            Messenger().post({
+                message: '加载数据失败！',
+                type: 'error',
+                id: 'menuFail',
+                showCloseButton: true
+            });
         }
     });
 
@@ -126,7 +137,6 @@ function refreshTable() {
 }
 
 $(document).ready(function () {
-
     /*
     init message.
     */
@@ -144,6 +154,10 @@ $(document).ready(function () {
         cleanParam();
         initParam();
         refreshTable();
+    });
+
+    $('#add').click(function () {
+        window.location.href = web_path + getAjaxUrl().add;
     });
 
     $(getParamId().menuName).keyup(function (event) {

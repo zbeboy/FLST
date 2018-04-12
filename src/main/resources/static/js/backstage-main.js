@@ -9,7 +9,7 @@
 
     var url = window.location;
     var element = $('ul.nav a').filter(function() {
-        return this.href == url;
+        return this.href == url || url.href.indexOf(this.href) === 0;
     }).parent().addClass('active').parent();
     if (element.hasClass('children')) {
         element.addClass('in');

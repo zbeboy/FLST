@@ -7,6 +7,11 @@
     <meta name="_csrf_header" content="" th:content="${_csrf.headerName}"/>
     <title>栏目添加-生命科学与技术学院</title>
     <link href="css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="plugin/messenger/css/messenger.css" rel="stylesheet" th:href="@{/plugin/messenger/css/messenger.css}"/>
+    <link href="plugin/messenger/css/messenger-theme-air.css" rel="stylesheet"
+          th:href="@{/plugin/messenger/css/messenger-theme-air.css}"/>
+    <link href="plugin/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet"
+          th:href="@{/plugin/bootstrap-select/css/bootstrap-select.min.css}"/>
 </head>
 
 <body>
@@ -19,16 +24,73 @@
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">栏目添加</h1>
+            <h1 class="page-header">栏目添加
+                <small class="pull-right">
+                    <button type="button" class="btn btn-primary" id="page_back">返回</button>
+                </small>
+            </h1>
         </div>
     </div><!--/.row-->
     <div class="row">
         <div class="col-lg-12">
-
-
+            <form role="form" id="data_form">
+                <div class="form-group">
+                    <label>父级</label>
+                    <select class="form-control selectpicker" data-live-search="true" id="menuPid" name="menuPid">
+                        <option value="0" selected>无</option>
+                    </select>
+                </div>
+                <div class="form-group" id="valid_menu_name">
+                    <label>栏目中文名</label>
+                    <input class="form-control" id="menuName" name="menuName" placeholder="栏目中文名">
+                    <p class="text-danger hidden" id="menu_name_error_msg"></p>
+                </div>
+                <div class="form-group" id="valid_menu_name_en">
+                    <label>栏目英文名</label>
+                    <input class="form-control" id="menuNameEn" name="menuNameEn" placeholder="栏目英文名">
+                    <p class="text-danger hidden" id="menu_name_en_error_msg"></p>
+                </div>
+                <div class="form-group" id="valid_menu_link">
+                    <label>栏目中文链接</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" th:text="${linkZhPrefix}"></span>
+                        <input type="text" id="menuLink" name="menuLink" class="form-control"/>
+                    </div>
+                    <p class="help-block">注意：若填写 # 则默认为顶级栏目</p>
+                    <p class="text-danger hidden" id="menu_link_error_msg"></p>
+                </div>
+                <div class="form-group" id="valid_menu_link_en">
+                    <label>栏目英文链接</label>
+                    <div class="input-group">
+                        <span class="input-group-addon" th:text="${linkEnPrefix}"></span>
+                        <input type="text" id="menuLinkEn" name="menuLinkEn" class="form-control"/>
+                    </div>
+                    <p class="help-block">注意：若填写 # 则默认为顶级栏目</p>
+                    <p class="text-danger hidden" id="menu_link_en_error_msg"></p>
+                </div>
+                <div class="form-group" id="valid_menu_order">
+                    <label>栏目序号</label>
+                    <input type="number" id="menuOrder" name="menuOrder" class="form-control" placeholder="栏目序号">
+                    <p class="text-danger hidden" id="menu_order_error_msg"></p>
+                </div>
+                <div class="form-group checkbox">
+                    <label>
+                        <input type="checkbox" id="menuShow" name="menuShow" value="1" checked="">正常显示</label>
+                </div>
+                <div class="text-center">
+                    <button type="button" id="save" class="btn btn-primary">保存</button>
+                    <button type="reset" class="btn btn-default">重置</button>
+                </div>
+            </form>
         </div>
     </div><!--/.row-->
 </div>    <!--/.main-->
+<!--PID模板-->
+<script id="pid-template" type="text/x-handlebars-template">
+    {{#each listResult}}
+    <option value="{{menuId}}">{{menuName}}</option>
+    {{/each}}
+</script>
 <script th:inline="javascript">
     var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
 </script>
@@ -40,10 +102,15 @@
 <script src="js/ie10-viewport-bug-workaround.js" th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
 <script src="js/csrf.js" th:src="@{/js/csrf.js}"></script>
 <script src="js/backstage-main.js" th:src="@{/js/backstage-main.js}"></script>
+<script src="plugin/messenger/js/messenger.js"
+        th:src="@{/plugin/messenger/js/messenger.js}"></script>
 <script src="plugin/handlebars/handlebars.js"
         th:src="@{/plugin/handlebars/handlebars.js}"></script>
+<script src="plugin/bootstrap-select/js/bootstrap-select.min.js"
+        th:src="@{/plugin/bootstrap-select/js/bootstrap-select.min.js}"></script>
+<script src="plugin/bootstrap-select/js/i18n/defaults-zh_CN.min.js"
+        th:src="@{/plugin/bootstrap-select/js/i18n/defaults-zh_CN.min.js}"></script>
 <script src="js/backstage/menus/menus_add.js"
         th:src="@{/js/backstage/menus/menus_add.js}"></script>
 </body>
-
 </html>
