@@ -8,7 +8,8 @@
 function getAjaxUrl() {
     return {
         menus: '/web/backstage/menus/data',
-        add: '/web/backstage/menus/add'
+        add: '/web/backstage/menus/add',
+        edit:'/web/backstage/menus/edit'
     };
 }
 
@@ -152,6 +153,10 @@ $(document).ready(function () {
 
     $('#add').click(function () {
         window.location.href = web_path + getAjaxUrl().add;
+    });
+
+    dataTable.delegate('.edit', "click", function () {
+        window.location.href = web_path + getAjaxUrl().edit + '/' + $(this).attr('data-id');
     });
 
     $(getParamId().menuName).keyup(function (event) {

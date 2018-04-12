@@ -3,6 +3,7 @@ package cn.edu.kmust.flst.service.backstage.menus
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
+import org.jooq.Record
 import org.jooq.Record8
 import org.jooq.Result
 
@@ -10,6 +11,15 @@ import org.jooq.Result
  * Created by zbeboy 2018-04-11 .
  **/
 interface MenusService {
+
+    /**
+     * 通过主键查询
+     *
+     * @param id 主键
+     * @return 数据
+     */
+    fun findById(id: String): Menus
+
     /**
      * 分页查询
      *
@@ -42,6 +52,24 @@ interface MenusService {
     fun findByMenuNameEn(menuNameEn: String): List<Menus>
 
     /**
+     * 通过栏目中文名查找 注:不等于id
+     *
+     * @param menuName 栏目中文名
+     * @param menuId 栏目id
+     * @return 数据
+     */
+    fun findByMenuNameNeMenuId(menuName: String, menuId: String): Result<Record>
+
+    /**
+     * 通过栏目英文名查找 注:不等于id
+     *
+     * @param menuNameEn 栏目英文名
+     * @param menuId 栏目id
+     * @return 数据
+     */
+    fun findByMenuNameEnNeMenuId(menuNameEn: String, menuId: String): Result<Record>
+
+    /**
      * 通过栏目状态查找
      *
      * @param menuFixed 栏目状态
@@ -55,4 +83,11 @@ interface MenusService {
      * @param menus 数据
      */
     fun save(menus: Menus);
+
+    /**
+     * 更新
+     *
+     * @param menus 数据
+     */
+    fun update(menus: Menus);
 }

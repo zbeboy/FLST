@@ -27,12 +27,30 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
     @Resource
     open lateinit var menusDao: MenusDao
 
+    override fun findById(id: String): Menus {
+        return menusDao.findById(id)
+    }
+
     override fun findByMenuName(menuName: String): List<Menus> {
         return menusDao.fetchByMenuName(menuName)
     }
 
     override fun findByMenuNameEn(menuNameEn: String): List<Menus> {
         return menusDao.fetchByMenuNameEn(menuNameEn)
+    }
+
+    override fun findByMenuNameNeMenuId(menuName: String, menuId: String): Result<Record> {
+        return create.select()
+                .from(MENUS)
+                .where(MENUS.MENU_NAME.eq(menuName).and(MENUS.MENU_ID.ne(menuId)))
+                .fetch()
+    }
+
+    override fun findByMenuNameEnNeMenuId(menuNameEn: String, menuId: String): Result<Record> {
+        return create.select()
+                .from(MENUS)
+                .where(MENUS.MENU_NAME_EN.eq(menuNameEn).and(MENUS.MENU_ID.ne(menuId)))
+                .fetch()
     }
 
     override fun findByMenuFixed(menuFixed: Byte): List<Menus> {
@@ -42,6 +60,10 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun save(menus: Menus) {
         menusDao.insert(menus)
+    }
+
+    override fun update(menus: Menus) {
+        menusDao.update(menus)
     }
 
     override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record8<String, String, String, String, String, String, Int, Byte>> {
