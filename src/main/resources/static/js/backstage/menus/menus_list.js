@@ -9,7 +9,8 @@ function getAjaxUrl() {
     return {
         menus: '/web/backstage/menus/data',
         add: '/web/backstage/menus/add',
-        edit:'/web/backstage/menus/edit'
+        edit: '/web/backstage/menus/edit',
+        show: '/web/backstage/menus/show'
     };
 }
 
@@ -88,13 +89,17 @@ function operation(value, row, index, field) {
                 "name": "编辑",
                 "css": "edit",
                 "type": "primary",
-                "id": row.menuId
+                "id": row.menuId,
+                "show": row.menuShow === 1 ? 0 : 1,
+                "menu": row.menuName
             },
             {
                 "name": row.menuShow === 1 ? "隐藏" : "显示",
                 "css": "show",
-                "type": "default",
-                "id": row.menuId
+                "type": row.menuShow === 1 ? "default" : "warning",
+                "id": row.menuId,
+                "show": row.menuShow === 1 ? 0 : 1,
+                "menu": row.menuName
             }
         ]
     };
@@ -131,6 +136,36 @@ function refreshTable() {
     });
 }
 
+function show(id, name, s, meg) {
+    var msg;
+    msg = Messenger().post({
+        message: "确定" + meg + "栏目 '" + name + "'  吗?",
+        actions: {
+            retry: {
+                label: '确定',
+                phrase: 'Retrying TIME',
+                action: function () {
+                    msg.cancel();
+                    $.post(web_path + getAjaxUrl().show, {menuId: id, menuShow: s}, function (data) {
+                        refreshTable();
+                        Messenger().post({
+                            message: data.msg,
+                            type: data.state ? 'info' : 'error',
+                            showCloseButton: true
+                        });
+                    });
+                }
+            },
+            cancel: {
+                label: '取消',
+                action: function () {
+                    return msg.cancel();
+                }
+            }
+        }
+    });
+}
+
 $(document).ready(function () {
     /*
     init message.
@@ -157,6 +192,11 @@ $(document).ready(function () {
 
     dataTable.delegate('.edit', "click", function () {
         window.location.href = web_path + getAjaxUrl().edit + '/' + $(this).attr('data-id');
+    });
+
+    dataTable.delegate('.show', "click", function () {
+        show($(this).attr('data-id'), $(this).attr('data-menu'), $(this).attr('data-show'),
+            Number($(this).attr('data-show')) === 1 ? '显示' : '隐藏');
     });
 
     $(getParamId().menuName).keyup(function (event) {

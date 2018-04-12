@@ -236,6 +236,22 @@ open class MenusController {
     }
 
     /**
+     * 显示
+     *
+     * @param menuId id
+     * @param menuShow 显示
+     * @return 保存结果
+     */
+    @RequestMapping(value = ["/web/backstage/menus/show"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun show(@RequestParam("menuId") menuId: String, @RequestParam("menuShow") menuShow: Byte): AjaxUtils<*> {
+        val menus = menusService.findById(menuId)
+        menus.menuShow = menuShow
+        menusService.update(menus)
+        return AjaxUtils.of<Any>().success().msg("更新成功")
+    }
+
+    /**
      * 处理链接特殊字符
      *
      * @param link 待处理链接

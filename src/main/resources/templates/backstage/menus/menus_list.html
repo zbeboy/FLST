@@ -10,7 +10,8 @@
     <link href="plugin/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"
           th:href="@{/plugin/bootstrap-table/bootstrap-table.css}"/>
     <link href="plugin/messenger/css/messenger.css" rel="stylesheet" th:href="@{/plugin/messenger/css/messenger.css}"/>
-    <link href="plugin/messenger/css/messenger-theme-air.css" rel="stylesheet" th:href="@{/plugin/messenger/css/messenger-theme-air.css}"/>
+    <link href="plugin/messenger/css/messenger-theme-air.css" rel="stylesheet"
+          th:href="@{/plugin/messenger/css/messenger-theme-air.css}"/>
 </head>
 
 <body>
@@ -75,7 +76,8 @@
 <script id="operator_button" type="text/x-handlebars-template">
     <div class="btn-group" role="group">
         {{#each func}}
-        <button type="button" class="btn btn-{{this.type}} btn-sm {{this.css}}" data-id="{{this.id}}">
+        <button type="button" class="btn btn-{{this.type}} btn-sm {{this.css}}" data-id="{{this.id}}"
+                data-menu="{{this.menu}}" data-show="{{this.show}}">
             {{this.name}}
         </button>
         {{/each}}
