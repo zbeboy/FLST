@@ -80,7 +80,7 @@ open class MenusController {
     @RequestMapping(value = ["/web/backstage/menus/pids"], method = [(RequestMethod.GET)])
     @ResponseBody
     fun pids(): AjaxUtils<Menus> {
-        return AjaxUtils.of<Menus>().success().msg("获取数据成功").listData(menusService.findByMenuFixed(0));
+        return AjaxUtils.of<Menus>().success().msg("获取数据成功").listData(menusService.findByMenuFixed(0))
     }
 
     /**
@@ -95,12 +95,12 @@ open class MenusController {
         if (StringUtils.hasLength(menuName)) {
             val menus = menusService.findByMenuName(menuName)
             return if (ObjectUtils.isEmpty(menus)) {
-                AjaxUtils.of<Any>().success().msg("栏目不存在")
+                AjaxUtils.of<Any>().success().msg("栏目中文名不存在")
             } else {
-                AjaxUtils.of<Any>().fail().msg("栏目已存在")
+                AjaxUtils.of<Any>().fail().msg("栏目中文名已存在")
             }
         }
-        return AjaxUtils.of<Any>().fail().msg("栏目名不能为空")
+        return AjaxUtils.of<Any>().fail().msg("栏目中文名不能为空")
     }
 
     /**
@@ -115,12 +115,12 @@ open class MenusController {
         if (StringUtils.hasLength(menuNameEn)) {
             val menus = menusService.findByMenuNameEn(menuNameEn)
             return if (ObjectUtils.isEmpty(menus)) {
-                AjaxUtils.of<Any>().success().msg("栏目不存在")
+                AjaxUtils.of<Any>().success().msg("栏目英文名不存在")
             } else {
-                AjaxUtils.of<Any>().fail().msg("栏目已存在")
+                AjaxUtils.of<Any>().fail().msg("栏目英文名已存在")
             }
         }
-        return AjaxUtils.of<Any>().fail().msg("栏目名不能为空")
+        return AjaxUtils.of<Any>().fail().msg("栏目英文名不能为空")
     }
 
     /**
