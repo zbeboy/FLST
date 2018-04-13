@@ -5,7 +5,7 @@
     <meta name="_csrf" content="" th:content="${_csrf.token}"/>
     <!-- default header name is X-CSRF-TOKEN -->
     <meta name="_csrf_header" content="" th:content="${_csrf.headerName}"/>
-    <title>栏目管理-生命科学与技术学院</title>
+    <title>中文文章-生命科学与技术学院</title>
     <link href="css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}"/>
     <link href="plugin/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"
           th:href="@{/plugin/bootstrap-table/bootstrap-table.css}"/>
@@ -24,23 +24,15 @@
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">栏目管理</h1>
+            <h1 class="page-header">中文文章</h1>
         </div>
     </div><!--/.row-->
     <div class="row">
         <div class="col-lg-12">
-            <form class="form-inline text-center">
+            <form class="text-center">
                 <div class="form-group">
-                    <input type="text" class="form-control" id="menuName"
-                           placeholder="中文名">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="menuNameEn"
-                           placeholder="英文名">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" id="menuPidName"
-                           placeholder="父级">
+                    <input type="text" class="form-control" id="articleTitle"
+                           placeholder="标题">
                 </div>
             </form>
             <div class="text-center" style="padding: 10px;">
@@ -53,18 +45,15 @@
                 </button>
             </div>
             <table data-toggle="table" data-show-refresh="true"
-                   data-show-columns="true" data-sort-name="menuName"
-                   data-show-toggle="true" data-sort-order="asc"
-                   data-locale="zh-CN" id="dataTable">
+                   data-show-columns="true" data-sort-name="articleDateStr"
+                   data-show-toggle="true" data-sort-order="desc"
+                   data-locale="zh-CN" id="dataTable" style="table-layout:fixed;">
                 <thead>
                 <tr>
-                    <th data-field="menuName" data-sortable="true">中文名</th>
-                    <th data-field="menuNameEn" data-sortable="true">英文名</th>
-                    <th data-field="menuLink">中文链接</th>
-                    <th data-field="menuLinkEn">英文链接</th>
-                    <th data-field="menuPidName" data-formatter="formatterPidName">父级</th>
-                    <th data-field="menuOrder">序号</th>
-                    <th data-field="menuShow" data-formatter="formatterShow">是否显示</th>
+                    <th data-field="articleTitle">标题</th>
+                    <th data-field="articleClicks">点击数</th>
+                    <th data-field="username">作者</th>
+                    <th data-field="articleDateStr" data-sortable="true">创作日期</th>
                     <th data-formatter="operation">操作</th>
                 </tr>
                 </thead>
@@ -77,7 +66,7 @@
     <div class="btn-group" role="group">
         {{#each func}}
         <button type="button" class="btn btn-{{this.type}} btn-sm {{this.css}}" data-id="{{this.id}}"
-                data-menu="{{this.menu}}" data-show="{{this.show}}">
+                data-article="{{this.article}}">
             {{this.name}}
         </button>
         {{/each}}
@@ -102,8 +91,8 @@
         th:src="@{/plugin/messenger/js/messenger.js}"></script>
 <script src="plugin/handlebars/handlebars.js"
         th:src="@{/plugin/handlebars/handlebars.js}"></script>
-<script src="js/backstage/menus/menus_list.js"
-        th:src="@{/js/backstage/menus/menus_list.js}"></script>
+<script src="js/backstage/article/article_list.js"
+        th:src="@{/js/backstage/article/article_list.js}"></script>
 </body>
 
 </html>
