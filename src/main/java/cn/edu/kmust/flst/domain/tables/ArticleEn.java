@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ArticleEn extends TableImpl<ArticleEnRecord> {
 
-    private static final long serialVersionUID = 918862610;
+    private static final long serialVersionUID = 1150564893;
 
     /**
      * The reference instance of <code>flst.article_en</code>
@@ -112,6 +112,11 @@ public class ArticleEn extends TableImpl<ArticleEnRecord> {
     public final TableField<ArticleEnRecord, String> ARTICLE_SOURCES_LINK = createField("article_sources_link", org.jooq.impl.SQLDataType.VARCHAR(200), this, "");
 
     /**
+     * The column <code>flst.article_en.menu_id</code>.
+     */
+    public final TableField<ArticleEnRecord, String> MENU_ID = createField("menu_id", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+
+    /**
      * Create a <code>flst.article_en</code> table reference
      */
     public ArticleEn() {
@@ -153,7 +158,7 @@ public class ArticleEn extends TableImpl<ArticleEnRecord> {
      */
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.ARTICLE_EN_PRIMARY, Indexes.ARTICLE_EN_USERNAME);
+        return Arrays.<Index>asList(Indexes.ARTICLE_EN_MENU_ID, Indexes.ARTICLE_EN_PRIMARY, Indexes.ARTICLE_EN_USERNAME);
     }
 
     /**
@@ -185,7 +190,7 @@ public class ArticleEn extends TableImpl<ArticleEnRecord> {
      */
     @Override
     public List<ForeignKey<ArticleEnRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<ArticleEnRecord, ?>>asList(Keys.ARTICLE_EN_IBFK_1);
+        return Arrays.<ForeignKey<ArticleEnRecord, ?>>asList(Keys.ARTICLE_EN_IBFK_2, Keys.ARTICLE_EN_IBFK_1);
     }
 
     /**

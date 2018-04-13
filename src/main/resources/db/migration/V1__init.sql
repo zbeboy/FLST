@@ -42,6 +42,8 @@ CREATE TABLE article (
   article_sources      INT DEFAULT 0 NOT NULL,
   article_sources_name VARCHAR(100),
   article_sources_link VARCHAR(200),
+  menu_id              VARCHAR(64)   NOT NULL,
+  FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
   FOREIGN KEY (username) REFERENCES users (username)
 );
 
@@ -57,15 +59,18 @@ CREATE TABLE article_en (
   article_sources      INT DEFAULT 0 NOT NULL,
   article_sources_name VARCHAR(100),
   article_sources_link VARCHAR(200),
+  menu_id              VARCHAR(64)   NOT NULL,
+  FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
   FOREIGN KEY (username) REFERENCES users (username)
 );
 
 CREATE TABLE banner (
-  banner_id    INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  banner_link  VARCHAR(200) NOT NULL,
-  banner_order INT          NOT NULL,
-  banner_date  DATETIME     NOT NULL,
-  menu_id      VARCHAR(64)  NOT NULL,
+  banner_id    INT                   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  banner_link  VARCHAR(200)          NOT NULL,
+  banner_order INT                   NOT NULL,
+  banner_date  DATETIME              NOT NULL,
+  banner_show  BOOLEAN DEFAULT 1     NOT NULL,
+  menu_id      VARCHAR(64)           NOT NULL,
   FOREIGN KEY (menu_id) REFERENCES menus (menu_id)
 );
 

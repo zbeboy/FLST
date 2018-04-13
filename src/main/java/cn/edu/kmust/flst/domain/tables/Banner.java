@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner extends TableImpl<BannerRecord> {
 
-    private static final long serialVersionUID = -415518070;
+    private static final long serialVersionUID = 971244155;
 
     /**
      * The reference instance of <code>flst.banner</code>
@@ -75,6 +75,11 @@ public class Banner extends TableImpl<BannerRecord> {
      * The column <code>flst.banner.banner_date</code>.
      */
     public final TableField<BannerRecord, Timestamp> BANNER_DATE = createField("banner_date", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
+
+    /**
+     * The column <code>flst.banner.banner_show</code>.
+     */
+    public final TableField<BannerRecord, Byte> BANNER_SHOW = createField("banner_show", org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("1", org.jooq.impl.SQLDataType.TINYINT)), this, "");
 
     /**
      * The column <code>flst.banner.menu_id</code>.

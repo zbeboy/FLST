@@ -67,8 +67,10 @@ public class Keys {
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final ForeignKey<ArticleRecord, UsersRecord> ARTICLE_IBFK_1 = ForeignKeys0.ARTICLE_IBFK_1;
-    public static final ForeignKey<ArticleEnRecord, UsersRecord> ARTICLE_EN_IBFK_1 = ForeignKeys0.ARTICLE_EN_IBFK_1;
+    public static final ForeignKey<ArticleRecord, UsersRecord> ARTICLE_IBFK_2 = ForeignKeys0.ARTICLE_IBFK_2;
+    public static final ForeignKey<ArticleRecord, MenusRecord> ARTICLE_IBFK_1 = ForeignKeys0.ARTICLE_IBFK_1;
+    public static final ForeignKey<ArticleEnRecord, UsersRecord> ARTICLE_EN_IBFK_2 = ForeignKeys0.ARTICLE_EN_IBFK_2;
+    public static final ForeignKey<ArticleEnRecord, MenusRecord> ARTICLE_EN_IBFK_1 = ForeignKeys0.ARTICLE_EN_IBFK_1;
     public static final ForeignKey<AuthoritiesRecord, UsersRecord> AUTHORITIES_IBFK_1 = ForeignKeys0.AUTHORITIES_IBFK_1;
     public static final ForeignKey<BannerRecord, MenusRecord> BANNER_IBFK_1 = ForeignKeys0.BANNER_IBFK_1;
 
@@ -95,8 +97,10 @@ public class Keys {
     }
 
     private static class ForeignKeys0 {
-        public static final ForeignKey<ArticleRecord, UsersRecord> ARTICLE_IBFK_1 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_USERS_PRIMARY, Article.ARTICLE, "article_ibfk_1", Article.ARTICLE.USERNAME);
-        public static final ForeignKey<ArticleEnRecord, UsersRecord> ARTICLE_EN_IBFK_1 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_USERS_PRIMARY, ArticleEn.ARTICLE_EN, "article_en_ibfk_1", ArticleEn.ARTICLE_EN.USERNAME);
+        public static final ForeignKey<ArticleRecord, UsersRecord> ARTICLE_IBFK_2 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_USERS_PRIMARY, Article.ARTICLE, "article_ibfk_2", Article.ARTICLE.USERNAME);
+        public static final ForeignKey<ArticleRecord, MenusRecord> ARTICLE_IBFK_1 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_MENUS_PRIMARY, Article.ARTICLE, "article_ibfk_1", Article.ARTICLE.MENU_ID);
+        public static final ForeignKey<ArticleEnRecord, UsersRecord> ARTICLE_EN_IBFK_2 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_USERS_PRIMARY, ArticleEn.ARTICLE_EN, "article_en_ibfk_2", ArticleEn.ARTICLE_EN.USERNAME);
+        public static final ForeignKey<ArticleEnRecord, MenusRecord> ARTICLE_EN_IBFK_1 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_MENUS_PRIMARY, ArticleEn.ARTICLE_EN, "article_en_ibfk_1", ArticleEn.ARTICLE_EN.MENU_ID);
         public static final ForeignKey<AuthoritiesRecord, UsersRecord> AUTHORITIES_IBFK_1 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_USERS_PRIMARY, Authorities.AUTHORITIES, "authorities_ibfk_1", Authorities.AUTHORITIES.USERNAME);
         public static final ForeignKey<BannerRecord, MenusRecord> BANNER_IBFK_1 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_MENUS_PRIMARY, Banner.BANNER, "banner_ibfk_1", Banner.BANNER.MENU_ID);
     }

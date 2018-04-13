@@ -1,6 +1,7 @@
 /**
  * Created by zbeboy 2018-04-13 .
  **/
+
 /*
  ajax url
 */
@@ -18,7 +19,8 @@ function getAjaxUrl() {
 */
 function getParamId() {
     return {
-        articleTitle: '#articleTitle'
+        articleTitle: '#articleTitle',
+        menuName: '#menuName'
     };
 }
 
@@ -26,7 +28,8 @@ function getParamId() {
 参数
 */
 var param = {
-    articleTitle: ''
+    articleTitle: '',
+    menuName: ''
 };
 
 var dataTable = $('#dataTable');
@@ -90,6 +93,7 @@ function operation(value, row, index, field) {
 */
 function initParam() {
     param.articleTitle = $(getParamId().articleTitle).val();
+    param.menuName = $(getParamId().menuName).val();
 }
 
 /*
@@ -97,6 +101,7 @@ function initParam() {
 */
 function cleanParam() {
     $(getParamId().articleTitle).val('');
+    $(getParamId().menuName).val('');
 }
 
 /*
@@ -121,7 +126,7 @@ function del(id, name) {
                 phrase: 'Retrying TIME',
                 action: function () {
                     msg.cancel();
-                    $.post(web_path + getAjaxUrl().del, {articleId:id}, function (data) {
+                    $.post(web_path + getAjaxUrl().del, {articleId: id}, function (data) {
                         refreshTable();
                         Messenger().post({
                             message: data.msg,
@@ -174,6 +179,13 @@ $(document).ready(function () {
     });
 
     $(getParamId().articleTitle).keyup(function (event) {
+        if (event.keyCode === 13) {
+            initParam();
+            refreshTable();
+        }
+    });
+
+    $(getParamId().menuName).keyup(function (event) {
         if (event.keyCode === 13) {
             initParam();
             refreshTable();

@@ -91,6 +91,13 @@ public class BannerDao extends DAOImpl<BannerRecord, cn.edu.kmust.flst.domain.ta
     }
 
     /**
+     * Fetch records that have <code>banner_show IN (values)</code>
+     */
+    public List<cn.edu.kmust.flst.domain.tables.pojos.Banner> fetchByBannerShow(Byte... values) {
+        return fetch(Banner.BANNER.BANNER_SHOW, values);
+    }
+
+    /**
      * Fetch records that have <code>menu_id IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.tables.pojos.Banner> fetchByMenuId(String... values) {

@@ -1,6 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.article
 
 import cn.edu.kmust.flst.domain.Tables.ARTICLE
+import cn.edu.kmust.flst.domain.Tables.MENUS
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
@@ -23,11 +24,45 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
     private val create: DSLContext = dslContext
 
     override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<ArticleBean>): Result<Record> {
-        return dataPagingQueryAll(bootstrapTableUtils, create, ARTICLE)
+        val a = searchCondition(bootstrapTableUtils)
+        return if (ObjectUtils.isEmpty(a)) {
+            val selectJoinStep = create.select()
+                    .from(ARTICLE)
+                    .join(MENUS)
+                    .on(ARTICLE.MENU_ID.eq(MENUS.MENU_ID))
+            sortCondition(bootstrapTableUtils, null, selectJoinStep, JOIN_TYPE)
+            pagination(bootstrapTableUtils, null, selectJoinStep, JOIN_TYPE)
+            selectJoinStep.fetch()
+        } else {
+            val selectConditionStep = create.select()
+                    .from(ARTICLE)
+                    .join(MENUS)
+                    .on(ARTICLE.MENU_ID.eq(MENUS.MENU_ID))
+                    .where(a)
+            sortCondition(bootstrapTableUtils, selectConditionStep, null, CONDITION_TYPE)
+            pagination(bootstrapTableUtils, selectConditionStep, null, CONDITION_TYPE)
+            selectConditionStep.fetch()
+        }
     }
 
     override fun countByCondition(bootstrapTableUtils: BootstrapTableUtils<ArticleBean>): Int {
-        return statisticsWithCondition(bootstrapTableUtils, create, ARTICLE)
+        val count: Record1<Int>
+        val a = searchCondition(bootstrapTableUtils)
+        count = if (ObjectUtils.isEmpty(a)) {
+            val selectJoinStep = create.selectCount()
+                    .from(ARTICLE)
+                    .join(MENUS)
+                    .on(ARTICLE.MENU_ID.eq(MENUS.MENU_ID))
+            selectJoinStep.fetchOne()
+        } else {
+            val selectConditionStep = create.selectCount()
+                    .from(ARTICLE)
+                    .join(MENUS)
+                    .on(ARTICLE.MENU_ID.eq(MENUS.MENU_ID))
+                    .where(a)
+            selectConditionStep.fetchOne()
+        }
+        return count.value1()
     }
 
     /**
@@ -41,8 +76,17 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
         val search = bootstrapTableUtils.search
         if (!ObjectUtils.isEmpty(search)) {
             val articleTitle = StringUtils.trimWhitespace(search!!.getString("articleTitle"))
+            val menuName = StringUtils.trimWhitespace(search.getString("menuName"))
             if (StringUtils.hasLength(articleTitle)) {
                 a = ARTICLE.ARTICLE_TITLE.like(SQLQueryUtils.likeAllParam(articleTitle))
+            }
+
+            if (StringUtils.hasLength(menuName)) {
+                a = if (ObjectUtils.isEmpty(a)) {
+                    MENUS.MENU_NAME.like(SQLQueryUtils.likeAllParam(menuName))
+                } else {
+                    a!!.and(MENUS.MENU_NAME.like(SQLQueryUtils.likeAllParam(menuName)))
+                }
             }
         }
         return a

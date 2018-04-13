@@ -25,7 +25,7 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Article implements Serializable {
 
-    private static final long serialVersionUID = 1647284455;
+    private static final long serialVersionUID = 1631902288;
 
     private Integer   articleId;
     private String    articleTitle;
@@ -38,6 +38,7 @@ public class Article implements Serializable {
     private Integer   articleSources;
     private String    articleSourcesName;
     private String    articleSourcesLink;
+    private String    menuId;
 
     public Article() {}
 
@@ -53,6 +54,7 @@ public class Article implements Serializable {
         this.articleSources = value.articleSources;
         this.articleSourcesName = value.articleSourcesName;
         this.articleSourcesLink = value.articleSourcesLink;
+        this.menuId = value.menuId;
     }
 
     public Article(
@@ -66,7 +68,8 @@ public class Article implements Serializable {
         String    username,
         Integer   articleSources,
         String    articleSourcesName,
-        String    articleSourcesLink
+        String    articleSourcesLink,
+        String    menuId
     ) {
         this.articleId = articleId;
         this.articleTitle = articleTitle;
@@ -79,6 +82,7 @@ public class Article implements Serializable {
         this.articleSources = articleSources;
         this.articleSourcesName = articleSourcesName;
         this.articleSourcesLink = articleSourcesLink;
+        this.menuId = menuId;
     }
 
     public Integer getArticleId() {
@@ -180,6 +184,16 @@ public class Article implements Serializable {
         this.articleSourcesLink = articleSourcesLink;
     }
 
+    @NotNull
+    @Size(max = 64)
+    public String getMenuId() {
+        return this.menuId;
+    }
+
+    public void setMenuId(String menuId) {
+        this.menuId = menuId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Article (");
@@ -195,6 +209,7 @@ public class Article implements Serializable {
         sb.append(", ").append(articleSources);
         sb.append(", ").append(articleSourcesName);
         sb.append(", ").append(articleSourcesLink);
+        sb.append(", ").append(menuId);
 
         sb.append(")");
         return sb.toString();

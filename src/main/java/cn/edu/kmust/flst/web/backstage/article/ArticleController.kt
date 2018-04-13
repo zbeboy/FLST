@@ -1,10 +1,12 @@
 package cn.edu.kmust.flst.web.backstage.article
 
+import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.springframework.stereotype.Controller
+import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
@@ -30,6 +32,16 @@ open class ArticleController {
     @RequestMapping(value = ["/web/backstage/article"], method = [(RequestMethod.GET)])
     fun menu(): String {
         return "backstage/article/article_list"
+    }
+
+    /**
+     * 中文文章添加
+     *
+     * @return 中文文章添加
+     */
+    @RequestMapping(value = ["/web/backstage/article/add"], method = [(RequestMethod.GET)])
+    fun add(): String {
+        return "backstage/article/article_add"
     }
 
     /**

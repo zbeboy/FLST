@@ -25,12 +25,13 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner implements Serializable {
 
-    private static final long serialVersionUID = 366593197;
+    private static final long serialVersionUID = 1594935444;
 
     private Integer   bannerId;
     private String    bannerLink;
     private Integer   bannerOrder;
     private Timestamp bannerDate;
+    private Byte      bannerShow;
     private String    menuId;
 
     public Banner() {}
@@ -40,6 +41,7 @@ public class Banner implements Serializable {
         this.bannerLink = value.bannerLink;
         this.bannerOrder = value.bannerOrder;
         this.bannerDate = value.bannerDate;
+        this.bannerShow = value.bannerShow;
         this.menuId = value.menuId;
     }
 
@@ -48,12 +50,14 @@ public class Banner implements Serializable {
         String    bannerLink,
         Integer   bannerOrder,
         Timestamp bannerDate,
+        Byte      bannerShow,
         String    menuId
     ) {
         this.bannerId = bannerId;
         this.bannerLink = bannerLink;
         this.bannerOrder = bannerOrder;
         this.bannerDate = bannerDate;
+        this.bannerShow = bannerShow;
         this.menuId = menuId;
     }
 
@@ -93,6 +97,14 @@ public class Banner implements Serializable {
         this.bannerDate = bannerDate;
     }
 
+    public Byte getBannerShow() {
+        return this.bannerShow;
+    }
+
+    public void setBannerShow(Byte bannerShow) {
+        this.bannerShow = bannerShow;
+    }
+
     @NotNull
     @Size(max = 64)
     public String getMenuId() {
@@ -111,6 +123,7 @@ public class Banner implements Serializable {
         sb.append(", ").append(bannerLink);
         sb.append(", ").append(bannerOrder);
         sb.append(", ").append(bannerDate);
+        sb.append(", ").append(bannerShow);
         sb.append(", ").append(menuId);
 
         sb.append(")");

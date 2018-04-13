@@ -36,8 +36,10 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
+    public static final Index ARTICLE_MENU_ID = Indexes0.ARTICLE_MENU_ID;
     public static final Index ARTICLE_PRIMARY = Indexes0.ARTICLE_PRIMARY;
     public static final Index ARTICLE_USERNAME = Indexes0.ARTICLE_USERNAME;
+    public static final Index ARTICLE_EN_MENU_ID = Indexes0.ARTICLE_EN_MENU_ID;
     public static final Index ARTICLE_EN_PRIMARY = Indexes0.ARTICLE_EN_PRIMARY;
     public static final Index ARTICLE_EN_USERNAME = Indexes0.ARTICLE_EN_USERNAME;
     public static final Index AUTHORITIES_PRIMARY = Indexes0.AUTHORITIES_PRIMARY;
@@ -54,8 +56,10 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
+        public static Index ARTICLE_MENU_ID = Internal.createIndex("menu_id", Article.ARTICLE, new OrderField[] { Article.ARTICLE.MENU_ID }, false);
         public static Index ARTICLE_PRIMARY = Internal.createIndex("PRIMARY", Article.ARTICLE, new OrderField[] { Article.ARTICLE.ARTICLE_ID }, true);
         public static Index ARTICLE_USERNAME = Internal.createIndex("username", Article.ARTICLE, new OrderField[] { Article.ARTICLE.USERNAME }, false);
+        public static Index ARTICLE_EN_MENU_ID = Internal.createIndex("menu_id", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.MENU_ID }, false);
         public static Index ARTICLE_EN_PRIMARY = Internal.createIndex("PRIMARY", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.ARTICLE_ID }, true);
         public static Index ARTICLE_EN_USERNAME = Internal.createIndex("username", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.USERNAME }, false);
         public static Index AUTHORITIES_PRIMARY = Internal.createIndex("PRIMARY", Authorities.AUTHORITIES, new OrderField[] { Authorities.AUTHORITIES.USERNAME, Authorities.AUTHORITIES.AUTHORITY }, true);
