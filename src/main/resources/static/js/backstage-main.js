@@ -13,6 +13,7 @@
     }).parent().addClass('active').parent();
     if (element.hasClass('children')) {
         element.addClass('in');
+        element.prev().find('span.icon').find('em:first').toggleClass("glyphicon-minus");
     }
 
 }(window.jQuery);
