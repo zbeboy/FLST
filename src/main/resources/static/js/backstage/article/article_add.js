@@ -15,7 +15,8 @@ $(document).ready(function () {
      ajax url
     */
     var ajax_url = {
-        pids:'/web/backstage/menus/pids',
+        pids: '/web/backstage/menus/pids',
+        file_upload_url:'/web/backstage/article/cover/upload',
         save: '/web/backstage/article/save',
         back: '/web/backstage/article'
     };
@@ -29,9 +30,9 @@ $(document).ready(function () {
         articleBrief: '#articleBrief',
         articleCover: '#articleCover',
         articleContent: '#articleContent',
-        articleSources:'#articleSources',
-        articleSourcesName:'#articleSourcesName',
-        articleSourcesLink:'#articleSourcesLink'
+        articleSources: '#articleSources',
+        articleSourcesName: '#articleSourcesName',
+        articleSourcesLink: '#articleSourcesLink'
     };
 
     /*
@@ -43,13 +44,13 @@ $(document).ready(function () {
         articleBrief: $(paramId.articleBrief).val(),
         articleCover: $(paramId.articleCover).val(),
         articleContent: $(paramId.articleContent).val(),
-        articleSourcesName:$(paramId.articleSourcesName).val(),
-        articleSourcesLink:$(paramId.articleSourcesLink).val()
+        articleSourcesName: $(paramId.articleSourcesName).val(),
+        articleSourcesLink: $(paramId.articleSourcesLink).val()
     };
 
     init();
 
-    function init(){
+    function init() {
         $.get(web_path + ajax_url.pids, function (data) {
             pidData(data);
         });
@@ -57,7 +58,7 @@ $(document).ready(function () {
         initQuill();
     }
 
-    function initQuill(){
+    function initQuill() {
         var quill = new Quill('#editor-container', {
             modules: {
                 formula: true,
@@ -86,14 +87,14 @@ $(document).ready(function () {
    检验id
    */
     var validId = {
-        articleTitle:'#valid_article_title'
+        articleTitle: '#valid_article_title'
     };
 
     /*
      错误消息id
      */
     var errorMsgId = {
-        articleTitle:'#article_title_error_msg'
+        articleTitle: '#article_title_error_msg'
     };
 
     /**
@@ -127,6 +128,43 @@ $(document).ready(function () {
         $(paramId.menuId).selectpicker('refresh');
     }
 
+    // 上传组件
+    $('#fileupload').fileupload({
+        url: web_path + ajax_url.file_upload_url,
+        dataType: 'json',
+        maxFileSize: 100000000,// 100MB
+        acceptFileTypes: /([.\/])(jpg|jpeg|png|gif)$/i,
+        formAcceptCharset: 'utf-8',
+        maxNumberOfFiles: 1,
+        messages: {
+            maxNumberOfFiles: '最大支持上传1个文件',
+            acceptFileTypes: '仅支持上传jpg,png,gif等类型文件',
+            maxFileSize: '单文件上传仅允许100MB大小'
+        },
+        done: function (e, data) {
+            Messenger().post({
+                message: data.result.msg,
+                type: data.result.state ? 'success' : 'error',
+                showCloseButton: true
+            });
+        }
+    }).on('fileuploadadd', function (evt, data) {
+        var isOk = true;
+        var $this = $(this);
+        var validation = data.process(function () {
+            return $this.fileupload('process', data);
+        });
+        validation.fail(function (data) {
+            isOk = false;
+            Messenger().post({
+                message: '上传失败: ' + data.files[0].error,
+                type: 'error',
+                showCloseButton: true
+            });
+        });
+        return isOk;
+    });
+
     $(paramId.articleTitle).blur(function () {
         initParam();
         var articleTitle = param.articleTitle;
@@ -138,15 +176,15 @@ $(document).ready(function () {
     });
 
     $('#original').click(function () {
-        $(paramId.articleSourcesName).attr('type','hidden');
-        $(paramId.articleSourcesLink).attr('type','hidden');
+        $(paramId.articleSourcesName).attr('type', 'hidden');
+        $(paramId.articleSourcesLink).attr('type', 'hidden');
         $(paramId.articleSourcesName).val('');
         $(paramId.articleSourcesLink).val('');
     });
 
     $('#other').click(function () {
-       $(paramId.articleSourcesName).attr('type','text');
-       $(paramId.articleSourcesLink).attr('type','text');
+        $(paramId.articleSourcesName).attr('type', 'text');
+        $(paramId.articleSourcesLink).attr('type', 'text');
     });
 
     /*

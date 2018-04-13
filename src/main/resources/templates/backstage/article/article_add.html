@@ -12,6 +12,7 @@
           th:href="@{/plugin/messenger/css/messenger-theme-air.css}"/>
     <link href="plugin/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet"
           th:href="@{/plugin/bootstrap-select/css/bootstrap-select.min.css}"/>
+    <link href="plugin/jquery_file_upload/css/jquery.fileupload.min.css" th:href="@{/plugin/jquery_file_upload/css/jquery.fileupload.min.css}" rel="stylesheet"/>
     <!-- Include Quill stylesheet -->
     <link href="plugin/KaTeX/katex.min.css" th:href="@{/plugin/KaTeX/katex.min.css}" rel="stylesheet"/>
     <link href="plugin/highlight/monokai-sublime.min.css" th:href="@{/plugin/highlight/monokai-sublime.min.css}"
@@ -62,7 +63,11 @@
                                      src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzE5IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMxOSAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTYyYmUyMDgyYWQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxNnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNjJiZTIwODJhZCI+PHJlY3Qgd2lkdGg9IjMxOSIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMTcuOTg0Mzc1IiB5PSIxMDcuMiI+MzE5eDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg=="
                                      data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
                                 <div class="caption text-center">
-                                    <button type="button" class="btn btn-primary" role="button">上传</button>
+                                    <span class="btn btn-primary fileinput-button">
+                                        <span>上传</span>
+                                        <!-- The file input field used as target for the file upload widget -->
+                                        <input id="fileupload" type="file" name="files[]"/>
+                                    </span>
                                     <button type="button" class="btn btn-default" role="button">清除</button>
                                 </div>
                             </div>
@@ -133,11 +138,13 @@
                                 </label>
                             </div>
                             <div class="col-md-5">
-                                <input type="hidden" class="form-control" name="articleSourcesName" id="articleSourcesName"
+                                <input type="hidden" class="form-control" name="articleSourcesName"
+                                       id="articleSourcesName"
                                        placeholder="来源处.."/>
                             </div>
                             <div class="col-md-6">
-                                <input type="hidden" class="form-control" name="articleSourcesLink" id="articleSourcesLink"
+                                <input type="hidden" class="form-control" name="articleSourcesLink"
+                                       id="articleSourcesLink"
                                        placeholder="原文链接"/>
                             </div>
                         </div>
@@ -176,6 +183,16 @@
         th:src="@{/plugin/bootstrap-select/js/bootstrap-select.min.js}"></script>
 <script src="plugin/bootstrap-select/js/i18n/defaults-zh_CN.min.js"
         th:src="@{/plugin/bootstrap-select/js/i18n/defaults-zh_CN.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/vendor/jquery.ui.widget.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/vendor/jquery.ui.widget.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.iframe-transport.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.iframe-transport.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.fileupload.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.fileupload-process.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload-process.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.fileupload-validate.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload-validate.min.js}"></script>
 <script src="plugin/KaTeX/katex.min.js"
         th:src="@{/plugin/KaTeX/katex.min.js}"></script>
 <script src="plugin/highlight/highlight.min.js"

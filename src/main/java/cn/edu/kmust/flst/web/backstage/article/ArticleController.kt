@@ -2,15 +2,20 @@ package cn.edu.kmust.flst.web.backstage.article
 
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
+import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
+import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
+import cn.edu.kmust.flst.web.bean.file.FileBean
+import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
+import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Controller
-import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.multipart.MultipartHttpServletRequest
 import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
@@ -21,8 +26,13 @@ import javax.servlet.http.HttpServletRequest
 @Controller
 open class ArticleController {
 
+    private val log = LoggerFactory.getLogger(ArticleController::class.java)
+
     @Resource
     open lateinit var articleService: ArticleService
+
+    @Resource
+    open lateinit var uploadService: UploadService
 
     /**
      * 中文文章管理
@@ -64,5 +74,29 @@ open class ArticleController {
         bootstrapTableUtils.total = articleService.countByCondition(bootstrapTableUtils)
         bootstrapTableUtils.rows = articles
         return bootstrapTableUtils
+    }
+
+    /**
+     * 文章封面上传
+     *
+     * @param multipartHttpServletRequest   文件
+     * @param request                       请求
+     * @return true or false
+     */
+    @RequestMapping("/web/backstage/article/cover/upload")
+    @ResponseBody
+    fun coverUpload(multipartHttpServletRequest: MultipartHttpServletRequest, request: HttpServletRequest): AjaxUtils<FileBean> {
+        val ajaxUtils = AjaxUtils.of<FileBean>()
+        try {
+            val path = Workbook.imagesPath()
+            val fileBeen = uploadService.upload(multipartHttpServletRequest,
+                    RequestUtils.getRealPath(request) + path, request.remoteAddr)
+            ajaxUtils.success().msg("保存文件成功").listData(fileBeen)
+        } catch (e: Exception) {
+            log.error("Upload graduation design proposal error, error is {}", e)
+            ajaxUtils.fail().msg("保存文件异常")
+        }
+
+        return ajaxUtils
     }
 }

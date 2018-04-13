@@ -43,5 +43,15 @@ open class Workbook {
 
         const val HTTP_PREFIX = "http://"
         const val HTTPS_PREFIX = "https://"
+
+        /**
+         * 自定义图片路径
+         *
+         * @return 路径
+         */
+        @JvmStatic
+        fun imagesPath(): String {
+            return "images" + DIRECTORY_SPLIT
+        }
     }
 }
