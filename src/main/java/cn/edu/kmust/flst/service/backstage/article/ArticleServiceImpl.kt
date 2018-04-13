@@ -2,6 +2,8 @@ package cn.edu.kmust.flst.service.backstage.article
 
 import cn.edu.kmust.flst.domain.Tables.ARTICLE
 import cn.edu.kmust.flst.domain.Tables.MENUS
+import cn.edu.kmust.flst.domain.tables.daos.ArticleDao
+import cn.edu.kmust.flst.domain.tables.pojos.Article
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
@@ -13,6 +15,7 @@ import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.util.ObjectUtils
 import org.springframework.util.StringUtils
+import javax.annotation.Resource
 
 /**
  * Created by zbeboy 2018-04-13 .
@@ -22,6 +25,18 @@ import org.springframework.util.StringUtils
 open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : BootstrapTablesPlugin<ArticleBean>(), ArticleService {
 
     private val create: DSLContext = dslContext
+
+    @Resource
+    open lateinit var articleDao: ArticleDao
+
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    override fun save(article: Article) {
+        articleDao.insert(article)
+    }
+
+    override fun update(article: Article) {
+        articleDao.update(article)
+    }
 
     override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<ArticleBean>): Result<Record> {
         val a = searchCondition(bootstrapTableUtils)

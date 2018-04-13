@@ -82,12 +82,12 @@ interface MenusService {
      *
      * @param menus 数据
      */
-    fun save(menus: Menus);
+    fun save(menus: Menus)
 
     /**
      * 更新
      *
      * @param menus 数据
      */
-    fun update(menus: Menus);
+    fun update(menus: Menus)
 }

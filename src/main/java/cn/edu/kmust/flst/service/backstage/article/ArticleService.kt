@@ -1,5 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.article
 
+import cn.edu.kmust.flst.domain.tables.pojos.Article
+import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record
@@ -24,4 +26,18 @@ interface ArticleService {
      * @return 条件查询总数
      */
     fun countByCondition(bootstrapTableUtils: BootstrapTableUtils<ArticleBean>): Int
+
+    /**
+     * 保存
+     *
+     * @param article 数据
+     */
+    fun save(article: Article)
+
+    /**
+     * 更新
+     *
+     * @param article 数据
+     */
+    fun update(article: Article)
 }
