@@ -25,7 +25,7 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Article implements Serializable {
 
-    private static final long serialVersionUID = 1631902288;
+    private static final long serialVersionUID = 864542801;
 
     private Integer   articleId;
     private String    articleTitle;
@@ -103,7 +103,7 @@ public class Article implements Serializable {
         this.articleTitle = articleTitle;
     }
 
-    @Size(max = 100)
+    @Size(max = 200)
     public String getArticleBrief() {
         return this.articleBrief;
     }

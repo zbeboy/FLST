@@ -32,7 +32,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ArticleEnRecord extends UpdatableRecordImpl<ArticleEnRecord> implements Record12<Integer, String, String, String, String, Timestamp, Integer, String, Integer, String, String, String> {
 
-    private static final long serialVersionUID = -973911297;
+    private static final long serialVersionUID = 787428764;
 
     /**
      * Setter for <code>flst.article_en.article_id</code>.
@@ -59,7 +59,7 @@ public class ArticleEnRecord extends UpdatableRecordImpl<ArticleEnRecord> implem
      * Getter for <code>flst.article_en.article_title</code>.
      */
     @NotNull
-    @Size(max = 100)
+    @Size(max = 200)
     public String getArticleTitle() {
         return (String) get(1);
     }
@@ -74,7 +74,7 @@ public class ArticleEnRecord extends UpdatableRecordImpl<ArticleEnRecord> implem
     /**
      * Getter for <code>flst.article_en.article_brief</code>.
      */
-    @Size(max = 100)
+    @Size(max = 300)
     public String getArticleBrief() {
         return (String) get(2);
     }

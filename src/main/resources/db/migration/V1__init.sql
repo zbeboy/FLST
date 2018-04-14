@@ -33,7 +33,7 @@ CREATE TABLE menus (
 CREATE TABLE article (
   article_id           INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
   article_title        VARCHAR(100)  NOT NULL,
-  article_brief        VARCHAR(100),
+  article_brief        VARCHAR(200),
   article_cover        VARCHAR(200),
   article_content      TEXT          NOT NULL,
   article_date         DATETIME      NOT NULL,
@@ -49,8 +49,8 @@ CREATE TABLE article (
 
 CREATE TABLE article_en (
   article_id           INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  article_title        VARCHAR(100)  NOT NULL,
-  article_brief        VARCHAR(100),
+  article_title        VARCHAR(200)  NOT NULL,
+  article_brief        VARCHAR(300),
   article_cover        VARCHAR(200),
   article_content      TEXT          NOT NULL,
   article_date         DATETIME      NOT NULL,
