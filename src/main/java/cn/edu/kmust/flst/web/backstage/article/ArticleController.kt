@@ -49,7 +49,7 @@ open class ArticleController {
      * @return 中文文章管理
      */
     @RequestMapping(value = ["/web/backstage/article"], method = [(RequestMethod.GET)])
-    fun menu(): String {
+    fun article(): String {
         return "backstage/article/article_list"
     }
 
