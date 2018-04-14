@@ -30,7 +30,11 @@ open class BannerServiceImpl @Autowired constructor(dslContext: DSLContext) : Bo
     @Resource
     open lateinit var bannerDao: BannerDao
 
-    override fun findByMenuId(menuId: String): Result<BannerRecord>{
+    override fun findById(id: Int): Banner {
+        return bannerDao.findById(id)
+    }
+
+    override fun findByMenuId(menuId: String): Result<BannerRecord> {
         return create.selectFrom(BANNER)
                 .where(BANNER.MENU_ID.eq(menuId))
                 .orderBy(BANNER.BANNER_DATE.desc())
@@ -42,12 +46,29 @@ open class BannerServiceImpl @Autowired constructor(dslContext: DSLContext) : Bo
         bannerDao.insert(banner)
     }
 
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    override fun saveAndReturnId(banner: Banner): Int {
+        val record = create.insertInto(BANNER, BANNER.BANNER_LINK, BANNER.BANNER_DATE, BANNER.BANNER_SHOW, BANNER.MENU_ID, BANNER.USERNAME)
+                .values(banner.bannerLink, banner.bannerDate, banner.bannerShow, banner.menuId, banner.username)
+                .returning(BANNER.BANNER_ID)
+                .fetchOne()
+        return record.getValue(BANNER.BANNER_ID)
+    }
+
+    override fun update(banner: Banner) {
+        bannerDao.update(banner)
+    }
+
+    override fun deleteById(id: Int) {
+        bannerDao.deleteById(id)
+    }
+
     override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record> {
-       return dataPagingQueryAllWithCondition(bootstrapTableUtils, create, MENUS, MENUS.MENU_PID.eq("0"))
+        return dataPagingQueryAllWithCondition(bootstrapTableUtils, create, MENUS, MENUS.MENU_PID.eq("0"))
     }
 
     override fun countByCondition(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Int {
-        return statisticsWithCondition(bootstrapTableUtils,create,MENUS,MENUS.MENU_PID.eq("0"))
+        return statisticsWithCondition(bootstrapTableUtils, create, MENUS, MENUS.MENU_PID.eq("0"))
     }
 
     /**

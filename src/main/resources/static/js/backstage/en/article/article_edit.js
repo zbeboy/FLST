@@ -164,6 +164,7 @@ $(document).ready(function () {
             if (data.result.listResult.length > 0) {
                 $(paramId.articleCoverTemp).attr('src', web_path + ajax_url.images + '/' + data.result.listResult[0].newName);
                 $(paramId.articleCover).val(data.result.listResult[0].newName);
+                $('.fileinput-button').addClass('hidden');
             }
             Messenger().post({
                 message: data.result.msg,
@@ -191,6 +192,7 @@ $(document).ready(function () {
     $('#clearImg').click(function () {
         $(paramId.articleCoverTemp).attr('src', IMG);
         $(paramId.articleCover).val('');
+        $('.fileinput-button').removeClass('hidden');
     });
 
     $(paramId.articleTitle).blur(function () {

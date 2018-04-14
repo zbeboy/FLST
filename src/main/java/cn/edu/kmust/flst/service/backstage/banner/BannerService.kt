@@ -13,6 +13,14 @@ import org.jooq.Result
 interface BannerService {
 
     /**
+     * 通过主键查询
+     *
+     * @param id 主键
+     * @return 数据
+     */
+    fun findById(id: Int): Banner
+
+    /**
      * 通过栏目id查询
      *
      * @param menuId 栏目id
@@ -41,4 +49,25 @@ interface BannerService {
      * @param banner 数据
      */
     fun save(banner: Banner)
+
+    /**
+     * 保存
+     *
+     * @param banner 数据
+     */
+    fun saveAndReturnId(banner: Banner): Int
+
+    /**
+     * 更新
+     *
+     * @param banner 数据
+     */
+    fun update(banner: Banner)
+
+    /**
+     * 通过主键删除
+     *
+     * @param id 主键
+     */
+    fun deleteById(id: Int)
 }

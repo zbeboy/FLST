@@ -17,6 +17,8 @@ $(document).ready(function () {
     var ajax_url = {
         file_upload_url: '/web/backstage/banner/upload',
         images: '/user/images',
+        show: '/web/backstage/banner/show',
+        del: '/web/backstage/banner/delete',
         back: '/web/backstage/banner'
     };
 
@@ -31,17 +33,11 @@ $(document).ready(function () {
         Handlebars.registerHelper('imgSrc', function () {
             return new Handlebars.SafeString(Handlebars.escapeExpression(web_path + ajax_url.images + '/' + this.newName));
         });
-        Handlebars.registerHelper('type', function () {
-            return new Handlebars.SafeString(Handlebars.escapeExpression(data.objectResult === 0 ? 'warning' : 'default'));
+
+        Handlebars.registerHelper('bannerId', function () {
+            return new Handlebars.SafeString(Handlebars.escapeExpression(data.objectResult));
         });
 
-        Handlebars.registerHelper('show', function () {
-            return new Handlebars.SafeString(Handlebars.escapeExpression(data.objectResult === 0 ? '显示' : '隐藏'));
-        });
-
-        Handlebars.registerHelper('css', function () {
-            return new Handlebars.SafeString(Handlebars.escapeExpression(data.objectResult === 0 ? 'showImg' : 'hideImg'));
-        });
         picDataArea.prepend(template(data));
     }
 
@@ -91,5 +87,83 @@ $(document).ready(function () {
     $('#page_back').click(function () {
         window.location.href = web_path + ajax_url.back;
     });
+
+    picDataArea.delegate('.showImg', "click", function () {
+        var id = $(this).prev().val();
+        var name = $(this).prev().prev().text();
+        show(id, name, 1, '显示');
+    });
+
+    picDataArea.delegate('.hideImg', "click", function () {
+        var id = $(this).prev().val();
+        var name = $(this).prev().prev().text();
+        show(id, name, 0, '隐藏');
+    });
+
+    picDataArea.delegate('.deleteImg', "click", function () {
+        var id = $(this).prev().prev().val();
+        var name = $(this).prev().prev().prev().text();
+        del(id, name);
+    });
+
+    function show(id, name, s, meg) {
+        var msg;
+        msg = Messenger().post({
+            message: "确定" + meg + "banner '" + name + "'  吗?",
+            actions: {
+                retry: {
+                    label: '确定',
+                    phrase: 'Retrying TIME',
+                    action: function () {
+                        msg.cancel();
+                        $.post(web_path + ajax_url.show, {bannerId: id, bannerShow: s}, function (data) {
+                            window.location.reload(true);
+                            Messenger().post({
+                                message: data.msg,
+                                type: data.state ? 'info' : 'error',
+                                showCloseButton: true
+                            });
+                        });
+                    }
+                },
+                cancel: {
+                    label: '取消',
+                    action: function () {
+                        return msg.cancel();
+                    }
+                }
+            }
+        });
+    }
+
+    function del(id, name) {
+        var msg;
+        msg = Messenger().post({
+            message: "确定删除banner '" + name + "'  吗?",
+            actions: {
+                retry: {
+                    label: '确定',
+                    phrase: 'Retrying TIME',
+                    action: function () {
+                        msg.cancel();
+                        $.post(web_path + ajax_url.del, {bannerId: id}, function (data) {
+                            window.location.reload(true);
+                            Messenger().post({
+                                message: data.msg,
+                                type: data.state ? 'info' : 'error',
+                                showCloseButton: true
+                            });
+                        });
+                    }
+                },
+                cancel: {
+                    label: '取消',
+                    action: function () {
+                        return msg.cancel();
+                    }
+                }
+            }
+        });
+    }
 
 });

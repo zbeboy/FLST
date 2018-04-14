@@ -7,6 +7,7 @@ import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
+import cn.edu.kmust.flst.service.util.FilesUtils
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.banner.BannerBean
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
@@ -115,8 +116,8 @@ open class BannerController {
                 banner.bannerShow = 1
                 banner.menuId = menuId
                 banner.username = usersService.getUsernameFromSession()
-                bannerService.save(banner)
-                ajaxUtils.success().msg("保存文件成功").listData(fileBeen).obj(1)
+                val bannerId = bannerService.saveAndReturnId(banner)
+                ajaxUtils.success().msg("保存文件成功").listData(fileBeen).obj(bannerId)
             } else {
                 ajaxUtils.fail().msg("未发现文件")
             }
@@ -126,5 +127,36 @@ open class BannerController {
         }
 
         return ajaxUtils
+    }
+
+    /**
+     * 显示
+     *
+     * @param bannerId id
+     * @param bannerShow 显示
+     * @return 结果
+     */
+    @RequestMapping(value = ["/web/backstage/banner/show"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun show(@RequestParam("bannerId") bannerId: Int, @RequestParam("bannerShow") bannerShow: Byte): AjaxUtils<*> {
+        val banner = bannerService.findById(bannerId)
+        banner.bannerShow = bannerShow
+        bannerService.update(banner)
+        return AjaxUtils.of<Any>().success().msg("更新成功")
+    }
+
+    /**
+     * 删除
+     *
+     * @param bannerId id
+     * @return 结果
+     */
+    @RequestMapping(value = ["/web/backstage/banner/delete"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun delete(@RequestParam("bannerId") bannerId: Int, request: HttpServletRequest): AjaxUtils<*> {
+        val banner = bannerService.findById(bannerId)
+        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + banner.bannerLink)
+        bannerService.deleteById(bannerId)
+        return AjaxUtils.of<Any>().success().msg("删除成功")
     }
 }

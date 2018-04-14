@@ -6,6 +6,7 @@ import cn.edu.kmust.flst.service.backstage.article.ArticleService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
+import cn.edu.kmust.flst.service.util.FilesUtils
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.bean.file.FileBean
@@ -128,6 +129,19 @@ open class ArticleController {
     }
 
     /**
+     * 文章封面删除
+     *
+     * @param request                       请求
+     * @return true or false
+     */
+    @RequestMapping("/web/backstage/article/cover/delete")
+    @ResponseBody
+    fun coverDelete(@RequestParam("articleCover") articleCover: String, request: HttpServletRequest): AjaxUtils<*> {
+        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + articleCover)
+        return AjaxUtils.of<Any>().success().msg("删除成功")
+    }
+
+    /**
      * 保存
      *
      * @param articleAddVo 数据
@@ -169,7 +183,7 @@ open class ArticleController {
      */
     @RequestMapping(value = ["/web/backstage/article/update"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun update(@Valid articleEditVo: ArticleEditVo, bindingResult: BindingResult): AjaxUtils<*> {
+    fun update(@Valid articleEditVo: ArticleEditVo, bindingResult: BindingResult, request: HttpServletRequest): AjaxUtils<*> {
         if (!bindingResult.hasErrors()) {
             val article = articleService.findById(articleEditVo.articleId!!)
             article.articleTitle = articleEditVo.articleTitle
@@ -178,7 +192,13 @@ open class ArticleController {
             } else {
                 articleEditVo.articleTitle
             }
+
+            if(article.articleCover != articleEditVo.articleCover){
+                FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + article.articleCover)
+            }
+
             article.articleCover = articleEditVo.articleCover
+
             article.articleContent = articleEditVo.articleContent
             article.articleDate = DateTimeUtils.getNow()
             article.articleSources = articleEditVo.articleSources
@@ -198,7 +218,9 @@ open class ArticleController {
      */
     @RequestMapping(value = ["/web/backstage/article/delete"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun delete(@RequestParam("articleId") id: Int): AjaxUtils<*> {
+    fun delete(@RequestParam("articleId") id: Int, request: HttpServletRequest): AjaxUtils<*> {
+        val article = articleService.findById(id)
+        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + article.articleCover)
         articleService.deleteById(id)
         return AjaxUtils.of<Any>().success().msg("删除成功")
     }

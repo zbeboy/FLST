@@ -1,9 +1,12 @@
 package cn.edu.kmust.flst.web.backstage.article
 
+import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
 import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
 import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
+import cn.edu.kmust.flst.service.util.FilesUtils
+import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
@@ -134,7 +137,7 @@ open class ArticleEnController {
      */
     @RequestMapping(value = ["/web/backstage/en/article/update"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun update(@Valid articleEnEditVo: ArticleEnEditVo, bindingResult: BindingResult): AjaxUtils<*> {
+    fun update(@Valid articleEnEditVo: ArticleEnEditVo, bindingResult: BindingResult, request: HttpServletRequest): AjaxUtils<*> {
         if (!bindingResult.hasErrors()) {
             val articleEn = articleEnService.findById(articleEnEditVo.articleId!!)
             articleEn.articleTitle = articleEnEditVo.articleTitle
@@ -143,6 +146,11 @@ open class ArticleEnController {
             } else {
                 articleEnEditVo.articleTitle
             }
+
+            if (articleEn.articleCover != articleEnEditVo.articleCover) {
+                FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + articleEn.articleCover)
+            }
+
             articleEn.articleCover = articleEnEditVo.articleCover
             articleEn.articleContent = articleEnEditVo.articleContent
             articleEn.articleDate = DateTimeUtils.getNow()

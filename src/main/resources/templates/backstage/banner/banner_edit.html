@@ -51,6 +51,7 @@
                                      data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
                                 <div class="caption text-center">
                                     <h5 th:text="${pic.bannerLink }"></h5>
+                                    <input type="hidden" th:value="${pic.bannerId}"/>
                                     <button type="button" class="btn btn-warning showImg" role="button"
                                             th:if="${pic.bannerShow==0}">显示
                                     </button>
@@ -78,8 +79,9 @@
                  data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
             <div class="caption text-center">
                 <h5>{{this.newName}}</h5>
-                <button type="button" class="btn btn-{{type}} {{css}}"
-                        role="button">{{show}}
+                <input type="hidden" value="{{bannerId}}"/>
+                <button type="button" class="btn btn-default hideImg}"
+                        role="button">隐藏
                 </button>
                 <button type="button" class="btn btn-danger deleteImg" role="button">删除
                 </button>

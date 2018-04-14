@@ -17,6 +17,7 @@ $(document).ready(function () {
     var ajax_url = {
         pids: '/web/backstage/menus/pids',
         file_upload_url: '/web/backstage/article/cover/upload',
+        del_cover:'/web/backstage/article/cover/delete',
         images: '/user/images',
         save: '/web/backstage/article/save',
         back: '/web/backstage/article'
@@ -151,6 +152,7 @@ $(document).ready(function () {
             if (data.result.listResult.length > 0) {
                 $(paramId.articleCoverTemp).attr('src', web_path + ajax_url.images + '/' + data.result.listResult[0].newName);
                 $(paramId.articleCover).val(data.result.listResult[0].newName);
+                $('.fileinput-button').addClass('hidden');
             }
             Messenger().post({
                 message: data.result.msg,
@@ -177,7 +179,18 @@ $(document).ready(function () {
 
     $('#clearImg').click(function () {
         $(paramId.articleCoverTemp).attr('src', IMG);
+        var articleCover = $(paramId.articleCover).val();
+        if(articleCover !== ''){
+            $.post(web_path + ajax_url.del_cover,{articleCover:articleCover},function (data) {
+                Messenger().post({
+                    message: data.msg,
+                    type: data.state ? 'info' : 'error',
+                    showCloseButton: true
+                });
+            });
+        }
         $(paramId.articleCover).val('');
+        $('.fileinput-button').removeClass('hidden');
     });
 
     $(paramId.articleTitle).blur(function () {

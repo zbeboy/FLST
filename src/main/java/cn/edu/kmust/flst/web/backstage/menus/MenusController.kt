@@ -245,7 +245,7 @@ open class MenusController {
      *
      * @param menuId id
      * @param menuShow 显示
-     * @return 保存结果
+     * @return 结果
      */
     @RequestMapping(value = ["/web/backstage/menus/show"], method = [(RequestMethod.POST)])
     @ResponseBody
