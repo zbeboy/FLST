@@ -1,7 +1,6 @@
 package cn.edu.kmust.flst.service.backstage.article
 
 import cn.edu.kmust.flst.domain.tables.pojos.Article
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record
@@ -11,6 +10,14 @@ import org.jooq.Result
  * Created by zbeboy 2018-04-13 .
  **/
 interface ArticleService {
+
+    /**
+     * 通过主键查询
+     *
+     * @param id 主键
+     * @return 数据
+     */
+    fun findById(id:Int):Article
 
     /**
      * 分页查询

@@ -29,6 +29,10 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
     @Resource
     open lateinit var articleDao: ArticleDao
 
+    override fun findById(id: Int): Article {
+        return articleDao.findById(id)
+    }
+
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun save(article: Article) {
         articleDao.insert(article)

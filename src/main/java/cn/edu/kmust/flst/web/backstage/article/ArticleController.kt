@@ -14,12 +14,15 @@ import cn.edu.kmust.flst.web.bean.file.FileBean
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleAddVo
+import cn.edu.kmust.flst.web.vo.backstage.article.ArticleEditVo
 import cn.edu.kmust.flst.web.vo.backstage.menus.MenusAddVo
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Controller
+import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
 import org.springframework.util.StringUtils
 import org.springframework.validation.BindingResult
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
@@ -64,6 +67,24 @@ open class ArticleController {
     @RequestMapping(value = ["/web/backstage/article/add"], method = [(RequestMethod.GET)])
     fun add(): String {
         return "backstage/article/article_add"
+    }
+
+    /**
+     * 中文文章编辑
+     *
+     * @return 中文文章编辑
+     */
+    @RequestMapping(value = ["/web/backstage/article/edit/{articleId}"], method = [(RequestMethod.GET)])
+    fun edit(@PathVariable("articleId") articleId: Int, modelMap: ModelMap): String {
+        val article = articleService.findById(articleId)
+        return if (!ObjectUtils.isEmpty(article)) {
+            modelMap.addAttribute("article", article)
+            "backstage/article/article_edit"
+        } else {
+            modelMap.addAttribute("status", 500)
+            modelMap.addAttribute("message", "未查询到该文章信息")
+            "error"
+        }
     }
 
     /**
@@ -125,7 +146,7 @@ open class ArticleController {
         if (!bindingResult.hasErrors()) {
             val article = Article()
             article.articleTitle = articleAddVo.articleTitle
-            article.articleBrief = if(StringUtils.hasLength(articleAddVo.articleBrief)){
+            article.articleBrief = if (StringUtils.hasLength(articleAddVo.articleBrief)) {
                 articleAddVo.articleBrief
             } else {
                 articleAddVo.articleTitle
@@ -143,5 +164,36 @@ open class ArticleController {
             return AjaxUtils.of<Any>().success().msg("保存成功")
         }
         return AjaxUtils.of<Any>().fail().msg("保存失败")
+    }
+
+    /**
+     * 更新
+     *
+     * @param articleEditVo 数据
+     * @param bindingResult 检验
+     * @return 保存结果
+     */
+    @RequestMapping(value = ["/web/backstage/article/update"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun update(@Valid articleEditVo: ArticleEditVo, bindingResult: BindingResult): AjaxUtils<*> {
+        if (!bindingResult.hasErrors()) {
+            val article = articleService.findById(articleEditVo.articleId!!)
+            article.articleTitle = articleEditVo.articleTitle
+            article.articleBrief = if (StringUtils.hasLength(articleEditVo.articleBrief)) {
+                articleEditVo.articleBrief
+            } else {
+                articleEditVo.articleTitle
+            }
+            article.articleCover = articleEditVo.articleCover
+            article.articleContent = articleEditVo.articleContent
+            article.articleDate = DateTimeUtils.getNow()
+            article.articleSources = articleEditVo.articleSources
+            article.articleSourcesName = articleEditVo.articleSourcesName
+            article.articleSourcesLink = articleEditVo.articleSourcesLink
+            article.menuId = articleEditVo.menuId
+            articleService.update(article)
+            return AjaxUtils.of<Any>().success().msg("更新成功")
+        }
+        return AjaxUtils.of<Any>().fail().msg("更新失败")
     }
 }
