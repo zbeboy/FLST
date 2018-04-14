@@ -2,15 +2,13 @@ package cn.edu.kmust.flst.service.system
 
 import cn.edu.kmust.flst.domain.tables.daos.UsersDao
 import cn.edu.kmust.flst.domain.tables.pojos.Users
-import org.jooq.DSLContext
-import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
-import javax.annotation.Resource
-import org.springframework.security.core.context.SecurityContextHolder
-import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.util.ObjectUtils
+import javax.annotation.Resource
 
 
 /**
@@ -18,9 +16,7 @@ import org.springframework.util.ObjectUtils
  **/
 @Service("usersService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-open class UsersServiceImpl @Autowired constructor(dslContext: DSLContext) : UsersService {
-
-    private val create: DSLContext = dslContext
+open class UsersServiceImpl : UsersService {
 
     @Resource
     open lateinit var usersDao: UsersDao
@@ -36,5 +32,9 @@ open class UsersServiceImpl @Autowired constructor(dslContext: DSLContext) : Use
             username = principal.username
         }
         return username
+    }
+
+    override fun update(users: Users) {
+        usersDao.update(users)
     }
 }

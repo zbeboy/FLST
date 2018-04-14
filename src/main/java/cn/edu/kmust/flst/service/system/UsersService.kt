@@ -20,4 +20,11 @@ interface UsersService {
      * @return session中的用户信息
      */
     fun getUsernameFromSession(): String?
+
+    /**
+     * 更新
+     *
+     * @param users 数据
+     */
+    fun update(users: Users)
 }

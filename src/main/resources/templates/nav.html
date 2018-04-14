@@ -19,7 +19,7 @@
                 <li class="dropdown pull-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> 用户 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
+                        <li><a href="#" th:href="@{/web/backstage/users/setting}"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
                         <li><a href="javascript:$('#logout').submit();"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
                         <li class="hidden">
                             <form th:action="@{/logout}" method="POST" id="logout">

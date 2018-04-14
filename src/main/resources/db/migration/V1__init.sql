@@ -78,5 +78,5 @@ CREATE TABLE banner (
 );
 
 INSERT INTO users (username, password, enabled)
-VALUES ('admin', '$2a$10$HKXHRhnhlC1aZQ4hukD0S.zYep/T5A7FULBo7S2UrJsqQCThUxdo2', 1);
-INSERT INTO authorities (username, authority) VALUES ('admin', 'ROLE_ADMIN');
+VALUES ('govern', '$2a$10$wICea4jxjGeqeL99vXQBnO5dKtvT4Q2EbELrRoNZWCwuXJiLGNgE.', 1);
+INSERT INTO authorities (username, authority) VALUES ('govern', 'ROLE_ADMIN');
