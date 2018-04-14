@@ -17,7 +17,7 @@ interface ArticleService {
      * @param id 主键
      * @return 数据
      */
-    fun findById(id:Int):Article
+    fun findById(id: Int): Article
 
     /**
      * 分页查询
@@ -47,4 +47,11 @@ interface ArticleService {
      * @param article 数据
      */
     fun update(article: Article)
+
+    /**
+     * 通过主键删除
+     *
+     * @param id 主键
+     */
+    fun deleteById(id: Int)
 }

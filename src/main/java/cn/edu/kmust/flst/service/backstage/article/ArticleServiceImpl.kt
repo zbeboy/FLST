@@ -42,6 +42,10 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
         articleDao.update(article)
     }
 
+    override fun deleteById(id: Int) {
+        articleDao.deleteById(id)
+    }
+
     override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<ArticleBean>): Result<Record> {
         val a = searchCondition(bootstrapTableUtils)
         return if (ObjectUtils.isEmpty(a)) {

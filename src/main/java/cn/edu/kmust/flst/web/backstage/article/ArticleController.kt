@@ -2,30 +2,24 @@ package cn.edu.kmust.flst.web.backstage.article
 
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Article
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
 import cn.edu.kmust.flst.service.util.RequestUtils
-import cn.edu.kmust.flst.service.util.UUIDUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.bean.file.FileBean
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleAddVo
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleEditVo
-import cn.edu.kmust.flst.web.vo.backstage.menus.MenusAddVo
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
 import org.springframework.util.StringUtils
 import org.springframework.validation.BindingResult
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartHttpServletRequest
 import java.util.*
 import javax.annotation.Resource
@@ -136,7 +130,7 @@ open class ArticleController {
     /**
      * 保存
      *
-     * @param menusAddVo 数据
+     * @param articleAddVo 数据
      * @param bindingResult 检验
      * @return 保存结果
      */
@@ -195,5 +189,17 @@ open class ArticleController {
             return AjaxUtils.of<Any>().success().msg("更新成功")
         }
         return AjaxUtils.of<Any>().fail().msg("更新失败")
+    }
+
+    /**
+     * 删除
+     *
+     * @return 删除结果
+     */
+    @RequestMapping(value = ["/web/backstage/article/delete"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun delete(@RequestParam("articleId") id: Int): AjaxUtils<*> {
+        articleService.deleteById(id)
+        return AjaxUtils.of<Any>().success().msg("删除成功")
     }
 }
