@@ -54,7 +54,7 @@ open class MenusController {
     /**
      * 栏目管理编辑
      *
-     * @return 栏目管理添加
+     * @return 栏目管理编辑
      */
     @RequestMapping(value = ["/web/backstage/menus/edit/{menuId}"], method = [(RequestMethod.GET)])
     fun edit(@PathVariable("menuId") id: String, modelMap: ModelMap): String {
