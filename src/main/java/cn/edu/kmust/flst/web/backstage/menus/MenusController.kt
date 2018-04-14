@@ -3,6 +3,7 @@ package cn.edu.kmust.flst.web.backstage.menus
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
+import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.UUIDUtils
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.AjaxUtils
@@ -25,6 +26,9 @@ import javax.validation.Valid
  **/
 @Controller
 open class MenusController {
+
+    @Resource
+    open lateinit var usersService: UsersService
 
     @Resource
     open lateinit var menusService: MenusService
@@ -204,6 +208,7 @@ open class MenusController {
             menus.menuOrder = menusAddVo.menuOrder
             menus.menuShow = menusAddVo.menuShow
             menus.menuFixed = 0
+            menus.username = usersService.getUsernameFromSession()
             menusService.save(menus)
             return AjaxUtils.of<Any>().success().msg("保存成功")
         }

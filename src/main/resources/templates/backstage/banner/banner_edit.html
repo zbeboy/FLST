@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: header(~{::meta},~{::title},~{::link})">
+    <!-- csrf -->
+    <meta name="_csrf" content="" th:content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" content="" th:content="${_csrf.headerName}"/>
+    <title>banner编辑-生命科学与技术学院</title>
+    <link href="css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="plugin/messenger/css/messenger.css" rel="stylesheet" th:href="@{/plugin/messenger/css/messenger.css}"/>
+    <link href="plugin/messenger/css/messenger-theme-air.css" rel="stylesheet"
+          th:href="@{/plugin/messenger/css/messenger-theme-air.css}"/>
+    <link href="plugin/jquery_file_upload/css/jquery.fileupload.min.css"
+          th:href="@{/plugin/jquery_file_upload/css/jquery.fileupload.min.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" th:include="nav::backstage">
+</nav>
+
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar" th:include="sidebar::backstage">
+</div><!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">banner编辑
+                <small class="pull-right">
+                    <button type="button" class="btn btn-primary" id="page_back">返回</button>
+                </small>
+            </h1>
+        </div>
+    </div><!--/.row-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <strong th:text="${menus.menuName}"></strong>
+                    <span class="btn btn-primary fileinput-button">
+                        <span>上传</span>
+                        <input id="fileupload" type="file" name="files[]" multiple="multiple"/>
+                     </span>
+                </div>
+                <div class="panel-body">
+                    <div class="row" id="pic-data">
+                        <div class="col-sm-6 col-md-4" th:unless="${#lists.isEmpty(banners)}"
+                             th:each="pic : ${banners}">
+                            <div class="thumbnail">
+                                <img data-src="holder.js/100%x200" id="articleCoverTemp" alt="100%x200"
+                                     th:src="${pic.bannerLinkPath}"
+                                     data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+                                <div class="caption text-center">
+                                    <h5 th:text="${pic.bannerLink }"></h5>
+                                    <button type="button" class="btn btn-warning showImg" role="button"
+                                            th:if="${pic.bannerShow==0}">显示
+                                    </button>
+                                    <button type="button" class="btn btn-default hideImg" role="button"
+                                            th:if="${pic.bannerShow==1}">隐藏
+                                    </button>
+                                    <button type="button" class="btn btn-danger deleteImg" role="button">删除
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--/.row-->
+</div>    <!--/.main-->
+<!--图片列表模板-->
+<script id="pic-template" type="text/x-handlebars-template">
+    {{#each listResult}}
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img data-src="holder.js/100%x200" alt="100%x200"
+                 src="{{imgSrc}}"
+                 data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+            <div class="caption text-center">
+                <h5>{{this.newName}}</h5>
+                <button type="button" class="btn btn-{{type}} {{css}}"
+                        role="button">{{show}}
+                </button>
+                <button type="button" class="btn btn-danger deleteImg" role="button">删除
+                </button>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<script th:inline="javascript">
+    var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
+    var init_page_param = {
+        'menuId': /*[[${menus.menuId}]]*/ ''
+    };
+</script>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js" th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
+<script src="js/csrf.js" th:src="@{/js/csrf.js}"></script>
+<script src="js/backstage-main.js" th:src="@{/js/backstage-main.js}"></script>
+<script src="plugin/messenger/js/messenger.js"
+        th:src="@{/plugin/messenger/js/messenger.js}"></script>
+<script src="plugin/handlebars/handlebars.js"
+        th:src="@{/plugin/handlebars/handlebars.js}"></script>
+<script src="plugin/jquery_file_upload/js/vendor/jquery.ui.widget.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/vendor/jquery.ui.widget.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.iframe-transport.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.iframe-transport.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.fileupload.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.fileupload-process.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload-process.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.fileupload-validate.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload-validate.min.js}"></script>
+<script src="js/backstage/banner/banner_edit.js"
+        th:src="@{/js/backstage/banner/banner_edit.js}"></script>
+</body>
+</html>

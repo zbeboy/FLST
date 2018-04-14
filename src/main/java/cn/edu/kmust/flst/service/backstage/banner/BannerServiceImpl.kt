@@ -1,7 +1,10 @@
 package cn.edu.kmust.flst.service.backstage.banner
 
+import cn.edu.kmust.flst.domain.Tables.BANNER
 import cn.edu.kmust.flst.domain.Tables.MENUS
 import cn.edu.kmust.flst.domain.tables.daos.BannerDao
+import cn.edu.kmust.flst.domain.tables.pojos.Banner
+import cn.edu.kmust.flst.domain.tables.records.BannerRecord
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
@@ -26,6 +29,18 @@ open class BannerServiceImpl @Autowired constructor(dslContext: DSLContext) : Bo
 
     @Resource
     open lateinit var bannerDao: BannerDao
+
+    override fun findByMenuId(menuId: String): Result<BannerRecord>{
+        return create.selectFrom(BANNER)
+                .where(BANNER.MENU_ID.eq(menuId))
+                .orderBy(BANNER.BANNER_DATE.desc())
+                .fetch()
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
+    override fun save(banner: Banner) {
+        bannerDao.insert(banner)
+    }
 
     override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record> {
        return dataPagingQueryAllWithCondition(bootstrapTableUtils, create, MENUS, MENUS.MENU_PID.eq("0"))

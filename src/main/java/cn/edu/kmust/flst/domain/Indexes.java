@@ -45,9 +45,11 @@ public class Indexes {
     public static final Index AUTHORITIES_PRIMARY = Indexes0.AUTHORITIES_PRIMARY;
     public static final Index BANNER_MENU_ID = Indexes0.BANNER_MENU_ID;
     public static final Index BANNER_PRIMARY = Indexes0.BANNER_PRIMARY;
+    public static final Index BANNER_USERNAME = Indexes0.BANNER_USERNAME;
     public static final Index MENUS_MENU_NAME = Indexes0.MENUS_MENU_NAME;
     public static final Index MENUS_MENU_NAME_EN = Indexes0.MENUS_MENU_NAME_EN;
     public static final Index MENUS_PRIMARY = Indexes0.MENUS_PRIMARY;
+    public static final Index MENUS_USERNAME = Indexes0.MENUS_USERNAME;
     public static final Index PERSISTENT_LOGINS_PRIMARY = Indexes0.PERSISTENT_LOGINS_PRIMARY;
     public static final Index USERS_PRIMARY = Indexes0.USERS_PRIMARY;
 
@@ -65,9 +67,11 @@ public class Indexes {
         public static Index AUTHORITIES_PRIMARY = Internal.createIndex("PRIMARY", Authorities.AUTHORITIES, new OrderField[] { Authorities.AUTHORITIES.USERNAME, Authorities.AUTHORITIES.AUTHORITY }, true);
         public static Index BANNER_MENU_ID = Internal.createIndex("menu_id", Banner.BANNER, new OrderField[] { Banner.BANNER.MENU_ID }, false);
         public static Index BANNER_PRIMARY = Internal.createIndex("PRIMARY", Banner.BANNER, new OrderField[] { Banner.BANNER.BANNER_ID }, true);
+        public static Index BANNER_USERNAME = Internal.createIndex("username", Banner.BANNER, new OrderField[] { Banner.BANNER.USERNAME }, false);
         public static Index MENUS_MENU_NAME = Internal.createIndex("menu_name", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_NAME }, true);
         public static Index MENUS_MENU_NAME_EN = Internal.createIndex("menu_name_en", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_NAME_EN }, true);
         public static Index MENUS_PRIMARY = Internal.createIndex("PRIMARY", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_ID }, true);
+        public static Index MENUS_USERNAME = Internal.createIndex("username", Menus.MENUS, new OrderField[] { Menus.MENUS.USERNAME }, false);
         public static Index PERSISTENT_LOGINS_PRIMARY = Internal.createIndex("PRIMARY", PersistentLogins.PERSISTENT_LOGINS, new OrderField[] { PersistentLogins.PERSISTENT_LOGINS.SERIES }, true);
         public static Index USERS_PRIMARY = Internal.createIndex("PRIMARY", Users.USERS, new OrderField[] { Users.USERS.USERNAME }, true);
     }

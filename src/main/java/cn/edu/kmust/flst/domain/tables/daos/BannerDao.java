@@ -77,13 +77,6 @@ public class BannerDao extends DAOImpl<BannerRecord, cn.edu.kmust.flst.domain.ta
     }
 
     /**
-     * Fetch records that have <code>banner_order IN (values)</code>
-     */
-    public List<cn.edu.kmust.flst.domain.tables.pojos.Banner> fetchByBannerOrder(Integer... values) {
-        return fetch(Banner.BANNER.BANNER_ORDER, values);
-    }
-
-    /**
      * Fetch records that have <code>banner_date IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.tables.pojos.Banner> fetchByBannerDate(Timestamp... values) {
@@ -102,5 +95,12 @@ public class BannerDao extends DAOImpl<BannerRecord, cn.edu.kmust.flst.domain.ta
      */
     public List<cn.edu.kmust.flst.domain.tables.pojos.Banner> fetchByMenuId(String... values) {
         return fetch(Banner.BANNER.MENU_ID, values);
+    }
+
+    /**
+     * Fetch records that have <code>username IN (values)</code>
+     */
+    public List<cn.edu.kmust.flst.domain.tables.pojos.Banner> fetchByUsername(String... values) {
+        return fetch(Banner.BANNER.USERNAME, values);
     }
 }

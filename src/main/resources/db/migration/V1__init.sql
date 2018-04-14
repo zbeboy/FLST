@@ -27,7 +27,9 @@ CREATE TABLE menus (
   menu_pid     VARCHAR(64) DEFAULT 0 NOT NULL,
   menu_order   INT                   NOT NULL,
   menu_show    BOOLEAN DEFAULT 1     NOT NULL,
-  menu_fixed   BOOLEAN DEFAULT 0     NOT NULL
+  menu_fixed   BOOLEAN DEFAULT 0     NOT NULL,
+  username     VARCHAR(64)           NOT NULL,
+  FOREIGN KEY (username) REFERENCES users (username)
 );
 
 CREATE TABLE article (
@@ -67,11 +69,12 @@ CREATE TABLE article_en (
 CREATE TABLE banner (
   banner_id    INT                   NOT NULL AUTO_INCREMENT PRIMARY KEY,
   banner_link  VARCHAR(200)          NOT NULL,
-  banner_order INT                   NOT NULL,
   banner_date  DATETIME              NOT NULL,
   banner_show  BOOLEAN DEFAULT 1     NOT NULL,
   menu_id      VARCHAR(64)           NOT NULL,
-  FOREIGN KEY (menu_id) REFERENCES menus (menu_id)
+  username     VARCHAR(64)           NOT NULL,
+  FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
+  FOREIGN KEY (username) REFERENCES users (username)
 );
 
 INSERT INTO users (username, password, enabled)

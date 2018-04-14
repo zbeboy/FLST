@@ -15,6 +15,7 @@ import java.util.List;
 import javax.annotation.Generated;
 
 import org.jooq.Field;
+import org.jooq.ForeignKey;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Schema;
@@ -38,7 +39,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Menus extends TableImpl<MenusRecord> {
 
-    private static final long serialVersionUID = -704626896;
+    private static final long serialVersionUID = 1216902726;
 
     /**
      * The reference instance of <code>flst.menus</code>
@@ -99,6 +100,11 @@ public class Menus extends TableImpl<MenusRecord> {
     public final TableField<MenusRecord, Byte> MENU_FIXED = createField("menu_fixed", org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
 
     /**
+     * The column <code>flst.menus.username</code>.
+     */
+    public final TableField<MenusRecord, String> USERNAME = createField("username", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+
+    /**
      * Create a <code>flst.menus</code> table reference
      */
     public Menus() {
@@ -140,7 +146,7 @@ public class Menus extends TableImpl<MenusRecord> {
      */
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.MENUS_MENU_NAME, Indexes.MENUS_MENU_NAME_EN, Indexes.MENUS_PRIMARY);
+        return Arrays.<Index>asList(Indexes.MENUS_MENU_NAME, Indexes.MENUS_MENU_NAME_EN, Indexes.MENUS_PRIMARY, Indexes.MENUS_USERNAME);
     }
 
     /**
@@ -157,6 +163,14 @@ public class Menus extends TableImpl<MenusRecord> {
     @Override
     public List<UniqueKey<MenusRecord>> getKeys() {
         return Arrays.<UniqueKey<MenusRecord>>asList(Keys.KEY_MENUS_PRIMARY, Keys.KEY_MENUS_MENU_NAME, Keys.KEY_MENUS_MENU_NAME_EN);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<ForeignKey<MenusRecord, ?>> getReferences() {
+        return Arrays.<ForeignKey<MenusRecord, ?>>asList(Keys.MENUS_IBFK_1);
     }
 
     /**

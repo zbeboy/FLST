@@ -73,6 +73,8 @@ public class Keys {
     public static final ForeignKey<ArticleEnRecord, MenusRecord> ARTICLE_EN_IBFK_1 = ForeignKeys0.ARTICLE_EN_IBFK_1;
     public static final ForeignKey<AuthoritiesRecord, UsersRecord> AUTHORITIES_IBFK_1 = ForeignKeys0.AUTHORITIES_IBFK_1;
     public static final ForeignKey<BannerRecord, MenusRecord> BANNER_IBFK_1 = ForeignKeys0.BANNER_IBFK_1;
+    public static final ForeignKey<BannerRecord, UsersRecord> BANNER_IBFK_2 = ForeignKeys0.BANNER_IBFK_2;
+    public static final ForeignKey<MenusRecord, UsersRecord> MENUS_IBFK_1 = ForeignKeys0.MENUS_IBFK_1;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -103,5 +105,7 @@ public class Keys {
         public static final ForeignKey<ArticleEnRecord, MenusRecord> ARTICLE_EN_IBFK_1 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_MENUS_PRIMARY, ArticleEn.ARTICLE_EN, "article_en_ibfk_1", ArticleEn.ARTICLE_EN.MENU_ID);
         public static final ForeignKey<AuthoritiesRecord, UsersRecord> AUTHORITIES_IBFK_1 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_USERS_PRIMARY, Authorities.AUTHORITIES, "authorities_ibfk_1", Authorities.AUTHORITIES.USERNAME);
         public static final ForeignKey<BannerRecord, MenusRecord> BANNER_IBFK_1 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_MENUS_PRIMARY, Banner.BANNER, "banner_ibfk_1", Banner.BANNER.MENU_ID);
+        public static final ForeignKey<BannerRecord, UsersRecord> BANNER_IBFK_2 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_USERS_PRIMARY, Banner.BANNER, "banner_ibfk_2", Banner.BANNER.USERNAME);
+        public static final ForeignKey<MenusRecord, UsersRecord> MENUS_IBFK_1 = Internal.createForeignKey(cn.edu.kmust.flst.domain.Keys.KEY_USERS_PRIMARY, Menus.MENUS, "menus_ibfk_1", Menus.MENUS.USERNAME);
     }
 }

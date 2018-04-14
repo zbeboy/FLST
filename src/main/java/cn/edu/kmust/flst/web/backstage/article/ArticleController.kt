@@ -120,7 +120,7 @@ open class ArticleController {
                     RequestUtils.getRealPath(request) + path, request.remoteAddr)
             ajaxUtils.success().msg("保存文件成功").listData(fileBeen)
         } catch (e: Exception) {
-            log.error("Upload graduation design proposal error, error is {}", e)
+            log.error("Upload cover error, error is {}", e)
             ajaxUtils.fail().msg("保存文件异常")
         }
 

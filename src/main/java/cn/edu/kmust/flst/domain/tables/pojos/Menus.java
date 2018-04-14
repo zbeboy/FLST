@@ -24,7 +24,7 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Menus implements Serializable {
 
-    private static final long serialVersionUID = 2019323803;
+    private static final long serialVersionUID = 1319113936;
 
     private String  menuId;
     private String  menuName;
@@ -35,6 +35,7 @@ public class Menus implements Serializable {
     private Integer menuOrder;
     private Byte    menuShow;
     private Byte    menuFixed;
+    private String  username;
 
     public Menus() {}
 
@@ -48,6 +49,7 @@ public class Menus implements Serializable {
         this.menuOrder = value.menuOrder;
         this.menuShow = value.menuShow;
         this.menuFixed = value.menuFixed;
+        this.username = value.username;
     }
 
     public Menus(
@@ -59,7 +61,8 @@ public class Menus implements Serializable {
         String  menuPid,
         Integer menuOrder,
         Byte    menuShow,
-        Byte    menuFixed
+        Byte    menuFixed,
+        String  username
     ) {
         this.menuId = menuId;
         this.menuName = menuName;
@@ -70,6 +73,7 @@ public class Menus implements Serializable {
         this.menuOrder = menuOrder;
         this.menuShow = menuShow;
         this.menuFixed = menuFixed;
+        this.username = username;
     }
 
     @NotNull
@@ -156,6 +160,16 @@ public class Menus implements Serializable {
         this.menuFixed = menuFixed;
     }
 
+    @NotNull
+    @Size(max = 64)
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Menus (");
@@ -169,6 +183,7 @@ public class Menus implements Serializable {
         sb.append(", ").append(menuOrder);
         sb.append(", ").append(menuShow);
         sb.append(", ").append(menuFixed);
+        sb.append(", ").append(username);
 
         sb.append(")");
         return sb.toString();

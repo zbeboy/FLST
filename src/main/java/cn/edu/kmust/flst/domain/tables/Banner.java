@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner extends TableImpl<BannerRecord> {
 
-    private static final long serialVersionUID = 971244155;
+    private static final long serialVersionUID = 340335500;
 
     /**
      * The reference instance of <code>flst.banner</code>
@@ -67,11 +67,6 @@ public class Banner extends TableImpl<BannerRecord> {
     public final TableField<BannerRecord, String> BANNER_LINK = createField("banner_link", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
 
     /**
-     * The column <code>flst.banner.banner_order</code>.
-     */
-    public final TableField<BannerRecord, Integer> BANNER_ORDER = createField("banner_order", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
-
-    /**
      * The column <code>flst.banner.banner_date</code>.
      */
     public final TableField<BannerRecord, Timestamp> BANNER_DATE = createField("banner_date", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
@@ -85,6 +80,11 @@ public class Banner extends TableImpl<BannerRecord> {
      * The column <code>flst.banner.menu_id</code>.
      */
     public final TableField<BannerRecord, String> MENU_ID = createField("menu_id", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+
+    /**
+     * The column <code>flst.banner.username</code>.
+     */
+    public final TableField<BannerRecord, String> USERNAME = createField("username", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
      * Create a <code>flst.banner</code> table reference
@@ -128,7 +128,7 @@ public class Banner extends TableImpl<BannerRecord> {
      */
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.BANNER_MENU_ID, Indexes.BANNER_PRIMARY);
+        return Arrays.<Index>asList(Indexes.BANNER_MENU_ID, Indexes.BANNER_PRIMARY, Indexes.BANNER_USERNAME);
     }
 
     /**
@@ -160,7 +160,7 @@ public class Banner extends TableImpl<BannerRecord> {
      */
     @Override
     public List<ForeignKey<BannerRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<BannerRecord, ?>>asList(Keys.BANNER_IBFK_1);
+        return Arrays.<ForeignKey<BannerRecord, ?>>asList(Keys.BANNER_IBFK_1, Keys.BANNER_IBFK_2);
     }
 
     /**

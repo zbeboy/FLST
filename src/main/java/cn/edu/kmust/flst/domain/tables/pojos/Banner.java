@@ -25,40 +25,40 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner implements Serializable {
 
-    private static final long serialVersionUID = 1594935444;
+    private static final long serialVersionUID = 1791602611;
 
     private Integer   bannerId;
     private String    bannerLink;
-    private Integer   bannerOrder;
     private Timestamp bannerDate;
     private Byte      bannerShow;
     private String    menuId;
+    private String    username;
 
     public Banner() {}
 
     public Banner(Banner value) {
         this.bannerId = value.bannerId;
         this.bannerLink = value.bannerLink;
-        this.bannerOrder = value.bannerOrder;
         this.bannerDate = value.bannerDate;
         this.bannerShow = value.bannerShow;
         this.menuId = value.menuId;
+        this.username = value.username;
     }
 
     public Banner(
         Integer   bannerId,
         String    bannerLink,
-        Integer   bannerOrder,
         Timestamp bannerDate,
         Byte      bannerShow,
-        String    menuId
+        String    menuId,
+        String    username
     ) {
         this.bannerId = bannerId;
         this.bannerLink = bannerLink;
-        this.bannerOrder = bannerOrder;
         this.bannerDate = bannerDate;
         this.bannerShow = bannerShow;
         this.menuId = menuId;
+        this.username = username;
     }
 
     public Integer getBannerId() {
@@ -77,15 +77,6 @@ public class Banner implements Serializable {
 
     public void setBannerLink(String bannerLink) {
         this.bannerLink = bannerLink;
-    }
-
-    @NotNull
-    public Integer getBannerOrder() {
-        return this.bannerOrder;
-    }
-
-    public void setBannerOrder(Integer bannerOrder) {
-        this.bannerOrder = bannerOrder;
     }
 
     @NotNull
@@ -115,16 +106,26 @@ public class Banner implements Serializable {
         this.menuId = menuId;
     }
 
+    @NotNull
+    @Size(max = 64)
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Banner (");
 
         sb.append(bannerId);
         sb.append(", ").append(bannerLink);
-        sb.append(", ").append(bannerOrder);
         sb.append(", ").append(bannerDate);
         sb.append(", ").append(bannerShow);
         sb.append(", ").append(menuId);
+        sb.append(", ").append(username);
 
         sb.append(")");
         return sb.toString();
