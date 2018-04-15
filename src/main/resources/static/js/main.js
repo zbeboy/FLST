@@ -9,6 +9,9 @@ if (windowWidth > 767) {
     });
 
     $(".navbar-wrapper").stick();
+} else {
+    $('li.dropdown-submenu > .dropdown-menu').show();
+    $('li.dropdown-submenu').removeClass('dropdown-submenu');
 }
 
 // Back to top button
