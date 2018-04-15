@@ -12,130 +12,9 @@
     <link href="css/style.css" rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<div class="myheader hidden-xs">
-    <img src="images/logopng.png" th:src="@{/images/logopng.png}" height="118"/>
-    <div class="top-content"><a href="#" class="white-color">旧版网站</a> | <a href="#" class="white-color">ENGLISH</a>
-    </div>
+<div class="myheader hidden-xs" th:include="nav::receptionHearder">
 </div>
-<nav class="navbar navbar-default navbar-static-top navbar-wrapper" style="margin-bottom:0px;border:0px;">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="#">生命科学与技术学院</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav nav-menu">
-                <li><a href="#">网站首页</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle nav-one-a" data-toggle="dropdown" role="button"
-                       aria-haspopup="true" aria-expanded="false">学院概况 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">学院简介</a></li>
-                        <li><a href="#">院党政领导</a></li>
-                        <li><a href="#">机构设置</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">学科建设 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">本科生专业</a></li>
-                        <li><a href="#">硕士学科</a></li>
-                        <li><a href="#">博士学科</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">师资队伍 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">博士生导师</a></li>
-                        <li><a href="#">正高职称</a></li>
-                        <li><a href="#">副高职称</a></li>
-                        <li><a href="#">省技术创新人才</a></li>
-                        <li><a href="#">省委联系专家</a></li>
-                        <li><a href="#">省中青年学术和科技带头人</a></li>
-                        <li><a href="#">教育部新世纪优秀人才</a></li>
-                        <li><a href="#">省高端科技、省海外高层次人才</a></li>
-                        <li><a href="#">省中青学术和科技带头后备人才</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">人才培养 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">教学动态</a></li>
-                        <li><a href="#">培养方案</a></li>
-                        <li><a href="#">招生信息</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">科学研究 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">科研平台</a></li>
-                        <li><a href="#">科研项目</a></li>
-                        <li><a href="#">科研成果</a></li>
-                        <li><a href="#">科研课题组</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">学生工作 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">学生党建</a></li>
-                        <li><a href="#">学院团委</a></li>
-                        <li><a href="#">研究生会</a></li>
-                        <li><a href="#">学生会</a></li>
-                        <li><a href="#">学院院刊</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">教工之家 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">新闻动态</a></li>
-                        <li><a href="#">院工会委员会</a></li>
-                        <li><a href="#">校教代会代表</a></li>
-                        <li><a href="#">院教代会代表</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">校友之窗 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">校友动态</a></li>
-                        <li><a href="#">校友往事</a></li>
-                        <li><a href="#">校友工作委员会</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">公共平台 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">管理人员</a></li>
-                        <li><a href="#">规章制度</a></li>
-                        <li><a href="#">仪器设备</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">信息服务 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">学校规章</a></li>
-                        <li><a href="#">学院文件</a></li>
-                        <li><a href="#">学生教育管理</a></li>
-                        <li><a href="#">相关下载</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
+<nav class="navbar navbar-default navbar-static-top navbar-wrapper" style="margin-bottom:0px;border:0px;" th:include="nav::receptionNav">
 </nav>
 
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -455,45 +334,7 @@
 <!--==========================
     Footer
 ============================-->
-<footer id="footer">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-6 col-md-6 footer-links">
-                    <h4>友情链接
-                        <small>LINKS</small>
-                    </h4>
-                    <ul>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">昆工主页</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">网络办公</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">电子邮箱</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">门户信息</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">科研平台</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">科研课题组</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-6 col-md-6 footer-contact">
-                    <h4>联系我们</h4>
-                    <p>
-                        地址:云南省昆明市呈贡大学城景明南路727号<br/>
-                        <strong>邮编:</strong> 650500 <br>
-                        <strong>电话:</strong> 86-0871-65920570<br>
-                        <strong>传真:</strong> 86-0871-65920570<br>
-                    </p>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="copyright">
-            &copy; Copyright <strong th:text="#{web.footer.info}">昆明理工大学</strong>. All Rights Reserved
-        </div>
-    </div>
+<footer id="footer" th:include="footer::receptionFooter">
 </footer><!-- #footer -->
 
 <a href="#" class="back-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>

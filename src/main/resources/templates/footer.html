@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Footer</title>
+</head>
+<body>
+<!--==========================
+    Footer
+============================-->
+<footer id="footer" th:fragment="receptionFooter">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6 footer-links">
+                    <h4>友情链接
+                        <small>LINKS</small>
+                    </h4>
+                    <ul>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="#">昆工主页</a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="#">网络办公</a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="#">电子邮箱</a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="#">门户信息</a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="#">科研平台</a></li>
+                        <li><i class="ion-ios-arrow-right"></i> <a href="#">科研课题组</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-6 col-md-6 footer-contact">
+                    <h4>联系我们</h4>
+                    <p>
+                        地址:云南省昆明市呈贡大学城景明南路727号<br/>
+                        <strong>邮编:</strong> 650500 <br>
+                        <strong>电话:</strong> 86-0871-65920570<br>
+                        <strong>传真:</strong> 86-0871-65920570<br>
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong th:text="#{web.footer.info}">昆明理工大学</strong>. All Rights Reserved
+        </div>
+    </div>
+</footer><!-- #footer -->
+</body>
+</html>
