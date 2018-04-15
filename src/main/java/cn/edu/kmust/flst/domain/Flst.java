@@ -8,6 +8,8 @@ import cn.edu.kmust.flst.domain.tables.Article;
 import cn.edu.kmust.flst.domain.tables.ArticleEn;
 import cn.edu.kmust.flst.domain.tables.Authorities;
 import cn.edu.kmust.flst.domain.tables.Banner;
+import cn.edu.kmust.flst.domain.tables.DataInfo;
+import cn.edu.kmust.flst.domain.tables.FriendlyLink;
 import cn.edu.kmust.flst.domain.tables.Menus;
 import cn.edu.kmust.flst.domain.tables.PersistentLogins;
 import cn.edu.kmust.flst.domain.tables.Users;
@@ -36,7 +38,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Flst extends SchemaImpl {
 
-    private static final long serialVersionUID = 1489276390;
+    private static final long serialVersionUID = 1081482102;
 
     /**
      * The reference instance of <code>flst</code>
@@ -62,6 +64,16 @@ public class Flst extends SchemaImpl {
      * The table <code>flst.banner</code>.
      */
     public final Banner BANNER = cn.edu.kmust.flst.domain.tables.Banner.BANNER;
+
+    /**
+     * The table <code>flst.data_info</code>.
+     */
+    public final DataInfo DATA_INFO = cn.edu.kmust.flst.domain.tables.DataInfo.DATA_INFO;
+
+    /**
+     * The table <code>flst.friendly_link</code>.
+     */
+    public final FriendlyLink FRIENDLY_LINK = cn.edu.kmust.flst.domain.tables.FriendlyLink.FRIENDLY_LINK;
 
     /**
      * The table <code>flst.menus</code>.
@@ -107,6 +119,8 @@ public class Flst extends SchemaImpl {
             ArticleEn.ARTICLE_EN,
             Authorities.AUTHORITIES,
             Banner.BANNER,
+            DataInfo.DATA_INFO,
+            FriendlyLink.FRIENDLY_LINK,
             Menus.MENUS,
             PersistentLogins.PERSISTENT_LOGINS,
             Users.USERS);

@@ -50,6 +50,14 @@ open class Workbook {
         const val LANGUAGE_ZH_CN = "zh-cn"
         const val LANGUAGE_EN = "en"
 
+        /*
+        网站信息键
+         */
+        const val WEBSITE_ADDRESS = "address"
+        const val WEBSITE_ZIP_CODE = "zipCode"
+        const val WEBSITE_PHONE = "phone"
+        const val WEBSITE_FAX = "fax"
+
         /**
          * 自定义图片路径
          *

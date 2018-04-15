@@ -8,6 +8,8 @@ import cn.edu.kmust.flst.domain.tables.Article;
 import cn.edu.kmust.flst.domain.tables.ArticleEn;
 import cn.edu.kmust.flst.domain.tables.Authorities;
 import cn.edu.kmust.flst.domain.tables.Banner;
+import cn.edu.kmust.flst.domain.tables.DataInfo;
+import cn.edu.kmust.flst.domain.tables.FriendlyLink;
 import cn.edu.kmust.flst.domain.tables.Menus;
 import cn.edu.kmust.flst.domain.tables.PersistentLogins;
 import cn.edu.kmust.flst.domain.tables.Users;
@@ -47,6 +49,16 @@ public class Tables {
      * The table <code>flst.banner</code>.
      */
     public static final Banner BANNER = cn.edu.kmust.flst.domain.tables.Banner.BANNER;
+
+    /**
+     * The table <code>flst.data_info</code>.
+     */
+    public static final DataInfo DATA_INFO = cn.edu.kmust.flst.domain.tables.DataInfo.DATA_INFO;
+
+    /**
+     * The table <code>flst.friendly_link</code>.
+     */
+    public static final FriendlyLink FRIENDLY_LINK = cn.edu.kmust.flst.domain.tables.FriendlyLink.FRIENDLY_LINK;
 
     /**
      * The table <code>flst.menus</code>.

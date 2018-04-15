@@ -67,14 +67,27 @@ CREATE TABLE article_en (
 );
 
 CREATE TABLE banner (
-  banner_id    INT                   NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  banner_link  VARCHAR(200)          NOT NULL,
-  banner_date  DATETIME              NOT NULL,
-  banner_show  BOOLEAN DEFAULT 1     NOT NULL,
-  menu_id      VARCHAR(64)           NOT NULL,
-  username     VARCHAR(64)           NOT NULL,
+  banner_id   INT                   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  banner_link VARCHAR(200)          NOT NULL,
+  banner_date DATETIME              NOT NULL,
+  banner_show BOOLEAN DEFAULT 1     NOT NULL,
+  menu_id     VARCHAR(64)           NOT NULL,
+  username    VARCHAR(64)           NOT NULL,
   FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
   FOREIGN KEY (username) REFERENCES users (username)
+);
+
+CREATE TABLE friendly_link (
+  link_id      VARCHAR(64)       NOT NULL PRIMARY KEY,
+  link_name    VARCHAR(100)      NOT NULL,
+  link_name_en VARCHAR(200)      NOT NULL,
+  link_url     VARCHAR(200)      NOT NULL,
+  link_show    BOOLEAN DEFAULT 1 NOT NULL
+);
+
+CREATE TABLE data_info (
+  data_key   VARCHAR(200) NOT NULL PRIMARY KEY,
+  data_value VARCHAR(200)
 );
 
 INSERT INTO users (username, password, enabled)
