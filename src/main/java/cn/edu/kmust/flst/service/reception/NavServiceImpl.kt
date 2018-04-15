@@ -34,12 +34,12 @@ open class NavServiceImpl : NavService {
                     val list2 = menusService.findByPIdAndMenuShowAndMenuFixed(menu1.menuId, 1, 0)
                     if (!ObjectUtils.isEmpty(list2)) {
                         li += " class=\"dropdown\">"
-                        li += "<a href=\"${getUrl(menu1.menuLink, request)}\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">${menu1.menuName} <span class=\"caret\"></span></a>"
+                        li += "<a href=\"${getUrl(menu1.menuLink, menu1.menuId, request)}\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">${menu1.menuName} <span class=\"caret\"></span></a>"
                         li += "<ul class=\"dropdown-menu\">"
                         // 开始次级递归生成
                         li = generateHtml(list2, li, request, language)
                     } else {
-                        li += "><a href=\"${getUrl(menu1.menuLink, request)}\">${menu1.menuName}</a></li>"
+                        li += "><a href=\"${getUrl(menu1.menuLink, menu1.menuId, request)}\">${menu1.menuName}</a></li>"
                     }
                 }
                 ul = ul + li + "</ul>"
@@ -55,12 +55,12 @@ open class NavServiceImpl : NavService {
                     val list2 = menusService.findByPIdAndMenuShowAndMenuFixed(menu1.menuId, 1, 0)
                     if (!ObjectUtils.isEmpty(list2)) {
                         li += " class=\"dropdown\">"
-                        li += "<a href=\"${getUrl(menu1.menuLinkEn, request)}\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">${menu1.menuNameEn} <span class=\"caret\"></span></a>"
+                        li += "<a href=\"${getUrl(menu1.menuLinkEn, menu1.menuId, request)}\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">${menu1.menuNameEn} <span class=\"caret\"></span></a>"
                         li += "<ul class=\"dropdown-menu\">"
                         // 开始次级递归生成
                         li = generateHtml(list2, li, request, language)
                     } else {
-                        li += "><a href=\"${getUrl(menu1.menuLinkEn, request)}\">${menu1.menuNameEn}</a></li>"
+                        li += "><a href=\"${getUrl(menu1.menuLinkEn, menu1.menuId, request)}\">${menu1.menuNameEn}</a></li>"
                     }
                 }
                 ul = ul + li + "</ul>"
@@ -85,11 +85,11 @@ open class NavServiceImpl : NavService {
                 val list = menusService.findByPIdAndMenuShowAndMenuFixed(menu.menuId, 1, 0)
                 if (!ObjectUtils.isEmpty(list)) {
                     li += "<li class=\"dropdown-submenu\"> "
-                    li += "<a href=\"${getUrl(menu.menuLink, request)}\">${menu.menuName}</a>"
+                    li += "<a href=\"${getUrl(menu.menuLink, menu.menuId, request)}\">${menu.menuName}</a>"
                     li += "<ul class=\"dropdown-menu\"> "
                     li = generateHtml(list, li, request, language)
                 } else {
-                    li += "<li><a href=\"${getUrl(menu.menuLink, request)}\">${menu.menuName}</a></li>"
+                    li += "<li><a href=\"${getUrl(menu.menuLink, menu.menuId, request)}\">${menu.menuName}</a></li>"
                 }
             }
         } else {
@@ -97,11 +97,11 @@ open class NavServiceImpl : NavService {
                 val list = menusService.findByPIdAndMenuShowAndMenuFixed(menu.menuId, 1, 0)
                 if (!ObjectUtils.isEmpty(list)) {
                     li += "<li class=\"dropdown-submenu\"> "
-                    li += "<a href=\"${getUrl(menu.menuLinkEn, request)}\">${menu.menuNameEn}</a>"
+                    li += "<a href=\"${getUrl(menu.menuLinkEn, menu.menuId, request)}\">${menu.menuNameEn}</a>"
                     li += "<ul class=\"dropdown-menu\"> "
                     li = generateHtml(list, li, request, language)
                 } else {
-                    li += "<li><a href=\"${getUrl(menu.menuLinkEn, request)}\">${menu.menuNameEn}</a></li>"
+                    li += "<li><a href=\"${getUrl(menu.menuLinkEn, menu.menuId, request)}\">${menu.menuNameEn}</a></li>"
                 }
             }
         }
@@ -112,14 +112,20 @@ open class NavServiceImpl : NavService {
     /**
      * 处理Url
      */
-    fun getUrl(link: String, request: HttpServletRequest): String {
+    fun getUrl(link: String, id: String, request: HttpServletRequest): String {
         return if (link == "#") {
             "#"
         } else {
             if (link.startsWith(Workbook.HTTP_PREFIX) || link.startsWith(Workbook.HTTPS_PREFIX)) {
                 link
             } else {
-                RequestUtils.getBaseUrl(request) + link
+                if (link.contains("?") && link.contains("&")) {
+                    RequestUtils.getBaseUrl(request) + link + "&menuId=$id"
+                } else if (link.contains("?") && !link.contains("&")) {
+                    RequestUtils.getBaseUrl(request) + link + "menuId=$id"
+                } else {
+                    RequestUtils.getBaseUrl(request) + link + "?menuId=$id"
+                }
             }
         }
     }
