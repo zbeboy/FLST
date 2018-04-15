@@ -1,6 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.menus
 
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.tables.records.MenusRecord
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record
@@ -19,6 +20,16 @@ interface MenusService {
      * @return 数据
      */
     fun findById(id: String): Menus
+
+    /**
+     * 通过pid查询
+     *
+     * @param pid 父Id
+     * @param menuShow 是否显示
+     * @param menuFixed 是否是固定模块
+     * @return 数据
+     */
+    fun findByPIdAndMenuShowAndMenuFixed(pid: String, menuShow: Byte, menuFixed: Byte): Result<MenusRecord>
 
     /**
      * 分页查询

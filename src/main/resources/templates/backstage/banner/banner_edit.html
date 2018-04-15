@@ -47,7 +47,7 @@
                              th:each="pic : ${banners}">
                             <div class="thumbnail">
                                 <img data-src="holder.js/100%x200" id="articleCoverTemp" alt="100%x200"
-                                     th:src="${pic.bannerLinkPath}"
+                                     th:src="@{${pic.bannerLinkPath}}"
                                      data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
                                 <div class="caption text-center">
                                     <h5 th:text="${pic.bannerLink }"></h5>

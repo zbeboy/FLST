@@ -3,6 +3,7 @@ package cn.edu.kmust.flst.service.backstage.menus
 import cn.edu.kmust.flst.domain.Tables.MENUS
 import cn.edu.kmust.flst.domain.tables.daos.MenusDao
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.tables.records.MenusRecord
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
@@ -29,6 +30,13 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
 
     override fun findById(id: String): Menus {
         return menusDao.findById(id)
+    }
+
+    override fun findByPIdAndMenuShowAndMenuFixed(pid: String, menuShow: Byte, menuFixed: Byte): Result<MenusRecord> {
+        return create.selectFrom(MENUS)
+                .where(MENUS.MENU_PID.eq(pid).and(MENUS.MENU_SHOW.eq(menuShow)).and(MENUS.MENU_FIXED.eq(menuFixed)))
+                .orderBy(MENUS.MENU_ORDER)
+                .fetch()
     }
 
     override fun findByMenuName(menuName: String): List<Menus> {

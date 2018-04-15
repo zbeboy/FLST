@@ -44,6 +44,12 @@ open class Workbook {
         const val HTTP_PREFIX = "http://"
         const val HTTPS_PREFIX = "https://"
 
+        /*
+        语言
+         */
+        const val LANGUAGE_ZH_CN = "zh-cn"
+        const val LANGUAGE_EN = "en"
+
         /**
          * 自定义图片路径
          *
