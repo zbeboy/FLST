@@ -57,7 +57,7 @@ open class Workbook {
         const val WEBSITE_ZIP_CODE = "zipCode"
         const val WEBSITE_PHONE = "phone"
         const val WEBSITE_FAX = "fax"
-        const val WEBSITE_ADDRESS_EN = "address_en"
+        const val WEBSITE_ADDRESS_EN = "addressEn"
 
         /**
          * 自定义图片路径
