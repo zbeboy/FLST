@@ -50,23 +50,17 @@
                     <input class="form-control" id="menuNameEn" name="menuNameEn" placeholder="栏目英文名">
                     <p class="text-danger hidden" id="menu_name_en_error_msg"></p>
                 </div>
-                <div class="form-group" id="valid_menu_link">
-                    <label>栏目中文链接</label>
-                    <div class="input-group">
-                        <span class="input-group-addon" th:text="${linkZhPrefix}"></span>
-                        <input type="text" id="menuLink" name="menuLink" class="form-control"/>
+                <div class="form-group checkbox" id="valid_menu_link">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label style="padding-top: 9px;">
+                                <input type="checkbox" id="outLink" name="outLink" value="1">外链</label>
+                        </div>
+                        <div class="col-md-11">
+                            <input type="hidden" class="form-control" id="menuLink" name="menuLink" placeholder="链接">
+                        </div>
                     </div>
-                    <p class="help-block">注意：若填写 # 则默认为顶级栏目，外链请以http:// 或 https:// 开头填写完整地址</p>
                     <p class="text-danger hidden" id="menu_link_error_msg"></p>
-                </div>
-                <div class="form-group" id="valid_menu_link_en">
-                    <label>栏目英文链接</label>
-                    <div class="input-group">
-                        <span class="input-group-addon" th:text="${linkEnPrefix}"></span>
-                        <input type="text" id="menuLinkEn" name="menuLinkEn" class="form-control"/>
-                    </div>
-                    <p class="help-block">注意：若填写 # 则默认为顶级栏目，外链请以http:// 或 https:// 开头填写完整地址</p>
-                    <p class="text-danger hidden" id="menu_link_en_error_msg"></p>
                 </div>
                 <div class="form-group" id="valid_menu_order">
                     <label>栏目序号</label>
@@ -76,6 +70,10 @@
                 <div class="form-group checkbox">
                     <label>
                         <input type="checkbox" id="menuShow" name="menuShow" value="1" checked="">正常显示</label>
+                </div>
+                <div class="form-group checkbox">
+                    <label>
+                        <input type="checkbox" id="showArticle" name="showArticle" value="1">链接文章</label>
                 </div>
                 <div class="text-center">
                     <button type="button" id="save" class="btn btn-primary">保存</button>

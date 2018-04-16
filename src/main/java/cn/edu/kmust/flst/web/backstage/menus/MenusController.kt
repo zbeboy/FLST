@@ -199,7 +199,7 @@ open class MenusController {
             menus.menuNameEn = menusAddVo.menuNameEn
             menus.outLink = menusAddVo.outLink
             menus.menuLink = if (menus.outLink != 1.toByte()) {
-                "${RequestUtils.getBaseUrl(request) + Workbook.RECEPTION_LINK}/{${menus.menuId}}"
+                RequestUtils.getBaseUrl(request) + Workbook.RECEPTION_LINK + menus.menuId
             } else {
                 menusAddVo.menuLink
             }
@@ -231,7 +231,7 @@ open class MenusController {
             menus.menuNameEn = menusEditVo.menuNameEn
             menus.outLink = menusEditVo.outLink
             menus.menuLink = if (menus.outLink != 1.toByte()) {
-                "${RequestUtils.getBaseUrl(request) + Workbook.RECEPTION_LINK}/{${menus.menuId}}"
+                RequestUtils.getBaseUrl(request) + Workbook.RECEPTION_LINK + menus.menuId
             } else {
                 menusEditVo.menuLink
             }

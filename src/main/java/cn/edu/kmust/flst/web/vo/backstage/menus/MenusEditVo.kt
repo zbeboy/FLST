@@ -21,7 +21,6 @@ open class MenusEditVo {
     var menuNameEn: String? = null
     @NotNull
     var outLink: Byte? = null
-    @NotNull
     @Size(max = 150)
     var menuLink: String? = null
     @NotNull

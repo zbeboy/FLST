@@ -15,7 +15,7 @@ $(document).ready(function () {
      ajax url
     */
     var ajax_url = {
-        pids:'/web/backstage/menus/pids',
+        pids: '/web/backstage/menus/pids',
         save: '/web/backstage/menus/save',
         validName: '/web/backstage/menus/add/valid/name',
         validNameEn: '/web/backstage/menus/add/valid/name_en',
@@ -29,10 +29,11 @@ $(document).ready(function () {
         menuPid: '#menuPid',
         menuName: '#menuName',
         menuNameEn: '#menuNameEn',
+        outLink: '#outLink',
         menuLink: '#menuLink',
-        menuLinkEn: '#menuLinkEn',
         menuOrder: '#menuOrder',
-        menuShow: '#menuShow'
+        menuShow: '#menuShow',
+        showArticle: '#showArticle'
     };
 
     /*
@@ -42,15 +43,16 @@ $(document).ready(function () {
         menuPid: $(paramId.menuPid).val(),
         menuName: $(paramId.menuName).val(),
         menuNameEn: $(paramId.menuNameEn).val(),
+        outLink: $('input[name="outLink"]:checked').val(),
         menuLink: $(paramId.menuLink).val(),
-        menuLinkEn: $(paramId.menuLinkEn).val(),
         menuOrder: $(paramId.menuOrder).val(),
-        menuShow: $('input[name="menuShow"]:checked').val()
+        menuShow: $('input[name="menuShow"]:checked').val(),
+        showArticle: $('input[name="showArticle"]:checked').val()
     };
 
     init();
 
-    function init(){
+    function init() {
         $.get(web_path + ajax_url.pids, function (data) {
             pidData(data);
         });
@@ -63,12 +65,21 @@ $(document).ready(function () {
         param.menuPid = $(paramId.menuPid).val();
         param.menuName = $(paramId.menuName).val();
         param.menuNameEn = $(paramId.menuNameEn).val();
+        param.outLink = $('input[name="outLink"]:checked').val();
+        if (typeof(param.outLink) === "undefined") {
+            param.outLink = 0;
+        } else {
+            param.outLink = Number(param.outLink);
+        }
         param.menuLink = $(paramId.menuLink).val();
-        param.menuLinkEn = $(paramId.menuLinkEn).val();
         param.menuOrder = $(paramId.menuOrder).val();
         param.menuShow = $('input[name="menuShow"]:checked').val();
         if (typeof(param.menuShow) === "undefined") {
             param.menuShow = 0;
+        }
+        param.showArticle = $('input[name="showArticle"]:checked').val();
+        if (typeof(param.showArticle) === "undefined") {
+            param.showArticle = 0;
         }
     }
 
@@ -79,7 +90,6 @@ $(document).ready(function () {
         menuName: '#valid_menu_name',
         menuNameEn: '#valid_menu_name_en',
         menuLink: '#valid_menu_link',
-        menuLinkEn: '#valid_menu_link_en',
         menuOrder: '#valid_menu_order'
     };
 
@@ -90,7 +100,6 @@ $(document).ready(function () {
         menuName: '#menu_name_error_msg',
         menuNameEn: '#menu_name_en_error_msg',
         menuLink: '#menu_link_error_msg',
-        menuLinkEn: '#menu_link_en_error_msg',
         menuOrder: '#menu_order_error_msg'
     };
 
@@ -113,6 +122,16 @@ $(document).ready(function () {
     function validErrorDom(validId, errorMsgId, msg) {
         $(validId).addClass('has-error').removeClass('has-success');
         $(errorMsgId).removeClass('hidden').text(msg);
+    }
+
+    /**
+     * 清除检验
+     * @param validId
+     * @param errorMsgId
+     */
+    function validCleanDom(validId, errorMsgId) {
+        $(validId).removeClass('has-error').removeClass('has-success');
+        $(errorMsgId).removeClass('hidden').text('');
     }
 
     /**
@@ -185,23 +204,28 @@ $(document).ready(function () {
         }
     });
 
-    $(paramId.menuLink).blur(function () {
+    $(paramId.outLink).click(function () {
         initParam();
-        var menuLink = param.menuLink;
-        if (menuLink.length <= 0 || menuLink.length > 150) {
-            validErrorDom(validId.menuLink, errorMsgId.menuLink, '栏目中文链接150个字符以内');
+        var outLink = param.outLink;
+        if (outLink === 1) {
+            $(paramId.menuLink).attr('type', 'text');
         } else {
-            validSuccessDom(validId.menuLink, errorMsgId.menuLink);
+            $(paramId.menuLink).attr('type', 'hidden');
+            $(paramId.menuLink).val('');
+            validCleanDom(validId.menuLink, errorMsgId.menuLink);
         }
     });
 
-    $(paramId.menuLinkEn).blur(function () {
+    $(paramId.menuLink).blur(function () {
         initParam();
-        var menuLinkEn = param.menuLinkEn;
-        if (menuLinkEn.length <= 0 || menuLinkEn.length > 150) {
-            validErrorDom(validId.menuLinkEn, errorMsgId.menuLinkEn, '栏目英文链接150个字符以内');
-        } else {
-            validSuccessDom(validId.menuLinkEn, errorMsgId.menuLinkEn);
+        var menuLink = param.menuLink;
+        var outLink = param.outLink;
+        if (outLink === 1) {
+            if (menuLink.length <= 0 || menuLink.length > 150) {
+                validErrorDom(validId.menuLink, errorMsgId.menuLink, '链接150个字符以内');
+            } else {
+                validSuccessDom(validId.menuLink, errorMsgId.menuLink);
+            }
         }
     });
 
@@ -334,28 +358,18 @@ $(document).ready(function () {
 
     function validMenuLink() {
         var menuLink = param.menuLink;
-        if (menuLink.length <= 0 || menuLink.length > 150) {
-            Messenger().post({
-                message: '栏目中文链接1~150个字符',
-                type: 'error',
-                showCloseButton: true
-            });
-        } else {
-            validMenuLinkEn();
+        var outLink = param.outLink;
+        if (outLink === 1) {
+            if (menuLink.length <= 0 || menuLink.length > 150) {
+                Messenger().post({
+                    message: '链接1~150个字符',
+                    type: 'error',
+                    showCloseButton: true
+                });
+                return;
+            }
         }
-    }
-
-    function validMenuLinkEn() {
-        var menuLinkEn = param.menuLinkEn;
-        if (menuLinkEn.length <= 0 || menuLinkEn.length > 150) {
-            Messenger().post({
-                message: '栏目英文链接1~150个字符',
-                type: 'error',
-                showCloseButton: true
-            });
-        } else {
-            validOrder();
-        }
+        validOrder();
     }
 
     function validOrder() {

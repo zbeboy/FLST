@@ -53,22 +53,23 @@
                     <p class="text-danger hidden" id="menu_name_en_error_msg"></p>
                 </div>
                 <div class="form-group" id="valid_menu_link">
-                    <label>栏目中文链接</label>
-                    <div class="input-group">
-                        <span class="input-group-addon" th:text="${linkZhPrefix}"></span>
-                        <input type="text" id="menuLink" name="menuLink" th:value="${menus.menuLink}" class="form-control"/>
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label th:if="${menus.outLink == 0 || menus.outLink == null}">
+                                <input type="checkbox" name="outLink" id="outLink"
+                                       value="1"/>外链
+                            </label>
+                            <label th:if="${menus.outLink == 1}">
+                                <input type="checkbox" name="outLink" id="outLink"
+                                       value="1" checked=""/>外链
+                            </label>
+                        </div>
+                        <div class="col-md-11">
+                            <input th:if="${menus.outLink == 1}" class="form-control" id="menuLink" name="menuLink" th:value="${menus.menuLink}" placeholder="链接">
+                            <input type="hidden" th:if="${menus.outLink == 0 || menus.outLink == null}" class="form-control" id="menuLink" name="menuLink" placeholder="链接">
+                        </div>
                     </div>
-                    <p class="help-block">注意：若填写 # 则默认为顶级栏目，外链请以http:// 或 https:// 开头填写完整地址</p>
                     <p class="text-danger hidden" id="menu_link_error_msg"></p>
-                </div>
-                <div class="form-group" id="valid_menu_link_en">
-                    <label>栏目英文链接</label>
-                    <div class="input-group">
-                        <span class="input-group-addon" th:text="${linkEnPrefix}"></span>
-                        <input type="text" id="menuLinkEn" name="menuLinkEn" th:value="${menus.menuLinkEn}" class="form-control"/>
-                    </div>
-                    <p class="help-block">注意：若填写 # 则默认为顶级栏目，外链请以http:// 或 https:// 开头填写完整地址</p>
-                    <p class="text-danger hidden" id="menu_link_en_error_msg"></p>
                 </div>
                 <div class="form-group" id="valid_menu_order">
                     <label>栏目序号</label>
@@ -83,6 +84,16 @@
                     <label th:if="${menus.menuShow == 1}">
                         <input type="checkbox" name="menuShow" id="menuShow"
                                value="1" checked=""/>正常显示
+                    </label>
+                </div>
+                <div class="form-group checkbox">
+                    <label th:if="${menus.showArticle == 0 || menus.showArticle == null}">
+                        <input type="checkbox" name="showArticle" id="showArticle"
+                               value="1"/>链接文章
+                    </label>
+                    <label th:if="${menus.showArticle == 1}">
+                        <input type="checkbox" name="showArticle" id="showArticle"
+                               value="1" checked=""/>链接文章
                     </label>
                 </div>
                 <div class="text-center">
