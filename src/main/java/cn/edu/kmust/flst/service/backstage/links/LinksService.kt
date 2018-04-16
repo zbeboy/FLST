@@ -1,5 +1,6 @@
 package cn.edu.kmust.flst.service.backstage.links
 
+import cn.edu.kmust.flst.domain.tables.pojos.FriendlyLink
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record
@@ -9,6 +10,14 @@ import org.jooq.Result
  * Created by zbeboy 2018-04-16 .
  **/
 interface LinksService {
+
+    /**
+     * 通过主键查询
+     *
+     * @param id 主键
+     * @return 数据
+     */
+    fun findById(id: String): FriendlyLink
 
     /**
      * 分页查询
@@ -24,4 +33,25 @@ interface LinksService {
      * @return 条件查询总数
      */
     fun countByCondition(bootstrapTableUtils: BootstrapTableUtils<LinksBean>): Int
+
+    /**
+     * 保存
+     *
+     * @param friendlyLink 数据
+     */
+    fun save(friendlyLink: FriendlyLink)
+
+    /**
+     * 更新
+     *
+     * @param friendlyLink 数据
+     */
+    fun update(friendlyLink: FriendlyLink)
+
+    /**
+     * 删除
+     *
+     * @param id 主键
+     */
+    fun deleteById(id: String)
 }

@@ -1,0 +1,23 @@
+package cn.edu.kmust.flst.web.vo.backstage.links
+
+import javax.validation.constraints.NotNull
+import javax.validation.constraints.Size
+
+/**
+ * Created by zbeboy 2018-04-16 .
+ **/
+open class LinksEditVo {
+    @NotNull
+    @Size(max = 64)
+    var linkId: String? = null
+    @NotNull
+    @Size(max = 100)
+    var linkName: String? = null
+    @NotNull
+    @Size(max = 200)
+    var linkNameEn: String? = null
+    @NotNull
+    @Size(max = 200)
+    var linkUrl: String? = null
+    var linkShow: Byte? = null
+}
