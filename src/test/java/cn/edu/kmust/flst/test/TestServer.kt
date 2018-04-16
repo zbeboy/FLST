@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner
 /**
  * Created by zbeboy 2018-03-31 .
  **/
-@RunWith(SpringRunner::class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+/*@RunWith(SpringRunner::class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)*/
 open class TestServer {
 }

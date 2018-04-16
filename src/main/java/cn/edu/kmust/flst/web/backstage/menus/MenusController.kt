@@ -4,6 +4,7 @@ import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.system.UsersService
+import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.service.util.UUIDUtils
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.AjaxUtils
@@ -49,9 +50,7 @@ open class MenusController {
      * @return 栏目管理添加
      */
     @RequestMapping(value = ["/web/backstage/menus/add"], method = [(RequestMethod.GET)])
-    fun add(modelMap: ModelMap): String {
-        modelMap.addAttribute("linkZhPrefix", Workbook.LINK_ZH_PREFIX)
-        modelMap.addAttribute("linkEnPrefix", Workbook.LINK_EN_PREFIX)
+    fun add(): String {
         return "backstage/menus/menus_add"
     }
 
@@ -62,12 +61,8 @@ open class MenusController {
      */
     @RequestMapping(value = ["/web/backstage/menus/edit/{menuId}"], method = [(RequestMethod.GET)])
     fun edit(@PathVariable("menuId") id: String, modelMap: ModelMap): String {
-        modelMap.addAttribute("linkZhPrefix", Workbook.LINK_ZH_PREFIX)
-        modelMap.addAttribute("linkEnPrefix", Workbook.LINK_EN_PREFIX)
         val menus = menusService.findById(id)
         return if (!ObjectUtils.isEmpty(menus)) {
-            menus.menuLink = dealEditLink(menus.menuLink, Workbook.LINK_ZH_PREFIX)
-            menus.menuLinkEn = dealEditLink(menus.menuLinkEn, Workbook.LINK_EN_PREFIX)
             modelMap.addAttribute("menus", menus)
             "backstage/menus/menus_edit"
         } else {
@@ -196,17 +191,22 @@ open class MenusController {
      */
     @RequestMapping(value = ["/web/backstage/menus/save"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun save(@Valid menusAddVo: MenusAddVo, bindingResult: BindingResult): AjaxUtils<*> {
+    fun save(@Valid menusAddVo: MenusAddVo, bindingResult: BindingResult, request: HttpServletRequest): AjaxUtils<*> {
         if (!bindingResult.hasErrors()) {
             val menus = Menus()
             menus.menuId = UUIDUtils.getUUID()
             menus.menuName = menusAddVo.menuName
             menus.menuNameEn = menusAddVo.menuNameEn
-            menus.menuLink = dealAddLink(menusAddVo.menuLink!!, Workbook.LINK_ZH_PREFIX)
-            menus.menuLinkEn = dealAddLink(menusAddVo.menuLinkEn!!, Workbook.LINK_EN_PREFIX)
+            menus.outLink = menusAddVo.outLink
+            menus.menuLink = if (menus.outLink != 1.toByte()) {
+                "${RequestUtils.getBaseUrl(request) + Workbook.RECEPTION_LINK}/{${menus.menuId}}"
+            } else {
+                menusAddVo.menuLink
+            }
             menus.menuPid = menusAddVo.menuPid
             menus.menuOrder = menusAddVo.menuOrder
             menus.menuShow = menusAddVo.menuShow
+            menus.showArticle = menusAddVo.showArticle
             menus.menuFixed = 0
             menus.username = usersService.getUsernameFromSession()
             menusService.save(menus)
@@ -224,16 +224,21 @@ open class MenusController {
      */
     @RequestMapping(value = ["/web/backstage/menus/update"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun update(@Valid menusEditVo: MenusEditVo, bindingResult: BindingResult): AjaxUtils<*> {
+    fun update(@Valid menusEditVo: MenusEditVo, bindingResult: BindingResult, request: HttpServletRequest): AjaxUtils<*> {
         if (!bindingResult.hasErrors()) {
             val menus = menusService.findById(menusEditVo.menuId!!)
             menus.menuName = menusEditVo.menuName
             menus.menuNameEn = menusEditVo.menuNameEn
-            menus.menuLink = dealAddLink(menusEditVo.menuLink!!, Workbook.LINK_ZH_PREFIX)
-            menus.menuLinkEn = dealAddLink(menusEditVo.menuLinkEn!!, Workbook.LINK_EN_PREFIX)
+            menus.outLink = menusEditVo.outLink
+            menus.menuLink = if (menus.outLink != 1.toByte()) {
+                "${RequestUtils.getBaseUrl(request) + Workbook.RECEPTION_LINK}/{${menus.menuId}}"
+            } else {
+                menusEditVo.menuLink
+            }
             menus.menuPid = menusEditVo.menuPid
             menus.menuOrder = menusEditVo.menuOrder
             menus.menuShow = menusEditVo.menuShow
+            menus.showArticle = menusEditVo.showArticle
             menusService.update(menus)
             return AjaxUtils.of<Any>().success().msg("更新成功")
         }
@@ -254,48 +259,6 @@ open class MenusController {
         menus.menuShow = menuShow
         menusService.update(menus)
         return AjaxUtils.of<Any>().success().msg("更新成功")
-    }
-
-    /**
-     * 处理链接特殊字符
-     *
-     * @param link 待处理链接
-     * @param prefix 链接前缀
-     * @return 处理后链接
-     */
-    private fun dealAddLink(link: String, prefix: String): String {
-        var lk = StringUtils.trimAllWhitespace(link)
-
-        if (lk.startsWith(Workbook.HTTP_PREFIX) || lk.startsWith(Workbook.HTTPS_PREFIX)) {
-            return lk
-        }
-
-        if (lk.startsWith('/')) {
-            lk = lk.substring(1)
-        }
-
-        if (lk.contains('\\')) {
-            lk = lk.replace('\\', '/')
-        }
-        return if (lk == "#") {
-            "#"
-        } else {
-            prefix + lk
-        }
-    }
-
-    /**
-     * 处理链接特殊字符
-     *
-     * @param link 待处理链接
-     * @param prefix 链接前缀
-     * @return 处理后链接
-     */
-    private fun dealEditLink(link: String, prefix: String): String {
-        if (link.startsWith(Workbook.HTTP_PREFIX) || link.startsWith(Workbook.HTTPS_PREFIX)) {
-            return link
-        }
-        return link.replace(prefix, "")
     }
 
 }

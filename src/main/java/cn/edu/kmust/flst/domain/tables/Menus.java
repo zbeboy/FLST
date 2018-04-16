@@ -39,7 +39,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Menus extends TableImpl<MenusRecord> {
 
-    private static final long serialVersionUID = 1216902726;
+    private static final long serialVersionUID = -1323069656;
 
     /**
      * The reference instance of <code>flst.menus</code>
@@ -70,14 +70,14 @@ public class Menus extends TableImpl<MenusRecord> {
     public final TableField<MenusRecord, String> MENU_NAME_EN = createField("menu_name_en", org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
+     * The column <code>flst.menus.out_link</code>.
+     */
+    public final TableField<MenusRecord, Byte> OUT_LINK = createField("out_link", org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
+
+    /**
      * The column <code>flst.menus.menu_link</code>.
      */
     public final TableField<MenusRecord, String> MENU_LINK = createField("menu_link", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
-
-    /**
-     * The column <code>flst.menus.menu_link_en</code>.
-     */
-    public final TableField<MenusRecord, String> MENU_LINK_EN = createField("menu_link_en", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
 
     /**
      * The column <code>flst.menus.menu_pid</code>.
@@ -98,6 +98,11 @@ public class Menus extends TableImpl<MenusRecord> {
      * The column <code>flst.menus.menu_fixed</code>.
      */
     public final TableField<MenusRecord, Byte> MENU_FIXED = createField("menu_fixed", org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
+
+    /**
+     * The column <code>flst.menus.show_article</code>.
+     */
+    public final TableField<MenusRecord, Byte> SHOW_ARTICLE = createField("show_article", org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
 
     /**
      * The column <code>flst.menus.username</code>.

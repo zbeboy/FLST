@@ -6,6 +6,7 @@ import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record
 import org.jooq.Record8
+import org.jooq.Record9
 import org.jooq.Result
 
 /**
@@ -37,7 +38,7 @@ interface MenusService {
      * @param bootstrapTableUtils bootstrapTable工具类
      * @return 分页数据
      */
-    fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record8<String, String, String, String, String, String, Int, Byte>>
+    fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record9<String, String, String, String, Byte, String, Int, Byte, Byte>>
 
     /**
      * 根据条件查询总数

@@ -24,17 +24,18 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Menus implements Serializable {
 
-    private static final long serialVersionUID = 1319113936;
+    private static final long serialVersionUID = -1054477028;
 
     private String  menuId;
     private String  menuName;
     private String  menuNameEn;
+    private Byte    outLink;
     private String  menuLink;
-    private String  menuLinkEn;
     private String  menuPid;
     private Integer menuOrder;
     private Byte    menuShow;
     private Byte    menuFixed;
+    private Byte    showArticle;
     private String  username;
 
     public Menus() {}
@@ -43,12 +44,13 @@ public class Menus implements Serializable {
         this.menuId = value.menuId;
         this.menuName = value.menuName;
         this.menuNameEn = value.menuNameEn;
+        this.outLink = value.outLink;
         this.menuLink = value.menuLink;
-        this.menuLinkEn = value.menuLinkEn;
         this.menuPid = value.menuPid;
         this.menuOrder = value.menuOrder;
         this.menuShow = value.menuShow;
         this.menuFixed = value.menuFixed;
+        this.showArticle = value.showArticle;
         this.username = value.username;
     }
 
@@ -56,23 +58,25 @@ public class Menus implements Serializable {
         String  menuId,
         String  menuName,
         String  menuNameEn,
+        Byte    outLink,
         String  menuLink,
-        String  menuLinkEn,
         String  menuPid,
         Integer menuOrder,
         Byte    menuShow,
         Byte    menuFixed,
+        Byte    showArticle,
         String  username
     ) {
         this.menuId = menuId;
         this.menuName = menuName;
         this.menuNameEn = menuNameEn;
+        this.outLink = outLink;
         this.menuLink = menuLink;
-        this.menuLinkEn = menuLinkEn;
         this.menuPid = menuPid;
         this.menuOrder = menuOrder;
         this.menuShow = menuShow;
         this.menuFixed = menuFixed;
+        this.showArticle = showArticle;
         this.username = username;
     }
 
@@ -106,6 +110,14 @@ public class Menus implements Serializable {
         this.menuNameEn = menuNameEn;
     }
 
+    public Byte getOutLink() {
+        return this.outLink;
+    }
+
+    public void setOutLink(Byte outLink) {
+        this.outLink = outLink;
+    }
+
     @NotNull
     @Size(max = 200)
     public String getMenuLink() {
@@ -114,16 +126,6 @@ public class Menus implements Serializable {
 
     public void setMenuLink(String menuLink) {
         this.menuLink = menuLink;
-    }
-
-    @NotNull
-    @Size(max = 200)
-    public String getMenuLinkEn() {
-        return this.menuLinkEn;
-    }
-
-    public void setMenuLinkEn(String menuLinkEn) {
-        this.menuLinkEn = menuLinkEn;
     }
 
     @Size(max = 64)
@@ -160,6 +162,14 @@ public class Menus implements Serializable {
         this.menuFixed = menuFixed;
     }
 
+    public Byte getShowArticle() {
+        return this.showArticle;
+    }
+
+    public void setShowArticle(Byte showArticle) {
+        this.showArticle = showArticle;
+    }
+
     @NotNull
     @Size(max = 64)
     public String getUsername() {
@@ -177,12 +187,13 @@ public class Menus implements Serializable {
         sb.append(menuId);
         sb.append(", ").append(menuName);
         sb.append(", ").append(menuNameEn);
+        sb.append(", ").append(outLink);
         sb.append(", ").append(menuLink);
-        sb.append(", ").append(menuLinkEn);
         sb.append(", ").append(menuPid);
         sb.append(", ").append(menuOrder);
         sb.append(", ").append(menuShow);
         sb.append(", ").append(menuFixed);
+        sb.append(", ").append(showArticle);
         sb.append(", ").append(username);
 
         sb.append(")");

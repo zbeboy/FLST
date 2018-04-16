@@ -19,16 +19,17 @@ CREATE TABLE persistent_logins (
 );
 
 CREATE TABLE menus (
-  menu_id      VARCHAR(64)           NOT NULL PRIMARY KEY,
-  menu_name    VARCHAR(20) UNIQUE    NOT NULL,
-  menu_name_en VARCHAR(50) UNIQUE    NOT NULL,
-  menu_link    VARCHAR(200)          NOT NULL,
-  menu_link_en VARCHAR(200)          NOT NULL,
-  menu_pid     VARCHAR(64) DEFAULT 0 NOT NULL,
-  menu_order   INT                   NOT NULL,
-  menu_show    BOOLEAN DEFAULT 1     NOT NULL,
-  menu_fixed   BOOLEAN DEFAULT 0     NOT NULL,
-  username     VARCHAR(64)           NOT NULL,
+  menu_id      VARCHAR(64)                       NOT NULL PRIMARY KEY,
+  menu_name    VARCHAR(20) UNIQUE                NOT NULL,
+  menu_name_en VARCHAR(50) UNIQUE                NOT NULL,
+  out_link     BOOLEAN DEFAULT 0                 NOT NULL,
+  menu_link    VARCHAR(200)                      NOT NULL,
+  menu_pid     VARCHAR(64) DEFAULT 0             NOT NULL,
+  menu_order   INT                               NOT NULL,
+  menu_show    BOOLEAN DEFAULT 1                 NOT NULL,
+  menu_fixed   BOOLEAN DEFAULT 0                 NOT NULL,
+  show_article BOOLEAN DEFAULT 0                 NOT NULL,
+  username     VARCHAR(64)                       NOT NULL,
   FOREIGN KEY (username) REFERENCES users (username)
 );
 

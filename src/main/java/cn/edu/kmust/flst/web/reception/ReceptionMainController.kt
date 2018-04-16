@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseBody
 import javax.annotation.Resource
-import javax.servlet.http.HttpServletRequest
 
 /**
  * Created by zbeboy 2018-04-15 .
@@ -19,13 +18,13 @@ open class ReceptionMainController {
 
     @RequestMapping("/user/zh")
     @ResponseBody
-    fun zh(request: HttpServletRequest): String {
-        return navService.navHtml(request, Workbook.LANGUAGE_ZH_CN)
+    fun zh(): String {
+        return navService.navHtml(Workbook.LANGUAGE_ZH_CN)
     }
 
     @RequestMapping("/user/en")
     @ResponseBody
-    fun en(request: HttpServletRequest): String {
-        return navService.navHtml(request, Workbook.LANGUAGE_EN)
+    fun en(): String {
+        return navService.navHtml(Workbook.LANGUAGE_EN)
     }
 }

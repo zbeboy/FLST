@@ -97,17 +97,17 @@ public class MenusDao extends DAOImpl<MenusRecord, cn.edu.kmust.flst.domain.tabl
     }
 
     /**
+     * Fetch records that have <code>out_link IN (values)</code>
+     */
+    public List<cn.edu.kmust.flst.domain.tables.pojos.Menus> fetchByOutLink(Byte... values) {
+        return fetch(Menus.MENUS.OUT_LINK, values);
+    }
+
+    /**
      * Fetch records that have <code>menu_link IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.tables.pojos.Menus> fetchByMenuLink(String... values) {
         return fetch(Menus.MENUS.MENU_LINK, values);
-    }
-
-    /**
-     * Fetch records that have <code>menu_link_en IN (values)</code>
-     */
-    public List<cn.edu.kmust.flst.domain.tables.pojos.Menus> fetchByMenuLinkEn(String... values) {
-        return fetch(Menus.MENUS.MENU_LINK_EN, values);
     }
 
     /**
@@ -136,6 +136,13 @@ public class MenusDao extends DAOImpl<MenusRecord, cn.edu.kmust.flst.domain.tabl
      */
     public List<cn.edu.kmust.flst.domain.tables.pojos.Menus> fetchByMenuFixed(Byte... values) {
         return fetch(Menus.MENUS.MENU_FIXED, values);
+    }
+
+    /**
+     * Fetch records that have <code>show_article IN (values)</code>
+     */
+    public List<cn.edu.kmust.flst.domain.tables.pojos.Menus> fetchByShowArticle(Byte... values) {
+        return fetch(Menus.MENUS.SHOW_ARTICLE, values);
     }
 
     /**

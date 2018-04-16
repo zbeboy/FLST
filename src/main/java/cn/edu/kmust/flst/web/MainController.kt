@@ -70,7 +70,7 @@ open class MainController {
      *
      * @param request 请求
      */
-    @RequestMapping(value = ["/user/images/{name}"], method = [(RequestMethod.GET)])
+    @RequestMapping(value = [Workbook.MY_IMAGES_PATH + "{name}"], method = [(RequestMethod.GET)])
     fun reviewAvatar(@PathVariable("name") name: String, request: HttpServletRequest, response: HttpServletResponse) {
         uploadService.reviewPic(Workbook.imagesPath() + name, request, response)
     }

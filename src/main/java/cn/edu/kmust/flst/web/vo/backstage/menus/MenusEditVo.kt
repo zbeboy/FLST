@@ -20,12 +20,12 @@ open class MenusEditVo {
     @Size(max = 50)
     var menuNameEn: String? = null
     @NotNull
+    var outLink: Byte? = null
+    @NotNull
     @Size(max = 150)
     var menuLink: String? = null
     @NotNull
-    @Size(max = 150)
-    var menuLinkEn: String? = null
-    @NotNull
     var menuOrder: Int? = null
     var menuShow: Byte? = null
+    var showArticle: Byte? = null
 }

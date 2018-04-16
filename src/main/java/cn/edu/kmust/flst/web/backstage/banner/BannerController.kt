@@ -67,7 +67,7 @@ open class BannerController {
         if (banners.isNotEmpty) {
             bannerList = banners.into(BannerBean::class.java)
             bannerList.forEach { i ->
-                i.bannerLinkPath = "/user/images/" + i.bannerLink
+                i.bannerLinkPath = Workbook.MY_IMAGES_PATH + i.bannerLink
             }
         }
         modelMap.addAttribute("banners", bannerList)

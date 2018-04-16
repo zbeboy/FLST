@@ -32,14 +32,14 @@ open class Workbook {
         const val DOCUMENT_ROOT = "root"
 
         /*
-        中文链接前缀
+        前台链接前缀
          */
-        const val LINK_ZH_PREFIX = "/user/zh/"
+        const val RECEPTION_LINK = "/user/menu/"
 
         /*
-        英文链接前缀
+        自定义图片链接
          */
-        const val LINK_EN_PREFIX = "/user/en/"
+        const val MY_IMAGES_PATH = "/user/images/"
 
         const val HTTP_PREFIX = "http://"
         const val HTTPS_PREFIX = "https://"
@@ -47,7 +47,7 @@ open class Workbook {
         /*
         语言
          */
-        const val LANGUAGE_ZH_CN = "zh-cn"
+        const val LANGUAGE_ZH_CN = "zh_cn"
         const val LANGUAGE_EN = "en"
 
         /*
