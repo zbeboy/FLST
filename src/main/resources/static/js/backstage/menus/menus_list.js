@@ -65,6 +65,13 @@ dataTable.bootstrapTable('destroy')
         }
     });
 
+function formatterOutLink(value, row, index, field) {
+    if (value === 1) {
+        return "是";
+    }
+    return "否";
+}
+
 function formatterShow(value, row, index, field) {
     if (value === 1) {
         return "是";
@@ -77,6 +84,13 @@ function formatterPidName(value, row, index, field) {
         return "无";
     }
     return value;
+}
+
+function formatterShowArticle(value, row, index, field) {
+    if (value === 1) {
+        return "是";
+    }
+    return "否";
 }
 
 // 预编译模板
