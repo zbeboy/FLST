@@ -15,7 +15,7 @@ $(document).ready(function () {
      ajax url
     */
     var ajax_url = {
-        save: '/web/backstage/links/save',
+        update: '/web/backstage/links/update',
         back: '/web/backstage/links'
     };
 
@@ -23,6 +23,7 @@ $(document).ready(function () {
      参数id
     */
     var paramId = {
+        linkId:'#linkId',
         linkName: '#linkName',
         linkNameEn: '#linkNameEn',
         linkUrl: '#linkUrl',
@@ -33,6 +34,7 @@ $(document).ready(function () {
     参数
     */
     var param = {
+        linkId:$(paramId.linkId).val(),
         linkName: $(paramId.linkName).val(),
         linkNameEn: $(paramId.linkNameEn).val(),
         linkUrl: $(paramId.linkUrl).val(),
@@ -43,6 +45,7 @@ $(document).ready(function () {
      * 初始化参数
      */
     function initParam() {
+        param.linkId = $(paramId.linkId).val();
         param.linkName = $(paramId.linkName).val();
         param.linkNameEn = $(paramId.linkNameEn).val();
         param.linkUrl = $(paramId.linkUrl).val();
@@ -143,7 +146,7 @@ $(document).ready(function () {
         var linkName = param.linkName;
         var msg;
         msg = Messenger().post({
-            message: "确定添加链接 '" + linkName + "'  吗?",
+            message: "确定更新链接 '" + linkName + "'  吗?",
             actions: {
                 retry: {
                     label: '确定',
@@ -214,7 +217,7 @@ $(document).ready(function () {
             errorMessage: '保存数据失败',
             progressMessage: '正在保存数据....'
         }, {
-            url: web_path + ajax_url.save,
+            url: web_path + ajax_url.update,
             type: 'post',
             data: param,
             success: function (data) {

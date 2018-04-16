@@ -7,9 +7,12 @@ import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import cn.edu.kmust.flst.web.vo.backstage.links.LinksAddVo
+import cn.edu.kmust.flst.web.vo.backstage.links.LinksEditVo
 import org.springframework.stereotype.Controller
+import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
 import org.springframework.validation.BindingResult
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
@@ -45,6 +48,24 @@ open class LinksController {
     @RequestMapping(value = ["/web/backstage/links/add"], method = [(RequestMethod.GET)])
     fun add(): String {
         return "backstage/links/links_add"
+    }
+
+    /**
+     * 链接管理编辑
+     *
+     * @return 链接管理编辑
+     */
+    @RequestMapping(value = ["/web/backstage/links/edit/{linkId}"], method = [(RequestMethod.GET)])
+    fun edit(@PathVariable("linkId") id: String, modelMap: ModelMap): String {
+        val links = linksService.findById(id)
+        return if (!ObjectUtils.isEmpty(links)) {
+            modelMap.addAttribute("links", links)
+            "backstage/links/links_edit"
+        } else {
+            modelMap.addAttribute("status", 500)
+            modelMap.addAttribute("message", "未查询到该链接信息")
+            "error"
+        }
     }
 
     /**
@@ -87,5 +108,27 @@ open class LinksController {
             return AjaxUtils.of<Any>().success().msg("保存成功")
         }
         return AjaxUtils.of<Any>().fail().msg("保存失败")
+    }
+
+    /**
+     * 更新
+     *
+     * @param linksEditVo 数据
+     * @param bindingResult 检验
+     * @return 保存结果
+     */
+    @RequestMapping(value = ["/web/backstage/links/update"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun update(@Valid linksEditVo: LinksEditVo, bindingResult: BindingResult, request: HttpServletRequest): AjaxUtils<*> {
+        if (!bindingResult.hasErrors()) {
+            val links = linksService.findById(linksEditVo.linkId!!)
+            links.linkName = linksEditVo.linkName
+            links.linkNameEn = linksEditVo.linkNameEn
+            links.linkUrl = linksEditVo.linkUrl
+            links.linkShow = linksEditVo.linkShow
+            linksService.update(links)
+            return AjaxUtils.of<Any>().success().msg("更新成功")
+        }
+        return AjaxUtils.of<Any>().fail().msg("更新失败")
     }
 }
