@@ -1,7 +1,10 @@
 package cn.edu.kmust.flst.web.backstage.links
 
+import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.FriendlyLink
 import cn.edu.kmust.flst.service.backstage.links.LinksService
+import cn.edu.kmust.flst.service.util.FilesUtils
+import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.service.util.UUIDUtils
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
 import cn.edu.kmust.flst.web.util.AjaxUtils
@@ -12,10 +15,7 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
 import org.springframework.validation.BindingResult
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.*
 import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
@@ -130,5 +130,34 @@ open class LinksController {
             return AjaxUtils.of<Any>().success().msg("更新成功")
         }
         return AjaxUtils.of<Any>().fail().msg("更新失败")
+    }
+
+    /**
+     * 显示
+     *
+     * @param linkId id
+     * @param linkShow 显示
+     * @return 结果
+     */
+    @RequestMapping(value = ["/web/backstage/links/show"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun show(@RequestParam("linkId") linkId: String, @RequestParam("linkShow") linkShow: Byte): AjaxUtils<*> {
+        val links = linksService.findById(linkId)
+        links.linkShow = linkShow
+        linksService.update(links)
+        return AjaxUtils.of<Any>().success().msg("更新成功")
+    }
+
+    /**
+     * 删除
+     *
+     * @param linkId id
+     * @return 结果
+     */
+    @RequestMapping(value = ["/web/backstage/links/delete"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun delete(@RequestParam("linkId") linkId: String, request: HttpServletRequest): AjaxUtils<*> {
+        linksService.deleteById(linkId)
+        return AjaxUtils.of<Any>().success().msg("删除成功")
     }
 }
