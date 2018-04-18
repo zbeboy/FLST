@@ -49,6 +49,8 @@ open class Workbook {
          */
         const val LANGUAGE_ZH_CN = "zh_cn"
         const val LANGUAGE_EN = "en"
+        const val LANGUAGE_ZH_CN_NAME = "中文"
+        const val LANGUAGE_EN_NAME = "英文"
 
         /*
         网站信息键

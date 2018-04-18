@@ -12,7 +12,7 @@
     <link href="css/style.css" rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<div class="myheader hidden-xs" th:include="nav::receptionHearder">
+<div class="myheader" th:include="nav::receptionHearder">
 </div>
 <nav class="navbar navbar-default navbar-static-top navbar-wrapper" style="margin-bottom:0px;border:0px;" th:include="nav::receptionNav">
 </nav>
@@ -54,7 +54,7 @@
                     </h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -116,7 +116,7 @@
                     <h3 class="h3-line">通知公告</h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -162,7 +162,7 @@
                     <h3 class="h3-line">学术活动</h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -196,7 +196,7 @@
                     <h3 class="h3-line">就业信息</h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -230,7 +230,7 @@
                     <h3 class="h3-line">科研成果</h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -292,7 +292,7 @@
                     <h3 class="h3-line">科研动态</h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">

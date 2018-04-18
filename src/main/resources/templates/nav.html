@@ -8,7 +8,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" th:fragment="backstage">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#sidebar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -17,10 +18,13 @@
             <a class="navbar-brand" href="#" th:href="@{/web/backstage}"><span>昆工</span>生命科学与技术学院</a>
             <ul class="user-menu">
                 <li class="dropdown pull-right">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> 用户 <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span
+                            class="glyphicon glyphicon-user"></span> 用户 <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#" th:href="@{/web/backstage/users/setting}"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
-                        <li><a href="javascript:$('#logout').submit();"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                        <li><a href="#" th:href="@{/web/backstage/users/setting}"><span
+                                class="glyphicon glyphicon-cog"></span> 设置</a></li>
+                        <li><a href="javascript:$('#logout').submit();"><span
+                                class="glyphicon glyphicon-log-out"></span> 退出</a></li>
                         <li class="hidden">
                             <form th:action="@{/logout}" method="POST" id="logout">
                                 <input type="submit"/>
@@ -33,13 +37,26 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<div class="myheader hidden-xs" th:fragment="receptionHearder">
-    <img src="images/logopng.png" th:src="@{/images/logopng.png}" height="118"/>
-    <div class="top-content"><a href="#" class="white-color">旧版网站</a> | <a href="#" class="white-color">ENGLISH</a>
+<div class="myheader" th:fragment="receptionHearder">
+    <img class="hidden-xs" src="images/logopng.png" th:src="@{/images/logopng.png}" height="118"/>
+    <div class="top-content hidden-xs"><a href="#" class="white-color" th:text="#{web.old.website}">旧版网站</a> | <a href="#"
+                                                                                                        th:href="@{'/language?language=en'}"
+                                                                                                        class="white-color"
+                                                                                                        th:if="${language == 'zh_cn'}">ENGLISH</a>
+        <a href="#" th:href="@{'/language?language=zh_cn'}" class="white-color" th:if="${language == 'en'}">中文</a>
+    </div>
+
+    <img class="hidden-sm hidden-md hidden-lg" src="images/logopng.png" th:src="@{/images/logopng.png}" height="118" width="374"/>
+    <div class="top-content hidden-sm hidden-md hidden-lg" style="top:88px;right: 16px;"><a href="#" class="white-color" th:text="#{web.old.website}">旧版网站</a> | <a href="#"
+                                                                                                                 th:href="@{'/language?language=en'}"
+                                                                                                                 class="white-color"
+                                                                                                                 th:if="${language == 'zh_cn'}">ENGLISH</a>
+        <a href="#" th:href="@{'/language?language=zh_cn'}" class="white-color" th:if="${language == 'en'}">中文</a>
     </div>
 </div>
 
-<nav class="navbar navbar-default navbar-static-top navbar-wrapper" style="margin-bottom:0px;border:0px;" th:fragment="receptionNav">
+<nav class="navbar navbar-default navbar-static-top navbar-wrapper" style="margin-bottom:0px;border:0px;"
+     th:fragment="receptionNav">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
@@ -49,9 +66,10 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="#">生命科学与技术学院</a>
+            <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="#" th:href="@{/}" th:if="${language == 'zh_cn'}" th:text="#{web.meta.description}">生命科学与技术学院</a>
+            <a class="navbar-brand hidden-sm hidden-md hidden-lg" href="#" th:href="@{/}" th:if="${language == 'en'}" th:text="#{web.meta.description}" style="font-size: 10px;">生命科学与技术学院</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse" th:utext="${nav}">
             <ul class="nav navbar-nav nav-menu">
                 <li><a href="#">网站首页</a></li>
                 <li class="dropdown">

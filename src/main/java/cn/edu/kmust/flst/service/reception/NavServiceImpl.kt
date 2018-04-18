@@ -42,10 +42,8 @@ open class NavServiceImpl : NavService {
                     li += "><a href=\"${menu1.menuLink}\">${menu1.menuName}</a></li>"
                 }
             }
-            ul = ul + li + "</ul>"
-        } else {
-            ul += "</ul>"
         }
+        ul = "$ul$li</ul>"
         return ul
     }
 
