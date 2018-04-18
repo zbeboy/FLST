@@ -23,6 +23,11 @@ interface MenusService {
     fun findById(id: String): Menus
 
     /**
+     * 查询全部
+     */
+    fun findAll():List<Menus>
+
+    /**
      * 通过pid查询
      *
      * @param pid 父Id

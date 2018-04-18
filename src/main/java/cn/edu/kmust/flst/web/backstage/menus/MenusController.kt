@@ -98,8 +98,14 @@ open class MenusController {
      */
     @RequestMapping(value = ["/web/backstage/menus/pids"], method = [(RequestMethod.GET)])
     @ResponseBody
-    fun pids(): AjaxUtils<Menus> {
-        return AjaxUtils.of<Menus>().success().msg("获取数据成功").listData(menusService.findByMenuFixed(0))
+    fun pids(menuFixed:Byte?): AjaxUtils<Menus> {
+        val ajaxUtils = AjaxUtils.of<Menus>();
+        if(!ObjectUtils.isEmpty(menuFixed)){
+           ajaxUtils.success().msg("获取数据成功").listData(menusService.findByMenuFixed(menuFixed!!))
+        } else {
+            ajaxUtils.success().msg("获取数据成功").listData(menusService.findAll())
+        }
+        return ajaxUtils
     }
 
     /**

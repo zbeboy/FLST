@@ -32,6 +32,10 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
         return menusDao.findById(id)
     }
 
+    override fun findAll(): List<Menus> {
+        return menusDao.findAll()
+    }
+
     override fun findByPIdAndMenuShowAndMenuFixed(pid: String, menuShow: Byte, menuFixed: Byte): Result<MenusRecord> {
         return create.selectFrom(MENUS)
                 .where(MENUS.MENU_PID.eq(pid).and(MENUS.MENU_SHOW.eq(menuShow)).and(MENUS.MENU_FIXED.eq(menuFixed)))

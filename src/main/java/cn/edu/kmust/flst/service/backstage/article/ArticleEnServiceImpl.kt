@@ -100,6 +100,7 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
         if (!ObjectUtils.isEmpty(search)) {
             val articleTitle = StringUtils.trimWhitespace(search!!.getString("articleTitle"))
             val menuName = StringUtils.trimWhitespace(search.getString("menuName"))
+            val menuId = StringUtils.trimWhitespace(search.getString("menuId"))
             if (StringUtils.hasLength(articleTitle)) {
                 a = ARTICLE_EN.ARTICLE_TITLE.like(SQLQueryUtils.likeAllParam(articleTitle))
             }
@@ -109,6 +110,14 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
                     MENUS.MENU_NAME.like(SQLQueryUtils.likeAllParam(menuName))
                 } else {
                     a!!.and(MENUS.MENU_NAME.like(SQLQueryUtils.likeAllParam(menuName)))
+                }
+            }
+
+            if (StringUtils.hasLength(menuId)) {
+                a = if (ObjectUtils.isEmpty(a)) {
+                    MENUS.MENU_ID.eq(menuId)
+                } else {
+                    a!!.and(MENUS.MENU_ID.eq(menuId))
                 }
             }
         }

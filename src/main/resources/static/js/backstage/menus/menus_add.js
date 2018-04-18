@@ -53,7 +53,7 @@ $(document).ready(function () {
     init();
 
     function init() {
-        $.get(web_path + ajax_url.pids, function (data) {
+        $.get(web_path + ajax_url.pids, {menuFixed: 0}, function (data) {
             pidData(data);
         });
     }
