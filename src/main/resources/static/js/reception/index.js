@@ -26,20 +26,37 @@ $(document).ready(function () {
      * @param menu
      */
     function article(i, menu) {
-        var param = {
-            menuId: menu.menuId
-        };
-        $.get(web_path + ajax_url.articles + '/' + menu.menuId, {
-            pageNumber: 1,
-            pageSize: 9,
-            sortName: 'articleDateStr',
-            sortOrder: 'desc',
-            extraSearch: JSON.stringify(param)
-        }, function (data) {
-            if (i === 0) {
+        template0Ajax(i, menu);
+        template1Ajax(i, menu);
+    }
+
+    function template0Ajax(i, menu) {
+        // 不用考虑栏目是否显示，因为查询全部栏目时，就只查询显示的
+        if (i === 0) {
+            $.get(web_path + ajax_url.articles + '/' + menu.menuId, {
+                pageNumber: 1,
+                pageSize: 9,
+                sortName: 'articleDateStr',
+                sortOrder: 'desc',
+                extraSearch: JSON.stringify({menuId: menu.menuId})
+            }, function (data) {
                 template0(data);
-            }
-        });
+            });
+        }
+    }
+
+    function template1Ajax(i, menu) {
+        if (i === 1) {
+            $.get(web_path + ajax_url.articles + '/' + menu.menuId, {
+                pageNumber: 1,
+                pageSize: 5,
+                sortName: 'articleDateStr',
+                sortOrder: 'desc',
+                extraSearch: JSON.stringify({menuId: menu.menuId})
+            }, function (data) {
+                template1(data);
+            });
+        }
     }
 
     function template0(data) {
@@ -59,6 +76,17 @@ $(document).ready(function () {
 
             for (var j2 = num; j2 < data.total; j2++) {
                 $('#templateData01').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
+            }
+        }
+    }
+
+    function template1(data) {
+        if (data.total > 0) {
+            var article = data.rows[0];
+            $('#templateImage1').html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+                article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
+            for (var j3 = 1; j3 < data.total; j3++) {
+                $('#templateData10').prepend(listDateTemplate(web_path + ajax_url.article + '/' + data.rows[j3].articleId, data.rows[j3].articleTitle, data.rows[j3].articleDateStr));
             }
         }
     }
@@ -92,20 +120,34 @@ $(document).ready(function () {
     }
 
     /**
+     * 列表日期数据模板
+     * @param url
+     * @param title
+     * @param articleDate
+     */
+    function listDateTemplate(url, title, articleDate) {
+        return "<div class=\"col-md-12\" style=\"padding-top: 10px;\">" +
+            "<a style=\"font-size: 14px;color: #333;\" href=\"" + url + "\">" + titleListWordLimit(title) + "</a>" +
+            "<span class=\"pull-right\">" + articleDate + "</span>" +
+            "<hr/>" +
+            "</div>";
+    }
+
+    /**
      * 图片标题字数限制
      * @param title
      * @returns {*}
      */
     function titleImageWordLimit(title) {
-        var words ;
-        if(init_page_param.language === 'zh_cn'){
+        var words;
+        if (init_page_param.language === 'zh_cn') {
             words = 37;
         } else {
             words = 100;
         }
 
-        if(title.length > words){
-            title = title.substring(0,words) + "..."
+        if (title.length > words) {
+            title = title.substring(0, words) + "..."
         }
         return title;
     }
@@ -115,15 +157,15 @@ $(document).ready(function () {
      * @param title
      * @returns {*}
      */
-    function titleListWordLimit(title){
-        var words ;
-        if(init_page_param.language === 'zh_cn'){
+    function titleListWordLimit(title) {
+        var words;
+        if (init_page_param.language === 'zh_cn') {
             words = 24;
         } else {
             words = 45;
         }
-        if(title.length > words){
-            title = title.substring(0,words) + "..."
+        if (title.length > words) {
+            title = title.substring(0, words) + "..."
         }
         return title;
     }
@@ -133,15 +175,15 @@ $(document).ready(function () {
      * @param brief
      * @returns {string|*}
      */
-    function briefWordLimit(brief){
-        var words ;
-        if(init_page_param.language === 'zh_cn'){
+    function briefWordLimit(brief) {
+        var words;
+        if (init_page_param.language === 'zh_cn') {
             words = 50;
         } else {
             words = 150;
         }
-        if(brief.length > words){
-            brief = brief.substring(0,words) + "..."
+        if (brief.length > words) {
+            brief = brief.substring(0, words) + "..."
         }
         return brief;
     }
@@ -151,15 +193,15 @@ $(document).ready(function () {
      * @param alt
      * @returns {string|*}
      */
-    function altWordLimit(alt){
-        var words ;
-        if(init_page_param.language === 'zh_cn'){
+    function altWordLimit(alt) {
+        var words;
+        if (init_page_param.language === 'zh_cn') {
             words = 10;
         } else {
             words = 20;
         }
-        if(alt.length > words){
-            alt = alt.substring(0,words) + "..."
+        if (alt.length > words) {
+            alt = alt.substring(0, words) + "..."
         }
         return alt;
     }
