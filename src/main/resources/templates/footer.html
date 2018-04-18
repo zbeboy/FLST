@@ -17,23 +17,18 @@
                     <h4><span th:text="#{web.friendly.link}">友情链接</span>
                         <small>LINKS</small>
                     </h4>
-                    <ul>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">昆工主页</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">网络办公</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">电子邮箱</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">门户信息</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">科研平台</a></li>
-                        <li><i class="ion-ios-arrow-right"></i> <a href="#">科研课题组</a></li>
+                    <ul th:unless="${#lists.isEmpty(friendlyLinks)}">
+                        <li th:each="link:${friendlyLinks}"><i class="glyphicon glyphicon-chevron-right"></i> <a th:href="${link.linkUrl}" th:text="${ language == 'zh_cn'?link.linkName:link.linkNameEn}"></a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-6 col-md-6 footer-contact">
                     <h4 th:text="#{web.contact.us}">联系我们</h4>
                     <p>
-                        <strong th:text="#{web.footer.address}">地址:</strong> 云南省昆明市呈贡大学城景明南路727号<br/>
-                        <strong th:text="#{web.footer.zip.code}">邮编:</strong> 650500 <br>
-                        <strong th:text="#{web.footer.phone}">电话:</strong> 86-0871-65920570<br>
-                        <strong th:text="#{web.footer.fax}">传真:</strong> 86-0871-65920570<br>
+                        <strong th:text="#{web.footer.address}">地址:</strong> <span th:utext="${website_address}"></span><br/>
+                        <strong th:text="#{web.footer.zip.code}">邮编:</strong> <span th:utext="${website_zipCode}"></span> <br>
+                        <strong th:text="#{web.footer.phone}">电话:</strong> <span th:utext="${website_phone}"></span><br>
+                        <strong th:text="#{web.footer.fax}">传真:</strong> <span th:utext="${website_fax}"></span><br>
                     </p>
 
                 </div>

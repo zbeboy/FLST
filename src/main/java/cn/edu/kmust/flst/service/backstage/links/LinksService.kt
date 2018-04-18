@@ -1,6 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.links
 
 import cn.edu.kmust.flst.domain.tables.pojos.FriendlyLink
+import cn.edu.kmust.flst.domain.tables.records.FriendlyLinkRecord
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record
@@ -18,6 +19,14 @@ interface LinksService {
      * @return 数据
      */
     fun findById(id: String): FriendlyLink
+
+    /**
+     * 通过是否显示查询全部
+     *
+     * @param linkShow 是否显示
+     * @return 数据
+     */
+    fun findAllByLinkShow(linkShow: Byte): Result<FriendlyLinkRecord>
 
     /**
      * 分页查询

@@ -1,8 +1,10 @@
 package cn.edu.kmust.flst.web
 
 import cn.edu.kmust.flst.config.Workbook
+import cn.edu.kmust.flst.service.backstage.data.DataInfoService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.reception.NavService
+import cn.edu.kmust.flst.service.reception.ReceptionService
 import cn.edu.kmust.flst.service.system.AuthoritiesService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
@@ -30,7 +32,10 @@ open class MainController {
     open lateinit var localeResolver: LocaleResolver
 
     @Resource
-    open lateinit var navService: NavService
+    open lateinit var receptionService: ReceptionService
+
+    @Resource
+    open lateinit var dataInfoService: DataInfoService
 
     /**
      * main page
@@ -39,7 +44,7 @@ open class MainController {
      */
     @RequestMapping("/")
     fun root(modelMap: ModelMap, request: HttpServletRequest): String {
-        data(modelMap, request)
+        receptionService.commonData(modelMap, request)
         return "index"
     }
 
@@ -49,19 +54,9 @@ open class MainController {
      * @return home page
      */
     @RequestMapping("/index")
-    fun index(): String {
+    fun index(modelMap: ModelMap, request: HttpServletRequest): String {
+        receptionService.commonData(modelMap, request)
         return "index"
-    }
-
-    fun data(modelMap: ModelMap, request: HttpServletRequest) {
-        val language = localeResolver.resolveLocale(request).displayLanguage
-        if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
-            modelMap.addAttribute("language", Workbook.LANGUAGE_ZH_CN)
-            modelMap.addAttribute("nav", navService.navHtml(Workbook.LANGUAGE_ZH_CN))
-        } else {
-            modelMap.addAttribute("language", Workbook.LANGUAGE_EN)
-            modelMap.addAttribute("nav", navService.navHtml(Workbook.LANGUAGE_EN))
-        }
     }
 
 
