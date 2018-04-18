@@ -67,7 +67,7 @@ open class SecurityConfiguration : WebSecurityConfigurerAdapter() {
                 .permitAll().invalidateHttpSession(true)
                 .and().rememberMe().tokenValiditySeconds(2419200).rememberMeParameter("remember-me").tokenRepository(jdbcTokenRepository())
                 .and().authorizeRequests().antMatchers("/web/**").hasAnyRole("ADMIN")
-                .and().authorizeRequests().antMatchers("/user/**").permitAll()
+                .and().authorizeRequests().antMatchers("/user/**","/data/**").permitAll()
                 .antMatchers("/metrics/**").hasRole("ACTUATOR")
                 .antMatchers("/health/**").hasRole("ACTUATOR")
                 .antMatchers("/trace/**").hasRole("ACTUATOR")

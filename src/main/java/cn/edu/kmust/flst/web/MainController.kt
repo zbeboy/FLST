@@ -1,17 +1,18 @@
 package cn.edu.kmust.flst.web
 
 import cn.edu.kmust.flst.config.Workbook
+import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.data.DataInfoService
+import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.reception.NavService
 import cn.edu.kmust.flst.service.reception.ReceptionService
 import cn.edu.kmust.flst.service.system.AuthoritiesService
+import cn.edu.kmust.flst.web.util.AjaxUtils
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.util.ObjectUtils
+import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.LocaleResolver
 import org.springframework.web.servlet.ModelAndView
 import java.util.*
@@ -35,7 +36,7 @@ open class MainController {
     open lateinit var receptionService: ReceptionService
 
     @Resource
-    open lateinit var dataInfoService: DataInfoService
+    open lateinit var menusService: MenusService
 
     /**
      * main page
@@ -57,6 +58,23 @@ open class MainController {
     fun index(modelMap: ModelMap, request: HttpServletRequest): String {
         receptionService.commonData(modelMap, request)
         return "index"
+    }
+
+    /**
+     * 模块数据
+     *
+     * @return 数据
+     */
+    @RequestMapping(value = ["/data/home/template"], method = [(RequestMethod.GET)])
+    @ResponseBody
+    fun templateData(): AjaxUtils<Menus> {
+        val ajaxUtils = AjaxUtils.of<Menus>();
+        val records = menusService.findByPIdAndMenuShowAndMenuFixed(Workbook.WEB_FIXED_HOME_ID, 1, 1)
+        var menus: List<Menus> = ArrayList()
+        if (!ObjectUtils.isEmpty(records) && records.isNotEmpty) {
+            menus = records.into(Menus::class.java)
+        }
+        return ajaxUtils.success().msg("获取数据成功").listData(menus)
     }
 
 

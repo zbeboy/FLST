@@ -49,12 +49,12 @@
         <div class="col-md-12 wow fadeInUp">
             <div class="row">
                 <div class="col-md-10">
-                    <h3 class="h3-line">学院新闻
+                    <h3 class="h3-line"><span id="templateName0">学院新闻</span>
                         <small>NEWS</small>
                     </h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}" id="templateUrl0">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -113,10 +113,10 @@
         <div class="col-md-12 wow fadeInUp">
             <div class="row">
                 <div class="col-md-10">
-                    <h3 class="h3-line">通知公告</h3>
+                    <h3 class="h3-line" id="templateName1">通知公告</h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}" id="templateUrl1">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -159,10 +159,10 @@
         <div class="col-md-6 wow fadeInUp">
             <div class="row">
                 <div class="col-md-10">
-                    <h3 class="h3-line">学术活动</h3>
+                    <h3 class="h3-line" id="templateName2">学术活动</h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}" id="templateUrl2">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -193,10 +193,10 @@
         <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
             <div class="row">
                 <div class="col-md-10">
-                    <h3 class="h3-line">就业信息</h3>
+                    <h3 class="h3-line" id="templateName3">就业信息</h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}" id="templateUrl3">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -227,10 +227,10 @@
         <div class="col-md-12 wow bounceInUp">
             <div class="row">
                 <div class="col-md-10">
-                    <h3 class="h3-line">科研成果</h3>
+                    <h3 class="h3-line" id="templateName4">科研成果</h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}" id="templateUrl4">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -289,10 +289,10 @@
         <div class="col-md-12 wow fadeInUp">
             <div class="row">
                 <div class="col-md-10">
-                    <h3 class="h3-line">科研动态</h3>
+                    <h3 class="h3-line" id="templateName5">科研动态</h3>
                 </div>
                 <div class="col-md-2" style="padding-top:35px;">
-                    <strong><a href="#" style="color:black;" th:utext="#{web.more}">更多&gt;&gt;</a></strong>
+                    <strong><a href="#" style="color:black;" th:utext="#{web.more}" id="templateUrl5">更多&gt;&gt;</a></strong>
                 </div>
             </div>
             <div class="row">
@@ -355,5 +355,12 @@
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js" th:src="@{/js/main.js}"></script>
+<script th:inline="javascript">
+    var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
+    var init_page_param = {
+        'language': /*[[${language}]]*/ ''
+    };
+</script>
+<script src="js/reception/index.js" th:src="@{/js/reception/index.js}"></script>
 </body>
 </html>

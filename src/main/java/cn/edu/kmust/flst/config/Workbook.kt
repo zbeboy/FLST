@@ -41,16 +41,12 @@ open class Workbook {
          */
         const val MY_IMAGES_PATH = "/user/images/"
 
-        const val HTTP_PREFIX = "http://"
-        const val HTTPS_PREFIX = "https://"
-
         /*
         语言
          */
         const val LANGUAGE_ZH_CN = "zh_cn"
         const val LANGUAGE_EN = "en"
         const val LANGUAGE_ZH_CN_NAME = "中文"
-        const val LANGUAGE_EN_NAME = "英文"
 
         /*
         网站信息键
@@ -61,6 +57,11 @@ open class Workbook {
         const val WEBSITE_PHONE = WEBSITE_PREFIX + "phone"
         const val WEBSITE_FAX = WEBSITE_PREFIX + "fax"
         const val WEBSITE_ADDRESS_EN = WEBSITE_PREFIX + "addressEn"
+
+        /*
+        首页固定模块，首页固定id
+         */
+        const val WEB_FIXED_HOME_ID = "1dec1097f1334196aeb6889f36a4c9ae"
 
         /**
          * 自定义图片路径
