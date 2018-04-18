@@ -224,8 +224,8 @@ open class BootstrapTablesPlugin<T> {
      * @param type                类型
      */
     fun pagination(bootstrapTableUtils: BootstrapTableUtils<T>, selectConditionStep: SelectConditionStep<Record>?, selectJoinStep: SelectJoinStep<Record>?, type: Int) {
-        val start = bootstrapTableUtils.pageNumber - 1
         val length = bootstrapTableUtils.pageSize
+        val start = (bootstrapTableUtils.pageNumber - 1) * length
 
         if (type == CONDITION_TYPE) {
             selectConditionStep!!.limit(start, length)

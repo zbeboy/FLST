@@ -74,7 +74,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
         menusDao.update(menus)
     }
 
-    override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record9<String, String, String, String, Byte, String, Int, Byte,Byte>> {
+    override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record9<String, String, String, String, Byte, String, Int, Byte, Byte>> {
         val a = searchCondition(bootstrapTableUtils)
         val selectOnConditionStep = if (ObjectUtils.isEmpty(a)) {
             create.select(
@@ -113,8 +113,9 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
         if (!ObjectUtils.isEmpty(sortField)) {
             selectOnConditionStep.orderBy(*sortField!!)
         }
-        val start = bootstrapTableUtils.pageNumber - 1
+
         val length = bootstrapTableUtils.pageSize
+        val start = (bootstrapTableUtils.pageNumber - 1) * length
         return selectOnConditionStep.limit(start, length).fetch()
     }
 

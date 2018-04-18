@@ -41,14 +41,6 @@ dataTable.bootstrapTable('destroy')
         sidePagination: "server", //表示服务端请求
         queryParamsType: "undefined",
         search: false,
-        onLoadSuccess: function () {  //加载成功时执行
-            Messenger().post({
-                message: '加载数据成功！',
-                type: 'info',
-                id: 'menuSuccess',
-                showCloseButton: true
-            });
-        },
         onLoadError: function () {  //加载失败时执行
             Messenger().post({
                 message: '加载数据失败！',
