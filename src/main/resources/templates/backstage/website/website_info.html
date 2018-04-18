@@ -31,23 +31,23 @@
             <form role="form" id="data_form">
                 <div class="form-group">
                     <label>地址</label>
-                    <input class="form-control" name="address" th:value="${address}" placeholder="地址">
+                    <input class="form-control" name="address" th:value="${website_address}" placeholder="地址">
                 </div>
                 <div class="form-group">
                     <label>英文地址</label>
-                    <input class="form-control" name="addressEn" th:value="${addressEn}" placeholder="英文地址">
+                    <input class="form-control" name="addressEn" th:value="${website_addressEn}" placeholder="英文地址">
                 </div>
                 <div class="form-group">
                     <label>邮编</label>
-                    <input class="form-control" name="zipCode" th:value="${zipCode}" placeholder="邮编">
+                    <input class="form-control" name="zipCode" th:value="${website_zipCode}" placeholder="邮编">
                 </div>
                 <div class="form-group">
                     <label>电话</label>
-                    <input class="form-control" name="phone" th:value="${phone}" placeholder="电话">
+                    <input class="form-control" name="phone" th:value="${website_phone}" placeholder="电话">
                 </div>
                 <div class="form-group">
                     <label>传真</label>
-                    <input class="form-control" name="fax" th:value="${fax}" placeholder="传真">
+                    <input class="form-control" name="fax" th:value="${website_fax}" placeholder="传真">
                 </div>
                 <div class="text-center">
                     <button type="button" id="save" class="btn btn-primary">保存</button>

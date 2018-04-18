@@ -1,6 +1,9 @@
 package cn.edu.kmust.flst.service.backstage.data
 
 import cn.edu.kmust.flst.domain.tables.pojos.DataInfo
+import cn.edu.kmust.flst.domain.tables.records.DataInfoRecord
+import org.jooq.Record
+import org.jooq.Result
 
 /**
  * Created by zbeboy 2018-04-16 .
@@ -8,12 +11,12 @@ import cn.edu.kmust.flst.domain.tables.pojos.DataInfo
 interface DataInfoService {
 
     /**
-     * 通过主键查询
+     * 通过前缀查询
      *
-     * @param id 主键
+     * @param prefix 前缀
      * @return 数据
      */
-    fun findById(id: String): DataInfo?
+    fun findByPrefix(prefix: String): Result<DataInfoRecord>
 
     /**
      * 保存

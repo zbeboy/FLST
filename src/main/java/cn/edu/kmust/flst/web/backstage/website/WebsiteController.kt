@@ -28,11 +28,12 @@ open class WebsiteController {
      */
     @RequestMapping(value = ["/web/backstage/website"], method = [(RequestMethod.GET)])
     fun website(modelMap: ModelMap): String {
-        modelMap.addAttribute(Workbook.WEBSITE_ADDRESS, dataInfoService.findById(Workbook.WEBSITE_ADDRESS)!!.dataValue)
-        modelMap.addAttribute(Workbook.WEBSITE_ZIP_CODE, dataInfoService.findById(Workbook.WEBSITE_ZIP_CODE)!!.dataValue)
-        modelMap.addAttribute(Workbook.WEBSITE_PHONE, dataInfoService.findById(Workbook.WEBSITE_PHONE)!!.dataValue)
-        modelMap.addAttribute(Workbook.WEBSITE_FAX, dataInfoService.findById(Workbook.WEBSITE_FAX)!!.dataValue)
-        modelMap.addAttribute(Workbook.WEBSITE_ADDRESS_EN, dataInfoService.findById(Workbook.WEBSITE_ADDRESS_EN)!!.dataValue)
+        val record = dataInfoService.findByPrefix(Workbook.WEBSITE_PREFIX)
+        if (record.isNotEmpty) {
+            record.forEach { r ->
+                modelMap.addAttribute(r.dataKey, r.dataValue)
+            }
+        }
         return "backstage/website/website_info"
     }
 

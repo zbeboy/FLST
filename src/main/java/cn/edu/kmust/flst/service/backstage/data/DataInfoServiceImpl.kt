@@ -3,7 +3,11 @@ package cn.edu.kmust.flst.service.backstage.data
 import cn.edu.kmust.flst.domain.Tables.DATA_INFO
 import cn.edu.kmust.flst.domain.tables.daos.DataInfoDao
 import cn.edu.kmust.flst.domain.tables.pojos.DataInfo
+import cn.edu.kmust.flst.domain.tables.records.DataInfoRecord
+import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import org.jooq.DSLContext
+import org.jooq.Record
+import org.jooq.Result
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
@@ -22,8 +26,10 @@ open class DataInfoServiceImpl @Autowired constructor(dslContext: DSLContext) : 
     @Resource
     open lateinit var dataInfoDao: DataInfoDao
 
-    override fun findById(id: String): DataInfo? {
-        return dataInfoDao.findById(id)
+    override fun findByPrefix(prefix: String): Result<DataInfoRecord> {
+        return create.selectFrom(DATA_INFO)
+                .where(DATA_INFO.DATA_KEY.like(SQLQueryUtils.rightLikeParam(prefix)))
+                .fetch()
     }
 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)

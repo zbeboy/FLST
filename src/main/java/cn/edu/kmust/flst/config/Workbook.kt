@@ -53,11 +53,12 @@ open class Workbook {
         /*
         网站信息键
          */
-        const val WEBSITE_ADDRESS = "address"
-        const val WEBSITE_ZIP_CODE = "zipCode"
-        const val WEBSITE_PHONE = "phone"
-        const val WEBSITE_FAX = "fax"
-        const val WEBSITE_ADDRESS_EN = "addressEn"
+        const val WEBSITE_PREFIX = "website_"
+        const val WEBSITE_ADDRESS = WEBSITE_PREFIX + "address"
+        const val WEBSITE_ZIP_CODE = WEBSITE_PREFIX + "zipCode"
+        const val WEBSITE_PHONE = WEBSITE_PREFIX + "phone"
+        const val WEBSITE_FAX = WEBSITE_PREFIX + "fax"
+        const val WEBSITE_ADDRESS_EN = WEBSITE_PREFIX + "addressEn"
 
         /**
          * 自定义图片路径
