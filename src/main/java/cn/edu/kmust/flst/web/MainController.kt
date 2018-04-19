@@ -46,8 +46,9 @@ open class MainController {
     @RequestMapping("/")
     fun root(modelMap: ModelMap, request: HttpServletRequest): String {
         receptionService.navData(modelMap, request)
+        modelMap.addAttribute("redirect_uri","/")
         receptionService.websiteData(modelMap, request)
-        receptionService.bannerData(modelMap, request,Workbook.WEB_FIXED_HOME_ID)
+        receptionService.bannerData(modelMap, request, Workbook.WEB_FIXED_HOME_ID)
         receptionService.linksData(modelMap, request)
         return "index"
     }
@@ -60,8 +61,9 @@ open class MainController {
     @RequestMapping("/index")
     fun index(modelMap: ModelMap, request: HttpServletRequest): String {
         receptionService.navData(modelMap, request)
+        modelMap.addAttribute("redirect_uri","/")
         receptionService.websiteData(modelMap, request)
-        receptionService.bannerData(modelMap, request,Workbook.WEB_FIXED_HOME_ID)
+        receptionService.bannerData(modelMap, request, Workbook.WEB_FIXED_HOME_ID)
         receptionService.linksData(modelMap, request)
         return "index"
     }
@@ -124,13 +126,14 @@ open class MainController {
      * @param request  请求对象
      * @param response 响应对象
      * @param language 语言
+     * @param redirect_uri 重定向url
      * @return 重置页面
      */
     @RequestMapping("/language")
-    fun language(request: HttpServletRequest, response: HttpServletResponse, language: String): ModelAndView {
+    fun language(request: HttpServletRequest, response: HttpServletResponse, language: String, redirect_uri: String): ModelAndView {
         val languageLowerCase = language.toLowerCase()
         if (languageLowerCase == "") {
-            return ModelAndView("redirect:/")
+            return ModelAndView("redirect:$redirect_uri")
         } else {
             when (languageLowerCase) {
                 "zh_cn" -> localeResolver.setLocale(request, response, Locale.CHINA)
@@ -139,7 +142,7 @@ open class MainController {
             }
         }
 
-        return ModelAndView("redirect:/")
+        return ModelAndView("redirect:$redirect_uri")
     }
 
 }

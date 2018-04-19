@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var ajax_url = {
         templates: '/data/home/template',
-        articles: '/user/menu',
+        articles: '/data/articles',
         images: '/user/images',
         article: '/user/article'
     };

@@ -5,12 +5,14 @@ import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.reception.NavService
+import cn.edu.kmust.flst.service.reception.ReceptionService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
 import cn.edu.kmust.flst.web.common.MethodControllerCommon
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.springframework.stereotype.Controller
+import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
@@ -35,14 +37,45 @@ open class ReceptionMainController {
     open lateinit var localeResolver: LocaleResolver
 
     @Resource
+    open lateinit var receptionService: ReceptionService
+
+    @Resource
     open lateinit var methodControllerCommon: MethodControllerCommon
+
+    /**
+     * 文章主页
+     *
+     * @return 文章主页.
+     */
+    @RequestMapping(value = ["/user/menu/{menuId}"], method = [(RequestMethod.GET)])
+    fun home(@PathVariable("menuId") menuId: String, request: HttpServletRequest,modelMap:ModelMap): String {
+        val menu = menusService.findById(menuId)
+        return if (!ObjectUtils.isEmpty(menu)) {
+            if (menu.menuShow == 1.toByte()) {
+                receptionService.navData(modelMap, request)
+                modelMap.addAttribute("redirect_uri", "/user/menu/$menuId")
+                receptionService.websiteData(modelMap, request)
+                receptionService.bannerData(modelMap, request,Workbook.WEB_FIXED_HOME_ID)
+                receptionService.linksData(modelMap, request)
+                "reception/article_list"
+            } else {
+                modelMap.addAttribute("status", 500)
+                modelMap.addAttribute("message", "该栏目已关闭显示")
+                "error"
+            }
+        } else {
+            modelMap.addAttribute("status", 500)
+            modelMap.addAttribute("message", "未查询到该文章信息")
+            "error"
+        }
+    }
 
     /**
      * 文章列表数据
      *
      * @return 数据
      */
-    @RequestMapping(value = ["/user/menu/{menuId}"], method = [(RequestMethod.GET)])
+    @RequestMapping(value = ["/data/articles/{menuId}"], method = [(RequestMethod.GET)])
     @ResponseBody
     fun articleData(@PathVariable("menuId") menuId: String, request: HttpServletRequest): BootstrapTableUtils<*>? {
         val language = localeResolver.resolveLocale(request).displayLanguage
@@ -50,17 +83,12 @@ open class ReceptionMainController {
         val menu = menusService.findById(menuId)
         // 该栏目是否正常显示
         if (menu.menuShow == 1.toByte()) {
-            // 该栏目链接是否需要直接显示文章
-            if (menu.showArticle == 1.toByte()) {
-                // TODO:显示文章内容
+            // 显示列表
+            // 中文文章
+            if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
+                bootstrapTableUtils = methodControllerCommon.articleData(request)
             } else {
-                // 显示列表
-                // 中文文章
-                if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
-                    bootstrapTableUtils = methodControllerCommon.articleData(request)
-                } else {
-                    bootstrapTableUtils = methodControllerCommon.articleEnData(request)
-                }
+                bootstrapTableUtils = methodControllerCommon.articleEnData(request)
             }
         }
 
