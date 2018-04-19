@@ -76,95 +76,12 @@
                     <div class="col-md-12" th:unless="${#lists.isEmpty(positions)}"><i class="glyphicon glyphicon-grain text-success" style="font-size: 17px;"></i> <a style="color:black;" th:href="@{/}" th:text="#{web.meta.description}"></a>
                         <span th:each="position:${positions}">&gt;&gt; <a style="color:black;" th:href="${position.menuLink}" th:text="${ language == 'zh_cn'?position.menuName:position.menuNameEn}"></a></span></div>
                     <div class="col-md-12 wow fadeInUp" style="padding-top:10px;">
-                        <ul class="list-unstyled">
-                            <li class="list-li">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <span class="glyphicon glyphicon-play" style="padding-right:5px;"></span><a
-                                            style="font-size: 14px;color: #333;" href="#">校财务党支部与审计厅支部、教育厅支部在灵长类转化医</a>
-                                    </div>
-                                    <div class="col-md-3 text-right">
-                                        <span style="font-size: 14px;color: #666;">2018-03-30</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="line-height: 41px">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <span class="glyphicon glyphicon-play" style="padding-right:5px;"></span><a
-                                            style="font-size: 14px;color: #333;" href="#">校财务党支部与审计厅支部、教育厅支部在灵长类转化医</a>
-                                    </div>
-                                    <div class="col-md-3 text-right">
-                                        <span style="font-size: 14px;color: #666;">2018-03-30</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="line-height: 41px">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <span class="glyphicon glyphicon-play" style="padding-right:5px;"></span><a
-                                            style="font-size: 14px;color: #333;" href="#">校财务党支部与审计厅支部、教育厅支部在灵长类转化医</a>
-                                    </div>
-                                    <div class="col-md-3 text-right">
-                                        <span style="font-size: 14px;color: #666;">2018-03-30</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="line-height: 41px">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <span class="glyphicon glyphicon-play" style="padding-right:5px;"></span><a
-                                            style="font-size: 14px;color: #333;" href="#">校财务党支部与审计厅支部、教育厅支部在灵长类转化医</a>
-                                    </div>
-                                    <div class="col-md-3 text-right">
-                                        <span style="font-size: 14px;color: #666;">2018-03-30</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="line-height: 41px">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <span class="glyphicon glyphicon-play" style="padding-right:5px;"></span><a
-                                            style="font-size: 14px;color: #333;" href="#">校财务党支部与审计厅支部、教育厅支部在灵长类转化医</a>
-                                    </div>
-                                    <div class="col-md-3 text-right">
-                                        <span style="font-size: 14px;color: #666;">2018-03-30</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="line-height: 41px">
-                                <div class="row">
-                                    <div class="col-md-9">
-                                        <span class="glyphicon glyphicon-play" style="padding-right:5px;"></span><a
-                                            style="font-size: 14px;color: #333;" href="#">校财务党支部与审计厅支部、教育厅支部在灵长类转化医</a>
-                                    </div>
-                                    <div class="col-md-3 text-right">
-                                        <span style="font-size: 14px;color: #666;">2018-03-30</span>
-                                    </div>
-                                </div>
-                            </li>
+                        <ul class="list-unstyled" id="tableData">
+
                         </ul>
                     </div>
-                    <div class="col-md-12 text-right">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                    <div class="col-md-12 text-right" id="pagination">
+
                     </div>
                 </div>
                 <!--/row-->
@@ -192,13 +109,15 @@
 <script src="js/easing.min.js" th:src="@{/js/easing.min.js}"></script>
 <script src="js/wow.min.js" th:src="@{/js/wow.min.js}"></script>
 <script src="js/stick.js" th:src="@{/js/stick.js}"></script>
+<script src="plugin/jquery_simple_pagination/jquery.simplePagination.min.js" th:src="@{/plugin/jquery_simple_pagination/jquery.simplePagination.min.js}"></script>
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js" th:src="@{/js/main.js}"></script>
 <script th:inline="javascript">
     var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
     var init_page_param = {
-        'language': /*[[${language}]]*/ ''
+        'language': /*[[${language}]]*/ '',
+        'columnId':/*[[${columnId}]]*/ ''
     };
 </script>
 <script src="js/reception/article_list.js" th:src="@{/js/reception/article_list.js}"></script>

@@ -125,6 +125,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
             selectOnConditionStep.orderBy(*sortField!!)
         }
 
+        bootstrapTableUtils.pageNumber = if (bootstrapTableUtils.pageNumber <= 0) 1 else bootstrapTableUtils.pageNumber
         val length = bootstrapTableUtils.pageSize
         val start = (bootstrapTableUtils.pageNumber - 1) * length
         return selectOnConditionStep.limit(start, length).fetch()
