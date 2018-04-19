@@ -58,9 +58,10 @@ open class ReceptionMainController {
 
                 val list: ArrayList<Menus> = ArrayList()
                 receptionService.getMaxPid(menu, list)
-                list.forEach { i ->
+                for(i in list){
                     if (i.menuPid == "0") {
                         receptionService.bannerData(modelMap, i.menuId)
+                        break
                     }
                 }
 
