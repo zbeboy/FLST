@@ -40,6 +40,10 @@ dataTable.bootstrapTable('destroy')
         pageNumber: 1, //当前第几页
         sidePagination: "server", //表示服务端请求
         queryParamsType: "undefined",
+        queryParams:function(params){
+            params.extraSearch = JSON.stringify(param);
+            return params;
+        },
         search: false,
         onLoadError: function () {  //加载失败时执行
             Messenger().post({
