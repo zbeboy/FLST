@@ -8,6 +8,7 @@ import cn.edu.kmust.flst.service.util.DateTimeUtils
 import cn.edu.kmust.flst.service.util.FilesUtils
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
+import cn.edu.kmust.flst.web.common.MethodControllerCommon
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleEnAddVo
@@ -34,6 +35,9 @@ open class ArticleEnController {
 
     @Resource
     open lateinit var articleEnService: ArticleEnService
+
+    @Resource
+    open lateinit var methodControllerCommon: MethodControllerCommon
 
     /**
      * 英文文章管理
@@ -81,18 +85,7 @@ open class ArticleEnController {
     @RequestMapping(value = ["/web/backstage/en/article/data"], method = [(RequestMethod.GET)])
     @ResponseBody
     fun articleData(request: HttpServletRequest): BootstrapTableUtils<ArticleEnBean> {
-        val bootstrapTableUtils = BootstrapTableUtils<ArticleEnBean>(request)
-        val records = articleEnService.findAllByPage(bootstrapTableUtils)
-        var articles: List<ArticleEnBean> = ArrayList()
-        if (!ObjectUtils.isEmpty(records) && records.isNotEmpty) {
-            articles = records.into(ArticleEnBean::class.java)
-            articles.forEach { i ->
-                i.articleDateStr = DateTimeUtils.timestampToString(i.articleDate, "yyyy-MM-dd")
-            }
-        }
-        bootstrapTableUtils.total = articleEnService.countByCondition(bootstrapTableUtils)
-        bootstrapTableUtils.rows = articles
-        return bootstrapTableUtils
+        return methodControllerCommon.articleEnData(request)
     }
 
     /**
