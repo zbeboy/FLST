@@ -32,13 +32,21 @@ open class ReceptionServiceImpl : ReceptionService {
     @Resource
     open lateinit var bannerService: BannerService
 
-    override fun commonData(modelMap: ModelMap, request: HttpServletRequest) {
+    override fun navData(modelMap: ModelMap, request: HttpServletRequest) {
         val language = localeResolver.resolveLocale(request).displayLanguage
-        val websiteRecord = dataInfoService.findByPrefix(Workbook.WEBSITE_PREFIX)
-
         if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
             modelMap.addAttribute("language", Workbook.LANGUAGE_ZH_CN)
             modelMap.addAttribute("nav", navService.navHtml(Workbook.LANGUAGE_ZH_CN))
+        } else {
+            modelMap.addAttribute("language", Workbook.LANGUAGE_EN)
+            modelMap.addAttribute("nav", navService.navHtml(Workbook.LANGUAGE_EN))
+        }
+    }
+
+    override fun websiteData(modelMap: ModelMap, request: HttpServletRequest) {
+        val language = localeResolver.resolveLocale(request).displayLanguage
+        val websiteRecord = dataInfoService.findByPrefix(Workbook.WEBSITE_PREFIX)
+        if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
             if (websiteRecord.isNotEmpty) {
                 websiteRecord.forEach { r ->
                     if (r.dataKey != Workbook.WEBSITE_ADDRESS_EN) {
@@ -51,8 +59,6 @@ open class ReceptionServiceImpl : ReceptionService {
                 }
             }
         } else {
-            modelMap.addAttribute("language", Workbook.LANGUAGE_EN)
-            modelMap.addAttribute("nav", navService.navHtml(Workbook.LANGUAGE_EN))
             if (websiteRecord.isNotEmpty) {
                 websiteRecord.forEach { r ->
                     if (r.dataKey != Workbook.WEBSITE_ADDRESS) {
@@ -65,9 +71,10 @@ open class ReceptionServiceImpl : ReceptionService {
                 }
             }
         }
+    }
 
-        // banner
-        val bannerRecord = bannerService.findByMenuIdAndBannerShow(Workbook.WEB_FIXED_HOME_ID, 1)
+    override fun bannerData(modelMap: ModelMap, request: HttpServletRequest, menuId: String) {
+        val bannerRecord = bannerService.findByMenuIdAndBannerShow(menuId, 1)
         var banners: List<BannerBean> = ArrayList()
         if (bannerRecord.isNotEmpty) {
             banners = bannerRecord.into(BannerBean::class.java)
@@ -76,8 +83,9 @@ open class ReceptionServiceImpl : ReceptionService {
             }
         }
         modelMap.addAttribute("banners", banners)
+    }
 
-        // 友情链接
+    override fun linksData(modelMap: ModelMap, request: HttpServletRequest) {
         val linkRecord = linksService.findAllByLinkShow(1)
         var links: List<LinksBean> = ArrayList()
         if (linkRecord.isNotEmpty) {
