@@ -38,6 +38,15 @@ interface MenusService {
     fun findByPIdAndMenuShowAndMenuFixed(pid: String, menuShow: Byte, menuFixed: Byte): Result<MenusRecord>
 
     /**
+     * 通过pid查询
+     *
+     * @param pid 父Id
+     * @param menuShow 是否显示
+     * @return 数据
+     */
+    fun findByPIdAndMenuShow(pid: String, menuShow: Byte): Result<MenusRecord>
+
+    /**
      * 分页查询
      *
      * @param bootstrapTableUtils bootstrapTable工具类

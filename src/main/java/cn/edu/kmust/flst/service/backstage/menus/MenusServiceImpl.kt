@@ -43,6 +43,13 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
                 .fetch()
     }
 
+    override fun findByPIdAndMenuShow(pid: String, menuShow: Byte): Result<MenusRecord> {
+        return create.selectFrom(MENUS)
+                .where(MENUS.MENU_PID.eq(pid).and(MENUS.MENU_SHOW.eq(menuShow)))
+                .orderBy(MENUS.MENU_ORDER)
+                .fetch()
+    }
+
     override fun findByMenuName(menuName: String): List<Menus> {
         return menusDao.fetchByMenuName(menuName)
     }

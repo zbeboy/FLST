@@ -26,17 +26,8 @@
 
                     </div>
                     <div class="panel-body">
-                        <div class="list-group">
-                            <a href="#" class="list-group-item">Link</a>
-                            <a href="#" class="list-group-item">Link</a>
-                            <a href="#" class="list-group-item">Link</a>
-                            <a href="#" class="list-group-item">Link</a>
-                            <a href="#" class="list-group-item">Link</a>
-                            <a href="#" class="list-group-item">Link</a>
-                            <a href="#" class="list-group-item">Link</a>
-                            <a href="#" class="list-group-item">Link</a>
-                            <a href="#" class="list-group-item">Link</a>
-                            <a href="#" class="list-group-item">Link</a>
+                        <div class="list-group" th:unless="${#lists.isEmpty(columns)}">
+                            <a href="#" class="list-group-item" th:each="column:${columns}" th:href="${column.menuLink}" th:text="${ language == 'zh_cn'?column.menuName:column.menuNameEn}"></a>
                         </div>
                     </div>
                 </div>

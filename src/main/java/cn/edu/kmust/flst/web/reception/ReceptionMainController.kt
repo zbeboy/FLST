@@ -1,6 +1,7 @@
 package cn.edu.kmust.flst.web.reception
 
 import cn.edu.kmust.flst.config.Workbook
+import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
@@ -48,15 +49,17 @@ open class ReceptionMainController {
      * @return 文章主页.
      */
     @RequestMapping(value = ["/user/menu/{menuId}"], method = [(RequestMethod.GET)])
-    fun home(@PathVariable("menuId") menuId: String, request: HttpServletRequest,modelMap:ModelMap): String {
+    fun home(@PathVariable("menuId") menuId: String, request: HttpServletRequest, modelMap: ModelMap): String {
         val menu = menusService.findById(menuId)
         return if (!ObjectUtils.isEmpty(menu)) {
             if (menu.menuShow == 1.toByte()) {
                 receptionService.navData(modelMap, request)
                 modelMap.addAttribute("redirect_uri", "/user/menu/$menuId")
                 receptionService.websiteData(modelMap, request)
-                receptionService.bannerData(modelMap, request,Workbook.WEB_FIXED_HOME_ID)
-                receptionService.linksData(modelMap, request)
+                receptionService.bannerData(modelMap, Workbook.WEB_FIXED_HOME_ID)
+                receptionService.linksData(modelMap)
+                receptionService.columnsData(modelMap, menu.menuPid)
+
                 "reception/article_list"
             } else {
                 modelMap.addAttribute("status", 500)

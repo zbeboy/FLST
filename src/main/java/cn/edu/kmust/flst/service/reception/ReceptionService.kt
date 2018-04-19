@@ -25,16 +25,22 @@ interface ReceptionService {
      * banner数据
      *
      * @param modelMap 页面对象
-     * @param request 请求
      * @param menuId 栏目 id
      */
-    fun bannerData(modelMap: ModelMap, request: HttpServletRequest, menuId: String)
+    fun bannerData(modelMap: ModelMap, menuId: String)
 
     /**
      * links数据
      *
      * @param modelMap 页面对象
-     * @param request 请求
      */
-    fun linksData(modelMap: ModelMap, request: HttpServletRequest)
+    fun linksData(modelMap: ModelMap)
+
+    /**
+     * columns数据
+     *
+     * @param modelMap 页面对象
+     * @param menuId 栏目 id
+     */
+    fun columnsData(modelMap: ModelMap, menuId: String)
 }

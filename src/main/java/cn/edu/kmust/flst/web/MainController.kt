@@ -46,10 +46,10 @@ open class MainController {
     @RequestMapping("/")
     fun root(modelMap: ModelMap, request: HttpServletRequest): String {
         receptionService.navData(modelMap, request)
-        modelMap.addAttribute("redirect_uri","/")
+        modelMap.addAttribute("redirect_uri", "/")
         receptionService.websiteData(modelMap, request)
-        receptionService.bannerData(modelMap, request, Workbook.WEB_FIXED_HOME_ID)
-        receptionService.linksData(modelMap, request)
+        receptionService.bannerData(modelMap, Workbook.WEB_FIXED_HOME_ID)
+        receptionService.linksData(modelMap)
         return "index"
     }
 
@@ -61,10 +61,10 @@ open class MainController {
     @RequestMapping("/index")
     fun index(modelMap: ModelMap, request: HttpServletRequest): String {
         receptionService.navData(modelMap, request)
-        modelMap.addAttribute("redirect_uri","/")
+        modelMap.addAttribute("redirect_uri", "/")
         receptionService.websiteData(modelMap, request)
-        receptionService.bannerData(modelMap, request, Workbook.WEB_FIXED_HOME_ID)
-        receptionService.linksData(modelMap, request)
+        receptionService.bannerData(modelMap, Workbook.WEB_FIXED_HOME_ID)
+        receptionService.linksData(modelMap)
         return "index"
     }
 

@@ -1,13 +1,16 @@
 package cn.edu.kmust.flst.service.reception
 
 import cn.edu.kmust.flst.config.Workbook
+import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.banner.BannerService
 import cn.edu.kmust.flst.service.backstage.data.DataInfoService
 import cn.edu.kmust.flst.service.backstage.links.LinksService
+import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.web.bean.backstage.banner.BannerBean
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
 import org.springframework.stereotype.Service
 import org.springframework.ui.ModelMap
+import org.springframework.util.ObjectUtils
 import org.springframework.web.servlet.LocaleResolver
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
@@ -29,6 +32,9 @@ open class ReceptionServiceImpl : ReceptionService {
 
     @Resource
     open lateinit var bannerService: BannerService
+
+    @Resource
+    open lateinit var menusService: MenusService
 
     override fun navData(modelMap: ModelMap, request: HttpServletRequest) {
         val language = localeResolver.resolveLocale(request).displayLanguage
@@ -71,7 +77,7 @@ open class ReceptionServiceImpl : ReceptionService {
         }
     }
 
-    override fun bannerData(modelMap: ModelMap, request: HttpServletRequest, menuId: String) {
+    override fun bannerData(modelMap: ModelMap, menuId: String) {
         val bannerRecord = bannerService.findByMenuIdAndBannerShow(menuId, 1)
         var banners: List<BannerBean> = ArrayList()
         if (bannerRecord.isNotEmpty) {
@@ -83,13 +89,22 @@ open class ReceptionServiceImpl : ReceptionService {
         modelMap.addAttribute("banners", banners)
     }
 
-    override fun linksData(modelMap: ModelMap, request: HttpServletRequest) {
+    override fun linksData(modelMap: ModelMap) {
         val linkRecord = linksService.findAllByLinkShow(1)
         var links: List<LinksBean> = ArrayList()
         if (linkRecord.isNotEmpty) {
             links = linkRecord.into(LinksBean::class.java)
         }
         modelMap.addAttribute("friendlyLinks", links)
+    }
+
+    override fun columnsData(modelMap: ModelMap, menuId: String) {
+        val records = menusService.findByPIdAndMenuShow(menuId, 1)
+        var columns: List<Menus> = java.util.ArrayList()
+        if (records.isNotEmpty) {
+            columns = records.into(Menus::class.java)
+        }
+        modelMap.addAttribute("columns", columns)
     }
 
 
