@@ -5,7 +5,7 @@
     <meta name="_csrf" content="" th:content="${_csrf.token}"/>
     <!-- default header name is X-CSRF-TOKEN -->
     <meta name="_csrf_header" content="" th:content="${_csrf.headerName}"/>
-    <title>生命科学与技术学院-昆明理工大学</title>
+    <title th:text="#{web.meta.description} + '-' + #{web.footer.info}"></title>
     <!-- Libraries CSS Files -->
     <link href="css/animate.min.css" rel="stylesheet" th:href="@{/css/animate.min.css}"/>
     <!-- Main Stylesheet File -->
@@ -38,43 +38,55 @@
 
                     </div>
                     <div class="panel-body">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="搜索..."
-                                   th:placeholder="#{web.search.text} + '...'">
-                            <span class="input-group-btn">
-										<button class="btn btn-default" type="button"
-                                                th:text="#{web.search.text}">搜索</button>
+                        <form role="form" th:action="@{/user/search}" method="get">
+                            <div class="input-group">
+                                <input type="text" name="searchContent" class="form-control"
+                                       th:placeholder="#{web.search.text} + '...'">
+                                <span class="input-group-btn">
+										<button class="btn btn-default" type="submit"
+                                                th:text="#{web.search.text}"></button>
 									</span>
-                        </div>
-                        <!-- /input-group -->
+                            </div>
+                            <!-- /input-group -->
+                        </form>
                     </div>
                 </div>
             </div>
             <!--/.sidebar-offcanvas-->
             <div class="col-xs-12 col-sm-9">
                 <div class="jumbotron" style="padding-left:1px;padding-bottom:1px;padding-right:1px;padding-top:5px;">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" th:unless="${#lists.isEmpty(banners)}">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel"
+                         th:unless="${#lists.isEmpty(banners)}">
                         <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" th:data-slide-to="${row.count-1}" th:each="banner,row:${banners}" th:class="${row.count == 1?'active':''}"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="0"
+                                th:data-slide-to="${row.count-1}" th:each="banner,row:${banners}"
+                                th:class="${row.count == 1?'active':''}"></li>
                         </ol>
                         <div class="carousel-inner" role="listbox">
                             <div th:each="banner,row:${banners}" th:class="${row.count == 1?'item active':'item'}">
                                 <img alt="banner" th:src="@{${banner.bannerLinkPath}}">
                             </div>
                         </div>
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <a class="left carousel-control" href="#carousel-example-generic" role="button"
+                           data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
-                        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <a class="right carousel-control" href="#carousel-example-generic" role="button"
+                           data-slide="next">
                             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12" th:unless="${#lists.isEmpty(positions)}"><i class="glyphicon glyphicon-grain text-success" style="font-size: 17px;"></i> <a style="color:black;" th:href="@{/}" th:text="#{web.meta.description}"></a>
-                        <span th:each="position:${positions}">&gt;&gt; <a style="color:black;" th:href="${position.menuLink}" th:text="${ language == 'zh_cn'?position.menuName:position.menuNameEn}"></a></span></div>
+                    <div class="col-md-12" th:unless="${#lists.isEmpty(positions)}"><i
+                            class="glyphicon glyphicon-grain text-success" style="font-size: 17px;"></i> <a
+                            style="color:black;" th:href="@{/}" th:text="#{web.meta.description}"></a>
+                        <span th:each="position:${positions}">&gt;&gt; <a style="color:black;"
+                                                                          th:href="${position.menuLink}"
+                                                                          th:text="${ language == 'zh_cn'?position.menuName:position.menuNameEn}"></a></span>
+                    </div>
                     <div class="col-md-12 wow fadeInUp" style="padding-top:10px;">
                         <ul class="list-unstyled" id="tableData">
 
@@ -109,7 +121,8 @@
 <script src="js/easing.min.js" th:src="@{/js/easing.min.js}"></script>
 <script src="js/wow.min.js" th:src="@{/js/wow.min.js}"></script>
 <script src="js/stick.js" th:src="@{/js/stick.js}"></script>
-<script src="plugin/jquery_simple_pagination/jquery.simplePagination.min.js" th:src="@{/plugin/jquery_simple_pagination/jquery.simplePagination.min.js}"></script>
+<script src="plugin/jquery_simple_pagination/jquery.simplePagination.min.js"
+        th:src="@{/plugin/jquery_simple_pagination/jquery.simplePagination.min.js}"></script>
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js" th:src="@{/js/main.js}"></script>
@@ -117,7 +130,7 @@
     var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
     var init_page_param = {
         'language': /*[[${language}]]*/ '',
-        'columnId':/*[[${columnId}]]*/ ''
+        'columnId': /*[[${columnId}]]*/ ''
     };
 </script>
 <script src="js/reception/article_list.js" th:src="@{/js/reception/article_list.js}"></script>

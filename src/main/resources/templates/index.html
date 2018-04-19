@@ -5,7 +5,7 @@
     <meta name="_csrf" content="" th:content="${_csrf.token}"/>
     <!-- default header name is X-CSRF-TOKEN -->
     <meta name="_csrf_header" content="" th:content="${_csrf.headerName}"/>
-    <title>生命科学与技术学院-昆明理工大学</title>
+    <title th:text="#{web.meta.description} + '-' + #{web.footer.info}"></title>
     <!-- Libraries CSS Files -->
     <link href="css/animate.min.css" rel="stylesheet" th:href="@{/css/animate.min.css}"/>
     <!-- Main Stylesheet File -->

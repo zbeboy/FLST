@@ -15,11 +15,10 @@ import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod
-import org.springframework.web.bind.annotation.ResponseBody
+import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.LocaleResolver
+import java.net.URLDecoder
+import java.net.URLEncoder
 import java.util.ArrayList
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
@@ -57,10 +56,10 @@ open class ReceptionMainController {
                 modelMap.addAttribute("redirect_uri", "/user/menu/$menuId")
                 receptionService.websiteData(modelMap, request)
 
-                val list:ArrayList<Menus> = ArrayList()
-                receptionService.getMaxPid(menu,list)
-                list.forEach{i->
-                    if(i.menuPid == "0"){
+                val list: ArrayList<Menus> = ArrayList()
+                receptionService.getMaxPid(menu, list)
+                list.forEach { i ->
+                    if (i.menuPid == "0") {
                         receptionService.bannerData(modelMap, i.menuId)
                     }
                 }
@@ -68,7 +67,7 @@ open class ReceptionMainController {
                 receptionService.linksData(modelMap)
                 receptionService.columnsData(modelMap, menu.menuPid)
 
-                modelMap.addAttribute("positions",list)
+                modelMap.addAttribute("positions", list)
                 modelMap.addAttribute("columnId", menu.menuId)
                 "reception/article_list"
             } else {
@@ -81,6 +80,24 @@ open class ReceptionMainController {
             modelMap.addAttribute("message", "未查询到该文章信息")
             "error"
         }
+    }
+
+    /**
+     * 搜索
+     *
+     * @return 搜索.
+     */
+    @RequestMapping(value = ["/user/search"], method = [(RequestMethod.GET)])
+    fun search(searchContent: String?, request: HttpServletRequest, modelMap: ModelMap): String {
+        modelMap.addAttribute("searchContent", searchContent)
+
+        receptionService.navData(modelMap, request)
+        // 因servlet会自动解码一次，因此取值会乱码，为此encode两次
+        val m = URLEncoder.encode(URLEncoder.encode(searchContent, Charsets.UTF_8.displayName()), Charsets.UTF_8.displayName())
+        modelMap.addAttribute("redirect_uri", "/user/search?searchContent=$m")
+        receptionService.websiteData(modelMap, request)
+        receptionService.linksData(modelMap)
+        return "reception/article_search"
     }
 
     /**
@@ -106,5 +123,22 @@ open class ReceptionMainController {
         }
 
         return bootstrapTableUtils
+    }
+
+    /**
+     * 文章搜索数据
+     *
+     * @return 数据
+     */
+    @RequestMapping(value = ["/data/search"], method = [(RequestMethod.GET)])
+    @ResponseBody
+    fun searchData(request: HttpServletRequest): BootstrapTableUtils<*>? {
+        val language = localeResolver.resolveLocale(request).displayLanguage
+
+        return if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
+            methodControllerCommon.articleData(request)
+        } else {
+            methodControllerCommon.articleEnData(request)
+        }
     }
 }
