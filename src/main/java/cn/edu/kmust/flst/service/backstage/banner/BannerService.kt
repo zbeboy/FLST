@@ -29,6 +29,15 @@ interface BannerService {
     fun findByMenuId(menuId: String): Result<BannerRecord>
 
     /**
+     * 通过栏目id查询
+     *
+     * @param menuId 栏目id
+     * @param bannerShow 是否显示
+     * @return 数据
+     */
+    fun findByMenuIdAndBannerShow(menuId: String,bannerShow:Byte): Result<BannerRecord>
+
+    /**
      * 分页查询
      *
      * @param bootstrapTableUtils bootstrapTable工具类

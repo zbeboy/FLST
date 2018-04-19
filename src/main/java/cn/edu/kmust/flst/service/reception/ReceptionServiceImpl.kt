@@ -1,8 +1,10 @@
 package cn.edu.kmust.flst.service.reception
 
 import cn.edu.kmust.flst.config.Workbook
+import cn.edu.kmust.flst.service.backstage.banner.BannerService
 import cn.edu.kmust.flst.service.backstage.data.DataInfoService
 import cn.edu.kmust.flst.service.backstage.links.LinksService
+import cn.edu.kmust.flst.web.bean.backstage.banner.BannerBean
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
 import org.springframework.stereotype.Service
 import org.springframework.ui.ModelMap
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.LocaleResolver
 import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
+import kotlin.collections.ArrayList
 
 @Service("receptionService")
 open class ReceptionServiceImpl : ReceptionService {
@@ -25,6 +28,9 @@ open class ReceptionServiceImpl : ReceptionService {
 
     @Resource
     open lateinit var linksService: LinksService
+
+    @Resource
+    open lateinit var bannerService: BannerService
 
     override fun commonData(modelMap: ModelMap, request: HttpServletRequest) {
         val language = localeResolver.resolveLocale(request).displayLanguage
@@ -59,6 +65,17 @@ open class ReceptionServiceImpl : ReceptionService {
                 }
             }
         }
+
+        // banner
+        val bannerRecord = bannerService.findByMenuIdAndBannerShow(Workbook.WEB_FIXED_HOME_ID, 1)
+        var banners: List<BannerBean> = ArrayList()
+        if (bannerRecord.isNotEmpty) {
+            banners = bannerRecord.into(BannerBean::class.java)
+            banners.forEach { i ->
+                i.bannerLinkPath = Workbook.MY_IMAGES_PATH + i.bannerLink
+            }
+        }
+        modelMap.addAttribute("banners", banners)
 
         // 友情链接
         val linkRecord = linksService.findAllByLinkShow(1)

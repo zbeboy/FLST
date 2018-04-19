@@ -41,6 +41,13 @@ open class BannerServiceImpl @Autowired constructor(dslContext: DSLContext) : Bo
                 .fetch()
     }
 
+    override fun findByMenuIdAndBannerShow(menuId: String, bannerShow: Byte): Result<BannerRecord> {
+        return create.selectFrom(BANNER)
+                .where(BANNER.MENU_ID.eq(menuId).and(BANNER.BANNER_SHOW.eq(bannerShow)))
+                .orderBy(BANNER.BANNER_DATE.desc())
+                .fetch()
+    }
+
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun save(banner: Banner) {
         bannerDao.insert(banner)
