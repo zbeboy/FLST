@@ -6,14 +6,22 @@ $(document).ready(function () {
         article: '/user/article'
     };
 
+    var data_id = {
+        templateName: '#templateName',
+        templateUrl: '#templateUrl',
+        template: 'template',
+        templateImage: '#templateImage',
+        templateData: '#templateData'
+    };
+
     init();
 
     function init() {
         $.get(web_path + ajax_url.templates, function (data) {
             if (data.state) {
                 for (var i = 0; i < data.listResult.length; i++) {
-                    $('#templateName' + i).text(init_page_param.language === 'zh_cn' ? data.listResult[i].menuName : data.listResult[i].menuNameEn);
-                    $('#templateUrl' + i).attr('href', data.listResult[i].menuLink);
+                    $(data_id.templateName + i).text(init_page_param.language === 'zh_cn' ? data.listResult[i].menuName : data.listResult[i].menuNameEn);
+                    $(data_id.templateUrl + i).attr('href', data.listResult[i].menuLink);
                     article(i, data.listResult[i]);
                 }
             }
@@ -26,67 +34,126 @@ $(document).ready(function () {
      * @param menu
      */
     function article(i, menu) {
-        template0Ajax(i, menu);
-        template1Ajax(i, menu);
-    }
-
-    function template0Ajax(i, menu) {
         // 不用考虑栏目是否显示，因为查询全部栏目时，就只查询显示的
         if (i === 0) {
-            $.get(web_path + ajax_url.articles + '/' + menu.menuId, {
-                pageNumber: 1,
-                pageSize: 9,
-                sortName: 'articleDateStr',
-                sortOrder: 'desc',
-                extraSearch: JSON.stringify({menuId: menu.menuId})
-            }, function (data) {
-                template0(data);
-            });
+            sendAjax(1, 9, i, menu);
         }
-    }
 
-    function template1Ajax(i, menu) {
         if (i === 1) {
-            $.get(web_path + ajax_url.articles + '/' + menu.menuId, {
-                pageNumber: 1,
-                pageSize: 5,
-                sortName: 'articleDateStr',
-                sortOrder: 'desc',
-                extraSearch: JSON.stringify({menuId: menu.menuId})
-            }, function (data) {
-                template1(data);
-            });
+            sendAjax(1, 5, i, menu);
         }
+
+        if (i === 2) {
+            sendAjax(1, 4, i, menu);
+        }
+
+        if (i === 3) {
+            sendAjax(1, 4, i, menu);
+        }
+
+        if (i === 4) {
+            sendAjax(1, 9, i, menu);
+        }
+
+        if (i === 5) {
+            sendAjax(1, 3, i, menu);
+        }
+
     }
 
-    function template0(data) {
-        if (data.total > 0) {
+    function sendAjax(pageNumber, pageSize, i, menu) {
+        $.get(web_path + ajax_url.articles + '/' + menu.menuId, {
+            pageNumber: pageNumber,
+            pageSize: pageSize,
+            sortName: 'articleDateStr',
+            sortOrder: 'desc',
+            extraSearch: JSON.stringify({menuId: menu.menuId})
+        }, function (data) {
+            eval(data_id.template + i + "(" + JSON.stringify(data) + "," + i + ")");
+        });
+    }
+
+    function template0(data, i) {
+        if (data.rows.length > 0) {
             var article = data.rows[0];
-            $('#templateImage0').html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
                 article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             var num = 0;
-            if (data.total > 5) {
+            if (data.rows.length > 5) {
                 num = 5;
             } else {
-                num = data.total;
+                num = data.rows.length;
             }
             for (var j1 = 1; j1 < num; j1++) {
-                $('#templateData00').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
+                $(data_id.templateData + i + '0').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
             }
 
             for (var j2 = num; j2 < data.total; j2++) {
-                $('#templateData01').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
+                $(data_id.templateData + i + '1').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
             }
         }
     }
 
-    function template1(data) {
-        if (data.total > 0) {
+    function template1(data, i) {
+        if (data.rows.length > 0) {
             var article = data.rows[0];
-            $('#templateImage1').html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
                 article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
-            for (var j3 = 1; j3 < data.total; j3++) {
-                $('#templateData10').prepend(listDateTemplate(web_path + ajax_url.article + '/' + data.rows[j3].articleId, data.rows[j3].articleTitle, data.rows[j3].articleDateStr));
+            for (var j3 = 1; j3 < data.rows.length; j3++) {
+                $(data_id.templateData + i + '0').prepend(listDateTemplate(web_path + ajax_url.article + '/' + data.rows[j3].articleId, data.rows[j3].articleTitle, data.rows[j3].articleDateStr));
+            }
+        }
+    }
+
+    function template2(data, i) {
+        if (data.rows.length > 0) {
+            var article = data.rows[0];
+            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+                article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
+            for (var j4 = 1; j4 < data.rows.length; j4++) {
+                $(data_id.templateData + i + '0').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j4].articleId, data.rows[j4].articleTitle));
+            }
+        }
+    }
+
+    function template3(data, i) {
+        if (data.rows.length > 0) {
+            var article = data.rows[0];
+            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+                article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
+            for (var j5 = 1; j5 < data.rows.length; j5++) {
+                $(data_id.templateData + i + '0').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j5].articleId, data.rows[j5].articleTitle));
+            }
+        }
+    }
+
+    function template4(data, i) {
+        if (data.rows.length > 0) {
+            var article = data.rows[0];
+            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+                article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
+            var num = 0;
+            if (data.rows.length > 5) {
+                num = 5;
+            } else {
+                num = data.rows.length;
+            }
+            for (var j6 = 1; j6 < num; j6++) {
+                $(data_id.templateData + i + '0').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j6].articleId, data.rows[j6].articleTitle));
+            }
+
+            for (var j7 = num; j7 < data.total; j7++) {
+                $(data_id.templateData + i + '1').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j7].articleId, data.rows[j7].articleTitle));
+            }
+        }
+    }
+
+    function template5(data, i) {
+        if (data.rows.length > 0) {
+            for (var j8 = 0; j8 < data.rows.length; j8++) {
+                var article = data.rows[j8];
+                $(data_id.templateImage + i + j8).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 200,
+                    article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             }
         }
     }
