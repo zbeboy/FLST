@@ -1,5 +1,6 @@
 package cn.edu.kmust.flst.service.reception
 
+import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import org.springframework.ui.ModelMap
 import javax.servlet.http.HttpServletRequest
 
@@ -43,4 +44,12 @@ interface ReceptionService {
      * @param menuId 栏目 id
      */
     fun columnsData(modelMap: ModelMap, menuId: String)
+
+    /**
+     * 获得最顶层id
+     *
+     * @param menus 栏目
+     * @param list 数据
+     */
+    fun getMaxPid(menus: Menus, list:ArrayList<Menus>)
 }

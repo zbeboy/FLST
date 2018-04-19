@@ -56,10 +56,19 @@ open class ReceptionMainController {
                 receptionService.navData(modelMap, request)
                 modelMap.addAttribute("redirect_uri", "/user/menu/$menuId")
                 receptionService.websiteData(modelMap, request)
-                receptionService.bannerData(modelMap, Workbook.WEB_FIXED_HOME_ID)
+
+                val list:ArrayList<Menus> = ArrayList()
+                receptionService.getMaxPid(menu,list)
+                list.forEach{i->
+                    if(i.menuPid == "0"){
+                        receptionService.bannerData(modelMap, i.menuId)
+                    }
+                }
+
                 receptionService.linksData(modelMap)
                 receptionService.columnsData(modelMap, menu.menuPid)
 
+                modelMap.addAttribute("positions",list)
                 modelMap.addAttribute("columnId", menu.menuId)
                 "reception/article_list"
             } else {

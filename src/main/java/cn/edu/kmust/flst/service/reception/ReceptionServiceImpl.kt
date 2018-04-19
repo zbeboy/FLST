@@ -108,4 +108,13 @@ open class ReceptionServiceImpl : ReceptionService {
     }
 
 
+    override fun getMaxPid(menus:Menus,list:ArrayList<Menus>){
+        if(menus.menuPid != "0"){
+            val menu = menusService.findById(menus.menuPid)
+            getMaxPid(menu,list)
+        }
+        list.add(menus)
+    }
+
+
 }
