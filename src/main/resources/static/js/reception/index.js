@@ -85,11 +85,11 @@ $(document).ready(function () {
                 num = data.rows.length;
             }
             for (var j1 = 1; j1 < num; j1++) {
-                $(data_id.templateData + i + '0').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
+                $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
             }
 
             for (var j2 = num; j2 < data.total; j2++) {
-                $(data_id.templateData + i + '1').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
+                $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
             }
         }
     }
@@ -100,7 +100,7 @@ $(document).ready(function () {
             $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
                 article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             for (var j3 = 1; j3 < data.rows.length; j3++) {
-                $(data_id.templateData + i + '0').prepend(listDateTemplate(web_path + ajax_url.article + '/' + data.rows[j3].articleId, data.rows[j3].articleTitle, data.rows[j3].articleDateStr));
+                $(data_id.templateData + i + '0').append(listDateTemplate(web_path + ajax_url.article + '/' + data.rows[j3].articleId, data.rows[j3].articleTitle, data.rows[j3].articleDateStr));
             }
         }
     }
@@ -111,7 +111,7 @@ $(document).ready(function () {
             $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
                 article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             for (var j4 = 1; j4 < data.rows.length; j4++) {
-                $(data_id.templateData + i + '0').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j4].articleId, data.rows[j4].articleTitle));
+                $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j4].articleId, data.rows[j4].articleTitle));
             }
         }
     }
@@ -122,7 +122,7 @@ $(document).ready(function () {
             $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
                 article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             for (var j5 = 1; j5 < data.rows.length; j5++) {
-                $(data_id.templateData + i + '0').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j5].articleId, data.rows[j5].articleTitle));
+                $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j5].articleId, data.rows[j5].articleTitle));
             }
         }
     }
@@ -139,11 +139,11 @@ $(document).ready(function () {
                 num = data.rows.length;
             }
             for (var j6 = 1; j6 < num; j6++) {
-                $(data_id.templateData + i + '0').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j6].articleId, data.rows[j6].articleTitle));
+                $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j6].articleId, data.rows[j6].articleTitle));
             }
 
             for (var j7 = num; j7 < data.total; j7++) {
-                $(data_id.templateData + i + '1').prepend(listTemplate(web_path + ajax_url.article + '/' + data.rows[j7].articleId, data.rows[j7].articleTitle));
+                $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j7].articleId, data.rows[j7].articleTitle));
             }
         }
     }
