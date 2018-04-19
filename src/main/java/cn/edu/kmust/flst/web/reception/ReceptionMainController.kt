@@ -60,6 +60,7 @@ open class ReceptionMainController {
                 receptionService.linksData(modelMap)
                 receptionService.columnsData(modelMap, menu.menuPid)
 
+                modelMap.addAttribute("columnId", menu.menuId)
                 "reception/article_list"
             } else {
                 modelMap.addAttribute("status", 500)
