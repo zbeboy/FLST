@@ -9,6 +9,7 @@ import cn.edu.kmust.flst.domain.tables.ArticleEn;
 import cn.edu.kmust.flst.domain.tables.Authorities;
 import cn.edu.kmust.flst.domain.tables.Banner;
 import cn.edu.kmust.flst.domain.tables.DataInfo;
+import cn.edu.kmust.flst.domain.tables.Files;
 import cn.edu.kmust.flst.domain.tables.FriendlyLink;
 import cn.edu.kmust.flst.domain.tables.Menus;
 import cn.edu.kmust.flst.domain.tables.PersistentLogins;
@@ -49,6 +50,7 @@ public class Indexes {
     public static final Index BANNER_PRIMARY = Indexes0.BANNER_PRIMARY;
     public static final Index BANNER_USERNAME = Indexes0.BANNER_USERNAME;
     public static final Index DATA_INFO_PRIMARY = Indexes0.DATA_INFO_PRIMARY;
+    public static final Index FILES_PRIMARY = Indexes0.FILES_PRIMARY;
     public static final Index FRIENDLY_LINK_PRIMARY = Indexes0.FRIENDLY_LINK_PRIMARY;
     public static final Index MENUS_MENU_NAME = Indexes0.MENUS_MENU_NAME;
     public static final Index MENUS_MENU_NAME_EN = Indexes0.MENUS_MENU_NAME_EN;
@@ -73,6 +75,7 @@ public class Indexes {
         public static Index BANNER_PRIMARY = Internal.createIndex("PRIMARY", Banner.BANNER, new OrderField[] { Banner.BANNER.BANNER_ID }, true);
         public static Index BANNER_USERNAME = Internal.createIndex("username", Banner.BANNER, new OrderField[] { Banner.BANNER.USERNAME }, false);
         public static Index DATA_INFO_PRIMARY = Internal.createIndex("PRIMARY", DataInfo.DATA_INFO, new OrderField[] { DataInfo.DATA_INFO.DATA_KEY }, true);
+        public static Index FILES_PRIMARY = Internal.createIndex("PRIMARY", Files.FILES, new OrderField[] { Files.FILES.FILE_ID }, true);
         public static Index FRIENDLY_LINK_PRIMARY = Internal.createIndex("PRIMARY", FriendlyLink.FRIENDLY_LINK, new OrderField[] { FriendlyLink.FRIENDLY_LINK.LINK_ID }, true);
         public static Index MENUS_MENU_NAME = Internal.createIndex("menu_name", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_NAME }, true);
         public static Index MENUS_MENU_NAME_EN = Internal.createIndex("menu_name_en", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_NAME_EN }, true);

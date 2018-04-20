@@ -177,8 +177,8 @@ $(document).ready(function () {
     $(paramId.menuNameEn).blur(function () {
         initParam();
         var menuNameEn = param.menuNameEn;
-        if (menuNameEn.length <= 0 || menuNameEn.length > 50) {
-            validErrorDom(validId.menuNameEn, errorMsgId.menuNameEn, '栏目英文名50个字符以内');
+        if (menuNameEn.length <= 0 || menuNameEn.length > 100) {
+            validErrorDom(validId.menuNameEn, errorMsgId.menuNameEn, '栏目英文名100个字符以内');
         } else {
             // 栏目中文名是否重复
             Messenger().run({
@@ -322,9 +322,9 @@ $(document).ready(function () {
 
     function validMenuNameEn() {
         var menuNameEn = param.menuNameEn;
-        if (menuNameEn.length <= 0 || menuNameEn.length > 50) {
+        if (menuNameEn.length <= 0 || menuNameEn.length > 100) {
             Messenger().post({
-                message: '栏目英文名1~50个字符',
+                message: '栏目英文名1~100个字符',
                 type: 'error',
                 showCloseButton: true
             });

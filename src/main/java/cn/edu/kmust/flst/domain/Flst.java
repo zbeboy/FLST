@@ -9,6 +9,7 @@ import cn.edu.kmust.flst.domain.tables.ArticleEn;
 import cn.edu.kmust.flst.domain.tables.Authorities;
 import cn.edu.kmust.flst.domain.tables.Banner;
 import cn.edu.kmust.flst.domain.tables.DataInfo;
+import cn.edu.kmust.flst.domain.tables.Files;
 import cn.edu.kmust.flst.domain.tables.FriendlyLink;
 import cn.edu.kmust.flst.domain.tables.Menus;
 import cn.edu.kmust.flst.domain.tables.PersistentLogins;
@@ -38,7 +39,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Flst extends SchemaImpl {
 
-    private static final long serialVersionUID = 1081482102;
+    private static final long serialVersionUID = 790602150;
 
     /**
      * The reference instance of <code>flst</code>
@@ -69,6 +70,11 @@ public class Flst extends SchemaImpl {
      * The table <code>flst.data_info</code>.
      */
     public final DataInfo DATA_INFO = cn.edu.kmust.flst.domain.tables.DataInfo.DATA_INFO;
+
+    /**
+     * The table <code>flst.files</code>.
+     */
+    public final Files FILES = cn.edu.kmust.flst.domain.tables.Files.FILES;
 
     /**
      * The table <code>flst.friendly_link</code>.
@@ -120,6 +126,7 @@ public class Flst extends SchemaImpl {
             Authorities.AUTHORITIES,
             Banner.BANNER,
             DataInfo.DATA_INFO,
+            Files.FILES,
             FriendlyLink.FRIENDLY_LINK,
             Menus.MENUS,
             PersistentLogins.PERSISTENT_LOGINS,

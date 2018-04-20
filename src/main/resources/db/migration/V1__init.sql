@@ -21,7 +21,7 @@ CREATE TABLE persistent_logins (
 CREATE TABLE menus (
   menu_id      VARCHAR(64)                       NOT NULL PRIMARY KEY,
   menu_name    VARCHAR(20) UNIQUE                NOT NULL,
-  menu_name_en VARCHAR(50) UNIQUE                NOT NULL,
+  menu_name_en VARCHAR(100) UNIQUE                NOT NULL,
   out_link     BOOLEAN DEFAULT 0                 NOT NULL,
   menu_link    VARCHAR(200)                      NOT NULL,
   menu_pid     VARCHAR(64) DEFAULT 0             NOT NULL,
@@ -89,6 +89,15 @@ CREATE TABLE friendly_link (
 CREATE TABLE data_info (
   data_key   VARCHAR(200) NOT NULL PRIMARY KEY,
   data_value VARCHAR(200)
+);
+
+CREATE TABLE files(
+  file_id               VARCHAR(64) NOT NULL PRIMARY KEY,
+  size                  LONG,
+  original_file_name    VARCHAR(300),
+  new_name              VARCHAR(300),
+  relative_path         VARCHAR(500),
+  ext                   VARCHAR(10)
 );
 
 INSERT INTO users (username, password, enabled)

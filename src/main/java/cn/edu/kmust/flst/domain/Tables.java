@@ -9,6 +9,7 @@ import cn.edu.kmust.flst.domain.tables.ArticleEn;
 import cn.edu.kmust.flst.domain.tables.Authorities;
 import cn.edu.kmust.flst.domain.tables.Banner;
 import cn.edu.kmust.flst.domain.tables.DataInfo;
+import cn.edu.kmust.flst.domain.tables.Files;
 import cn.edu.kmust.flst.domain.tables.FriendlyLink;
 import cn.edu.kmust.flst.domain.tables.Menus;
 import cn.edu.kmust.flst.domain.tables.PersistentLogins;
@@ -54,6 +55,11 @@ public class Tables {
      * The table <code>flst.data_info</code>.
      */
     public static final DataInfo DATA_INFO = cn.edu.kmust.flst.domain.tables.DataInfo.DATA_INFO;
+
+    /**
+     * The table <code>flst.files</code>.
+     */
+    public static final Files FILES = cn.edu.kmust.flst.domain.tables.Files.FILES;
 
     /**
      * The table <code>flst.friendly_link</code>.

@@ -14,7 +14,7 @@ open class MenusAddVo {
     @Size(max = 20)
     var menuName: String? = null
     @NotNull
-    @Size(max = 50)
+    @Size(max = 100)
     var menuNameEn: String? = null
     @NotNull
     var outLink: Byte? = null

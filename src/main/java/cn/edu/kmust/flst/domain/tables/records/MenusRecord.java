@@ -30,7 +30,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class MenusRecord extends UpdatableRecordImpl<MenusRecord> implements Record11<String, String, String, Byte, String, String, Integer, Byte, Byte, Byte, String> {
 
-    private static final long serialVersionUID = -176110319;
+    private static final long serialVersionUID = -1934910987;
 
     /**
      * Setter for <code>flst.menus.menu_id</code>.
@@ -75,7 +75,7 @@ public class MenusRecord extends UpdatableRecordImpl<MenusRecord> implements Rec
      * Getter for <code>flst.menus.menu_name_en</code>.
      */
     @NotNull
-    @Size(max = 50)
+    @Size(max = 100)
     public String getMenuNameEn() {
         return (String) get(2);
     }

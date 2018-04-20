@@ -24,7 +24,7 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Menus implements Serializable {
 
-    private static final long serialVersionUID = -1054477028;
+    private static final long serialVersionUID = -1379620224;
 
     private String  menuId;
     private String  menuName;
@@ -101,7 +101,7 @@ public class Menus implements Serializable {
     }
 
     @NotNull
-    @Size(max = 50)
+    @Size(max = 100)
     public String getMenuNameEn() {
         return this.menuNameEn;
     }
