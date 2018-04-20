@@ -1,6 +1,7 @@
 package cn.edu.kmust.flst.service.reception
 
 import cn.edu.kmust.flst.config.Workbook
+import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.domain.tables.records.MenusRecord
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import org.jooq.Result
@@ -34,12 +35,12 @@ open class NavServiceImpl : NavService {
                 val list2 = menusService.findByPIdAndMenuShowAndMenuFixed(menu1.menuId, 1, 0)
                 if (!ObjectUtils.isEmpty(list2)) {
                     li += " class=\"dropdown\">"
-                    li += "<a href=\"${menu1.menuLink}\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">${menu1.menuName} <span class=\"caret\"></span></a>"
+                    li += "<a href=\"${menu1.menuLink}\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">${getMenuName(language, menu1)} <span class=\"caret\"></span></a>"
                     li += "<ul class=\"dropdown-menu\">"
                     // 开始次级递归生成
                     li = generateHtml(list2, li, language)
                 } else {
-                    li += "><a href=\"${menu1.menuLink}\">${menu1.menuName}</a></li>"
+                    li += "><a href=\"${menu1.menuLink}\">${getMenuName(language, menu1)}</a></li>"
                 }
             }
         }
@@ -60,14 +61,25 @@ open class NavServiceImpl : NavService {
             val list = menusService.findByPIdAndMenuShowAndMenuFixed(menu.menuId, 1, 0)
             if (!ObjectUtils.isEmpty(list)) {
                 li += "<li class=\"dropdown-submenu\"> "
-                li += "<a href=\"${menu.menuLink}\">${menu.menuName}</a>"
+                li += "<a href=\"${menu.menuLink}\">${getMenuName(language, menu)}</a>"
                 li += "<ul class=\"dropdown-menu\"> "
                 li = generateHtml(list, li, language)
             } else {
-                li += "<li><a href=\"${menu.menuLink}\">${menu.menuName}</a></li>"
+                li += "<li><a href=\"${menu.menuLink}\">${getMenuName(language, menu)}</a></li>"
             }
         }
         li += "</ul></li>"
         return li
+    }
+
+    /**
+     * 获取栏目名
+     */
+    fun getMenuName(language: String, menus: MenusRecord): String {
+        return if (language == Workbook.LANGUAGE_ZH_CN) {
+            menus.menuName
+        } else {
+            menus.menuNameEn
+        }
     }
 }
