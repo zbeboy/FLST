@@ -10,6 +10,11 @@
     <link href="css/animate.min.css" rel="stylesheet" th:href="@{/css/animate.min.css}"/>
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet" th:href="@{/css/style.css}"/>
+    <!-- Include Quill stylesheet -->
+    <link href="plugin/KaTeX/katex.min.css" th:href="@{/plugin/KaTeX/katex.min.css}" rel="stylesheet"/>
+    <link href="plugin/highlight/monokai-sublime.min.css" th:href="@{/plugin/highlight/monokai-sublime.min.css}"
+          rel="stylesheet"/>
+    <link href="plugin/quill/quill.bubble.css" th:href="@{/plugin/quill/quill.bubble.css}" rel="stylesheet"/>
 </head>
 <body>
 <div class="myheader" th:include="nav::receptionHearder">
@@ -63,32 +68,25 @@
                 </div>
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h3 th:text="${article.articleTitle}"></h3>
-                    <h5 class="text-muted" style="padding-top:10px;"><span th:text="#{web.info.time}"></span>：<span th:text="${article.articleDateStr}"></span> <span th:text="#{web.info.source.from}"></span>：
+                    <h5 class="text-muted" style="padding-top:10px;"><span th:text="#{web.info.time}"></span>：<span
+                            th:text="${article.articleDateStr}"></span> <span th:text="#{web.info.source.from}"></span>：
                         <span th:if="${article.articleSources == 0}" th:text="#{web.info.original}"></span>
-                        <a th:if="${article.articleSources == 1}" th:text="${article.articleSourcesName}" th:href="${article.articleSourcesLink}" style="color:black;"></a>
+                        <a th:if="${article.articleSources == 1}" th:text="${article.articleSourcesName}"
+                           th:href="${article.articleSourcesLink}" style="color:black;"></a>
                     </h5>
                 </div>
-                <div style="padding-top:5px;font-size:17px;" class="wow fadeInUp" data-wow-delay="0.2s">
-                    <p style="text-indent: 2em;">
-                        2018年3月27日上午，澳大利亚皇家墨尔本理工大学Roger Horn教授、Miao Chen教授来访我院，学校对外合作交流处、学院负责人及相关工作人员等陪同考察。
-                    </p>
-                    <p style="text-indent: 2em;">
-                        崔秀明副院长代表学院对学Roger Horn教授和Miao Chen教授的到访表示热烈欢迎，学院外事秘书熊吟陪同来宾参观了学院，并对学院建设发展情况及相关工作进展进行了介绍。
-                    </p>
-                    <p style="text-indent: 2em;">
-                        参观过程中，双方就人才培养、资源共享等合作进行了探讨交流，澳方教授对学院实验平台及相关设施建设表示赞赏，并表达了今后开展合作交流项目的想法和期望。
-                    </p>
-                    <div style="text-align: center;">
-                        <img src="images/example1.jpg" class="img-responsive"/>
-                    </div>
+                <div style="padding-top:5px;font-size:17px;" class="wow fadeInUp" data-wow-delay="0.2s" id="editor-container">
+
                 </div>
                 <div style="padding-top:18px;" class="wow fadeInUp" data-wow-delay="0.3s">
                     <span class="text-primary" th:text="#{web.pagination.previous}"></span>
-                    <a href="#" style="color:black;" th:text="${upArticle.articleTitle}" th:href="@{'/user/article/' + ${upArticle.articleId}}"></a>
+                    <a href="#" style="color:black;" th:text="${upArticle.articleTitle}"
+                       th:href="@{'/user/article/' + ${upArticle.articleId}}"></a>
                 </div>
                 <div style="padding-top:10px;" class="wow fadeInUp" data-wow-delay="0.4s">
                     <span class="text-primary" th:text="#{web.pagination.next}"></span>
-                    <a href="#" style="color:black;" th:text="${downArticle.articleTitle}" th:href="@{'/user/article/' + ${downArticle.articleId}}"></span>
+                    <a href="#" style="color:black;" th:text="${downArticle.articleTitle}"
+                       th:href="@{'/user/article/' + ${downArticle.articleId}}"></span>
                 </div>
             </div><!--/.col-xs-12.col-sm-9-->
         </div><!--/row-->
@@ -113,6 +111,12 @@
 <script src="js/easing.min.js" th:src="@{/js/easing.min.js}"></script>
 <script src="js/wow.min.js" th:src="@{/js/wow.min.js}"></script>
 <script src="js/stick.js" th:src="@{/js/stick.js}"></script>
+<script src="plugin/KaTeX/katex.min.js"
+        th:src="@{/plugin/KaTeX/katex.min.js}"></script>
+<script src="plugin/highlight/highlight.min.js"
+        th:src="@{/plugin/highlight/highlight.min.js}"></script>
+<script src="plugin/quill/quill.min.js"
+        th:src="@{/plugin/quill/quill.min.js}"></script>
 
 <!-- Template Main Javascript File -->
 <script src="js/main.js" th:src="@{/js/main.js}"></script>
@@ -120,7 +124,8 @@
     var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
     var init_page_param = {
         'language': /*[[${language}]]*/ '',
-        'columnId': /*[[${columnId}]]*/ ''
+        'columnId': /*[[${columnId}]]*/ '',
+        'articleContent': /*[[${article.articleContent}]]*/ ''
     };
 </script>
 <script src="js/reception/article_content.js" th:src="@{/js/reception/article_content.js}"></script>
