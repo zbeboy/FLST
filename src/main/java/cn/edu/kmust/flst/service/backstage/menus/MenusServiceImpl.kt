@@ -85,7 +85,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
         menusDao.update(menus)
     }
 
-    override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record9<String, String, String, String, Byte, String, Int, Byte, Byte>> {
+    override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record10<String, String, String, String, String, Byte, String, Int, Byte, Byte>> {
         val a = searchCondition(bootstrapTableUtils)
         val selectOnConditionStep = if (ObjectUtils.isEmpty(a)) {
             create.select(
@@ -93,6 +93,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
                     MENUS.`as`("M").MENU_NAME,
                     MENUS.`as`("M").MENU_NAME_EN,
                     MENUS.`as`("M").MENU_LINK,
+                    MENUS.`as`("M").MENU_PID,
                     MENUS.`as`("M").OUT_LINK,
                     MENUS.`as`("N").MENU_NAME.`as`("menuPidName"),
                     MENUS.`as`("M").MENU_ORDER,
@@ -108,6 +109,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
                     MENUS.`as`("M").MENU_NAME,
                     MENUS.`as`("M").MENU_NAME_EN,
                     MENUS.`as`("M").MENU_LINK,
+                    MENUS.`as`("M").MENU_PID,
                     MENUS.`as`("M").OUT_LINK,
                     MENUS.`as`("N").MENU_NAME.`as`("menuPidName"),
                     MENUS.`as`("M").MENU_ORDER,

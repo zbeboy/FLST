@@ -4,10 +4,7 @@ import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.domain.tables.records.MenusRecord
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
-import org.jooq.Record
-import org.jooq.Record8
-import org.jooq.Record9
-import org.jooq.Result
+import org.jooq.*
 
 /**
  * Created by zbeboy 2018-04-11 .
@@ -25,7 +22,7 @@ interface MenusService {
     /**
      * 查询全部
      */
-    fun findAll():List<Menus>
+    fun findAll(): List<Menus>
 
     /**
      * 通过pid查询
@@ -52,7 +49,7 @@ interface MenusService {
      * @param bootstrapTableUtils bootstrapTable工具类
      * @return 分页数据
      */
-    fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record9<String, String, String, String, Byte, String, Int, Byte, Byte>>
+    fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record10<String, String, String, String, String, Byte, String, Int, Byte, Byte>>
 
     /**
      * 根据条件查询总数

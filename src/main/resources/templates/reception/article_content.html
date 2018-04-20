@@ -59,7 +59,7 @@
             </div><!--/.sidebar-offcanvas-->
 
             <div class="col-xs-12 col-sm-9">
-                <div class="col-md-12" th:unless="${#lists.isEmpty(positions)}"><i
+                <div class="col-md-12" style="padding: 20px;" th:unless="${#lists.isEmpty(positions)}"><i
                         class="glyphicon glyphicon-grain text-success" style="font-size: 17px;"></i> <a
                         style="color:black;" th:href="@{/}" th:text="#{web.meta.description}"></a>
                     <span th:each="position:${positions}">&gt;&gt; <a style="color:black;"
