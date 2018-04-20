@@ -68,11 +68,13 @@
                 </div>
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h3 th:text="${article.articleTitle}"></h3>
-                    <h5 class="text-muted" style="padding-top:10px;"><span th:text="#{web.info.time}"></span>：<span
-                            th:text="${article.articleDateStr}"></span> <span th:text="#{web.info.source.from}"></span>：
+                    <h5 class="text-muted" style="padding-top:10px;"><span th:text="#{web.info.time}"></span>：
+                        <span th:text="${article.articleDateStr}"></span>
+                        <span th:text="#{web.info.source.from}"></span>：
                         <span th:if="${article.articleSources == 0}" th:text="#{web.info.original}"></span>
                         <a th:if="${article.articleSources == 1}" th:text="${article.articleSourcesName}"
                            th:href="${article.articleSourcesLink}" style="color:black;"></a>
+                        <span th:text="#{web.info.clicks}"></span>： <span th:text="${article.articleClicks}"></span>
                     </h5>
                 </div>
                 <div style="padding-top:5px;font-size:17px;" class="wow fadeInUp" data-wow-delay="0.2s" id="editor-container">

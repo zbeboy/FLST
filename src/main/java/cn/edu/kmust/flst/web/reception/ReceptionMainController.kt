@@ -10,6 +10,7 @@ import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.reception.NavService
 import cn.edu.kmust.flst.service.reception.ReceptionService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
+import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
 import cn.edu.kmust.flst.web.common.MethodControllerCommon
@@ -17,6 +18,7 @@ import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
+import org.springframework.util.StringUtils
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.LocaleResolver
 import java.net.URLDecoder
@@ -24,6 +26,7 @@ import java.net.URLEncoder
 import java.util.ArrayList
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpSession
 
 /**
  * Created by zbeboy 2018-04-15 .
@@ -115,7 +118,7 @@ open class ReceptionMainController {
      * @return 内容.
      */
     @RequestMapping(value = ["/user/article/{articleId}"], method = [(RequestMethod.GET)])
-    fun article(@PathVariable("articleId") articleId: Int, request: HttpServletRequest, modelMap: ModelMap): String {
+    fun article(@PathVariable("articleId") articleId: Int, session: HttpSession, request: HttpServletRequest, modelMap: ModelMap): String {
         val menuId: String?
         val language = localeResolver.resolveLocale(request).displayLanguage
         // 中文文章
@@ -126,6 +129,20 @@ open class ReceptionMainController {
                 menuId = article.menuId
                 article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy年MM月dd日")
                 modelMap.addAttribute("article", article)
+                // 计算点击量
+                val clickToken =  "${RequestUtils.getIpAddress(request)}:$articleId"
+                if (ObjectUtils.isEmpty(session.getAttribute("articleClickKey"))) {
+                    // 更新点击量
+                    articleService.updateClicks(articleId)
+                    session.setAttribute("articleClickKey",clickToken)
+                } else  {
+                    val articleClickKey = session.getAttribute("articleClickKey") as String
+                    if(StringUtils.hasLength(articleClickKey) && articleClickKey != clickToken){
+                        // 更新点击量
+                        articleService.updateClicks(articleId)
+                        session.setAttribute("articleClickKey",clickToken)
+                    }
+                }
 
                 // 查询上一篇和下一篇
 
@@ -155,6 +172,22 @@ open class ReceptionMainController {
                 menuId = article.menuId
                 article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy-MM-dd")
                 modelMap.addAttribute("article", article)
+
+                // 计算点击量
+                val clickToken =  "${RequestUtils.getIpAddress(request)}:$articleId"
+                if (ObjectUtils.isEmpty(session.getAttribute("articleClickKey"))) {
+                    // 更新点击量
+                    articleService.updateClicks(articleId)
+                    session.setAttribute("articleClickKey",clickToken);
+                } else  {
+                    val articleClickKey = session.getAttribute("articleClickKey") as String
+                    if(StringUtils.hasLength(articleClickKey) && articleClickKey != clickToken){
+                        // 更新点击量
+                        articleService.updateClicks(articleId)
+                        session.setAttribute("articleClickKey",clickToken)
+                    }
+                }
+
                 // 查询上一篇和下一篇
                 val upData = articleEnService.findOneGTArticleDateByPage(article.articleDate, menuId)
                 if (upData.isPresent) {

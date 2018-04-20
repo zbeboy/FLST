@@ -121,6 +121,12 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
         articleEnDao.update(article)
     }
 
+    override fun updateClicks(articleId: Int) {
+        create.update(ARTICLE_EN).set(ARTICLE_EN.ARTICLE_CLICKS, ARTICLE_EN.ARTICLE_CLICKS + 1)
+                .where(ARTICLE_EN.ARTICLE_ID.eq(articleId))
+                .execute()
+    }
+
     override fun deleteById(id: Int) {
         articleEnDao.deleteById(id)
     }

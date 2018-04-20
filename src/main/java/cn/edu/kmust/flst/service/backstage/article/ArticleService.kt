@@ -83,6 +83,11 @@ interface ArticleService {
     fun update(article: Article)
 
     /**
+     * 更新点击量
+     */
+    fun updateClicks(articleId: Int)
+
+    /**
      * 通过主键删除
      *
      * @param id 主键
