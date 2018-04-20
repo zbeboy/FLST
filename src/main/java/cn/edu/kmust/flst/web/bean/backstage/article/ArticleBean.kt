@@ -8,4 +8,12 @@ import cn.edu.kmust.flst.domain.tables.pojos.Article
 class ArticleBean : Article() {
     var articleDateStr: String? = null
     var menuName: String? = null
+    var menuNameEn: String? = null
+    var outLink: Byte? = null
+    var menuLink: String? = null
+    var menuPid: String? = null
+    var menuOrder: Int? = null
+    var menuShow: Byte? = null
+    var menuFixed: Byte? = null
+    var showArticle: Byte? = null
 }

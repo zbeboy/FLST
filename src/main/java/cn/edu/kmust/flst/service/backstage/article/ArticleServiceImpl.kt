@@ -4,6 +4,7 @@ import cn.edu.kmust.flst.domain.Tables.ARTICLE
 import cn.edu.kmust.flst.domain.Tables.MENUS
 import cn.edu.kmust.flst.domain.tables.daos.ArticleDao
 import cn.edu.kmust.flst.domain.tables.pojos.Article
+import cn.edu.kmust.flst.domain.tables.records.ArticleRecord
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
@@ -15,6 +16,8 @@ import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.util.ObjectUtils
 import org.springframework.util.StringUtils
+import java.sql.Timestamp
+import java.util.*
 import javax.annotation.Resource
 
 /**
@@ -31,6 +34,37 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
 
     override fun findById(id: Int): Article {
         return articleDao.findById(id)
+    }
+
+    override fun findByIdAndCache(id: Int): Optional<Record> {
+        return create.select()
+                .from(ARTICLE)
+                .where(ARTICLE.ARTICLE_ID.eq(id))
+                .fetchOptional()
+    }
+
+    override fun findOneGTArticleDateByPage(articleDate: Timestamp): Optional<Record> {
+        return create.select()
+                .from(ARTICLE)
+                .where(ARTICLE.ARTICLE_DATE.greaterThan(articleDate))
+                .limit(0, 1)
+                .fetchOptional()
+    }
+
+    override fun findOneLTArticleDateByPage(articleDate: Timestamp): Optional<Record> {
+        return create.select()
+                .from(ARTICLE)
+                .where(ARTICLE.ARTICLE_DATE.lessThan(articleDate))
+                .limit(0, 1)
+                .fetchOptional()
+    }
+
+    override fun findOneByPageOrderByArticleDate(): Optional<Record> {
+        return create.select()
+                .from(ARTICLE)
+                .orderBy(ARTICLE.ARTICLE_DATE.desc())
+                .limit(0, 1)
+                .fetchOptional()
     }
 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)

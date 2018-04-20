@@ -1,10 +1,13 @@
 package cn.edu.kmust.flst.service.backstage.article
 
 import cn.edu.kmust.flst.domain.tables.pojos.Article
+import cn.edu.kmust.flst.domain.tables.records.ArticleRecord
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record
 import org.jooq.Result
+import java.sql.Timestamp
+import java.util.*
 
 /**
  * Created by zbeboy 2018-04-13 .
@@ -18,6 +21,37 @@ interface ArticleService {
      * @return 数据
      */
     fun findById(id: Int): Article
+
+    /**
+     * 通过主键关联查询
+     *
+     * @param id 主键
+     * @return 数据
+     */
+    fun findByIdAndCache(id: Int): Optional<Record>
+
+    /**
+     * 通过查询下一篇文章
+     *
+     * @param articleDate 日期
+     * @return 数据
+     */
+    fun findOneGTArticleDateByPage(articleDate: Timestamp): Optional<Record>
+
+    /**
+     * 通过查询上一篇文章
+     *
+     * @param articleDate 日期
+     * @return 数据
+     */
+    fun findOneLTArticleDateByPage(articleDate: Timestamp): Optional<Record>
+
+    /**
+     * 查询最新一条
+     *
+     * @return 数据
+     */
+    fun findOneByPageOrderByArticleDate(): Optional<Record>
 
     /**
      * 分页查询

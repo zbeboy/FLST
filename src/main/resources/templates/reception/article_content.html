@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: header(~{::meta},~{::title},~{::link})">
+    <!-- csrf -->
+    <meta name="_csrf" content="" th:content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" content="" th:content="${_csrf.headerName}"/>
+    <title th:text="#{web.meta.description} + '-' + #{web.footer.info}"></title>
+    <!-- Libraries CSS Files -->
+    <link href="css/animate.min.css" rel="stylesheet" th:href="@{/css/animate.min.css}"/>
+    <!-- Main Stylesheet File -->
+    <link href="css/style.css" rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div class="myheader" th:include="nav::receptionHearder">
+</div>
+<nav class="navbar navbar-default navbar-static-top navbar-wrapper" style="margin-bottom:0px;border:0px;"
+     th:include="nav::receptionNav">
+</nav>
+
+<div class="container" style="padding-bottom:10px;">
+    <div class="row">
+        <div class="row row-offcanvas row-offcanvas-right">
+            <div class="col-sm-3 hidden-xs" id="sidebar" style="padding-top:5px;">
+                <div class="panel panel-primary wow fadeInUp">
+                    <div class="panel-heading" th:text="#{web.column.navigation}">
+                    </div>
+                    <div class="panel-body">
+                        <div class="list-group" th:unless="${#lists.isEmpty(columns)}">
+                            <a th:class="${column.menuId == columnId?'list-group-item active':'list-group-item'}"
+                               th:each="column:${columns}" th:href="${column.menuLink}"
+                               th:text="${ language == 'zh_cn'?column.menuName:column.menuNameEn}"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default wow fadeInUp">
+                    <div class="panel-heading" th:text="#{web.document.retrieval}">
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" th:action="@{/user/search}" method="get">
+                            <div class="input-group">
+                                <input type="text" name="searchContent" class="form-control"
+                                       th:placeholder="#{web.search.text} + '...'">
+                                <span class="input-group-btn">
+										<button class="btn btn-default" type="submit"
+                                                th:text="#{web.search.text}"></button>
+									</span>
+                            </div>
+                            <!-- /input-group -->
+                        </form>
+                    </div>
+                </div>
+
+            </div><!--/.sidebar-offcanvas-->
+
+            <div class="col-xs-12 col-sm-9">
+                <div class="col-md-12" th:unless="${#lists.isEmpty(positions)}"><i
+                        class="glyphicon glyphicon-grain text-success" style="font-size: 17px;"></i> <a
+                        style="color:black;" th:href="@{/}" th:text="#{web.meta.description}"></a>
+                    <span th:each="position:${positions}">&gt;&gt; <a style="color:black;"
+                                                                      th:href="${position.menuLink}"
+                                                                      th:text="${ language == 'zh_cn'?position.menuName:position.menuNameEn}"></a></span>
+                </div>
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h3 th:text="${article.articleTitle}"></h3>
+                    <h5 class="text-muted" style="padding-top:10px;"><span th:text="#{web.info.time}"></span>：<span th:text="${article.articleDateStr}"></span> <span th:text="#{web.info.source.from}"></span>：
+                        <span th:if="${article.articleSources == 0}" th:text="#{web.info.original}"></span>
+                        <a th:if="${article.articleSources == 1}" th:text="${article.articleSourcesName}" th:href="${article.articleSourcesLink}" style="color:black;"></a>
+                    </h5>
+                </div>
+                <div style="padding-top:5px;font-size:17px;" class="wow fadeInUp" data-wow-delay="0.2s">
+                    <p style="text-indent: 2em;">
+                        2018年3月27日上午，澳大利亚皇家墨尔本理工大学Roger Horn教授、Miao Chen教授来访我院，学校对外合作交流处、学院负责人及相关工作人员等陪同考察。
+                    </p>
+                    <p style="text-indent: 2em;">
+                        崔秀明副院长代表学院对学Roger Horn教授和Miao Chen教授的到访表示热烈欢迎，学院外事秘书熊吟陪同来宾参观了学院，并对学院建设发展情况及相关工作进展进行了介绍。
+                    </p>
+                    <p style="text-indent: 2em;">
+                        参观过程中，双方就人才培养、资源共享等合作进行了探讨交流，澳方教授对学院实验平台及相关设施建设表示赞赏，并表达了今后开展合作交流项目的想法和期望。
+                    </p>
+                    <div style="text-align: center;">
+                        <img src="images/example1.jpg" class="img-responsive"/>
+                    </div>
+                </div>
+                <div style="padding-top:18px;" class="wow fadeInUp" data-wow-delay="0.3s">
+                    <span class="text-primary" th:text="#{web.pagination.previous}"></span>
+                    <a href="#" style="color:black;" th:text="${upArticle.articleTitle}" th:href="@{'/user/article/' + ${upArticle.articleId}}"></a>
+                </div>
+                <div style="padding-top:10px;" class="wow fadeInUp" data-wow-delay="0.4s">
+                    <span class="text-primary" th:text="#{web.pagination.next}"></span>
+                    <a href="#" style="color:black;" th:text="${downArticle.articleTitle}" th:href="@{'/user/article/' + ${downArticle.articleId}}"></span>
+                </div>
+            </div><!--/.col-xs-12.col-sm-9-->
+        </div><!--/row-->
+    </div>
+</div>
+
+<!--==========================
+    Footer
+============================-->
+<footer id="footer" th:include="footer::receptionFooter">
+</footer><!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="glyphicon glyphicon-chevron-up"></i></a>
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js" th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
+<!-- JavaScript Libraries -->
+<script src="js/easing.min.js" th:src="@{/js/easing.min.js}"></script>
+<script src="js/wow.min.js" th:src="@{/js/wow.min.js}"></script>
+<script src="js/stick.js" th:src="@{/js/stick.js}"></script>
+
+<!-- Template Main Javascript File -->
+<script src="js/main.js" th:src="@{/js/main.js}"></script>
+<script th:inline="javascript">
+    var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
+    var init_page_param = {
+        'language': /*[[${language}]]*/ '',
+        'columnId': /*[[${columnId}]]*/ ''
+    };
+</script>
+<script src="js/reception/article_content.js" th:src="@{/js/reception/article_content.js}"></script>
+</body>
+</html>

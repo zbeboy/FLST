@@ -4,6 +4,7 @@ import cn.edu.kmust.flst.domain.Tables.ARTICLE_EN
 import cn.edu.kmust.flst.domain.Tables.MENUS
 import cn.edu.kmust.flst.domain.tables.daos.ArticleEnDao
 import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
+import cn.edu.kmust.flst.domain.tables.records.ArticleEnRecord
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
@@ -15,6 +16,8 @@ import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.util.ObjectUtils
 import org.springframework.util.StringUtils
+import java.sql.Timestamp
+import java.util.*
 import javax.annotation.Resource
 
 /**
@@ -31,6 +34,37 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
 
     override fun findById(id: Int): ArticleEn {
         return articleEnDao.findById(id)
+    }
+
+    override fun findByIdAndCache(id: Int): Optional<Record> {
+        return create.select()
+                .from(ARTICLE_EN)
+                .where(ARTICLE_EN.ARTICLE_ID.eq(id))
+                .fetchOptional()
+    }
+
+    override fun findOneGTArticleDateByPage(articleDate: Timestamp): Optional<Record> {
+        return create.select()
+                .from(ARTICLE_EN)
+                .where(ARTICLE_EN.ARTICLE_DATE.greaterThan(articleDate))
+                .limit(0, 1)
+                .fetchOptional()
+    }
+
+    override fun findOneLTArticleDateByPage(articleDate: Timestamp): Optional<Record> {
+        return create.select()
+                .from(ARTICLE_EN)
+                .where(ARTICLE_EN.ARTICLE_DATE.lessThan(articleDate))
+                .limit(0, 1)
+                .fetchOptional()
+    }
+
+    override fun findOneByPageOrderByArticleDate(): Optional<Record> {
+        return create.select()
+                .from(ARTICLE_EN)
+                .orderBy(ARTICLE_EN.ARTICLE_DATE.desc())
+                .limit(0, 1)
+                .fetchOptional()
     }
 
     override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<ArticleEnBean>): Result<Record> {

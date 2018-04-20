@@ -1,6 +1,8 @@
 package cn.edu.kmust.flst.web.reception
 
 import cn.edu.kmust.flst.config.Workbook
+import cn.edu.kmust.flst.domain.tables.pojos.Article
+import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
@@ -40,6 +42,12 @@ open class ReceptionMainController {
     open lateinit var receptionService: ReceptionService
 
     @Resource
+    open lateinit var articleService: ArticleService
+
+    @Resource
+    open lateinit var articleEnService: ArticleEnService
+
+    @Resource
     open lateinit var methodControllerCommon: MethodControllerCommon
 
     /**
@@ -58,7 +66,7 @@ open class ReceptionMainController {
 
                 val list: ArrayList<Menus> = ArrayList()
                 receptionService.getMaxPid(menu, list)
-                for(i in list){
+                for (i in list) {
                     if (i.menuPid == "0") {
                         receptionService.bannerData(modelMap, i.menuId)
                         break
@@ -99,6 +107,87 @@ open class ReceptionMainController {
         receptionService.websiteData(modelMap, request)
         receptionService.linksData(modelMap)
         return "reception/article_search"
+    }
+
+    /**
+     * 文章内容
+     *
+     * @return 内容.
+     */
+    @RequestMapping(value = ["/user/article/{articleId}"], method = [(RequestMethod.GET)])
+    fun article(@PathVariable("articleId") articleId: Int, request: HttpServletRequest, modelMap: ModelMap): String {
+        val menuId: String?
+        val language = localeResolver.resolveLocale(request).displayLanguage
+        // 中文文章
+        if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
+            val data = articleService.findByIdAndCache(articleId)
+            if (data.isPresent) {
+                val article = data.get().into(ArticleBean::class.java)
+                menuId = article.menuId
+                article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy年MM月dd日")
+                modelMap.addAttribute("article", article)
+
+                // 查询上一篇和下一篇
+                val downData = articleService.findOneGTArticleDateByPage(article.articleDate)
+                if (downData.isPresent) {
+                    modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
+                } else {
+                    modelMap.addAttribute("downArticle", Article())
+                }
+
+                val upData = articleService.findOneLTArticleDateByPage(article.articleDate)
+                if (upData.isPresent) {
+                    modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
+                } else {
+                    modelMap.addAttribute("upArticle", Article())
+                }
+
+            } else {
+                modelMap.addAttribute("status", 500)
+                modelMap.addAttribute("message", "未查询到该文章")
+                return "error"
+            }
+        } else {
+            val data = articleEnService.findByIdAndCache(articleId)
+            if (data.isPresent) {
+                val article = data.get().into(ArticleEnBean::class.java)
+                menuId = article.menuId
+                article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy-MM-dd")
+                modelMap.addAttribute("article", article)
+                // 查询上一篇和下一篇
+                val downData = articleEnService.findOneGTArticleDateByPage(article.articleDate)
+                if (downData.isPresent) {
+                    modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
+                } else {
+                    modelMap.addAttribute("downArticle", Article())
+                }
+
+                val upData = articleEnService.findOneLTArticleDateByPage(article.articleDate)
+                if (upData.isPresent) {
+                    modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
+                } else {
+                    modelMap.addAttribute("upArticle", Article())
+                }
+            } else {
+                modelMap.addAttribute("status", 500)
+                modelMap.addAttribute("message", "未查询到该文章")
+                return "error"
+            }
+        }
+
+        receptionService.navData(modelMap, request)
+        modelMap.addAttribute("redirect_uri", "/")
+        receptionService.websiteData(modelMap, request)
+        val menu = menusService.findById(menuId)
+        val list: ArrayList<Menus> = ArrayList()
+        receptionService.getMaxPid(menu, list)
+        receptionService.linksData(modelMap)
+        receptionService.columnsData(modelMap, menu.menuPid)
+
+        modelMap.addAttribute("positions", list)
+        modelMap.addAttribute("columnId", menu.menuId)
+
+        return "reception/article_content"
     }
 
     /**
