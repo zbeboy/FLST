@@ -182,7 +182,7 @@ $(document).ready(function () {
         initParam();
         var menuNameEn = param.menuNameEn;
         if (menuNameEn.length <= 0 || menuNameEn.length > 50) {
-            validErrorDom(validId.menuNameEn, errorMsgId.menuNameEn, '栏目中文名50个字符以内');
+            validErrorDom(validId.menuNameEn, errorMsgId.menuNameEn, '栏目英文名50个字符以内');
         } else {
             // 栏目中文名是否重复
             Messenger().run({
