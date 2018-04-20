@@ -88,8 +88,8 @@ $(document).ready(function () {
                 $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
             }
 
-            for (var j2 = num; j2 < data.total; j2++) {
-                $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
+            for (var j2 = num; j2 < data.rows.length; j2++) {
+                $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j2].articleId, data.rows[j2].articleTitle));
             }
         }
     }
@@ -142,7 +142,7 @@ $(document).ready(function () {
                 $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j6].articleId, data.rows[j6].articleTitle));
             }
 
-            for (var j7 = num; j7 < data.total; j7++) {
+            for (var j7 = num; j7 < data.rows.length; j7++) {
                 $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j7].articleId, data.rows[j7].articleTitle));
             }
         }
