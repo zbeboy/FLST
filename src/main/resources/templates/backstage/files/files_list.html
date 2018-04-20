@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="header :: header(~{::meta},~{::title},~{::link})">
+    <!-- csrf -->
+    <meta name="_csrf" content="" th:content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" content="" th:content="${_csrf.headerName}"/>
+    <title>文件管理-生命科学与技术学院</title>
+    <link href="css/styles.css" rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="plugin/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"
+          th:href="@{/plugin/bootstrap-table/bootstrap-table.css}"/>
+    <link href="plugin/messenger/css/messenger.css" rel="stylesheet" th:href="@{/plugin/messenger/css/messenger.css}"/>
+    <link href="plugin/messenger/css/messenger-theme-air.css" rel="stylesheet"
+          th:href="@{/plugin/messenger/css/messenger-theme-air.css}"/>
+    <link href="plugin/jquery_file_upload/css/jquery.fileupload.min.css"
+          th:href="@{/plugin/jquery_file_upload/css/jquery.fileupload.min.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" th:include="nav::backstage">
+</nav>
+
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar" th:include="sidebar::backstage">
+</div><!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">文件管理</h1>
+        </div>
+    </div><!--/.row-->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <input class="form-control" id="originalFileName"
+                       placeholder="文件名">
+            </div>
+            <div class="text-center" style="padding: 10px;">
+                <button type="button" id="search" class="btn btn-default">搜索</button>
+                <button type="button" id="reset_search" class="btn btn-default">重置</button>
+            </div>
+            <div id="toolbar" class="btn-group">
+                <span class="btn btn-default fileinput-button">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    <span>上传</span>
+                    <input id="fileupload" type="file" name="files[]" multiple="multiple"/>
+                </span>
+            </div>
+            <table data-toggle="table" data-show-refresh="true"
+                   data-show-columns="true" data-sort-name="uploadDate"
+                   data-show-toggle="true" data-sort-order="desc"
+                   data-locale="zh-CN" id="dataTable">
+                <thead>
+                <tr>
+                    <th data-field="originalFileName" data-sortable="true">文件名</th>
+                    <th data-field="relativePath">链接</th>
+                    <th data-field="uploadDate" data-sortable="true">上传日期</th>
+                    <th data-formatter="operation">操作</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+    </div><!--/.row-->
+</div>    <!--/.main-->
+<!--定义操作列按钮模板-->
+<script id="operator_button" type="text/x-handlebars-template">
+    <div class="btn-group" role="group">
+        {{#each func}}
+        <button type="button" class="btn btn-{{this.type}} btn-sm {{this.css}}" data-id="{{this.id}}"
+                data-file="{{this.file}}">
+            {{this.name}}
+        </button>
+        {{/each}}
+    </div>
+</script>
+<script th:inline="javascript">
+    var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
+</script>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js" th:src="@{/js/ie10-viewport-bug-workaround.js}"></script>
+<script src="js/csrf.js" th:src="@{/js/csrf.js}"></script>
+<script src="js/backstage-main.js" th:src="@{/js/backstage-main.js}"></script>
+<script src="plugin/bootstrap-table/bootstrap-table.js"
+        th:src="@{/plugin/bootstrap-table/bootstrap-table.js}"></script>
+<script src="plugin/bootstrap-table/locale/bootstrap-table-zh-CN.js"
+        th:src="@{/plugin/bootstrap-table/locale/bootstrap-table-zh-CN.js}"></script>
+<script src="plugin/messenger/js/messenger.js"
+        th:src="@{/plugin/messenger/js/messenger.js}"></script>
+<script src="plugin/handlebars/handlebars.js"
+        th:src="@{/plugin/handlebars/handlebars.js}"></script>
+<script src="plugin/jquery_file_upload/js/vendor/jquery.ui.widget.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/vendor/jquery.ui.widget.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.iframe-transport.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.iframe-transport.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.fileupload.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.fileupload-process.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload-process.min.js}"></script>
+<script src="plugin/jquery_file_upload/js/jquery.fileupload-validate.min.js"
+        th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload-validate.min.js}"></script>
+<script src="js/backstage/files/files_list.js"
+        th:src="@{/js/backstage/files/files_list.js}"></script>
+</body>
+
+</html>

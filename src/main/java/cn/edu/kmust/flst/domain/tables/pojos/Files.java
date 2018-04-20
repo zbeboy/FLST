@@ -5,6 +5,7 @@ package cn.edu.kmust.flst.domain.tables.pojos;
 
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import javax.annotation.Generated;
 import javax.validation.constraints.NotNull;
@@ -24,14 +25,15 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Files implements Serializable {
 
-    private static final long serialVersionUID = 1557099859;
+    private static final long serialVersionUID = -1092445350;
 
-    private String fileId;
-    private String size;
-    private String originalFileName;
-    private String newName;
-    private String relativePath;
-    private String ext;
+    private String    fileId;
+    private String    size;
+    private String    originalFileName;
+    private String    newName;
+    private String    relativePath;
+    private String    ext;
+    private Timestamp uploadDate;
 
     public Files() {}
 
@@ -42,15 +44,17 @@ public class Files implements Serializable {
         this.newName = value.newName;
         this.relativePath = value.relativePath;
         this.ext = value.ext;
+        this.uploadDate = value.uploadDate;
     }
 
     public Files(
-        String fileId,
-        String size,
-        String originalFileName,
-        String newName,
-        String relativePath,
-        String ext
+        String    fileId,
+        String    size,
+        String    originalFileName,
+        String    newName,
+        String    relativePath,
+        String    ext,
+        Timestamp uploadDate
     ) {
         this.fileId = fileId;
         this.size = size;
@@ -58,6 +62,7 @@ public class Files implements Serializable {
         this.newName = newName;
         this.relativePath = relativePath;
         this.ext = ext;
+        this.uploadDate = uploadDate;
     }
 
     @NotNull
@@ -115,6 +120,15 @@ public class Files implements Serializable {
         this.ext = ext;
     }
 
+    @NotNull
+    public Timestamp getUploadDate() {
+        return this.uploadDate;
+    }
+
+    public void setUploadDate(Timestamp uploadDate) {
+        this.uploadDate = uploadDate;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Files (");
@@ -125,6 +139,7 @@ public class Files implements Serializable {
         sb.append(", ").append(newName);
         sb.append(", ").append(relativePath);
         sb.append(", ").append(ext);
+        sb.append(", ").append(uploadDate);
 
         sb.append(")");
         return sb.toString();

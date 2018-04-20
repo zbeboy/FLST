@@ -9,6 +9,7 @@ import cn.edu.kmust.flst.domain.Indexes;
 import cn.edu.kmust.flst.domain.Keys;
 import cn.edu.kmust.flst.domain.tables.records.FilesRecord;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
 
@@ -38,7 +39,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Files extends TableImpl<FilesRecord> {
 
-    private static final long serialVersionUID = 2050502189;
+    private static final long serialVersionUID = 2144262425;
 
     /**
      * The reference instance of <code>flst.files</code>
@@ -82,6 +83,11 @@ public class Files extends TableImpl<FilesRecord> {
      * The column <code>flst.files.ext</code>.
      */
     public final TableField<FilesRecord, String> EXT = createField("ext", org.jooq.impl.SQLDataType.VARCHAR(10), this, "");
+
+    /**
+     * The column <code>flst.files.upload_date</code>.
+     */
+    public final TableField<FilesRecord, Timestamp> UPLOAD_DATE = createField("upload_date", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
 
     /**
      * Create a <code>flst.files</code> table reference

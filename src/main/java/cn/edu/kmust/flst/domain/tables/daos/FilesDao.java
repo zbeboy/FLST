@@ -7,6 +7,7 @@ package cn.edu.kmust.flst.domain.tables.daos;
 import cn.edu.kmust.flst.domain.tables.Files;
 import cn.edu.kmust.flst.domain.tables.records.FilesRecord;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.annotation.Generated;
@@ -101,5 +102,12 @@ public class FilesDao extends DAOImpl<FilesRecord, cn.edu.kmust.flst.domain.tabl
      */
     public List<cn.edu.kmust.flst.domain.tables.pojos.Files> fetchByExt(String... values) {
         return fetch(Files.FILES.EXT, values);
+    }
+
+    /**
+     * Fetch records that have <code>upload_date IN (values)</code>
+     */
+    public List<cn.edu.kmust.flst.domain.tables.pojos.Files> fetchByUploadDate(Timestamp... values) {
+        return fetch(Files.FILES.UPLOAD_DATE, values);
     }
 }

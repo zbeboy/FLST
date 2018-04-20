@@ -72,5 +72,15 @@ open class Workbook {
         fun imagesPath(): String {
             return "images" + DIRECTORY_SPLIT
         }
+
+        /**
+         * 自定义文件路径
+         *
+         * @return 路径
+         */
+        @JvmStatic
+        fun filesPath(): String {
+            return "files" + DIRECTORY_SPLIT
+        }
     }
 }

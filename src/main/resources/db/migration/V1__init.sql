@@ -97,7 +97,8 @@ CREATE TABLE files(
   original_file_name    VARCHAR(300),
   new_name              VARCHAR(300),
   relative_path         VARCHAR(500),
-  ext                   VARCHAR(10)
+  ext                   VARCHAR(10),
+  upload_date  DATETIME NOT NULL
 );
 
 INSERT INTO users (username, password, enabled)
