@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.web.servlet.LocaleResolver
 import java.net.URLDecoder
 import java.net.URLEncoder
+import java.sql.Timestamp
 import java.util.ArrayList
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
@@ -59,29 +60,64 @@ open class ReceptionMainController {
      * @return 文章主页.
      */
     @RequestMapping(value = ["/user/menu/{menuId}"], method = [(RequestMethod.GET)])
-    fun home(@PathVariable("menuId") menuId: String, request: HttpServletRequest, modelMap: ModelMap): String {
+    fun home(@PathVariable("menuId") menuId: String, session: HttpSession, request: HttpServletRequest, modelMap: ModelMap): String {
         val menu = menusService.findById(menuId)
         return if (!ObjectUtils.isEmpty(menu)) {
             if (menu.menuShow == 1.toByte()) {
                 receptionService.navData(modelMap, request)
-                modelMap.addAttribute("redirect_uri", "/user/menu/$menuId")
                 receptionService.websiteData(modelMap, request)
-
                 val list: ArrayList<Menus> = ArrayList()
                 receptionService.getMaxPid(menu, list)
-                for (i in list) {
-                    if (i.menuPid == "0") {
-                        receptionService.bannerData(modelMap, i.menuId)
-                        break
-                    }
-                }
-
                 receptionService.linksData(modelMap)
                 receptionService.columnsData(modelMap, menu.menuPid)
-
                 modelMap.addAttribute("positions", list)
                 modelMap.addAttribute("columnId", menu.menuId)
-                "reception/article_list"
+                if (menu.showArticle == 1.toByte()) {
+                    var page = "reception/article_content"
+                    val language = localeResolver.resolveLocale(request).displayLanguage
+                    // 中文文章
+                    if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
+                        val data = articleService.findOneByPageOrderByArticleDate(menuId)
+                        if (data.isPresent) {
+                            val article = data.get().into(ArticleBean::class.java)
+                            article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy年MM月dd日")
+                            modelMap.addAttribute("article", article)
+                            calculationArticleClicks(article.articleId, session, request)
+                            // 查询上一篇和下一篇
+                            queryUpAndDownArticle(article.articleDate, menuId, modelMap)
+                        } else {
+                            modelMap.addAttribute("status", 500)
+                            modelMap.addAttribute("message", "未查询到该文章")
+                            page = "error"
+                        }
+                    } else {
+                        val data = articleEnService.findOneByPageOrderByArticleDate(menuId)
+                        if (data.isPresent) {
+                            val article = data.get().into(ArticleEnBean::class.java)
+                            article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy-MM-dd")
+                            modelMap.addAttribute("article", article)
+                            calculationArticleEnClicks(article.articleId, session, request)
+                            // 查询上一篇和下一篇
+                            queryUpAndDownArticleEn(article.articleDate, menuId, modelMap)
+                        } else {
+                            modelMap.addAttribute("status", 500)
+                            modelMap.addAttribute("message", "未查询到该文章")
+                            page = "error"
+                        }
+                    }
+                    modelMap.addAttribute("redirect_uri", "/")
+                    page
+                } else {
+                    modelMap.addAttribute("redirect_uri", "/user/menu/$menuId")
+                    for (i in list) {
+                        if (i.menuPid == "0") {
+                            receptionService.bannerData(modelMap, i.menuId)
+                            break
+                        }
+                    }
+                    "reception/article_list"
+                }
+
             } else {
                 modelMap.addAttribute("status", 500)
                 modelMap.addAttribute("message", "该栏目已关闭显示")
@@ -129,37 +165,9 @@ open class ReceptionMainController {
                 menuId = article.menuId
                 article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy年MM月dd日")
                 modelMap.addAttribute("article", article)
-                // 计算点击量
-                val clickToken =  "${RequestUtils.getIpAddress(request)}:$articleId"
-                if (ObjectUtils.isEmpty(session.getAttribute("articleClickKey"))) {
-                    // 更新点击量
-                    articleService.updateClicks(articleId)
-                    session.setAttribute("articleClickKey",clickToken)
-                } else  {
-                    val articleClickKey = session.getAttribute("articleClickKey") as String
-                    if(StringUtils.hasLength(articleClickKey) && articleClickKey != clickToken){
-                        // 更新点击量
-                        articleService.updateClicks(articleId)
-                        session.setAttribute("articleClickKey",clickToken)
-                    }
-                }
-
+                calculationArticleClicks(articleId, session, request)
                 // 查询上一篇和下一篇
-
-                val upData = articleService.findOneGTArticleDateByPage(article.articleDate, menuId)
-                if (upData.isPresent) {
-                    modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
-                } else {
-                    modelMap.addAttribute("upArticle", Article())
-                }
-
-                val downData = articleService.findOneLTArticleDateByPage(article.articleDate, menuId)
-                if (downData.isPresent) {
-                    modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
-                } else {
-                    modelMap.addAttribute("downArticle", Article())
-                }
-
+                queryUpAndDownArticle(article.articleDate, menuId, modelMap)
             } else {
                 modelMap.addAttribute("status", 500)
                 modelMap.addAttribute("message", "未查询到该文章")
@@ -172,37 +180,9 @@ open class ReceptionMainController {
                 menuId = article.menuId
                 article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy-MM-dd")
                 modelMap.addAttribute("article", article)
-
-                // 计算点击量
-                val clickToken =  "${RequestUtils.getIpAddress(request)}:$articleId"
-                if (ObjectUtils.isEmpty(session.getAttribute("articleClickKey"))) {
-                    // 更新点击量
-                    articleService.updateClicks(articleId)
-                    session.setAttribute("articleClickKey",clickToken);
-                } else  {
-                    val articleClickKey = session.getAttribute("articleClickKey") as String
-                    if(StringUtils.hasLength(articleClickKey) && articleClickKey != clickToken){
-                        // 更新点击量
-                        articleService.updateClicks(articleId)
-                        session.setAttribute("articleClickKey",clickToken)
-                    }
-                }
-
+                calculationArticleEnClicks(articleId, session, request)
                 // 查询上一篇和下一篇
-                val upData = articleEnService.findOneGTArticleDateByPage(article.articleDate, menuId)
-                if (upData.isPresent) {
-                    modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
-                } else {
-                    modelMap.addAttribute("upArticle", Article())
-                }
-
-                val downData = articleEnService.findOneLTArticleDateByPage(article.articleDate, menuId)
-                if (downData.isPresent) {
-                    modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
-                } else {
-                    modelMap.addAttribute("downArticle", Article())
-                }
-
+                queryUpAndDownArticleEn(article.articleDate, menuId, modelMap)
             } else {
                 modelMap.addAttribute("status", 500)
                 modelMap.addAttribute("message", "未查询到该文章")
@@ -223,6 +203,86 @@ open class ReceptionMainController {
         modelMap.addAttribute("columnId", menu.menuId)
 
         return "reception/article_content"
+    }
+
+    /**
+     * 计算中文文章点击量
+     */
+    private fun calculationArticleClicks(articleId: Int, session: HttpSession, request: HttpServletRequest) {
+        // 计算点击量
+        val clickToken = "${RequestUtils.getIpAddress(request)}:$articleId"
+        if (ObjectUtils.isEmpty(session.getAttribute("articleClickKey"))) {
+            // 更新点击量
+            articleService.updateClicks(articleId)
+            session.setAttribute("articleClickKey", clickToken)
+        } else {
+            val articleClickKey = session.getAttribute("articleClickKey") as String
+            if (StringUtils.hasLength(articleClickKey) && articleClickKey != clickToken) {
+                // 更新点击量
+                articleService.updateClicks(articleId)
+                session.setAttribute("articleClickKey", clickToken)
+            }
+        }
+    }
+
+    /**
+     * 计算英文文章点击量
+     */
+    private fun calculationArticleEnClicks(articleId: Int, session: HttpSession, request: HttpServletRequest) {
+        // 计算点击量
+        val clickToken = "${RequestUtils.getIpAddress(request)}:$articleId"
+        if (ObjectUtils.isEmpty(session.getAttribute("articleClickKey"))) {
+            // 更新点击量
+            articleEnService.updateClicks(articleId)
+            session.setAttribute("articleClickKey", clickToken)
+        } else {
+            val articleClickKey = session.getAttribute("articleClickKey") as String
+            if (StringUtils.hasLength(articleClickKey) && articleClickKey != clickToken) {
+                // 更新点击量
+                articleEnService.updateClicks(articleId)
+                session.setAttribute("articleClickKey", clickToken)
+            }
+        }
+    }
+
+    /**
+     * 查询中文上一篇和下一篇
+     */
+    private fun queryUpAndDownArticle(articleDate: Timestamp, menuId: String, modelMap: ModelMap) {
+        // 查询上一篇和下一篇
+        val upData = articleService.findOneGTArticleDateByPage(articleDate, menuId)
+        if (upData.isPresent) {
+            modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
+        } else {
+            modelMap.addAttribute("upArticle", Article())
+        }
+
+        val downData = articleService.findOneLTArticleDateByPage(articleDate, menuId)
+        if (downData.isPresent) {
+            modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
+        } else {
+            modelMap.addAttribute("downArticle", Article())
+        }
+    }
+
+    /**
+     * 查询英文上一篇和下一篇
+     */
+    private fun queryUpAndDownArticleEn(articleDate: Timestamp, menuId: String, modelMap: ModelMap) {
+        // 查询上一篇和下一篇
+        val upData = articleEnService.findOneGTArticleDateByPage(articleDate, menuId)
+        if (upData.isPresent) {
+            modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
+        } else {
+            modelMap.addAttribute("upArticle", Article())
+        }
+
+        val downData = articleEnService.findOneLTArticleDateByPage(articleDate, menuId)
+        if (downData.isPresent) {
+            modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
+        } else {
+            modelMap.addAttribute("downArticle", Article())
+        }
     }
 
     /**
