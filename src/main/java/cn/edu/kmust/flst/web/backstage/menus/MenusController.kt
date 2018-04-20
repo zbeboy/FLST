@@ -39,7 +39,8 @@ open class MenusController {
      * @return 栏目管理
      */
     @RequestMapping(value = ["/web/backstage/menus"], method = [(RequestMethod.GET)])
-    fun menu(): String {
+    fun menu(modelMap: ModelMap): String {
+        modelMap.addAttribute("homeId",Workbook.WEB_FIXED_HOME_ID)
         return "backstage/menus/menus_list"
     }
 
@@ -62,8 +63,14 @@ open class MenusController {
     fun edit(@PathVariable("menuId") id: String, modelMap: ModelMap): String {
         val menus = menusService.findById(id)
         return if (!ObjectUtils.isEmpty(menus)) {
-            modelMap.addAttribute("menus", menus)
-            "backstage/menus/menus_edit"
+            if(menus.menuId == Workbook.WEB_FIXED_HOME_ID || menus.menuPid == Workbook.WEB_FIXED_HOME_ID){
+                modelMap.addAttribute("status", 401)
+                modelMap.addAttribute("message", "您不能编辑该栏目信息")
+                "error"
+            } else {
+                modelMap.addAttribute("menus", menus)
+                "backstage/menus/menus_edit"
+            }
         } else {
             modelMap.addAttribute("status", 500)
             modelMap.addAttribute("message", "未查询到该栏目信息")
@@ -230,24 +237,31 @@ open class MenusController {
     @RequestMapping(value = ["/web/backstage/menus/update"], method = [(RequestMethod.POST)])
     @ResponseBody
     fun update(@Valid menusEditVo: MenusEditVo, bindingResult: BindingResult): AjaxUtils<*> {
+        val ajaxUtils = AjaxUtils.of<Any>()
         if (!bindingResult.hasErrors()) {
             val menus = menusService.findById(menusEditVo.menuId!!)
-            menus.menuName = menusEditVo.menuName
-            menus.menuNameEn = menusEditVo.menuNameEn
-            menus.outLink = menusEditVo.outLink
-            menus.menuLink = if (menus.outLink != 1.toByte()) {
-                Workbook.RECEPTION_LINK + menus.menuId
+            if(menus.menuId == Workbook.WEB_FIXED_HOME_ID || menus.menuPid == Workbook.WEB_FIXED_HOME_ID){
+                ajaxUtils.fail().msg("您无权限更新该栏目")
             } else {
-                menusEditVo.menuLink
+                menus.menuName = menusEditVo.menuName
+                menus.menuNameEn = menusEditVo.menuNameEn
+                menus.outLink = menusEditVo.outLink
+                menus.menuLink = if (menus.outLink != 1.toByte()) {
+                    Workbook.RECEPTION_LINK + menus.menuId
+                } else {
+                    menusEditVo.menuLink
+                }
+                menus.menuPid = menusEditVo.menuPid
+                menus.menuOrder = menusEditVo.menuOrder
+                menus.menuShow = menusEditVo.menuShow
+                menus.showArticle = menusEditVo.showArticle
+                menusService.update(menus)
+                ajaxUtils.success().msg("更新成功")
             }
-            menus.menuPid = menusEditVo.menuPid
-            menus.menuOrder = menusEditVo.menuOrder
-            menus.menuShow = menusEditVo.menuShow
-            menus.showArticle = menusEditVo.showArticle
-            menusService.update(menus)
-            return AjaxUtils.of<Any>().success().msg("更新成功")
+        } else {
+            ajaxUtils.fail().msg("更新失败，格式错误")
         }
-        return AjaxUtils.of<Any>().fail().msg("更新失败")
+        return ajaxUtils
     }
 
     /**

@@ -46,7 +46,7 @@ dataTable.bootstrapTable('destroy')
         sidePagination: "server", //表示服务端请求
         toolbar: "#toolbar",
         queryParamsType: "undefined",
-        queryParams:function(params){
+        queryParams: function (params) {
             params.extraSearch = JSON.stringify(param);
             return params;
         },
@@ -93,26 +93,44 @@ function formatterShowArticle(value, row, index, field) {
 var template = Handlebars.compile($("#operator_button").html());
 
 function operation(value, row, index, field) {
-    var context = {
-        func: [
-            {
-                "name": "编辑",
-                "css": "edit",
-                "type": "primary",
-                "id": row.menuId,
-                "show": row.menuShow === 1 ? 0 : 1,
-                "menu": row.menuName
-            },
-            {
-                "name": row.menuShow === 1 ? "隐藏" : "显示",
-                "css": "show",
-                "type": row.menuShow === 1 ? "default" : "warning",
-                "id": row.menuId,
-                "show": row.menuShow === 1 ? 0 : 1,
-                "menu": row.menuName
-            }
-        ]
-    };
+    var context;
+
+    if (row.menuPid === init_page_param.homeId || row.menuId === init_page_param.homeId) {
+        context = {
+            func: [
+                {
+                    "name": row.menuShow === 1 ? "隐藏" : "显示",
+                    "css": "show",
+                    "type": row.menuShow === 1 ? "default" : "warning",
+                    "id": row.menuId,
+                    "show": row.menuShow === 1 ? 0 : 1,
+                    "menu": row.menuName
+                }
+            ]
+        };
+    } else {
+        context = {
+            func: [
+                {
+                    "name": "编辑",
+                    "css": "edit",
+                    "type": "primary",
+                    "id": row.menuId,
+                    "show": row.menuShow === 1 ? 0 : 1,
+                    "menu": row.menuName
+                },
+                {
+                    "name": row.menuShow === 1 ? "隐藏" : "显示",
+                    "css": "show",
+                    "type": row.menuShow === 1 ? "default" : "warning",
+                    "id": row.menuId,
+                    "show": row.menuShow === 1 ? 0 : 1,
+                    "menu": row.menuName
+                }
+            ]
+        };
+    }
+
     return template(context);
 }
 
