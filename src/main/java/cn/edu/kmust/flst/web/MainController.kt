@@ -2,6 +2,7 @@ package cn.edu.kmust.flst.web
 
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
+import cn.edu.kmust.flst.service.backstage.files.FilesService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.reception.ReceptionService
@@ -39,6 +40,9 @@ open class MainController {
 
     @Resource
     open lateinit var menusService: MenusService
+
+    @Resource
+    open lateinit var filesService: FilesService
 
     /**
      * main page
@@ -83,7 +87,7 @@ open class MainController {
         var menus: List<Menus> = ArrayList()
         if (!ObjectUtils.isEmpty(records) && records.isNotEmpty) {
             menus = records.into(Menus::class.java)
-            menus.forEach{i->
+            menus.forEach { i ->
                 i.menuLink = if (i.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
             }
         }
@@ -123,6 +127,21 @@ open class MainController {
     @RequestMapping(value = [Workbook.MY_IMAGES_PATH + "{name}"], method = [(RequestMethod.GET)])
     fun reviewAvatar(@PathVariable("name") name: String, request: HttpServletRequest, response: HttpServletResponse) {
         uploadService.reviewPic(Workbook.imagesPath() + name, request, response)
+    }
+
+    /**
+     * 文件下载
+     *
+     * @param request 请求
+     */
+    @RequestMapping(value = [Workbook.MY_FILES_PATH + "{fileId}"], method = [(RequestMethod.GET)])
+    fun fileDownload(@PathVariable("fileId") fileId: String, request: HttpServletRequest, response: HttpServletResponse) {
+        val files = filesService.findById(fileId)
+        if (!ObjectUtils.isEmpty(files)) {
+            uploadService.download(files!!.originalFileName, files.relativePath, response, request)
+        } else {
+            response.writer.print("未找到该文件")
+        }
     }
 
     /**

@@ -42,6 +42,11 @@ open class Workbook {
         const val MY_IMAGES_PATH = "/user/images/"
 
         /*
+       自定义文件链接
+        */
+        const val MY_FILES_PATH = "/user/files/"
+
+        /*
         语言
          */
         const val LANGUAGE_ZH_CN = "zh_cn"
@@ -70,7 +75,7 @@ open class Workbook {
          */
         @JvmStatic
         fun imagesPath(): String {
-            return "images" + DIRECTORY_SPLIT
+            return "images$DIRECTORY_SPLIT"
         }
 
         /**
@@ -80,7 +85,7 @@ open class Workbook {
          */
         @JvmStatic
         fun filesPath(): String {
-            return "files" + DIRECTORY_SPLIT
+            return "files$DIRECTORY_SPLIT"
         }
     }
 }

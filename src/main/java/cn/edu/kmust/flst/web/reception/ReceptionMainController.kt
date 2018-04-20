@@ -59,7 +59,7 @@ open class ReceptionMainController {
      *
      * @return 文章主页.
      */
-    @RequestMapping(value = ["/user/menu/{menuId}"], method = [(RequestMethod.GET)])
+    @RequestMapping(value = [Workbook.RECEPTION_LINK + "{menuId}"], method = [(RequestMethod.GET)])
     fun home(@PathVariable("menuId") menuId: String, session: HttpSession, request: HttpServletRequest, modelMap: ModelMap): String {
         val menu = menusService.findById(menuId)
         return if (!ObjectUtils.isEmpty(menu)) {
@@ -108,7 +108,7 @@ open class ReceptionMainController {
                     modelMap.addAttribute("redirect_uri", "/")
                     page
                 } else {
-                    modelMap.addAttribute("redirect_uri", "/user/menu/$menuId")
+                    modelMap.addAttribute("redirect_uri", "${Workbook.RECEPTION_LINK + menuId}")
                     for (i in list) {
                         if (i.menuPid == "0") {
                             receptionService.bannerData(modelMap, i.menuId)

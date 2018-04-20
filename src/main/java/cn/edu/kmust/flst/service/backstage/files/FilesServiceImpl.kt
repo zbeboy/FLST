@@ -25,6 +25,10 @@ open class FilesServiceImpl @Autowired constructor(dslContext: DSLContext) : Boo
     @Resource
     open lateinit var filesDao: FilesDao
 
+    override fun findById(id: String): Files? {
+        return filesDao.findById(id)
+    }
+
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun save(files: Files) {
         filesDao.insert(files)

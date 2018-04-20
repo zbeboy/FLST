@@ -9,6 +9,14 @@ import org.jooq.Result
 interface FilesService {
 
     /**
+     * 通过主键查询
+     *
+     * @param id 主键
+     * @return 数据
+     */
+    fun findById(id: String): Files?
+
+    /**
      * 分页查询
      *
      * @param bootstrapTableUtils bootstrapTable工具类

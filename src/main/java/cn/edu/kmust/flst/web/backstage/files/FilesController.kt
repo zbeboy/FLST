@@ -6,6 +6,7 @@ import cn.edu.kmust.flst.domain.tables.pojos.Files
 import cn.edu.kmust.flst.service.backstage.files.FilesService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
+import cn.edu.kmust.flst.service.util.FilesUtils
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.service.util.UUIDUtils
 import cn.edu.kmust.flst.web.bean.backstage.files.FilesBean
@@ -59,6 +60,10 @@ open class FilesController {
         var files: List<FilesBean> = ArrayList()
         if (!ObjectUtils.isEmpty(records) && records.isNotEmpty) {
             files = records.into(FilesBean::class.java)
+            files.forEach { i ->
+                i.uploadDateStr = DateTimeUtils.timestampToString(i.uploadDate, "yyyy-MM-dd")
+                i.downloadPath = RequestUtils.getBaseUrl(request) + Workbook.MY_FILES_PATH + i.fileId
+            }
         }
         bootstrapTableUtils.total = filesService.countByCondition(bootstrapTableUtils)
         bootstrapTableUtils.rows = files
@@ -101,5 +106,20 @@ open class FilesController {
         }
 
         return ajaxUtils
+    }
+
+    /**
+     * 删除
+     *
+     * @param bannerId id
+     * @return 结果
+     */
+    @RequestMapping(value = ["/web/backstage/files/delete"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun delete(@RequestParam("fileId") fileId: String, request: HttpServletRequest): AjaxUtils<*> {
+        val files = filesService.findById(fileId)
+        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + files!!.relativePath)
+        filesService.deleteById(fileId)
+        return AjaxUtils.of<Any>().success().msg("删除成功")
     }
 }

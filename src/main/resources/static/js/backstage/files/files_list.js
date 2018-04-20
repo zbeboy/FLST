@@ -4,8 +4,7 @@
 function getAjaxUrl() {
     return {
         menus: '/web/backstage/files/data',
-        add: '/web/backstage/files/add',
-        del: '/web/backstage/menus/delete',
+        del: '/web/backstage/files/delete',
         file_upload_url: '/web/backstage/files/upload'
     };
 }
@@ -64,14 +63,16 @@ function operation(value, row, index, field) {
                 "css": "copy",
                 "type": "default",
                 "id": row.fileId,
-                "file": row.originalFileName
+                "file": row.originalFileName,
+                "path": row.downloadPath
             },
             {
                 "name": "删除",
                 "css": "del",
                 "type": "danger",
                 "id": row.fileId,
-                "file": row.originalFileName
+                "file": row.originalFileName,
+                "path": row.downloadPath
             }
         ]
     };
@@ -115,7 +116,7 @@ function del(id, name) {
                 phrase: 'Retrying TIME',
                 action: function () {
                     msg.cancel();
-                    $.post(web_path + getAjaxUrl().del, {menuId: id}, function (data) {
+                    $.post(web_path + getAjaxUrl().del, {fileId: id}, function (data) {
                         refreshTable();
                         Messenger().post({
                             message: data.msg,
@@ -195,8 +196,23 @@ $(document).ready(function () {
         return isOk;
     });
 
-    dataTable.delegate('.copy', "click", function () {
 
+    var clipboard = new ClipboardJS('.copy');
+
+    clipboard.on('success', function (e) {
+        Messenger().post({
+            message: '已复制到剪贴板',
+            type: 'success',
+            showCloseButton: true
+        });
+    });
+
+    clipboard.on('error', function (e) {
+        Messenger().post({
+            message: '复制失败',
+            type: 'error',
+            showCloseButton: true
+        });
     });
 
     dataTable.delegate('.del', "click", function () {

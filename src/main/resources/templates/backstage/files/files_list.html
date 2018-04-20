@@ -53,8 +53,8 @@
                 <thead>
                 <tr>
                     <th data-field="originalFileName" data-sortable="true">文件名</th>
-                    <th data-field="relativePath">链接</th>
-                    <th data-field="uploadDate" data-sortable="true">上传日期</th>
+                    <th data-field="downloadPath">下载链接</th>
+                    <th data-field="uploadDateStr" data-sortable="true">上传日期</th>
                     <th data-formatter="operation">操作</th>
                 </tr>
                 </thead>
@@ -66,7 +66,7 @@
 <script id="operator_button" type="text/x-handlebars-template">
     <div class="btn-group" role="group">
         {{#each func}}
-        <button type="button" class="btn btn-{{this.type}} btn-sm {{this.css}}" data-id="{{this.id}}"
+        <button type="button" class="btn btn-{{this.type}} btn-sm {{this.css}}" data-id="{{this.id}}" data-clipboard-text="{{this.path}}"
                 data-file="{{this.file}}">
             {{this.name}}
         </button>
@@ -92,6 +92,8 @@
         th:src="@{/plugin/messenger/js/messenger.js}"></script>
 <script src="plugin/handlebars/handlebars.js"
         th:src="@{/plugin/handlebars/handlebars.js}"></script>
+<script src="plugin/clipboard/clipboard.min.js"
+        th:src="@{/plugin/clipboard/clipboard.min.js}"></script>
 <script src="plugin/jquery_file_upload/js/vendor/jquery.ui.widget.min.js"
         th:src="@{/plugin/jquery_file_upload/js/vendor/jquery.ui.widget.min.js}"></script>
 <script src="plugin/jquery_file_upload/js/jquery.iframe-transport.min.js"
