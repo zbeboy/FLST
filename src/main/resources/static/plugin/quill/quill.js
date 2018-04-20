@@ -9745,6 +9745,7 @@ var Tooltip = function () {
       var top = reference.bottom + this.quill.root.scrollTop;
       this.root.style.left = left + 'px';
       this.root.style.top = top + 'px';
+      this.root.style['z-index'] = 2000;
       this.root.classList.remove('ql-flip');
       var containerBounds = this.boundsContainer.getBoundingClientRect();
       var rootBounds = this.root.getBoundingClientRect();
