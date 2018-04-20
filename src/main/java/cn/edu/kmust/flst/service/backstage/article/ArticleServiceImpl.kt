@@ -43,25 +43,28 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
                 .fetchOptional()
     }
 
-    override fun findOneGTArticleDateByPage(articleDate: Timestamp): Optional<Record> {
+    override fun findOneGTArticleDateByPage(articleDate: Timestamp, menuId: String): Optional<Record> {
         return create.select()
                 .from(ARTICLE)
-                .where(ARTICLE.ARTICLE_DATE.greaterThan(articleDate))
+                .where(ARTICLE.ARTICLE_DATE.greaterThan(articleDate).and(ARTICLE.MENU_ID.eq(menuId)))
+                .orderBy(ARTICLE.ARTICLE_DATE)
                 .limit(0, 1)
                 .fetchOptional()
     }
 
-    override fun findOneLTArticleDateByPage(articleDate: Timestamp): Optional<Record> {
+    override fun findOneLTArticleDateByPage(articleDate: Timestamp, menuId: String): Optional<Record> {
         return create.select()
                 .from(ARTICLE)
-                .where(ARTICLE.ARTICLE_DATE.lessThan(articleDate))
+                .where(ARTICLE.ARTICLE_DATE.lessThan(articleDate).and(ARTICLE.MENU_ID.eq(menuId)))
+                .orderBy(ARTICLE.ARTICLE_DATE.desc())
                 .limit(0, 1)
                 .fetchOptional()
     }
 
-    override fun findOneByPageOrderByArticleDate(): Optional<Record> {
+    override fun findOneByPageOrderByArticleDate(menuId: String): Optional<Record> {
         return create.select()
                 .from(ARTICLE)
+                .where(ARTICLE.MENU_ID.eq(menuId))
                 .orderBy(ARTICLE.ARTICLE_DATE.desc())
                 .limit(0, 1)
                 .fetchOptional()

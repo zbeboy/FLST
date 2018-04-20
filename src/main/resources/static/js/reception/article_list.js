@@ -73,7 +73,7 @@ $(document).ready(function () {
         if (init_page_param.language === 'zh_cn') {
             words = 40;
         } else {
-            words = 90;
+            words = 50;
         }
         if (title.length > words) {
             title = title.substring(0, words) + "..."

@@ -36,7 +36,7 @@ interface ArticleEnService {
      * @param articleDate 日期
      * @return 数据
      */
-    fun findOneGTArticleDateByPage(articleDate: Timestamp): Optional<Record>
+    fun findOneGTArticleDateByPage(articleDate: Timestamp, menuId: String): Optional<Record>
 
     /**
      * 通过查询上一篇文章
@@ -44,14 +44,14 @@ interface ArticleEnService {
      * @param articleDate 日期
      * @return 数据
      */
-    fun findOneLTArticleDateByPage(articleDate: Timestamp): Optional<Record>
+    fun findOneLTArticleDateByPage(articleDate: Timestamp, menuId: String): Optional<Record>
 
     /**
      * 查询最新一条
      *
      * @return 数据
      */
-    fun findOneByPageOrderByArticleDate(): Optional<Record>
+    fun findOneByPageOrderByArticleDate(menuId: String): Optional<Record>
 
     /**
      * 分页查询

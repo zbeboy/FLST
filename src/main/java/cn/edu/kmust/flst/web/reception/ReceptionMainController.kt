@@ -128,18 +128,19 @@ open class ReceptionMainController {
                 modelMap.addAttribute("article", article)
 
                 // 查询上一篇和下一篇
-                val downData = articleService.findOneGTArticleDateByPage(article.articleDate)
-                if (downData.isPresent) {
-                    modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
-                } else {
-                    modelMap.addAttribute("downArticle", Article())
-                }
 
-                val upData = articleService.findOneLTArticleDateByPage(article.articleDate)
+                val upData = articleService.findOneGTArticleDateByPage(article.articleDate, menuId)
                 if (upData.isPresent) {
                     modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
                 } else {
                     modelMap.addAttribute("upArticle", Article())
+                }
+
+                val downData = articleService.findOneLTArticleDateByPage(article.articleDate, menuId)
+                if (downData.isPresent) {
+                    modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
+                } else {
+                    modelMap.addAttribute("downArticle", Article())
                 }
 
             } else {
@@ -155,19 +156,20 @@ open class ReceptionMainController {
                 article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy-MM-dd")
                 modelMap.addAttribute("article", article)
                 // 查询上一篇和下一篇
-                val downData = articleEnService.findOneGTArticleDateByPage(article.articleDate)
+                val upData = articleEnService.findOneGTArticleDateByPage(article.articleDate, menuId)
+                if (upData.isPresent) {
+                    modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
+                } else {
+                    modelMap.addAttribute("upArticle", Article())
+                }
+
+                val downData = articleEnService.findOneLTArticleDateByPage(article.articleDate, menuId)
                 if (downData.isPresent) {
                     modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
                 } else {
                     modelMap.addAttribute("downArticle", Article())
                 }
 
-                val upData = articleEnService.findOneLTArticleDateByPage(article.articleDate)
-                if (upData.isPresent) {
-                    modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
-                } else {
-                    modelMap.addAttribute("upArticle", Article())
-                }
             } else {
                 modelMap.addAttribute("status", 500)
                 modelMap.addAttribute("message", "未查询到该文章")

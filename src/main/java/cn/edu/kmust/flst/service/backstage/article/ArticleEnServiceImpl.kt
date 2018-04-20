@@ -43,25 +43,28 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
                 .fetchOptional()
     }
 
-    override fun findOneGTArticleDateByPage(articleDate: Timestamp): Optional<Record> {
+    override fun findOneGTArticleDateByPage(articleDate: Timestamp, menuId: String): Optional<Record> {
         return create.select()
                 .from(ARTICLE_EN)
-                .where(ARTICLE_EN.ARTICLE_DATE.greaterThan(articleDate))
+                .where(ARTICLE_EN.ARTICLE_DATE.greaterThan(articleDate).and(ARTICLE_EN.MENU_ID.eq(menuId)))
+                .orderBy(ARTICLE_EN.ARTICLE_DATE)
                 .limit(0, 1)
                 .fetchOptional()
     }
 
-    override fun findOneLTArticleDateByPage(articleDate: Timestamp): Optional<Record> {
+    override fun findOneLTArticleDateByPage(articleDate: Timestamp, menuId: String): Optional<Record> {
         return create.select()
                 .from(ARTICLE_EN)
-                .where(ARTICLE_EN.ARTICLE_DATE.lessThan(articleDate))
+                .where(ARTICLE_EN.ARTICLE_DATE.lessThan(articleDate).and(ARTICLE_EN.MENU_ID.eq(menuId)))
+                .orderBy(ARTICLE_EN.ARTICLE_DATE.desc())
                 .limit(0, 1)
                 .fetchOptional()
     }
 
-    override fun findOneByPageOrderByArticleDate(): Optional<Record> {
+    override fun findOneByPageOrderByArticleDate(menuId: String): Optional<Record> {
         return create.select()
                 .from(ARTICLE_EN)
+                .where(ARTICLE_EN.MENU_ID.eq(menuId))
                 .orderBy(ARTICLE_EN.ARTICLE_DATE.desc())
                 .limit(0, 1)
                 .fetchOptional()
