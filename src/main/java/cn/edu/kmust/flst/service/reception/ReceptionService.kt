@@ -43,7 +43,7 @@ interface ReceptionService {
      * @param modelMap 页面对象
      * @param menuId 栏目 id
      */
-    fun columnsData(modelMap: ModelMap, menuId: String)
+    fun columnsData(modelMap: ModelMap, menuId: String, request: HttpServletRequest)
 
     /**
      * 获得最顶层id
@@ -51,5 +51,5 @@ interface ReceptionService {
      * @param menus 栏目
      * @param list 数据
      */
-    fun getMaxPid(menus: Menus, list:ArrayList<Menus>)
+    fun getMaxPid(menus: Menus, list: ArrayList<Menus>)
 }

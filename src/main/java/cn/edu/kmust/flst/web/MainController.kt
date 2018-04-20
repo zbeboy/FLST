@@ -6,6 +6,7 @@ import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.reception.ReceptionService
 import cn.edu.kmust.flst.service.system.AuthoritiesService
+import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
@@ -76,12 +77,15 @@ open class MainController {
      */
     @RequestMapping(value = ["/data/home/template"], method = [(RequestMethod.GET)])
     @ResponseBody
-    fun templateData(): AjaxUtils<Menus> {
+    fun templateData(request: HttpServletRequest): AjaxUtils<Menus> {
         val ajaxUtils = AjaxUtils.of<Menus>();
         val records = menusService.findByPIdAndMenuShowAndMenuFixed(Workbook.WEB_FIXED_HOME_ID, 1, 1)
         var menus: List<Menus> = ArrayList()
         if (!ObjectUtils.isEmpty(records) && records.isNotEmpty) {
             menus = records.into(Menus::class.java)
+            menus.forEach{i->
+                i.menuLink = if (i.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
+            }
         }
         return ajaxUtils.success().msg("获取数据成功").listData(menus)
     }

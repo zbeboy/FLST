@@ -69,7 +69,7 @@ open class ReceptionMainController {
                 val list: ArrayList<Menus> = ArrayList()
                 receptionService.getMaxPid(menu, list)
                 receptionService.linksData(modelMap)
-                receptionService.columnsData(modelMap, menu.menuPid)
+                receptionService.columnsData(modelMap, menu.menuPid, request)
                 modelMap.addAttribute("positions", list)
                 modelMap.addAttribute("columnId", menu.menuId)
                 if (menu.showArticle == 1.toByte()) {
@@ -197,7 +197,7 @@ open class ReceptionMainController {
         val list: ArrayList<Menus> = ArrayList()
         receptionService.getMaxPid(menu, list)
         receptionService.linksData(modelMap)
-        receptionService.columnsData(modelMap, menu.menuPid)
+        receptionService.columnsData(modelMap, menu.menuPid, request)
 
         modelMap.addAttribute("positions", list)
         modelMap.addAttribute("columnId", menu.menuId)
@@ -300,10 +300,10 @@ open class ReceptionMainController {
         if (menu.menuShow == 1.toByte()) {
             // 显示列表
             // 中文文章
-            if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
-                bootstrapTableUtils = methodControllerCommon.articleData(request)
+            bootstrapTableUtils = if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
+                methodControllerCommon.articleData(request)
             } else {
-                bootstrapTableUtils = methodControllerCommon.articleEnData(request)
+                methodControllerCommon.articleEnData(request)
             }
         }
 

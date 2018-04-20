@@ -4,7 +4,6 @@ import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.system.UsersService
-import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.service.util.UUIDUtils
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.AjaxUtils
@@ -197,7 +196,7 @@ open class MenusController {
      */
     @RequestMapping(value = ["/web/backstage/menus/save"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun save(@Valid menusAddVo: MenusAddVo, bindingResult: BindingResult, request: HttpServletRequest): AjaxUtils<*> {
+    fun save(@Valid menusAddVo: MenusAddVo, bindingResult: BindingResult): AjaxUtils<*> {
         if (!bindingResult.hasErrors()) {
             val menus = Menus()
             menus.menuId = UUIDUtils.getUUID()
@@ -230,7 +229,7 @@ open class MenusController {
      */
     @RequestMapping(value = ["/web/backstage/menus/update"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun update(@Valid menusEditVo: MenusEditVo, bindingResult: BindingResult, request: HttpServletRequest): AjaxUtils<*> {
+    fun update(@Valid menusEditVo: MenusEditVo, bindingResult: BindingResult): AjaxUtils<*> {
         if (!bindingResult.hasErrors()) {
             val menus = menusService.findById(menusEditVo.menuId!!)
             menus.menuName = menusEditVo.menuName

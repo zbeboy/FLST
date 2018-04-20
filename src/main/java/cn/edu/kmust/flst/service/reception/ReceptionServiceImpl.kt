@@ -6,6 +6,7 @@ import cn.edu.kmust.flst.service.backstage.banner.BannerService
 import cn.edu.kmust.flst.service.backstage.data.DataInfoService
 import cn.edu.kmust.flst.service.backstage.links.LinksService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
+import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.banner.BannerBean
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
 import org.springframework.stereotype.Service
@@ -98,20 +99,23 @@ open class ReceptionServiceImpl : ReceptionService {
         modelMap.addAttribute("friendlyLinks", links)
     }
 
-    override fun columnsData(modelMap: ModelMap, menuId: String) {
+    override fun columnsData(modelMap: ModelMap, menuId: String, request: HttpServletRequest) {
         val records = menusService.findByPIdAndMenuShow(menuId, 1)
         var columns: List<Menus> = java.util.ArrayList()
         if (records.isNotEmpty) {
             columns = records.into(Menus::class.java)
+            columns.forEach { i ->
+                i.menuLink = if (i.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
+            }
         }
         modelMap.addAttribute("columns", columns)
     }
 
 
-    override fun getMaxPid(menus:Menus,list:ArrayList<Menus>){
-        if(menus.menuPid != "0"){
+    override fun getMaxPid(menus: Menus, list: ArrayList<Menus>) {
+        if (menus.menuPid != "0") {
             val menu = menusService.findById(menus.menuPid)
-            getMaxPid(menu,list)
+            getMaxPid(menu, list)
         }
         list.add(menus)
     }
