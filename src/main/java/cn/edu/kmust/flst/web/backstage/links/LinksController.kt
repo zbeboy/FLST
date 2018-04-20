@@ -119,7 +119,7 @@ open class LinksController {
      */
     @RequestMapping(value = ["/web/backstage/links/update"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun update(@Valid linksEditVo: LinksEditVo, bindingResult: BindingResult, request: HttpServletRequest): AjaxUtils<*> {
+    fun update(@Valid linksEditVo: LinksEditVo, bindingResult: BindingResult): AjaxUtils<*> {
         if (!bindingResult.hasErrors()) {
             val links = linksService.findById(linksEditVo.linkId!!)
             links.linkName = linksEditVo.linkName
@@ -156,7 +156,7 @@ open class LinksController {
      */
     @RequestMapping(value = ["/web/backstage/links/delete"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun delete(@RequestParam("linkId") linkId: String, request: HttpServletRequest): AjaxUtils<*> {
+    fun delete(@RequestParam("linkId") linkId: String): AjaxUtils<*> {
         linksService.deleteById(linkId)
         return AjaxUtils.of<Any>().success().msg("删除成功")
     }
