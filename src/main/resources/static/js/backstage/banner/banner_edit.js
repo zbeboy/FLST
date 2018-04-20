@@ -49,7 +49,6 @@ $(document).ready(function () {
         acceptFileTypes: /([.\/])(jpg|jpeg|png|gif)$/i,
         formAcceptCharset: 'utf-8',
         messages: {
-            maxNumberOfFiles: '最大支持上传1个文件',
             acceptFileTypes: '仅支持上传jpg,png,gif等类型文件',
             maxFileSize: '单文件上传仅允许100MB大小'
         },
