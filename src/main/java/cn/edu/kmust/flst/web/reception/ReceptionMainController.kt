@@ -87,7 +87,7 @@ open class ReceptionMainController {
                             queryUpAndDownArticle(article.articleDate, menuId, modelMap)
                         } else {
                             modelMap.addAttribute("status", 500)
-                            modelMap.addAttribute("message", "未查询到该文章")
+                            modelMap.addAttribute("message", "无对应文章")
                             page = "error"
                         }
                     } else {
@@ -101,7 +101,7 @@ open class ReceptionMainController {
                             queryUpAndDownArticleEn(article.articleDate, menuId, modelMap)
                         } else {
                             modelMap.addAttribute("status", 500)
-                            modelMap.addAttribute("message", "未查询到该文章")
+                            modelMap.addAttribute("message", "无对应文章")
                             page = "error"
                         }
                     }

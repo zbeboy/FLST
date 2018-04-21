@@ -9,6 +9,8 @@ import org.jooq.DSLContext
 import org.jooq.Record
 import org.jooq.Result
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
@@ -26,12 +28,14 @@ open class DataInfoServiceImpl @Autowired constructor(dslContext: DSLContext) : 
     @Resource
     open lateinit var dataInfoDao: DataInfoDao
 
+    @Cacheable(cacheNames = ["data_info"], key = "#prefix")
     override fun findByPrefix(prefix: String): Result<DataInfoRecord> {
         return create.selectFrom(DATA_INFO)
                 .where(DATA_INFO.DATA_KEY.like(SQLQueryUtils.rightLikeParam(prefix)))
                 .fetch()
     }
 
+    @CacheEvict(cacheNames = ["data_info"], allEntries = true)
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun save(dataInfo: List<DataInfo>) {
         val bind = create.batch(create.insertInto(DATA_INFO, DATA_INFO.DATA_KEY, DATA_INFO.DATA_VALUE).values("", null)

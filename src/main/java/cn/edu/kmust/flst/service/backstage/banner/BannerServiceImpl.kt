@@ -11,6 +11,8 @@ import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.*
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
@@ -41,6 +43,7 @@ open class BannerServiceImpl @Autowired constructor(dslContext: DSLContext) : Bo
                 .fetch()
     }
 
+    @Cacheable(cacheNames = ["banner"], key = "T(String).valueOf(#menuId).concat('-').concat(#bannerShow)")
     override fun findByMenuIdAndBannerShow(menuId: String, bannerShow: Byte): Result<BannerRecord> {
         return create.selectFrom(BANNER)
                 .where(BANNER.MENU_ID.eq(menuId).and(BANNER.BANNER_SHOW.eq(bannerShow)))
@@ -48,11 +51,13 @@ open class BannerServiceImpl @Autowired constructor(dslContext: DSLContext) : Bo
                 .fetch()
     }
 
+    @CacheEvict(cacheNames = ["banner"], allEntries = true)
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun save(banner: Banner) {
         bannerDao.insert(banner)
     }
 
+    @CacheEvict(cacheNames = ["banner"], allEntries = true)
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun saveAndReturnId(banner: Banner): Int {
         val record = create.insertInto(BANNER, BANNER.BANNER_LINK, BANNER.BANNER_DATE, BANNER.BANNER_SHOW, BANNER.MENU_ID, BANNER.USERNAME)
@@ -62,10 +67,12 @@ open class BannerServiceImpl @Autowired constructor(dslContext: DSLContext) : Bo
         return record.getValue(BANNER.BANNER_ID)
     }
 
+    @CacheEvict(cacheNames = ["banner"], allEntries = true)
     override fun update(banner: Banner) {
         bannerDao.update(banner)
     }
 
+    @CacheEvict(cacheNames = ["banner"], allEntries = true)
     override fun deleteById(id: Int) {
         bannerDao.deleteById(id)
     }

@@ -10,6 +10,8 @@ import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.*
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
@@ -33,21 +35,25 @@ open class LinksServiceImpl @Autowired constructor(dslContext: DSLContext) : Boo
         return friendlyLinkDao.findById(id)
     }
 
+    @Cacheable(cacheNames = ["friendly_links"], key = "#linkShow")
     override fun findAllByLinkShow(linkShow: Byte): Result<FriendlyLinkRecord> {
         return create.selectFrom(FRIENDLY_LINK)
                 .where(FRIENDLY_LINK.LINK_SHOW.eq(linkShow))
                 .fetch()
     }
 
+    @CacheEvict(cacheNames = ["friendly_links"], allEntries = true)
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun save(friendlyLink: FriendlyLink) {
         friendlyLinkDao.insert(friendlyLink)
     }
 
+    @CacheEvict(cacheNames = ["friendly_links"], allEntries = true)
     override fun update(friendlyLink: FriendlyLink) {
         friendlyLinkDao.update(friendlyLink)
     }
 
+    @CacheEvict(cacheNames = ["friendly_links"], allEntries = true)
     override fun deleteById(id: String) {
         friendlyLinkDao.deleteById(id)
     }

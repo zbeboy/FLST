@@ -9,9 +9,8 @@ spring:
       thymeleaf:
         mode: HTML
       cache:
-        cache-names:
         caffeine:
-          spec: maximumSize=500,expireAfterAccess=600s
+          spec: maximumSize=1000,expireAfterAccess=1800s
 
 # logging setting
 logging:

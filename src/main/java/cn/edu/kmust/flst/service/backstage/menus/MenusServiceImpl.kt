@@ -9,6 +9,8 @@ import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.*
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
@@ -28,6 +30,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
     @Resource
     open lateinit var menusDao: MenusDao
 
+    @Cacheable(cacheNames = ["menu"], key = "#id")
     override fun findById(id: String): Menus {
         return menusDao.findById(id)
     }
@@ -43,6 +46,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
                 .fetch()
     }
 
+    @Cacheable(cacheNames = ["menus"], key = "T(String).valueOf(#pid).concat('-').concat(#menuShow)")
     override fun findByPIdAndMenuShow(pid: String, menuShow: Byte): Result<MenusRecord> {
         return create.selectFrom(MENUS)
                 .where(MENUS.MENU_PID.eq(pid).and(MENUS.MENU_SHOW.eq(menuShow)))
@@ -76,11 +80,13 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
         return menusDao.fetchByMenuFixed(menuFixed)
     }
 
+    @CacheEvict(cacheNames = ["nav", "menus", "menu"], allEntries = true)
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun save(menus: Menus) {
         menusDao.insert(menus)
     }
 
+    @CacheEvict(cacheNames = ["nav", "menus", "menu"], allEntries = true)
     override fun update(menus: Menus) {
         menusDao.update(menus)
     }

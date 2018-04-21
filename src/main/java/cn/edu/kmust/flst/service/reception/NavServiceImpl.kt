@@ -5,6 +5,7 @@ import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.domain.tables.records.MenusRecord
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import org.jooq.Result
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
@@ -21,6 +22,7 @@ open class NavServiceImpl : NavService {
     @Resource
     open lateinit var menusService: MenusService
 
+    @Cacheable(cacheNames = ["nav"], key = "#language")
     override fun navHtml(language: String): String {
         var ul = "<ul class=\"nav navbar-nav nav-menu\">"
         var li = if (language == Workbook.LANGUAGE_ZH_CN) {

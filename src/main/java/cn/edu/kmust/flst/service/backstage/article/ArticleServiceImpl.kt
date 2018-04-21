@@ -11,6 +11,8 @@ import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.*
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.cache.annotation.CacheEvict
+import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
@@ -36,6 +38,7 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
         return articleDao.findById(id)
     }
 
+    @Cacheable(cacheNames = ["article"],key = "#id")
     override fun findByIdAndCache(id: Int): Optional<Record> {
         return create.select()
                 .from(ARTICLE)
@@ -61,6 +64,7 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
                 .fetchOptional()
     }
 
+    @Cacheable(cacheNames = ["article"],key = "#menuId")
     override fun findOneByPageOrderByArticleDate(menuId: String): Optional<Record> {
         return create.select()
                 .from(ARTICLE)
@@ -75,16 +79,19 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
         articleDao.insert(article)
     }
 
+    @CacheEvict(cacheNames = ["article"], key = "#article.articleId", allEntries = true)
     override fun update(article: Article) {
         articleDao.update(article)
     }
 
+    @CacheEvict(cacheNames = ["article"], key = "#articleId", allEntries = true)
     override fun updateClicks(articleId: Int) {
         create.update(ARTICLE).set(ARTICLE.ARTICLE_CLICKS, ARTICLE.ARTICLE_CLICKS + 1)
                 .where(ARTICLE.ARTICLE_ID.eq(articleId))
                 .execute()
     }
 
+    @CacheEvict(cacheNames = ["article"], key = "#id", allEntries = true)
     override fun deleteById(id: Int) {
         articleDao.deleteById(id)
     }
