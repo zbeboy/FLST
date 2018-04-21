@@ -163,6 +163,9 @@ $(document).ready(function () {
         }
     });
 
+    // 计算次数，以免刷新太快
+    var addCount = 0;
+    var doneCount = 0;
     // 上传组件
     $('#fileupload').fileupload({
         url: web_path + getAjaxUrl().file_upload_url,
@@ -172,7 +175,23 @@ $(document).ready(function () {
         messages: {
             maxFileSize: '单文件上传仅允许100MB大小'
         },
+        add: function (e, data) {
+            addCount++;
+            if (data.autoUpload || (data.autoUpload !== false &&
+                $(this).fileupload('option', 'autoUpload'))) {
+                data.process().done(function () {
+                    data.submit();
+                });
+            }
+        },
         done: function (e, data) {
+            doneCount++;
+            if (doneCount === addCount) {
+                refreshTable();
+                addCount = 0;
+                doneCount = 0;
+            }
+
             Messenger().post({
                 message: data.result.msg,
                 type: data.result.state ? 'success' : 'error',
