@@ -83,7 +83,6 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
         articleDao.update(article)
     }
 
-    @CacheEvict(cacheNames = ["article"], key = "#articleId", allEntries = true)
     override fun updateClicks(articleId: Int) {
         create.update(ARTICLE).set(ARTICLE.ARTICLE_CLICKS, ARTICLE.ARTICLE_CLICKS + 1)
                 .where(ARTICLE.ARTICLE_ID.eq(articleId))
