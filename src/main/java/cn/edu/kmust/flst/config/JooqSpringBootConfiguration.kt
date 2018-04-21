@@ -87,7 +87,7 @@ open class JooqSpringBootConfiguration {
      */
     @Bean
     open fun jooqConfig(connectionProvider: ConnectionProvider,
-                   transactionProvider: TransactionProvider, executeListenerProvider: ExecuteListenerProvider): org.jooq.Configuration {
+                        transactionProvider: TransactionProvider, executeListenerProvider: ExecuteListenerProvider): org.jooq.Configuration {
 
         return DefaultConfiguration()
                 .derive(connectionProvider)

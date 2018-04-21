@@ -40,7 +40,7 @@ open class MenusController {
      */
     @RequestMapping(value = ["/web/backstage/menus"], method = [(RequestMethod.GET)])
     fun menu(modelMap: ModelMap): String {
-        modelMap.addAttribute("homeId",Workbook.WEB_FIXED_HOME_ID)
+        modelMap.addAttribute("homeId", Workbook.WEB_FIXED_HOME_ID)
         return "backstage/menus/menus_list"
     }
 
@@ -63,7 +63,7 @@ open class MenusController {
     fun edit(@PathVariable("menuId") id: String, modelMap: ModelMap): String {
         val menus = menusService.findById(id)
         return if (!ObjectUtils.isEmpty(menus)) {
-            if(menus.menuId == Workbook.WEB_FIXED_HOME_ID || menus.menuPid == Workbook.WEB_FIXED_HOME_ID){
+            if (menus.menuId == Workbook.WEB_FIXED_HOME_ID || menus.menuPid == Workbook.WEB_FIXED_HOME_ID) {
                 modelMap.addAttribute("status", 401)
                 modelMap.addAttribute("message", "您不能编辑该栏目信息")
                 "error"
@@ -104,10 +104,10 @@ open class MenusController {
      */
     @RequestMapping(value = ["/web/backstage/menus/pids"], method = [(RequestMethod.GET)])
     @ResponseBody
-    fun pids(menuFixed:Byte?): AjaxUtils<Menus> {
-        val ajaxUtils = AjaxUtils.of<Menus>();
-        if(!ObjectUtils.isEmpty(menuFixed)){
-           ajaxUtils.success().msg("获取数据成功").listData(menusService.findByMenuFixed(menuFixed!!))
+    fun pids(menuFixed: Byte?): AjaxUtils<Menus> {
+        val ajaxUtils = AjaxUtils.of<Menus>()
+        if (!ObjectUtils.isEmpty(menuFixed)) {
+            ajaxUtils.success().msg("获取数据成功").listData(menusService.findByMenuFixed(menuFixed!!))
         } else {
             ajaxUtils.success().msg("获取数据成功").listData(menusService.findAll())
         }
@@ -240,7 +240,7 @@ open class MenusController {
         val ajaxUtils = AjaxUtils.of<Any>()
         if (!bindingResult.hasErrors()) {
             val menus = menusService.findById(menusEditVo.menuId!!)
-            if(menus.menuId == Workbook.WEB_FIXED_HOME_ID || menus.menuPid == Workbook.WEB_FIXED_HOME_ID){
+            if (menus.menuId == Workbook.WEB_FIXED_HOME_ID || menus.menuPid == Workbook.WEB_FIXED_HOME_ID) {
                 ajaxUtils.fail().msg("您无权限更新该栏目")
             } else {
                 menus.menuName = menusEditVo.menuName

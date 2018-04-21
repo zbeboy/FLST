@@ -4,7 +4,6 @@ import cn.edu.kmust.flst.domain.Tables.ARTICLE
 import cn.edu.kmust.flst.domain.Tables.MENUS
 import cn.edu.kmust.flst.domain.tables.daos.ArticleDao
 import cn.edu.kmust.flst.domain.tables.pojos.Article
-import cn.edu.kmust.flst.domain.tables.records.ArticleRecord
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
@@ -38,7 +37,7 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
         return articleDao.findById(id)
     }
 
-    @Cacheable(cacheNames = ["article"],key = "#id")
+    @Cacheable(cacheNames = ["article"], key = "#id")
     override fun findByIdAndCache(id: Int): Optional<Record> {
         return create.select()
                 .from(ARTICLE)
@@ -64,7 +63,7 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
                 .fetchOptional()
     }
 
-    @Cacheable(cacheNames = ["article"],key = "#menuId")
+    @Cacheable(cacheNames = ["article"], key = "#menuId")
     override fun findOneByPageOrderByArticleDate(menuId: String): Optional<Record> {
         return create.select()
                 .from(ARTICLE)

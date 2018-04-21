@@ -8,7 +8,7 @@ import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.springframework.stereotype.Component
 import org.springframework.util.ObjectUtils
-import java.util.ArrayList
+import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
 

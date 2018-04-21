@@ -4,7 +4,6 @@ import cn.edu.kmust.flst.domain.Tables.ARTICLE_EN
 import cn.edu.kmust.flst.domain.Tables.MENUS
 import cn.edu.kmust.flst.domain.tables.daos.ArticleEnDao
 import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
-import cn.edu.kmust.flst.domain.tables.records.ArticleEnRecord
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean

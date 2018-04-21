@@ -1,7 +1,6 @@
 package cn.edu.kmust.flst.service.backstage.article
 
 import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
-import cn.edu.kmust.flst.domain.tables.records.ArticleEnRecord
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record

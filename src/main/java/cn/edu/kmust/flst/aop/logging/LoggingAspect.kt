@@ -1,5 +1,6 @@
 package cn.edu.kmust.flst.aop.logging
 
+import cn.edu.kmust.flst.config.Workbook
 import org.aspectj.lang.JoinPoint
 import org.aspectj.lang.ProceedingJoinPoint
 import org.aspectj.lang.annotation.AfterThrowing
@@ -8,7 +9,6 @@ import org.aspectj.lang.annotation.Aspect
 import org.aspectj.lang.annotation.Pointcut
 import org.slf4j.LoggerFactory
 import org.springframework.core.env.Environment
-import cn.edu.kmust.flst.config.Workbook
 import java.util.*
 import javax.inject.Inject
 

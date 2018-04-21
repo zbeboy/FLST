@@ -11,7 +11,6 @@ import cn.edu.kmust.flst.web.bean.backstage.banner.BannerBean
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
 import org.springframework.stereotype.Service
 import org.springframework.ui.ModelMap
-import org.springframework.util.ObjectUtils
 import org.springframework.web.servlet.LocaleResolver
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest

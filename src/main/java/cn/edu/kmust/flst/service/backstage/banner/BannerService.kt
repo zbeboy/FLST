@@ -35,7 +35,7 @@ interface BannerService {
      * @param bannerShow 是否显示
      * @return 数据
      */
-    fun findByMenuIdAndBannerShow(menuId: String,bannerShow:Byte): Result<BannerRecord>
+    fun findByMenuIdAndBannerShow(menuId: String, bannerShow: Byte): Result<BannerRecord>
 
     /**
      * 分页查询

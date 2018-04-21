@@ -4,7 +4,9 @@ import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.domain.tables.records.MenusRecord
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
-import org.jooq.*
+import org.jooq.Record
+import org.jooq.Record10
+import org.jooq.Result
 
 /**
  * Created by zbeboy 2018-04-11 .

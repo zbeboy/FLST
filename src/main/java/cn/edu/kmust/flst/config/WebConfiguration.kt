@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 
 @Configuration
-open class WebConfiguration: WebMvcConfigurer {
+open class WebConfiguration : WebMvcConfigurer {
 
     @Inject
     open lateinit var env: Environment

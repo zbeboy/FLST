@@ -1,7 +1,6 @@
 package cn.edu.kmust.flst.web.backstage.files
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.pojos.Banner
 import cn.edu.kmust.flst.domain.tables.pojos.Files
 import cn.edu.kmust.flst.service.backstage.files.FilesService
 import cn.edu.kmust.flst.service.common.UploadService
@@ -10,7 +9,6 @@ import cn.edu.kmust.flst.service.util.FilesUtils
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.service.util.UUIDUtils
 import cn.edu.kmust.flst.web.bean.backstage.files.FilesBean
-import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.bean.file.FileBean
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
@@ -22,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.multipart.MultipartHttpServletRequest
-import java.util.ArrayList
+import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
 
@@ -111,7 +109,7 @@ open class FilesController {
     /**
      * 删除
      *
-     * @param bannerId id
+     * @param fileId id
      * @return 结果
      */
     @RequestMapping(value = ["/web/backstage/files/delete"], method = [(RequestMethod.POST)])

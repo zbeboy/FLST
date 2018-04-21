@@ -2,12 +2,10 @@ package cn.edu.kmust.flst.web.reception
 
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Article
-import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
-import cn.edu.kmust.flst.service.reception.NavService
 import cn.edu.kmust.flst.service.reception.ReceptionService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
 import cn.edu.kmust.flst.service.util.RequestUtils
@@ -19,12 +17,14 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
 import org.springframework.util.StringUtils
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.LocaleResolver
-import java.net.URLDecoder
 import java.net.URLEncoder
 import java.sql.Timestamp
-import java.util.ArrayList
+import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpSession
@@ -108,7 +108,7 @@ open class ReceptionMainController {
                     modelMap.addAttribute("redirect_uri", "/")
                     page
                 } else {
-                    modelMap.addAttribute("redirect_uri", "${Workbook.RECEPTION_LINK + menuId}")
+                    modelMap.addAttribute("redirect_uri", Workbook.RECEPTION_LINK + menuId)
                     for (i in list) {
                         if (i.menuPid == "0") {
                             receptionService.bannerData(modelMap, i.menuId)

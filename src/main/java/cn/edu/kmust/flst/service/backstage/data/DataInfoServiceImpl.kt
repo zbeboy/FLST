@@ -6,7 +6,6 @@ import cn.edu.kmust.flst.domain.tables.pojos.DataInfo
 import cn.edu.kmust.flst.domain.tables.records.DataInfoRecord
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import org.jooq.DSLContext
-import org.jooq.Record
 import org.jooq.Result
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cache.annotation.CacheEvict

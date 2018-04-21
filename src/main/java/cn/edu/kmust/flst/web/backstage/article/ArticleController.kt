@@ -23,7 +23,6 @@ import org.springframework.util.StringUtils
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartHttpServletRequest
-import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
 import javax.validation.Valid
@@ -46,7 +45,7 @@ open class ArticleController {
     open lateinit var uploadService: UploadService
 
     @Resource
-    open lateinit var methodControllerCommon:MethodControllerCommon
+    open lateinit var methodControllerCommon: MethodControllerCommon
 
     /**
      * 中文文章管理
@@ -186,7 +185,7 @@ open class ArticleController {
                 articleEditVo.articleTitle
             }
 
-            if(article.articleCover != articleEditVo.articleCover){
+            if (article.articleCover != articleEditVo.articleCover) {
                 FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + article.articleCover)
             }
 
