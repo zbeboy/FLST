@@ -38,7 +38,7 @@
 </nav>
 
 <div class="myheader" th:fragment="receptionHearder">
-    <img class="hidden-xs" src="images/logopng.png" th:src="@{/images/logopng.png}" height="118"/>
+    <img class="hidden-xs" src="images/logopng.png" th:src="@{${language == 'zh_cn'?'/images/logopng.png':'/images/logoen.png'}}" height="118"/>
     <div class="top-content hidden-xs"><a href="#" class="white-color" th:text="#{web.old.website}">旧版网站</a> | <a
             href="#"
             th:href="@{'/language?language=en&redirect_uri='+ ${redirect_uri}}"
