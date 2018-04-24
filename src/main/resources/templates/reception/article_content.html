@@ -80,12 +80,12 @@
                 <div style="padding-top:5px;font-size:17px;" class="wow fadeInUp" data-wow-delay="0.2s" id="editor-container">
 
                 </div>
-                <div style="padding-top:18px;" class="wow fadeInUp" data-wow-delay="0.3s" th:if="${upArticle!=null}">
+                <div style="padding-top:18px;" class="wow fadeInUp" data-wow-delay="0.3s" th:if="${upArticle.articleId!=null}">
                     <span class="text-primary" th:text="#{web.pagination.previous}"></span>
                     <a href="#" style="color:black;" th:text="${upArticle.articleTitle}"
                        th:href="@{'/user/article/' + ${upArticle.articleId}}"></a>
                 </div>
-                <div style="padding-top:10px;" class="wow fadeInUp" data-wow-delay="0.4s" th:if="${downArticle!=null}">
+                <div style="padding-top:10px;" class="wow fadeInUp" data-wow-delay="0.4s" th:if="${downArticle.articleId!=null}">
                     <span class="text-primary" th:text="#{web.pagination.next}"></span>
                     <a href="#" style="color:black;" th:text="${downArticle.articleTitle}"
                        th:href="@{'/user/article/' + ${downArticle.articleId}}"></a>
