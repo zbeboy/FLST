@@ -1,14 +1,4 @@
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Package Files #
-*.jar
 *.war
 *.ear
 *.zip
@@ -21,3 +11,4 @@ hs_err_pid*
 将删除 src/test/
 /target/
 /.idea/workspace.xml
+/logs/
