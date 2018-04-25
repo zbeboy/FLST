@@ -145,7 +145,6 @@ open class UploadServiceImpl : UploadService {
                     MediaType.APPLICATION_OCTET_STREAM
                 }
                 response.contentType = mediaType.toString()
-                response.setHeader("Content-disposition", "attachment; filename=\"" + file.name + "\"")
                 val inputStream = FileInputStream(file)
                 FileCopyUtils.copy(inputStream, response.outputStream)
             }
