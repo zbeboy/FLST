@@ -27,19 +27,9 @@ open class Workbook {
         const val DIRECTORY_SPLIT = "/"
 
         /*
-        服务器根目录
-         */
-        const val DOCUMENT_ROOT = "root"
-
-        /*
         前台链接前缀
          */
         const val RECEPTION_LINK = "/user/menu/"
-
-        /*
-        自定义图片链接
-         */
-        const val MY_IMAGES_PATH = "/user/images/"
 
         /*
        自定义文件链接
@@ -67,16 +57,6 @@ open class Workbook {
         首页固定模块，首页固定id
          */
         const val WEB_FIXED_HOME_ID = "1dec1097f1334196aeb6889f36a4c9ae"
-
-        /**
-         * 自定义图片路径
-         *
-         * @return 路径
-         */
-        @JvmStatic
-        fun imagesPath(): String {
-            return "images$DIRECTORY_SPLIT"
-        }
 
         /**
          * 自定义文件路径

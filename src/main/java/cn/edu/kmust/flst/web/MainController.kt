@@ -120,16 +120,6 @@ open class MainController {
     }
 
     /**
-     * 图片展示
-     *
-     * @param request 请求
-     */
-    @RequestMapping(value = [Workbook.MY_IMAGES_PATH + "{name}"], method = [(RequestMethod.GET)])
-    fun reviewAvatar(@PathVariable("name") name: String, request: HttpServletRequest, response: HttpServletResponse) {
-        uploadService.reviewPic(Workbook.imagesPath() + name, request, response)
-    }
-
-    /**
      * 文件下载
      *
      * @param request 请求

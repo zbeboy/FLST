@@ -1,5 +1,6 @@
 package cn.edu.kmust.flst.config
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.web.embedded.undertow.UndertowServletWebServerFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -17,6 +18,9 @@ open class WebConfiguration : WebMvcConfigurer {
     @Inject
     open lateinit var env: Environment
 
+    @Autowired
+    open lateinit var flstProperties: FLSTProperties
+
     /**
      * 切换语言
      *
@@ -31,7 +35,7 @@ open class WebConfiguration : WebMvcConfigurer {
     open fun undertow(): UndertowServletWebServerFactory {
         val undertow = UndertowServletWebServerFactory()
         if (this.env.acceptsProfiles(Workbook.SPRING_PROFILE_PRODUCTION)) {
-            val documentRoot = File(System.getProperty("user.dir") + Workbook.DIRECTORY_SPLIT + Workbook.DOCUMENT_ROOT)
+            val documentRoot = File(System.getProperty("user.dir") + Workbook.DIRECTORY_SPLIT + flstProperties.getConstants().documentRoot)
             if (!documentRoot.exists()) {
                 documentRoot.mkdirs()
             }

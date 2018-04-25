@@ -1,5 +1,6 @@
 package cn.edu.kmust.flst.web.backstage.article
 
+import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
 import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
@@ -13,6 +14,7 @@ import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleEnAddVo
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleEnEditVo
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
@@ -28,6 +30,9 @@ import javax.validation.Valid
  **/
 @Controller
 open class ArticleEnController {
+
+    @Autowired
+    open lateinit var flstProperties: FLSTProperties
 
     @Resource
     open lateinit var usersService: UsersService
@@ -140,7 +145,7 @@ open class ArticleEnController {
             }
 
             if (articleEn.articleCover != articleEnEditVo.articleCover) {
-                FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + articleEn.articleCover)
+                FilesUtils.deleteFile(RequestUtils.getRealPath(request) + articleEn.articleCover)
             }
 
             articleEn.articleCover = articleEnEditVo.articleCover
@@ -163,7 +168,9 @@ open class ArticleEnController {
      */
     @RequestMapping(value = ["/web/backstage/en/article/delete"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun delete(@RequestParam("articleId") id: Int): AjaxUtils<*> {
+    fun delete(@RequestParam("articleId") id: Int, request: HttpServletRequest): AjaxUtils<*> {
+        val articleEn = articleEnService.findById(id)
+        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + articleEn.articleCover)
         articleEnService.deleteById(id)
         return AjaxUtils.of<Any>().success().msg("删除成功")
     }

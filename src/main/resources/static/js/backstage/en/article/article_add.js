@@ -18,7 +18,6 @@ $(document).ready(function () {
         pids: '/web/backstage/menus/pids',
         file_upload_url: '/web/backstage/article/cover/upload',
         del_cover:'/web/backstage/article/cover/delete',
-        images: '/user/images',
         save: '/web/backstage/en/article/save',
         back: '/web/backstage/en/article'
     };
@@ -150,7 +149,7 @@ $(document).ready(function () {
         },
         done: function (e, data) {
             if (data.result.listResult.length > 0) {
-                $(paramId.articleCoverTemp).attr('src', web_path + ajax_url.images + '/' + data.result.listResult[0].newName);
+                $(paramId.articleCoverTemp).attr('src', web_path + '/' + data.result.listResult[0].newName);
                 $(paramId.articleCover).val(data.result.listResult[0].newName);
                 $('.fileinput-button').addClass('hidden');
             }

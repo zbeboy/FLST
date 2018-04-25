@@ -16,7 +16,6 @@ $(document).ready(function () {
     */
     var ajax_url = {
         file_upload_url: '/web/backstage/banner/upload',
-        images: '/user/images',
         show: '/web/backstage/banner/show',
         del: '/web/backstage/banner/delete',
         back: '/web/backstage/banner'
@@ -31,7 +30,7 @@ $(document).ready(function () {
     function picData(data) {
         var template = Handlebars.compile($("#pic-template").html());
         Handlebars.registerHelper('imgSrc', function () {
-            return new Handlebars.SafeString(Handlebars.escapeExpression(web_path + ajax_url.images + '/' + this.newName));
+            return new Handlebars.SafeString(Handlebars.escapeExpression(web_path + '/' + this.newName));
         });
 
         Handlebars.registerHelper('bannerId', function () {
@@ -89,26 +88,23 @@ $(document).ready(function () {
 
     picDataArea.delegate('.showImg', "click", function () {
         var id = $(this).prev().val();
-        var name = $(this).prev().prev().text();
-        show(id, name, 1, '显示');
+        show(id, 1, '显示');
     });
 
     picDataArea.delegate('.hideImg', "click", function () {
         var id = $(this).prev().val();
-        var name = $(this).prev().prev().text();
-        show(id, name, 0, '隐藏');
+        show(id, 0, '隐藏');
     });
 
     picDataArea.delegate('.deleteImg', "click", function () {
         var id = $(this).prev().prev().val();
-        var name = $(this).prev().prev().prev().text();
-        del(id, name);
+        del(id);
     });
 
-    function show(id, name, s, meg) {
+    function show(id, s, meg) {
         var msg;
         msg = Messenger().post({
-            message: "确定" + meg + "banner '" + name + "'  吗?",
+            message: "确定" + meg + "banner吗?",
             actions: {
                 retry: {
                     label: '确定',
@@ -135,10 +131,10 @@ $(document).ready(function () {
         });
     }
 
-    function del(id, name) {
+    function del(id) {
         var msg;
         msg = Messenger().post({
-            message: "确定删除banner '" + name + "'  吗?",
+            message: "确定删除banner吗?",
             actions: {
                 retry: {
                     label: '确定',

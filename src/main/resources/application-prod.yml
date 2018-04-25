@@ -1,6 +1,7 @@
 flst:
-  document-root: root
-  static-images: images
+  constants:
+    document-root: root
+    static-images: pic
 
 spring:
   devtools:

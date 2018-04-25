@@ -1,3 +1,8 @@
+flst:
+  constants:
+    document-root:
+    static-images: pic
+
 spring:
   devtools:
     livereload:

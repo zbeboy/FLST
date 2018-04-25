@@ -17,7 +17,6 @@ $(document).ready(function () {
     var ajax_url = {
         pids: '/web/backstage/menus/pids',
         file_upload_url: '/web/backstage/article/cover/upload',
-        images: '/user/images',
         update: '/web/backstage/article/update',
         back: '/web/backstage/article'
     };
@@ -60,7 +59,7 @@ $(document).ready(function () {
         $.get(web_path + ajax_url.pids, function (data) {
             pidData(data);
         });
-        $(paramId.articleCoverTemp).attr('src', web_path + ajax_url.images + '/' + $(paramId.articleCover).val());
+        $(paramId.articleCoverTemp).attr('src', web_path + '/' + $(paramId.articleCover).val());
         initQuill();
         if (init_page_param.articleSources === 0) {
             $('#original').prop('checked', true);
@@ -162,7 +161,7 @@ $(document).ready(function () {
         },
         done: function (e, data) {
             if (data.result.listResult.length > 0) {
-                $(paramId.articleCoverTemp).attr('src', web_path + ajax_url.images + '/' + data.result.listResult[0].newName);
+                $(paramId.articleCoverTemp).attr('src', web_path + "/" + data.result.listResult[0].newName);
                 $(paramId.articleCover).val(data.result.listResult[0].newName);
                 $('.fileinput-button').addClass('hidden');
             }

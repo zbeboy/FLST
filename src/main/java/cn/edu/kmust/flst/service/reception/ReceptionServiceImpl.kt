@@ -1,5 +1,6 @@
 package cn.edu.kmust.flst.service.reception
 
+import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.banner.BannerService
@@ -9,6 +10,7 @@ import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.banner.BannerBean
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.ui.ModelMap
 import org.springframework.web.servlet.LocaleResolver
@@ -17,6 +19,9 @@ import javax.servlet.http.HttpServletRequest
 
 @Service("receptionService")
 open class ReceptionServiceImpl : ReceptionService {
+
+    @Autowired
+    open lateinit var flstProperties: FLSTProperties
 
     @Resource
     open lateinit var localeResolver: LocaleResolver
@@ -82,9 +87,6 @@ open class ReceptionServiceImpl : ReceptionService {
         var banners: List<BannerBean> = ArrayList()
         if (bannerRecord.isNotEmpty) {
             banners = bannerRecord.into(BannerBean::class.java)
-            banners.forEach { i ->
-                i.bannerLinkPath = Workbook.MY_IMAGES_PATH + i.bannerLink
-            }
         }
         modelMap.addAttribute("banners", banners)
     }

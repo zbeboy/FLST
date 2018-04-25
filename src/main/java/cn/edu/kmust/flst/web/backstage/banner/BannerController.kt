@@ -1,5 +1,6 @@
 package cn.edu.kmust.flst.web.backstage.banner
 
+import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Banner
 import cn.edu.kmust.flst.service.backstage.banner.BannerService
@@ -15,6 +16,7 @@ import cn.edu.kmust.flst.web.bean.file.FileBean
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
@@ -31,6 +33,9 @@ import javax.servlet.http.HttpServletRequest
 open class BannerController {
 
     private val log = LoggerFactory.getLogger(BannerController::class.java)
+
+    @Autowired
+    open lateinit var flstProperties: FLSTProperties
 
     @Resource
     open lateinit var usersService: UsersService
@@ -66,12 +71,9 @@ open class BannerController {
         var bannerList: List<BannerBean> = ArrayList()
         if (banners.isNotEmpty) {
             bannerList = banners.into(BannerBean::class.java)
-            bannerList.forEach { i ->
-                i.bannerLinkPath = Workbook.MY_IMAGES_PATH + i.bannerLink
-            }
         }
         modelMap.addAttribute("banners", bannerList)
-        modelMap.addAttribute("menus", menus);
+        modelMap.addAttribute("menus", menus)
         return "backstage/banner/banner_edit"
     }
 
@@ -106,10 +108,13 @@ open class BannerController {
     fun bannerUpload(@RequestParam("menuId") menuId: String, multipartHttpServletRequest: MultipartHttpServletRequest, request: HttpServletRequest): AjaxUtils<FileBean> {
         val ajaxUtils = AjaxUtils.of<FileBean>()
         try {
-            val path = Workbook.imagesPath()
+            val path = flstProperties.getConstants().staticImages + Workbook.DIRECTORY_SPLIT
             val fileBeen = uploadService.upload(multipartHttpServletRequest,
                     RequestUtils.getRealPath(request) + path, request.remoteAddr)
             if (fileBeen.isNotEmpty() && fileBeen.size > 0) {
+                fileBeen.forEach { i ->
+                    i.newName = flstProperties.getConstants().staticImages + "/" + i.newName
+                }
                 val banner = Banner()
                 banner.bannerLink = fileBeen[0].newName
                 banner.bannerDate = DateTimeUtils.getNow()
@@ -155,7 +160,7 @@ open class BannerController {
     @ResponseBody
     fun delete(@RequestParam("bannerId") bannerId: Int, request: HttpServletRequest): AjaxUtils<*> {
         val banner = bannerService.findById(bannerId)
-        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + banner.bannerLink)
+        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + banner.bannerLink)
         bannerService.deleteById(bannerId)
         return AjaxUtils.of<Any>().success().msg("删除成功")
     }

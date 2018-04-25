@@ -1,5 +1,6 @@
 package cn.edu.kmust.flst.web.backstage.article
 
+import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Article
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
@@ -16,6 +17,7 @@ import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleAddVo
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleEditVo
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
@@ -34,6 +36,9 @@ import javax.validation.Valid
 open class ArticleController {
 
     private val log = LoggerFactory.getLogger(ArticleController::class.java)
+
+    @Autowired
+    open lateinit var flstProperties: FLSTProperties
 
     @Resource
     open lateinit var usersService: UsersService
@@ -108,9 +113,14 @@ open class ArticleController {
     fun coverUpload(multipartHttpServletRequest: MultipartHttpServletRequest, request: HttpServletRequest): AjaxUtils<FileBean> {
         val ajaxUtils = AjaxUtils.of<FileBean>()
         try {
-            val path = Workbook.imagesPath()
+            val path = flstProperties.getConstants().staticImages + Workbook.DIRECTORY_SPLIT
             val fileBeen = uploadService.upload(multipartHttpServletRequest,
                     RequestUtils.getRealPath(request) + path, request.remoteAddr)
+            if (fileBeen.isNotEmpty()) {
+                fileBeen.forEach { i ->
+                    i.newName = flstProperties.getConstants().staticImages + "/" + i.newName
+                }
+            }
             ajaxUtils.success().msg("保存文件成功").listData(fileBeen)
         } catch (e: Exception) {
             log.error("Upload cover error, error is {}", e)
@@ -129,7 +139,7 @@ open class ArticleController {
     @RequestMapping("/web/backstage/article/cover/delete")
     @ResponseBody
     fun coverDelete(@RequestParam("articleCover") articleCover: String, request: HttpServletRequest): AjaxUtils<*> {
-        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + articleCover)
+        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + articleCover)
         return AjaxUtils.of<Any>().success().msg("删除成功")
     }
 
@@ -186,7 +196,7 @@ open class ArticleController {
             }
 
             if (article.articleCover != articleEditVo.articleCover) {
-                FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + article.articleCover)
+                FilesUtils.deleteFile(RequestUtils.getRealPath(request) + article.articleCover)
             }
 
             article.articleCover = articleEditVo.articleCover
@@ -212,7 +222,7 @@ open class ArticleController {
     @ResponseBody
     fun delete(@RequestParam("articleId") id: Int, request: HttpServletRequest): AjaxUtils<*> {
         val article = articleService.findById(id)
-        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + Workbook.imagesPath() + article.articleCover)
+        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + article.articleCover)
         articleService.deleteById(id)
         return AjaxUtils.of<Any>().success().msg("删除成功")
     }

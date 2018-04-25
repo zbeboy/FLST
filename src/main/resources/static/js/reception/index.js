@@ -2,7 +2,6 @@ $(document).ready(function () {
     var ajax_url = {
         templates: '/data/home/template',
         articles: '/data/articles',
-        images: '/user/images',
         article: '/user/article'
     };
 
@@ -76,7 +75,7 @@ $(document).ready(function () {
     function template0(data, i) {
         if (data.rows.length > 0) {
             var article = data.rows[0];
-            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 160,
                 article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             var num = 0;
             if (data.rows.length > 5) {
@@ -97,7 +96,7 @@ $(document).ready(function () {
     function template1(data, i) {
         if (data.rows.length > 0) {
             var article = data.rows[0];
-            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 160,
                 article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             for (var j3 = 1; j3 < data.rows.length; j3++) {
                 $(data_id.templateData + i + '0').append(listDateTemplate(web_path + ajax_url.article + '/' + data.rows[j3].articleId, data.rows[j3].articleTitle, data.rows[j3].articleDateStr));
@@ -108,7 +107,7 @@ $(document).ready(function () {
     function template2(data, i) {
         if (data.rows.length > 0) {
             var article = data.rows[0];
-            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 160,
                 article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             for (var j4 = 1; j4 < data.rows.length; j4++) {
                 $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j4].articleId, data.rows[j4].articleTitle));
@@ -119,7 +118,7 @@ $(document).ready(function () {
     function template3(data, i) {
         if (data.rows.length > 0) {
             var article = data.rows[0];
-            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 160,
                 article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             for (var j5 = 1; j5 < data.rows.length; j5++) {
                 $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j5].articleId, data.rows[j5].articleTitle));
@@ -130,7 +129,7 @@ $(document).ready(function () {
     function template4(data, i) {
         if (data.rows.length > 0) {
             var article = data.rows[0];
-            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 160,
+            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 160,
                 article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             var num = 0;
             if (data.rows.length > 5) {
@@ -152,7 +151,7 @@ $(document).ready(function () {
         if (data.rows.length > 0) {
             for (var j8 = 0; j8 < data.rows.length; j8++) {
                 var article = data.rows[j8];
-                $(data_id.templateImage + i + j8).html(imageTemplate(article.articleTitle, web_path + ajax_url.images + '/' + article.articleCover, 200,
+                $(data_id.templateImage + i + j8).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 200,
                     article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             }
         }
