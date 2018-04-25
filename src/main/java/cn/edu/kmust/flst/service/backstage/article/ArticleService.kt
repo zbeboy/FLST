@@ -27,6 +27,14 @@ interface ArticleService {
      * @param id 主键
      * @return 数据
      */
+    fun findByIdRelation(id: Int): Optional<Record>
+
+    /**
+     * 通过主键关联查询
+     *
+     * @param id 主键
+     * @return 数据
+     */
     fun findByIdAndCache(id: Int): Optional<Record>
 
     /**
@@ -72,7 +80,7 @@ interface ArticleService {
      *
      * @param article 数据
      */
-    fun save(article: Article)
+    fun saveAndReturnId(article: Article): Int
 
     /**
      * 更新

@@ -1,7 +1,6 @@
 package cn.edu.kmust.flst.service.backstage.article
 
-import cn.edu.kmust.flst.domain.Tables.ARTICLE
-import cn.edu.kmust.flst.domain.Tables.MENUS
+import cn.edu.kmust.flst.domain.Tables.*
 import cn.edu.kmust.flst.domain.tables.daos.ArticleDao
 import cn.edu.kmust.flst.domain.tables.pojos.Article
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
@@ -37,10 +36,21 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
         return articleDao.findById(id)
     }
 
+    override fun findByIdRelation(id: Int): Optional<Record> {
+        return create.select()
+                .from(ARTICLE)
+                .join(ARTICLE_CONTENT)
+                .on(ARTICLE.ARTICLE_ID.eq(ARTICLE_CONTENT.ID))
+                .where(ARTICLE.ARTICLE_ID.eq(id))
+                .fetchOptional()
+    }
+
     @Cacheable(cacheNames = ["article"], key = "#id")
     override fun findByIdAndCache(id: Int): Optional<Record> {
         return create.select()
                 .from(ARTICLE)
+                .join(ARTICLE_CONTENT)
+                .on(ARTICLE.ARTICLE_ID.eq(ARTICLE_CONTENT.ID))
                 .where(ARTICLE.ARTICLE_ID.eq(id))
                 .fetchOptional()
     }
@@ -67,6 +77,8 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
     override fun findOneByPageOrderByArticleDate(menuId: String): Optional<Record> {
         return create.select()
                 .from(ARTICLE)
+                .join(ARTICLE_CONTENT)
+                .on(ARTICLE.ARTICLE_ID.eq(ARTICLE_CONTENT.ID))
                 .where(ARTICLE.MENU_ID.eq(menuId))
                 .orderBy(ARTICLE.ARTICLE_DATE.desc())
                 .limit(0, 1)
@@ -74,8 +86,14 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
     }
 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
-    override fun save(article: Article) {
-        articleDao.insert(article)
+    override fun saveAndReturnId(article: Article): Int {
+        return create.insertInto(ARTICLE, ARTICLE.ARTICLE_TITLE, ARTICLE.ARTICLE_BRIEF, ARTICLE.ARTICLE_COVER, ARTICLE.ARTICLE_DATE,
+                ARTICLE.ARTICLE_CLICKS, ARTICLE.USERNAME, ARTICLE.ARTICLE_SOURCES, ARTICLE.ARTICLE_SOURCES_NAME, ARTICLE.ARTICLE_SOURCES_LINK,
+                ARTICLE.MENU_ID)
+                .values(article.articleTitle, article.articleBrief, article.articleCover, article.articleDate, article.articleClicks,
+                        article.username, article.articleSources, article.articleSourcesName, article.articleSourcesLink, article.menuId)
+                .returning(ARTICLE.ARTICLE_ID)
+                .fetchOne().getValue(ARTICLE.ARTICLE_ID)
     }
 
     @CacheEvict(cacheNames = ["article"], key = "#article.articleId", allEntries = true)

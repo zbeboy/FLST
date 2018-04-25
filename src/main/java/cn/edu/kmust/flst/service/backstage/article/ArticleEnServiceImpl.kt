@@ -1,7 +1,6 @@
 package cn.edu.kmust.flst.service.backstage.article
 
-import cn.edu.kmust.flst.domain.Tables.ARTICLE_EN
-import cn.edu.kmust.flst.domain.Tables.MENUS
+import cn.edu.kmust.flst.domain.Tables.*
 import cn.edu.kmust.flst.domain.tables.daos.ArticleEnDao
 import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
@@ -37,10 +36,21 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
         return articleEnDao.findById(id)
     }
 
+    override fun findByIdRelation(id: Int): Optional<Record> {
+        return create.select()
+                .from(ARTICLE_EN)
+                .join(ARTICLE_EN_CONTENT)
+                .on(ARTICLE_EN.ARTICLE_ID.eq(ARTICLE_EN_CONTENT.ID))
+                .where(ARTICLE_EN.ARTICLE_ID.eq(id))
+                .fetchOptional()
+    }
+
     @Cacheable(cacheNames = ["article_en"], key = "#id")
     override fun findByIdAndCache(id: Int): Optional<Record> {
         return create.select()
                 .from(ARTICLE_EN)
+                .join(ARTICLE_EN_CONTENT)
+                .on(ARTICLE_EN.ARTICLE_ID.eq(ARTICLE_EN_CONTENT.ID))
                 .where(ARTICLE_EN.ARTICLE_ID.eq(id))
                 .fetchOptional()
     }
@@ -67,6 +77,8 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
     override fun findOneByPageOrderByArticleDate(menuId: String): Optional<Record> {
         return create.select()
                 .from(ARTICLE_EN)
+                .join(ARTICLE_EN_CONTENT)
+                .on(ARTICLE_EN.ARTICLE_ID.eq(ARTICLE_EN_CONTENT.ID))
                 .where(ARTICLE_EN.MENU_ID.eq(menuId))
                 .orderBy(ARTICLE_EN.ARTICLE_DATE.desc())
                 .limit(0, 1)
@@ -116,8 +128,14 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
     }
 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
-    override fun save(article: ArticleEn) {
-        articleEnDao.insert(article)
+    override fun saveAndReturnId(article: ArticleEn): Int {
+        return create.insertInto(ARTICLE_EN, ARTICLE_EN.ARTICLE_TITLE, ARTICLE_EN.ARTICLE_BRIEF, ARTICLE_EN.ARTICLE_COVER, ARTICLE_EN.ARTICLE_DATE,
+                ARTICLE_EN.ARTICLE_CLICKS, ARTICLE_EN.USERNAME, ARTICLE_EN.ARTICLE_SOURCES, ARTICLE_EN.ARTICLE_SOURCES_NAME, ARTICLE_EN.ARTICLE_SOURCES_LINK,
+                ARTICLE_EN.MENU_ID)
+                .values(article.articleTitle, article.articleBrief, article.articleCover, article.articleDate, article.articleClicks,
+                        article.username, article.articleSources, article.articleSourcesName, article.articleSourcesLink, article.menuId)
+                .returning(ARTICLE_EN.ARTICLE_ID)
+                .fetchOne().getValue(ARTICLE_EN.ARTICLE_ID)
     }
 
     @CacheEvict(cacheNames = ["article_en"], key = "#article.articleId", allEntries = true)

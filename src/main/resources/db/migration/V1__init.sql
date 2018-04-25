@@ -38,7 +38,6 @@ CREATE TABLE article (
   article_title        VARCHAR(100)  NOT NULL,
   article_brief        VARCHAR(200),
   article_cover        VARCHAR(200),
-  article_content      LONGTEXT      NOT NULL,
   article_date         DATETIME      NOT NULL,
   article_clicks       INT,
   username             VARCHAR(64)   NOT NULL,
@@ -50,12 +49,17 @@ CREATE TABLE article (
   FOREIGN KEY (username) REFERENCES users (username)
 );
 
+CREATE TABLE article_content(
+  id           INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  article_content      LONGTEXT      NOT NULL,
+  FOREIGN KEY (id) REFERENCES article(article_id)
+);
+
 CREATE TABLE article_en (
   article_id           INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
   article_title        VARCHAR(200)  NOT NULL,
   article_brief        VARCHAR(300),
   article_cover        VARCHAR(200),
-  article_content      LONGTEXT      NOT NULL,
   article_date         DATETIME      NOT NULL,
   article_clicks       INT,
   username             VARCHAR(64)   NOT NULL,
@@ -65,6 +69,12 @@ CREATE TABLE article_en (
   menu_id              VARCHAR(64)   NOT NULL,
   FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
   FOREIGN KEY (username) REFERENCES users (username)
+);
+
+CREATE TABLE article_en_content(
+  id           INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  article_content      LONGTEXT      NOT NULL,
+  FOREIGN KEY (id) REFERENCES article_en(article_id)
 );
 
 CREATE TABLE banner (

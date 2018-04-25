@@ -7,6 +7,7 @@ import cn.edu.kmust.flst.domain.tables.pojos.Article
  **/
 class ArticleBean : Article() {
     var articleDateStr: String? = null
+    var articleContent: String? = null
     var menuName: String? = null
     var menuNameEn: String? = null
     var outLink: Byte? = null

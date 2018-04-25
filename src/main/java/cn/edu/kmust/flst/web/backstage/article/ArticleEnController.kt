@@ -1,8 +1,8 @@
 package cn.edu.kmust.flst.web.backstage.article
 
-import cn.edu.kmust.flst.config.FLSTProperties
-import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
+import cn.edu.kmust.flst.domain.tables.pojos.ArticleEnContent
+import cn.edu.kmust.flst.service.backstage.article.ArticleEnContentService
 import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
 import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
@@ -14,10 +14,8 @@ import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleEnAddVo
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleEnEditVo
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
-import org.springframework.util.ObjectUtils
 import org.springframework.util.StringUtils
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
@@ -31,9 +29,8 @@ import javax.validation.Valid
 @Controller
 open class ArticleEnController {
 
-    @Autowired
-    open lateinit var flstProperties: FLSTProperties
-
+    @Resource
+    open lateinit var articleEnContentService: ArticleEnContentService
     @Resource
     open lateinit var usersService: UsersService
 
@@ -70,8 +67,9 @@ open class ArticleEnController {
      */
     @RequestMapping(value = ["/web/backstage/en/article/edit/{articleId}"], method = [(RequestMethod.GET)])
     fun edit(@PathVariable("articleId") articleId: Int, modelMap: ModelMap): String {
-        val articleEn = articleEnService.findById(articleId)
-        return if (!ObjectUtils.isEmpty(articleEn)) {
+        val articleEnRecord = articleEnService.findByIdRelation(articleId)
+        return if (articleEnRecord.isPresent) {
+            val articleEn = articleEnRecord.get().into(ArticleEnBean::class.java)
             modelMap.addAttribute("article", articleEn)
             "backstage/en/article/article_edit"
         } else {
@@ -111,7 +109,6 @@ open class ArticleEnController {
                 articleEnAddVo.articleTitle
             }
             articleEn.articleCover = articleEnAddVo.articleCover
-            articleEn.articleContent = articleEnAddVo.articleContent
             articleEn.articleDate = DateTimeUtils.getNow()
             articleEn.articleClicks = 0
             articleEn.username = usersService.getUsernameFromSession()
@@ -119,7 +116,11 @@ open class ArticleEnController {
             articleEn.articleSourcesName = articleEnAddVo.articleSourcesName
             articleEn.articleSourcesLink = articleEnAddVo.articleSourcesLink
             articleEn.menuId = articleEnAddVo.menuId
-            articleEnService.save(articleEn)
+            val id = articleEnService.saveAndReturnId(articleEn)
+            val articleEnContent = ArticleEnContent()
+            articleEnContent.id = id
+            articleEnContent.articleContent = articleEnAddVo.articleContent
+            articleEnContentService.save(articleEnContent)
             return AjaxUtils.of<Any>().success().msg("保存成功")
         }
         return AjaxUtils.of<Any>().fail().msg("保存失败")
@@ -147,15 +148,17 @@ open class ArticleEnController {
             if (articleEn.articleCover != articleEnEditVo.articleCover) {
                 FilesUtils.deleteFile(RequestUtils.getRealPath(request) + articleEn.articleCover)
             }
-
             articleEn.articleCover = articleEnEditVo.articleCover
-            articleEn.articleContent = articleEnEditVo.articleContent
             articleEn.articleDate = DateTimeUtils.getNow()
             articleEn.articleSources = articleEnEditVo.articleSources
             articleEn.articleSourcesName = articleEnEditVo.articleSourcesName
             articleEn.articleSourcesLink = articleEnEditVo.articleSourcesLink
             articleEn.menuId = articleEnEditVo.menuId
             articleEnService.update(articleEn)
+            val articleEnContent = ArticleEnContent()
+            articleEnContent.id = articleEn.articleId
+            articleEnContent.articleContent = articleEnEditVo.articleContent
+            articleEnContentService.update(articleEnContent)
             return AjaxUtils.of<Any>().success().msg("更新成功")
         }
         return AjaxUtils.of<Any>().fail().msg("更新失败")
@@ -171,6 +174,7 @@ open class ArticleEnController {
     fun delete(@RequestParam("articleId") id: Int, request: HttpServletRequest): AjaxUtils<*> {
         val articleEn = articleEnService.findById(id)
         FilesUtils.deleteFile(RequestUtils.getRealPath(request) + articleEn.articleCover)
+        articleEnContentService.deleteById(id)
         articleEnService.deleteById(id)
         return AjaxUtils.of<Any>().success().msg("删除成功")
     }
