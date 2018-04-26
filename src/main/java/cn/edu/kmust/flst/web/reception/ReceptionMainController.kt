@@ -70,6 +70,9 @@ open class ReceptionMainController {
                 receptionService.getMaxPid(menu, list)
                 receptionService.linksData(modelMap)
                 receptionService.columnsData(modelMap, menu.menuPid, request)
+                list.forEach{i->
+                    i.menuLink = if (i.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
+                }
                 modelMap.addAttribute("positions", list)
                 modelMap.addAttribute("columnId", menu.menuId)
                 if (menu.showArticle == 1.toByte()) {
@@ -112,7 +115,6 @@ open class ReceptionMainController {
                     for (i in list) {
                         if (i.menuPid == "0") {
                             receptionService.bannerData(modelMap, i.menuId)
-                            break
                         }
                     }
                     "reception/article_list"
@@ -198,7 +200,9 @@ open class ReceptionMainController {
         receptionService.getMaxPid(menu, list)
         receptionService.linksData(modelMap)
         receptionService.columnsData(modelMap, menu.menuPid, request)
-
+        list.forEach{i->
+            i.menuLink = if (i.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
+        }
         modelMap.addAttribute("positions", list)
         modelMap.addAttribute("columnId", menu.menuId)
 

@@ -20,7 +20,7 @@ $(document).ready(function () {
             if (data.state) {
                 for (var i = 0; i < data.listResult.length; i++) {
                     $(data_id.templateName + i).text(init_page_param.language === 'zh_cn' ? data.listResult[i].menuName : data.listResult[i].menuNameEn);
-                    $(data_id.templateUrl + i).attr('href', web_path + data.listResult[i].menuLink);
+                    $(data_id.templateUrl + i).attr('href', data.listResult[i].menuLink);
                     article(i, data.listResult[i]);
                 }
             }

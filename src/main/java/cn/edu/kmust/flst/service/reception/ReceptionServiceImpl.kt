@@ -45,10 +45,10 @@ open class ReceptionServiceImpl : ReceptionService {
         val language = localeResolver.resolveLocale(request).displayLanguage
         if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
             modelMap.addAttribute("language", Workbook.LANGUAGE_ZH_CN)
-            modelMap.addAttribute("nav", navService.navHtml(Workbook.LANGUAGE_ZH_CN))
+            modelMap.addAttribute("nav", navService.navHtml(Workbook.LANGUAGE_ZH_CN, request))
         } else {
             modelMap.addAttribute("language", Workbook.LANGUAGE_EN)
-            modelMap.addAttribute("nav", navService.navHtml(Workbook.LANGUAGE_EN))
+            modelMap.addAttribute("nav", navService.navHtml(Workbook.LANGUAGE_EN, request))
         }
     }
 

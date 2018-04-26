@@ -28,7 +28,7 @@
                     <div class="panel-body">
                         <div class="list-group" th:unless="${#lists.isEmpty(columns)}">
                             <a th:class="${column.menuId == columnId?'list-group-item active':'list-group-item'}"
-                               th:each="column:${columns}" th:href="@{${column.menuLink}}"
+                               th:each="column:${columns}" th:href="${column.menuLink}"
                                th:text="${ language == 'zh_cn'?column.menuName:column.menuNameEn}"></a>
                         </div>
                     </div>
