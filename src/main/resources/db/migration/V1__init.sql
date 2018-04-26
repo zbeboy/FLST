@@ -50,7 +50,7 @@ CREATE TABLE article (
 );
 
 CREATE TABLE article_content(
-  id           INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id           INT           NOT NULL PRIMARY KEY,
   article_content      LONGTEXT      NOT NULL,
   FOREIGN KEY (id) REFERENCES article(article_id)
 );
@@ -72,7 +72,7 @@ CREATE TABLE article_en (
 );
 
 CREATE TABLE article_en_content(
-  id           INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id           INT           NOT NULL PRIMARY KEY,
   article_content      LONGTEXT      NOT NULL,
   FOREIGN KEY (id) REFERENCES article_en(article_id)
 );
