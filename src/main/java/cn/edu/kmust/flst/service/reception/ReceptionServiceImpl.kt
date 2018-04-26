@@ -113,11 +113,12 @@ open class ReceptionServiceImpl : ReceptionService {
     }
 
 
-    override fun getMaxPid(menus: Menus, list: ArrayList<Menus>) {
+    override fun getMaxPid(menus: Menus, list: ArrayList<Menus>, request: HttpServletRequest) {
         if (menus.menuPid != "0") {
             val menu = menusService.findById(menus.menuPid)
-            getMaxPid(menu, list)
+            getMaxPid(menu, list, request)
         }
+        menus.menuLink = if (menus.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + menus.menuLink else menus.menuLink
         list.add(menus)
     }
 

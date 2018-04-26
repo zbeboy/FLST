@@ -67,12 +67,9 @@ open class ReceptionMainController {
                 receptionService.navData(modelMap, request)
                 receptionService.websiteData(modelMap, request)
                 val list: ArrayList<Menus> = ArrayList()
-                receptionService.getMaxPid(menu, list)
+                receptionService.getMaxPid(menu, list, request)
                 receptionService.linksData(modelMap)
                 receptionService.columnsData(modelMap, menu.menuPid, request)
-                list.forEach{i->
-                    i.menuLink = if (i.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
-                }
                 modelMap.addAttribute("positions", list)
                 modelMap.addAttribute("columnId", menu.menuId)
                 if (menu.showArticle == 1.toByte()) {
@@ -197,12 +194,9 @@ open class ReceptionMainController {
         receptionService.websiteData(modelMap, request)
         val menu = menusService.findById(menuId)
         val list: ArrayList<Menus> = ArrayList()
-        receptionService.getMaxPid(menu, list)
+        receptionService.getMaxPid(menu, list, request)
         receptionService.linksData(modelMap)
         receptionService.columnsData(modelMap, menu.menuPid, request)
-        list.forEach{i->
-            i.menuLink = if (i.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
-        }
         modelMap.addAttribute("positions", list)
         modelMap.addAttribute("columnId", menu.menuId)
 

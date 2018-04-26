@@ -51,5 +51,5 @@ interface ReceptionService {
      * @param menus 栏目
      * @param list 数据
      */
-    fun getMaxPid(menus: Menus, list: ArrayList<Menus>)
+    fun getMaxPid(menus: Menus, list: ArrayList<Menus>, request: HttpServletRequest)
 }
