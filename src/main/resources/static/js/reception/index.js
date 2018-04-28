@@ -94,8 +94,7 @@ $(document).ready(function () {
             }
             // 图片懒加载
             $(data_id.lazy).lazyload({
-                threshold: 180,
-                effect: "fadeIn"
+                threshold: 180
             });
         }
     }
@@ -110,8 +109,7 @@ $(document).ready(function () {
             }
             // 图片懒加载
             $(data_id.lazy).lazyload({
-                threshold: 180,
-                effect: "fadeIn"
+                threshold: 180
             });
         }
     }
@@ -126,8 +124,7 @@ $(document).ready(function () {
             }
             // 图片懒加载
             $(data_id.lazy).lazyload({
-                threshold: 180,
-                effect: "fadeIn"
+                threshold: 180
             });
         }
     }
@@ -142,8 +139,7 @@ $(document).ready(function () {
             }
             // 图片懒加载
             $(data_id.lazy).lazyload({
-                threshold: 180,
-                effect: "fadeIn"
+                threshold: 180
             });
         }
     }
@@ -168,8 +164,7 @@ $(document).ready(function () {
             }
             // 图片懒加载
             $(data_id.lazy).lazyload({
-                threshold: 180,
-                effect: "fadeIn"
+                threshold: 180
             });
         }
     }
@@ -183,8 +178,7 @@ $(document).ready(function () {
             }
             // 图片懒加载
             $(data_id.lazy).lazyload({
-                threshold: 180,
-                effect: "fadeIn"
+                threshold: 180
             });
         }
     }
