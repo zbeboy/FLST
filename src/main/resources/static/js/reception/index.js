@@ -10,12 +10,14 @@ $(document).ready(function () {
         templateUrl: '#templateUrl',
         template: 'template',
         templateImage: '#templateImage',
-        templateData: '#templateData'
+        templateData: '#templateData',
+        lazy:'img.lazy'
     };
 
     init();
 
     function init() {
+        // 加载数据
         $.get(web_path + ajax_url.templates, function (data) {
             if (data.state) {
                 for (var i = 0; i < data.listResult.length; i++) {
@@ -90,6 +92,9 @@ $(document).ready(function () {
             for (var j2 = num; j2 < data.rows.length; j2++) {
                 $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j2].articleId, data.rows[j2].articleTitle));
             }
+
+            // 图片懒加载
+            $(data_id.lazy).lazyload();
         }
     }
 
@@ -101,6 +106,8 @@ $(document).ready(function () {
             for (var j3 = 1; j3 < data.rows.length; j3++) {
                 $(data_id.templateData + i + '0').append(listDateTemplate(web_path + ajax_url.article + '/' + data.rows[j3].articleId, data.rows[j3].articleTitle, data.rows[j3].articleDateStr));
             }
+            // 图片懒加载
+            $(data_id.lazy).lazyload();
         }
     }
 
@@ -112,6 +119,8 @@ $(document).ready(function () {
             for (var j4 = 1; j4 < data.rows.length; j4++) {
                 $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j4].articleId, data.rows[j4].articleTitle));
             }
+            // 图片懒加载
+            $(data_id.lazy).lazyload();
         }
     }
 
@@ -123,6 +132,8 @@ $(document).ready(function () {
             for (var j5 = 1; j5 < data.rows.length; j5++) {
                 $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j5].articleId, data.rows[j5].articleTitle));
             }
+            // 图片懒加载
+            $(data_id.lazy).lazyload();
         }
     }
 
@@ -144,6 +155,8 @@ $(document).ready(function () {
             for (var j7 = num; j7 < data.rows.length; j7++) {
                 $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j7].articleId, data.rows[j7].articleTitle));
             }
+            // 图片懒加载
+            $(data_id.lazy).lazyload();
         }
     }
 
@@ -154,6 +167,8 @@ $(document).ready(function () {
                 $(data_id.templateImage + i + j8).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 200,
                     article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             }
+            // 图片懒加载
+            $(data_id.lazy).lazyload();
         }
     }
 
@@ -168,7 +183,7 @@ $(document).ready(function () {
      * @returns {string}
      */
     function imageTemplate(alt, src, height, title, url, brief) {
-        return "<img alt=\"" + altWordLimit(alt) + "\" src=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: " + height + "px; width: 100%; display: block;\">" +
+        return "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: " + height + "px; width: 100%; display: block;\">" +
             "<a href=\"" + url + "\"><h4 style=\"color:black;word-wrap:break-word;word-break:break-all;\">" + titleImageWordLimit(title) + "</h4></a>" +
             "<p style=\"word-wrap:break-word;word-break:break-all;\">" + briefWordLimit(brief) + "</p>";
     }
