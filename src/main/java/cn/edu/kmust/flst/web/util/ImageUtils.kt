@@ -644,7 +644,7 @@ open class ImageUtils {
                     src.height = src.width
                     src.width = temp
                 }
-                tempAngel = tempAngel % 90
+                tempAngel %= 90
             }
 
             val r = Math.sqrt(src.height.toDouble() * src.height + src.width.toDouble() * src.width) / 2
