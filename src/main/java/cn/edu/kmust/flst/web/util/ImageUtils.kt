@@ -193,6 +193,9 @@ open class ImageUtils {
             } catch (e: Exception) {
                 log.error("Resize error : {}", e)
                 throw Exception(e)
+            } finally {
+                input.close()
+                output.close()
             }
 
         }
