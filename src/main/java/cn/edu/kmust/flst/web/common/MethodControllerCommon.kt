@@ -64,7 +64,7 @@ open class MethodControllerCommon {
      */
     fun deletePicFile(request: HttpServletRequest, path: String) {
         val ext = if (path.lastIndexOf('.') > 0) path.substring(path.lastIndexOf('.') + 1) else ""
-        if (!org.apache.commons.lang3.StringUtils.equalsIgnoreCase(ext, "gif")) {
+        if (!org.apache.commons.lang3.StringUtils.equalsIgnoreCase(ext, "gif") && path.lastIndexOf("_compress") > 0) {
             val originalPath = if (path.lastIndexOf('.') > 0) path.substring(0, path.lastIndexOf("_compress")) + "." + ext else path.substring(0, path.lastIndexOf("_compress"))
             FilesUtils.deleteFile(RequestUtils.getRealPath(request) + originalPath)
         }
