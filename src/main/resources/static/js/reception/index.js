@@ -11,7 +11,7 @@ $(document).ready(function () {
         template: 'template',
         templateImage: '#templateImage',
         templateData: '#templateData',
-        lazy:'img.lazy'
+        lazy: 'img.lazy'
     };
 
     init();
@@ -92,9 +92,11 @@ $(document).ready(function () {
             for (var j2 = num; j2 < data.rows.length; j2++) {
                 $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j2].articleId, data.rows[j2].articleTitle));
             }
-
             // 图片懒加载
-            $(data_id.lazy).lazyload();
+            $(data_id.lazy).lazyload({
+                threshold: 180,
+                effect: "fadeIn"
+            });
         }
     }
 
@@ -107,7 +109,10 @@ $(document).ready(function () {
                 $(data_id.templateData + i + '0').append(listDateTemplate(web_path + ajax_url.article + '/' + data.rows[j3].articleId, data.rows[j3].articleTitle, data.rows[j3].articleDateStr));
             }
             // 图片懒加载
-            $(data_id.lazy).lazyload();
+            $(data_id.lazy).lazyload({
+                threshold: 180,
+                effect: "fadeIn"
+            });
         }
     }
 
@@ -120,7 +125,10 @@ $(document).ready(function () {
                 $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j4].articleId, data.rows[j4].articleTitle));
             }
             // 图片懒加载
-            $(data_id.lazy).lazyload();
+            $(data_id.lazy).lazyload({
+                threshold: 180,
+                effect: "fadeIn"
+            });
         }
     }
 
@@ -133,7 +141,10 @@ $(document).ready(function () {
                 $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j5].articleId, data.rows[j5].articleTitle));
             }
             // 图片懒加载
-            $(data_id.lazy).lazyload();
+            $(data_id.lazy).lazyload({
+                threshold: 180,
+                effect: "fadeIn"
+            });
         }
     }
 
@@ -156,7 +167,10 @@ $(document).ready(function () {
                 $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j7].articleId, data.rows[j7].articleTitle));
             }
             // 图片懒加载
-            $(data_id.lazy).lazyload();
+            $(data_id.lazy).lazyload({
+                threshold: 180,
+                effect: "fadeIn"
+            });
         }
     }
 
@@ -168,7 +182,10 @@ $(document).ready(function () {
                     article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             }
             // 图片懒加载
-            $(data_id.lazy).lazyload();
+            $(data_id.lazy).lazyload({
+                threshold: 180,
+                effect: "fadeIn"
+            });
         }
     }
 
