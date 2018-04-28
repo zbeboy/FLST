@@ -3,6 +3,8 @@ package cn.edu.kmust.flst.web.common
 import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
+import cn.edu.kmust.flst.service.util.FilesUtils
+import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
@@ -55,5 +57,17 @@ open class MethodControllerCommon {
         bootstrapTableUtils.total = articleEnService.countByCondition(bootstrapTableUtils)
         bootstrapTableUtils.rows = articles
         return bootstrapTableUtils
+    }
+
+    /**
+     * 删除带压缩图片的文件
+     */
+    fun deletePicFile(request: HttpServletRequest, path: String) {
+        val ext = if (path.lastIndexOf('.') > 0) path.substring(path.lastIndexOf('.') + 1) else ""
+        if (!org.apache.commons.lang3.StringUtils.equalsIgnoreCase(ext, "gif")) {
+            val originalPath = if (path.lastIndexOf('.') > 0) path.substring(0, path.lastIndexOf("_compress")) + "." + ext else path.substring(0, path.lastIndexOf("_compress"))
+            FilesUtils.deleteFile(RequestUtils.getRealPath(request) + originalPath)
+        }
+        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + path)
     }
 }

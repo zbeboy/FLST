@@ -13,8 +13,10 @@ import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.banner.BannerBean
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.bean.file.FileBean
+import cn.edu.kmust.flst.web.common.MethodControllerCommon
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
+import cn.edu.kmust.flst.web.util.ImageUtils
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
@@ -48,6 +50,9 @@ open class BannerController {
 
     @Resource
     open lateinit var uploadService: UploadService
+
+    @Resource
+    open lateinit var methodControllerCommon: MethodControllerCommon
 
     /**
      * banner管理
@@ -113,7 +118,16 @@ open class BannerController {
                     RequestUtils.getRealPath(request) + path, request.remoteAddr)
             if (fileBeen.isNotEmpty() && fileBeen.size > 0) {
                 fileBeen.forEach { i ->
-                    i.newName = flstProperties.getConstants().staticImages + "/" + i.newName
+                    // 不压缩动态图
+                    if (!org.apache.commons.lang3.StringUtils.equalsIgnoreCase(i.ext, "gif")) {
+                        val filePath = RequestUtils.getRealPath(request) + flstProperties.getConstants().staticImages
+                        val fileName = if (i.newName!!.lastIndexOf('.') > 0) i.newName!!.substring(0, i.newName!!.lastIndexOf('.')) + "_compress." + i.ext else i.newName + "_compress"
+                        // 压缩图片
+                        ImageUtils.optimize(filePath + "/" + i.newName, "$filePath/$fileName", 0.5f)
+                        i.newName = flstProperties.getConstants().staticImages + "/" + fileName
+                    } else {
+                        i.newName = flstProperties.getConstants().staticImages + "/" + i.newName
+                    }
                 }
                 val banner = Banner()
                 banner.bannerLink = fileBeen[0].newName
@@ -160,7 +174,7 @@ open class BannerController {
     @ResponseBody
     fun delete(@RequestParam("bannerId") bannerId: Int, request: HttpServletRequest): AjaxUtils<*> {
         val banner = bannerService.findById(bannerId)
-        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + banner.bannerLink)
+        methodControllerCommon.deletePicFile(request, banner.bannerLink)
         bannerService.deleteById(bannerId)
         return AjaxUtils.of<Any>().success().msg("删除成功")
     }

@@ -17,6 +17,7 @@
     <properties>
         <javax.inject.version>1</javax.inject.version>
         <fastJson.version>1.2.45</fastJson.version>
+        <commons-io.verson>2.6</commons-io.verson>
         <commons-lang3.version>3.7</commons-lang3.version>
         <!-- support kotlin -->
         <kotlin.version>1.2.31</kotlin.version>
@@ -159,6 +160,13 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>${commons-lang3.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.verson}</version>
         </dependency>
 
         <!-- support kotlin -->

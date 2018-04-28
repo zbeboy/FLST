@@ -16,6 +16,7 @@ import cn.edu.kmust.flst.web.bean.file.FileBean
 import cn.edu.kmust.flst.web.common.MethodControllerCommon
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
+import cn.edu.kmust.flst.web.util.ImageUtils
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleAddVo
 import cn.edu.kmust.flst.web.vo.backstage.article.ArticleEditVo
 import org.slf4j.LoggerFactory
@@ -123,7 +124,16 @@ open class ArticleController {
                     RequestUtils.getRealPath(request) + path, request.remoteAddr)
             if (fileBeen.isNotEmpty()) {
                 fileBeen.forEach { i ->
-                    i.newName = flstProperties.getConstants().staticImages + "/" + i.newName
+                    // 不压缩动态图
+                    if (!org.apache.commons.lang3.StringUtils.equalsIgnoreCase(i.ext, "gif")) {
+                        val filePath = RequestUtils.getRealPath(request) + flstProperties.getConstants().staticImages
+                        val fileName = if (i.newName!!.lastIndexOf('.') > 0) i.newName!!.substring(0, i.newName!!.lastIndexOf('.')) + "_compress." + i.ext else i.newName + "_compress"
+                        // 压缩图片
+                        ImageUtils.optimize(filePath + "/" + i.newName, "$filePath/$fileName", 0.5f)
+                        i.newName = flstProperties.getConstants().staticImages + "/" + fileName
+                    } else {
+                        i.newName = flstProperties.getConstants().staticImages + "/" + i.newName
+                    }
                 }
             }
             ajaxUtils.success().msg("保存文件成功").listData(fileBeen)
@@ -144,7 +154,7 @@ open class ArticleController {
     @RequestMapping("/web/backstage/article/cover/delete")
     @ResponseBody
     fun coverDelete(@RequestParam("articleCover") articleCover: String, request: HttpServletRequest): AjaxUtils<*> {
-        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + articleCover)
+        methodControllerCommon.deletePicFile(request, articleCover)
         return AjaxUtils.of<Any>().success().msg("删除成功")
     }
 
@@ -204,7 +214,7 @@ open class ArticleController {
             }
 
             if (article.articleCover != articleEditVo.articleCover) {
-                FilesUtils.deleteFile(RequestUtils.getRealPath(request) + article.articleCover)
+                methodControllerCommon.deletePicFile(request, article.articleCover)
             }
             article.articleCover = articleEditVo.articleCover
             article.articleDate = DateTimeUtils.getNow()
@@ -231,7 +241,7 @@ open class ArticleController {
     @ResponseBody
     fun delete(@RequestParam("articleId") id: Int, request: HttpServletRequest): AjaxUtils<*> {
         val article = articleService.findById(id)
-        FilesUtils.deleteFile(RequestUtils.getRealPath(request) + article.articleCover)
+        methodControllerCommon.deletePicFile(request, article.articleCover)
         articleContentService.deleteById(id)
         articleService.deleteById(id)
         return AjaxUtils.of<Any>().success().msg("删除成功")
