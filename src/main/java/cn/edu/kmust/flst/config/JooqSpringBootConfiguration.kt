@@ -93,6 +93,6 @@ open class JooqSpringBootConfiguration {
                 .derive(connectionProvider)
                 .derive(transactionProvider)
                 .derive(executeListenerProvider)
-                .derive(SQLDialect.MYSQL)
+                .derive(SQLDialect.MYSQL_5_7)
     }
 }
