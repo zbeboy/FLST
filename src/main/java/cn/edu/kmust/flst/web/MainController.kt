@@ -165,18 +165,4 @@ open class MainController {
         return ModelAndView("redirect:$redirect_uri")
     }
 
-    /**
-     * let's encrypt certificate check.
-     *
-     * @param request 请求
-     * @param response 响应
-     */
-    @RequestMapping(value = ["/.well-known/acme-challenge/*"], method = [(RequestMethod.GET)])
-    fun letUsEncryptCertificateCheck(request: HttpServletRequest, response: HttpServletResponse) {
-        val uri = request.requestURI.replace("/", "\\")
-        //文件路径自行替换一下就行,就是上图中生成验证文件的路径,因为URI中已经包含了/.well-known/acme-challenge/,所以这里不需要
-        val file = File(flstProperties.getCertificate().place + uri)
-        uploadService.download("验证文件", file, response, request)
-    }
-
 }
