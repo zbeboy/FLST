@@ -1,5 +1,6 @@
 package cn.edu.kmust.flst.web
 
+import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.files.FilesService
@@ -9,6 +10,7 @@ import cn.edu.kmust.flst.service.reception.ReceptionService
 import cn.edu.kmust.flst.service.system.AuthoritiesService
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.util.AjaxUtils
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.LocaleResolver
 import org.springframework.web.servlet.ModelAndView
+import java.io.File
 import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
@@ -43,6 +46,9 @@ open class MainController {
 
     @Resource
     open lateinit var filesService: FilesService
+
+    @Autowired
+    open lateinit var flstProperties: FLSTProperties
 
     /**
      * main page
@@ -157,6 +163,20 @@ open class MainController {
         }
 
         return ModelAndView("redirect:$redirect_uri")
+    }
+
+    /**
+     * let's encrypt certificate check.
+     *
+     * @param request 请求
+     * @param response 响应
+     */
+    @RequestMapping(value = ["/.well-known/acme-challenge/*"], method = [(RequestMethod.GET)])
+    fun letUsEncryptCertificateCheck(request: HttpServletRequest, response: HttpServletResponse) {
+        val uri = request.requestURI.replace("/", "\\")
+        //文件路径自行替换一下就行,就是上图中生成验证文件的路径,因为URI中已经包含了/.well-known/acme-challenge/,所以这里不需要
+        val file = File(flstProperties.getCertificate().place + uri)
+        uploadService.download("验证文件", file, response, request)
     }
 
 }

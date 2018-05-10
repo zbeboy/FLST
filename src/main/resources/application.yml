@@ -22,3 +22,7 @@ server:
   compression:
     enabled: true
     min-response-size: 1
+
+flst:
+  certificate:
+    place: ../let_us_encrypt/www.zbeboy.xyz/

@@ -14,8 +14,14 @@ class FLSTProperties {
 
     private val constants = Constants()
 
+    private val certificate = Certificate()
+
     fun getConstants(): Constants {
         return constants
+    }
+
+    fun getCertificate(): Certificate {
+        return certificate
     }
 
     /**
@@ -26,5 +32,12 @@ class FLSTProperties {
         var documentRoot: String? = null
 
         var staticImages: String? = null
+    }
+
+    /**
+     * let's encrypt 证书参数
+     */
+    class Certificate {
+        var place: String? = null
     }
 }
