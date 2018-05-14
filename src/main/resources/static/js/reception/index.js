@@ -10,7 +10,9 @@ $(document).ready(function () {
         templateUrl: '#templateUrl',
         template: 'template',
         templateImage: '#templateImage',
+        templateImageData: '#templateImageData',
         templateData: '#templateData',
+        templateBrief: '#templateBrief',
         lazy: 'img.lazy'
     };
 
@@ -37,23 +39,23 @@ $(document).ready(function () {
     function article(i, menu) {
         // 不用考虑栏目是否显示，因为查询全部栏目时，就只查询显示的
         if (i === 0) {
-            sendAjax(1, 9, i, menu);
+            sendAjax(1, 3, i, menu);
         }
 
         if (i === 1) {
-            sendAjax(1, 5, i, menu);
+            sendAjax(1, 9, i, menu);
         }
 
         if (i === 2) {
-            sendAjax(1, 4, i, menu);
+            sendAjax(1, 1, i, menu);
         }
 
         if (i === 3) {
-            sendAjax(1, 4, i, menu);
+            sendAjax(1, 1, i, menu);
         }
 
         if (i === 4) {
-            sendAjax(1, 9, i, menu);
+            sendAjax(1, 2, i, menu);
         }
 
         if (i === 5) {
@@ -76,21 +78,10 @@ $(document).ready(function () {
 
     function template0(data, i) {
         if (data.rows.length > 0) {
-            var article = data.rows[0];
-            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 160,
-                article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
-            var num = 0;
-            if (data.rows.length > 5) {
-                num = 5;
-            } else {
-                num = data.rows.length;
-            }
-            for (var j1 = 1; j1 < num; j1++) {
-                $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j1].articleId, data.rows[j1].articleTitle));
-            }
-
-            for (var j2 = num; j2 < data.rows.length; j2++) {
-                $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j2].articleId, data.rows[j2].articleTitle));
+            for (var j1 = data.rows.length - 1; j1 >= 0; j1--) {
+                var article = data.rows[j1];
+                $(data_id.templateImageData + i).prepend(templateData0(article.articleTitle, web_path + '/' + article.articleCover, 160,
+                    article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             }
             // 图片懒加载
             $(data_id.lazy).lazyload({
@@ -101,26 +92,20 @@ $(document).ready(function () {
 
     function template1(data, i) {
         if (data.rows.length > 0) {
-            var article = data.rows[0];
-            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 160,
-                article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
-            for (var j3 = 1; j3 < data.rows.length; j3++) {
-                $(data_id.templateData + i + '0').append(listDateTemplate(web_path + ajax_url.article + '/' + data.rows[j3].articleId, data.rows[j3].articleTitle, data.rows[j3].articleDateStr));
+            for (var j2 = 0; j2 < data.rows.length; j2++) {
+                var article = data.rows[j2];
+                $(data_id.templateData + i + '0').prepend(templateData1(web_path + ajax_url.article + '/' + article.articleId, article.articleTitle, article.articleDateStr));
             }
-            // 图片懒加载
-            $(data_id.lazy).lazyload({
-                threshold: 180
-            });
         }
     }
 
     function template2(data, i) {
         if (data.rows.length > 0) {
-            var article = data.rows[0];
-            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 160,
-                article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
-            for (var j4 = 1; j4 < data.rows.length; j4++) {
-                $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j4].articleId, data.rows[j4].articleTitle));
+            for (var j3 = 0; j3 < data.rows.length; j3++) {
+                var article = data.rows[j3];
+                $(data_id.templateImage + i).append(imageDataTemplate(article.articleTitle, web_path + '/' + article.articleCover,
+                    article.articleTitle, web_path + ajax_url.article + '/' + article.articleId));
+                $(data_id.templateBrief + i).text(article.articleBrief);
             }
             // 图片懒加载
             $(data_id.lazy).lazyload({
@@ -131,11 +116,11 @@ $(document).ready(function () {
 
     function template3(data, i) {
         if (data.rows.length > 0) {
-            var article = data.rows[0];
-            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 160,
-                article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
-            for (var j5 = 1; j5 < data.rows.length; j5++) {
-                $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j5].articleId, data.rows[j5].articleTitle));
+            for (var j4 = 0; j4 < data.rows.length; j4++) {
+                var article = data.rows[j4];
+                $(data_id.templateImage + i).append(imageDataTemplate(article.articleTitle, web_path + '/' + article.articleCover,
+                    article.articleTitle, web_path + ajax_url.article + '/' + article.articleId));
+                $(data_id.templateBrief + i).text(article.articleBrief);
             }
             // 图片懒加载
             $(data_id.lazy).lazyload({
@@ -146,21 +131,10 @@ $(document).ready(function () {
 
     function template4(data, i) {
         if (data.rows.length > 0) {
-            var article = data.rows[0];
-            $(data_id.templateImage + i).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 160,
-                article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
-            var num = 0;
-            if (data.rows.length > 5) {
-                num = 5;
-            } else {
-                num = data.rows.length;
-            }
-            for (var j6 = 1; j6 < num; j6++) {
-                $(data_id.templateData + i + '0').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j6].articleId, data.rows[j6].articleTitle));
-            }
-
-            for (var j7 = num; j7 < data.rows.length; j7++) {
-                $(data_id.templateData + i + '1').append(listTemplate(web_path + ajax_url.article + '/' + data.rows[j7].articleId, data.rows[j7].articleTitle));
+            for (var j5 = 0; j5 < data.rows.length; j5++) {
+                var article = data.rows[j5];
+                $(data_id.templateImageData + i).append(templateData4(article.articleTitle, web_path + '/' + article.articleCover,
+                    web_path + ajax_url.article + '/' + article.articleId, article.articleTitle, article.articleBrief, article.articleDateStr));
             }
             // 图片懒加载
             $(data_id.lazy).lazyload({
@@ -171,9 +145,9 @@ $(document).ready(function () {
 
     function template5(data, i) {
         if (data.rows.length > 0) {
-            for (var j8 = 0; j8 < data.rows.length; j8++) {
-                var article = data.rows[j8];
-                $(data_id.templateImage + i + j8).html(imageTemplate(article.articleTitle, web_path + '/' + article.articleCover, 200,
+            for (var j6 = 0; j6 < data.rows.length; j6++) {
+                var article = data.rows[j6];
+                $(data_id.templateImage + i + j6).html(templateData5(article.articleTitle, web_path + '/' + article.articleCover, 200,
                     article.articleTitle, web_path + ajax_url.article + '/' + article.articleId, article.articleBrief));
             }
             // 图片懒加载
@@ -184,7 +158,7 @@ $(document).ready(function () {
     }
 
     /**
-     * 图片显示模板
+     * 一层列表数据模板
      * @param alt
      * @param src
      * @param height
@@ -193,36 +167,99 @@ $(document).ready(function () {
      * @param brief
      * @returns {string}
      */
-    function imageTemplate(alt, src, height, title, url, brief) {
-        return "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: " + height + "px; width: 100%; display: block;\">" +
-            "<a href=\"" + url + "\"><h4 style=\"color:black;word-wrap:break-word;word-break:break-all;\">" + titleImageWordLimit(title) + "</h4></a>" +
-            "<p style=\"word-wrap:break-word;word-break:break-all;\">" + briefWordLimit(brief) + "</p>";
-    }
-
-    /**
-     * 列表数据模板
-     * @param url
-     * @param title
-     */
-    function listTemplate(url, title) {
-        return "<div class=\"col-md-12\" style=\"padding-top: 10px;\">" +
-            "<a style=\"font-size: 14px;color: #333;\" href=\"" + url + "\">" + titleListWordLimit(title) + "</a>" +
-            "<hr/>" +
+    function templateData0(alt, src, height, title, url, brief) {
+        return " <div class=\"col-sm-4\">" +
+            "<div class=\"item\">" +
+            "<div class=\"item-top\">" +
+            "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: " + height + "px; width: 100%; display: block;\">" +
+            "<a href=\"" + url + "\"><h4 class=\"sub-title\" style=\"word-wrap:break-word;word-break:break-all;\">" + titleImageWordLimit(title) + "</h4></a>" +
+            "</div>" +
+            "<p class=\"item-description\">" + briefWordLimit(brief) + "</p>" +
+            "</div>" +
             "</div>";
     }
 
     /**
-     * 列表日期数据模板
+     * 二层列表数据模板
      * @param url
      * @param title
      * @param articleDate
      */
-    function listDateTemplate(url, title, articleDate) {
-        return "<div class=\"col-md-12\" style=\"padding-top: 10px;\">" +
-            "<a style=\"font-size: 14px;color: #333;\" href=\"" + url + "\">" + titleListWordLimit(title) + "</a>" +
+    function templateData1(url, title, articleDate) {
+        return "<div class=\"panel panel-default\">" +
+            "<div class=\"panel-heading\">" +
+            "<h4 class=\"panel-title\">" +
+            "<a href=\"" + url + "\">" + titleListWordLimit(title) + "</a>" +
             "<span class=\"pull-right\">" + articleDate + "</span>" +
-            "<hr/>" +
+            "</h4>" +
+            "</div>" +
             "</div>";
+    }
+
+    /**
+     * 三四层列表数据模板
+     * @param alt
+     * @param src
+     * @param title
+     * @param url
+     * @returns {string}
+     */
+    function imageDataTemplate(alt, src, title, url) {
+        return "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: 130px; width: 100%; display: block;\">" +
+            "<a href=\"" + url + "\"><span class=\"sub-title\" style=\"word-wrap:break-word;word-break:break-all;\">" + titleImageWordLimit(title) + "</span></a>";
+    }
+
+    /**
+     * 五层列表数据模板
+     * @param alt
+     * @param src
+     * @param url
+     * @param title
+     * @param brief
+     * @param articleDate
+     * @returns {string}
+     */
+    function templateData4(alt, src, url, title, brief, articleDate) {
+        return "<div class=\"col-sm-6\">" +
+            "<div class=\"item\">" +
+            "<article class=\"post type-post\">" +
+            "<div class=\"post-top\">" +
+            "<div class=\"post-thumbnail\">" +
+            "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" >" +
+            "</div>" +
+            "<div class=\"post-meta\">" +
+            "<div class=\"entry-meta\">" +
+            "<span class=\"entry-date\">" +
+            "<time>" + articleDate + "</time>" +
+            "</span>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            "<div class=\"post-content\">" +
+            "<h2 class=\"entry-title\">" +
+            "<a href=\"" + url + "\">" + titleListWordLimit(title) + "</a>" +
+            "</h2>" +
+            "<p class=\"entry-text\">" + briefWordLimit(brief) + "</p>" +
+            "</div>" +
+            "</article>" +
+            "</div>" +
+            "</div>";
+    }
+
+    /**
+     * 六层列表数据模板
+     * @param alt
+     * @param src
+     * @param height
+     * @param title
+     * @param url
+     * @param brief
+     * @returns {string}
+     */
+    function templateData5(alt, src, height, title, url, brief) {
+        return "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: " + height + "px; width: 100%; display: block;\">" +
+            "<a href=\"" + url + "\"><h4 style=\"word-wrap:break-word;word-break:break-all;color:#3498db;\">" + titleImageWordLimit(title) + "</h4></a>" +
+            "<p style=\"word-wrap:break-word;word-break:break-all;color:#869093\">" + briefWordLimit(brief) + "</p>";
     }
 
     /**
