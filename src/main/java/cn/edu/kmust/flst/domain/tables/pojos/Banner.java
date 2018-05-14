@@ -25,12 +25,16 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner implements Serializable {
 
-    private static final long serialVersionUID = 1791602611;
+    private static final long serialVersionUID = 974825718;
 
     private Integer   bannerId;
     private String    bannerLink;
     private Timestamp bannerDate;
     private Byte      bannerShow;
+    private String    bannerTitle;
+    private String    bannerTitleEn;
+    private String    bannerBrief;
+    private String    bannerBriefEn;
     private String    menuId;
     private String    username;
 
@@ -41,6 +45,10 @@ public class Banner implements Serializable {
         this.bannerLink = value.bannerLink;
         this.bannerDate = value.bannerDate;
         this.bannerShow = value.bannerShow;
+        this.bannerTitle = value.bannerTitle;
+        this.bannerTitleEn = value.bannerTitleEn;
+        this.bannerBrief = value.bannerBrief;
+        this.bannerBriefEn = value.bannerBriefEn;
         this.menuId = value.menuId;
         this.username = value.username;
     }
@@ -50,6 +58,10 @@ public class Banner implements Serializable {
         String    bannerLink,
         Timestamp bannerDate,
         Byte      bannerShow,
+        String    bannerTitle,
+        String    bannerTitleEn,
+        String    bannerBrief,
+        String    bannerBriefEn,
         String    menuId,
         String    username
     ) {
@@ -57,6 +69,10 @@ public class Banner implements Serializable {
         this.bannerLink = bannerLink;
         this.bannerDate = bannerDate;
         this.bannerShow = bannerShow;
+        this.bannerTitle = bannerTitle;
+        this.bannerTitleEn = bannerTitleEn;
+        this.bannerBrief = bannerBrief;
+        this.bannerBriefEn = bannerBriefEn;
         this.menuId = menuId;
         this.username = username;
     }
@@ -96,6 +112,42 @@ public class Banner implements Serializable {
         this.bannerShow = bannerShow;
     }
 
+    @Size(max = 30)
+    public String getBannerTitle() {
+        return this.bannerTitle;
+    }
+
+    public void setBannerTitle(String bannerTitle) {
+        this.bannerTitle = bannerTitle;
+    }
+
+    @Size(max = 50)
+    public String getBannerTitleEn() {
+        return this.bannerTitleEn;
+    }
+
+    public void setBannerTitleEn(String bannerTitleEn) {
+        this.bannerTitleEn = bannerTitleEn;
+    }
+
+    @Size(max = 50)
+    public String getBannerBrief() {
+        return this.bannerBrief;
+    }
+
+    public void setBannerBrief(String bannerBrief) {
+        this.bannerBrief = bannerBrief;
+    }
+
+    @Size(max = 80)
+    public String getBannerBriefEn() {
+        return this.bannerBriefEn;
+    }
+
+    public void setBannerBriefEn(String bannerBriefEn) {
+        this.bannerBriefEn = bannerBriefEn;
+    }
+
     @NotNull
     @Size(max = 64)
     public String getMenuId() {
@@ -124,6 +176,10 @@ public class Banner implements Serializable {
         sb.append(", ").append(bannerLink);
         sb.append(", ").append(bannerDate);
         sb.append(", ").append(bannerShow);
+        sb.append(", ").append(bannerTitle);
+        sb.append(", ").append(bannerTitleEn);
+        sb.append(", ").append(bannerBrief);
+        sb.append(", ").append(bannerBriefEn);
         sb.append(", ").append(menuId);
         sb.append(", ").append(username);
 

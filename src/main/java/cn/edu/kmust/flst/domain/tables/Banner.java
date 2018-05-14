@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner extends TableImpl<BannerRecord> {
 
-    private static final long serialVersionUID = 340335500;
+    private static final long serialVersionUID = -2141701035;
 
     /**
      * The reference instance of <code>flst.banner</code>
@@ -75,6 +75,26 @@ public class Banner extends TableImpl<BannerRecord> {
      * The column <code>flst.banner.banner_show</code>.
      */
     public final TableField<BannerRecord, Byte> BANNER_SHOW = createField("banner_show", org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("1", org.jooq.impl.SQLDataType.TINYINT)), this, "");
+
+    /**
+     * The column <code>flst.banner.banner_title</code>.
+     */
+    public final TableField<BannerRecord, String> BANNER_TITLE = createField("banner_title", org.jooq.impl.SQLDataType.VARCHAR(30), this, "");
+
+    /**
+     * The column <code>flst.banner.banner_title_en</code>.
+     */
+    public final TableField<BannerRecord, String> BANNER_TITLE_EN = createField("banner_title_en", org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
+
+    /**
+     * The column <code>flst.banner.banner_brief</code>.
+     */
+    public final TableField<BannerRecord, String> BANNER_BRIEF = createField("banner_brief", org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
+
+    /**
+     * The column <code>flst.banner.banner_brief_en</code>.
+     */
+    public final TableField<BannerRecord, String> BANNER_BRIEF_EN = createField("banner_brief_en", org.jooq.impl.SQLDataType.VARCHAR(80), this, "");
 
     /**
      * The column <code>flst.banner.menu_id</code>.

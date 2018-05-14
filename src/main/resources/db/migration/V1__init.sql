@@ -49,10 +49,10 @@ CREATE TABLE article (
   FOREIGN KEY (username) REFERENCES users (username)
 );
 
-CREATE TABLE article_content(
-  id           INT           NOT NULL PRIMARY KEY,
-  article_content      LONGTEXT      NOT NULL,
-  FOREIGN KEY (id) REFERENCES article(article_id)
+CREATE TABLE article_content (
+  id              INT      NOT NULL PRIMARY KEY,
+  article_content LONGTEXT NOT NULL,
+  FOREIGN KEY (id) REFERENCES article (article_id)
 );
 
 CREATE TABLE article_en (
@@ -71,19 +71,23 @@ CREATE TABLE article_en (
   FOREIGN KEY (username) REFERENCES users (username)
 );
 
-CREATE TABLE article_en_content(
-  id           INT           NOT NULL PRIMARY KEY,
-  article_content      LONGTEXT      NOT NULL,
-  FOREIGN KEY (id) REFERENCES article_en(article_id)
+CREATE TABLE article_en_content (
+  id              INT      NOT NULL PRIMARY KEY,
+  article_content LONGTEXT NOT NULL,
+  FOREIGN KEY (id) REFERENCES article_en (article_id)
 );
 
 CREATE TABLE banner (
-  banner_id   INT                   NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  banner_link VARCHAR(200)          NOT NULL,
-  banner_date DATETIME              NOT NULL,
-  banner_show BOOLEAN DEFAULT 1     NOT NULL,
-  menu_id     VARCHAR(64)           NOT NULL,
-  username    VARCHAR(64)           NOT NULL,
+  banner_id       INT                   NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  banner_link     VARCHAR(200)          NOT NULL,
+  banner_date     DATETIME              NOT NULL,
+  banner_show     BOOLEAN DEFAULT 1     NOT NULL,
+  banner_title    VARCHAR(30),
+  banner_title_en VARCHAR(50),
+  banner_brief    VARCHAR(50),
+  banner_brief_en VARCHAR(80),
+  menu_id         VARCHAR(64)           NOT NULL,
+  username        VARCHAR(64)           NOT NULL,
   FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
   FOREIGN KEY (username) REFERENCES users (username)
 );
