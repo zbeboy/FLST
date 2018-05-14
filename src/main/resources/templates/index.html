@@ -26,6 +26,10 @@
     <div class="carousel-inner" role="listbox">
         <div th:each="banner,row:${banners}" th:class="${row.count == 1?'item active':'item'}">
             <img alt="banner" th:src="@{'/' + ${banner.bannerLink}}">
+            <div class="carousel-caption">
+                <h3 th:text="${language == 'zh_cn'?banner.bannerTitle:banner.bannerTitleEn}"></h3>
+                <p th:text="${language == 'zh_cn'?banner.bannerBrief:banner.bannerBriefEn}"></p>
+            </div>
         </div>
     </div>
     <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -43,10 +47,12 @@
             <div class="container">
                 <div class="about-area">
                     <div class="title-area text-center">
-                        <h2 class="about-title"><span id="templateName0"></span> <small>NEWS</small></h2>
+                        <h2 class="about-title"><span id="templateName0"></span>
+                            <small>NEWS</small>
+                        </h2>
                     </div><!-- /.title-area -->
                     <div class="about-items" id="templateImageData0">
-                        <div class="col-sm-12" >
+                        <div class="col-sm-12">
                             <a class="btn pull-right" style="margin:20px;" href="#" id="templateUrl0">
                                 <span class="btn-icon"><i class="glyphicon glyphicon-arrow-right"></i></span>
                                 <span th:utext="#{web.more}"></span>
@@ -72,7 +78,8 @@
 
                                             </p><!-- /.item-description -->
                                             <a class="btn" href="#" id="templateUrl2">
-                                                <span class="btn-icon"><i class="glyphicon glyphicon-arrow-right"></i></span>
+                                                <span class="btn-icon"><i
+                                                        class="glyphicon glyphicon-arrow-right"></i></span>
                                                 <span th:utext="#{web.more}"></span>
                                             </a>
                                         </div>
@@ -89,7 +96,8 @@
 
                                             </p><!-- /.item-description -->
                                             <a class="btn" href="#" id="templateUrl3">
-                                                <span class="btn-icon"><i class="glyphicon glyphicon-arrow-right"></i></span>
+                                                <span class="btn-icon"><i
+                                                        class="glyphicon glyphicon-arrow-right"></i></span>
                                                 <span th:utext="#{web.more}"></span>
                                             </a>
                                         </div>
@@ -100,10 +108,13 @@
                                 <h3 class="item-title" id="templateName1"></h3>
                                 <div class="service-accordion">
                                     <div class="accordion">
-                                        <div class="panel-group" role="tablist" aria-multiselectable="true" id="templateData10">
+                                        <div class="panel-group" role="tablist" aria-multiselectable="true"
+                                             id="templateData10">
                                             <div class="col-sm-12">
-                                                <a class="btn pull-right" style="margin:20px;" href="#" id="templateUrl1">
-                                                    <span class="btn-icon"><i class="glyphicon glyphicon-arrow-right"></i></span>
+                                                <a class="btn pull-right" style="margin:20px;" href="#"
+                                                   id="templateUrl1">
+                                                    <span class="btn-icon"><i
+                                                            class="glyphicon glyphicon-arrow-right"></i></span>
                                                     <span th:utext="#{web.more}"></span>
                                                 </a>
                                             </div>

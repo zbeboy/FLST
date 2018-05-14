@@ -17,16 +17,20 @@ import cn.edu.kmust.flst.web.common.MethodControllerCommon
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import cn.edu.kmust.flst.web.util.ImageUtils
+import cn.edu.kmust.flst.web.vo.backstage.banner.BannerEditVo
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
+import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.multipart.MultipartHttpServletRequest
 import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
+import javax.validation.Valid
+import kotlin.collections.HashMap
 
 /**
  * Created by zbeboy 2018-04-14 .
@@ -146,6 +150,45 @@ open class BannerController {
         }
 
         return ajaxUtils
+    }
+
+    /**
+     * 更新
+     *
+     * @param bannerEditVo 数据
+     * @param bindingResult 检验
+     * @return 保存结果
+     */
+    @RequestMapping(value = ["/web/backstage/banner/update"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun update(@Valid bannerEditVo: BannerEditVo, bindingResult: BindingResult): HashMap<String, String> {
+        val map = HashMap<String, String>()
+        if (!bindingResult.hasErrors()) {
+            val banner = bannerService.findById(bannerEditVo.pk!!)
+            if(bannerEditVo.name == "bannerTitle"){
+                banner.bannerTitle = bannerEditVo.value
+            }
+
+            if(bannerEditVo.name == "bannerTitleEn"){
+                banner.bannerTitleEn = bannerEditVo.value
+            }
+
+            if(bannerEditVo.name == "bannerBrief"){
+                banner.bannerBrief = bannerEditVo.value
+            }
+
+            if(bannerEditVo.name == "bannerBriefEn"){
+                banner.bannerBriefEn = bannerEditVo.value
+            }
+
+            bannerService.update(banner)
+            map["status"] = "ok"
+            map["msg"] = "更新成功"
+            return map
+        }
+        map["status"] = "error"
+        map["msg"] = "更新失败"
+        return map
     }
 
     /**

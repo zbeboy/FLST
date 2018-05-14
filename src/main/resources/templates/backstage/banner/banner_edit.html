@@ -12,6 +12,8 @@
           th:href="@{/plugin/messenger/css/messenger-theme-air.css}"/>
     <link href="plugin/jquery_file_upload/css/jquery.fileupload.min.css"
           th:href="@{/plugin/jquery_file_upload/css/jquery.fileupload.min.css}" rel="stylesheet"/>
+    <link href="plugin/bootstrap-editable/css/bootstrap-editable.css"
+          th:href="@{/plugin/bootstrap-editable/css/bootstrap-editable.css}" rel="stylesheet"/>
 </head>
 
 <body>
@@ -49,16 +51,37 @@
                                 <img data-src="holder.js/100%x200" id="articleCoverTemp" alt="100%x200"
                                      th:src="@{'/' + ${pic.bannerLink}}"
                                      data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
-                                <div class="caption text-center">
-                                    <input type="hidden" th:value="${pic.bannerId}"/>
-                                    <button type="button" class="btn btn-warning showImg" role="button"
-                                            th:if="${pic.bannerShow==0}">显示
-                                    </button>
-                                    <button type="button" class="btn btn-default hideImg" role="button"
-                                            th:if="${pic.bannerShow==1}">隐藏
-                                    </button>
-                                    <button type="button" class="btn btn-danger deleteImg" role="button">删除
-                                    </button>
+                                <div class="caption">
+                                    <h3><a href="#" class="bannerTitle" th:text="${pic.bannerTitle}" data-type="text"
+                                           data-name="bannerTitle" data-placeholder="标题"
+                                           th:data-pk="${pic.bannerId}" th:data-url="@{/web/backstage/banner/update}"
+                                           data-title="标题" data-emptytext="中文标题" data-emptyclass="text-success"></a>
+                                    </h3>
+                                    <h3><a href="#" class="bannerTitleEn" th:text="${pic.bannerTitleEn}"
+                                           data-type="text" data-name="bannerTitleEn" data-placeholder="Title"
+                                           th:data-pk="${pic.bannerId}" th:data-url="@{/web/backstage/banner/update}"
+                                           data-title="Title" data-emptytext="英文标题" data-emptyclass="text-success"></a>
+                                    </h3>
+                                    <p><a href="#" class="bannerBrief" th:text="${pic.bannerBrief}" data-type="text"
+                                          data-name="bannerBrief" data-placeholder="简介"
+                                          th:data-pk="${pic.bannerId}" th:data-url="@{/web/backstage/banner/update}"
+                                          data-title="简介" data-emptytext="中文简介" data-emptyclass="text-success"></a></p>
+                                    <p><a href="#" class="bannerBriefEn" th:text="${pic.bannerBriefEn}"
+                                          data-type="text" data-name="bannerBriefEn" data-placeholder="Brief"
+                                          th:data-pk="${pic.bannerId}" th:data-url="@{/web/backstage/banner/update}"
+                                          data-title="Brief" data-emptytext="英文简介" data-emptyclass="text-success"></a>
+                                    </p>
+                                    <p class="text-center">
+                                        <input type="hidden" th:value="${pic.bannerId}"/>
+                                        <button type="button" class="btn btn-warning showImg" role="button"
+                                                th:if="${pic.bannerShow==0}">显示
+                                        </button>
+                                        <button type="button" class="btn btn-default hideImg" role="button"
+                                                th:if="${pic.bannerShow==1}">隐藏
+                                        </button>
+                                        <button type="button" class="btn btn-danger deleteImg" role="button">删除
+                                        </button>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -76,13 +99,33 @@
             <img data-src="holder.js/100%x200" alt="100%x200"
                  src="{{imgSrc}}"
                  data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
-            <div class="caption text-center">
-                <input type="hidden" value="{{bannerId}}"/>
-                <button type="button" class="btn btn-default hideImg"
-                        role="button">隐藏
-                </button>
-                <button type="button" class="btn btn-danger deleteImg" role="button">删除
-                </button>
+            <div class="caption">
+                <h3><a href="#" class="bannerTitle" data-type="text" data-name="bannerTitle" data-placeholder="标题"
+                       data-pk="{{bannerId}}" data-url="{{updateUrl}}" data-title="标题" data-emptytext="中文标题"
+                       data-emptyclass="text-success">{{bannerTitle}}</a>
+                </h3>
+                <h3><a href="#" class="bannerTitleEn" data-type="text" data-name="bannerTitleEn"
+                       data-placeholder="Title"
+                       data-pk="{{bannerId}}" data-url="{{updateUrl}}" data-title="Title" data-emptytext="英文标题"
+                       data-emptyclass="text-success">{{bannerTitleEn}}</a>
+                </h3>
+                <p><a href="#" class="bannerBrief" data-type="text" data-name="bannerBrief" data-placeholder="简介"
+                      data-pk="{{bannerId}}" data-url="{{updateUrl}}" data-title="简介" data-emptytext="中文简介"
+                      data-emptyclass="text-success">{{bannerBrief}}</a>
+                </p>
+                <p><a href="#" class="bannerBriefEn" data-type="text" data-name="bannerBriefEn"
+                      data-placeholder="Brief"
+                      data-pk="{{bannerId}}" data-url="{{updateUrl}}" data-title="Brief" data-emptytext="英文简介"
+                      data-emptyclass="text-success">{{bannerBriefEn}}</a>
+                </p>
+                <p class="text-center">
+                    <input type="hidden" value="{{bannerId}}"/>
+                    <button type="button" class="btn btn-default hideImg"
+                            role="button">隐藏
+                    </button>
+                    <button type="button" class="btn btn-danger deleteImg" role="button">删除
+                    </button>
+                </p>
             </div>
         </div>
     </div>
@@ -116,6 +159,8 @@
         th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload-process.min.js}"></script>
 <script src="plugin/jquery_file_upload/js/jquery.fileupload-validate.min.js"
         th:src="@{/plugin/jquery_file_upload/js/jquery.fileupload-validate.min.js}"></script>
+<script src="plugin/bootstrap-editable/js/bootstrap-editable.min.js"
+        th:src="@{/plugin/bootstrap-editable/js/bootstrap-editable.min.js}"></script>
 <script src="js/backstage/banner/banner_edit.js"
         th:src="@{/js/backstage/banner/banner_edit.js}"></script>
 </body>

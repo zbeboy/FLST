@@ -18,10 +18,39 @@ $(document).ready(function () {
         file_upload_url: '/web/backstage/banner/upload',
         show: '/web/backstage/banner/show',
         del: '/web/backstage/banner/delete',
+        update: '/web/backstage/banner/update',
         back: '/web/backstage/banner'
     };
 
     var picDataArea = $('#pic-data');
+
+    initEditable();
+
+    /**
+     * 初始化 editable.
+     */
+    function initEditable() {
+        $('.bannerTitle').editable({
+            success: function (response, newValue) {
+                if (response.status === 'error') return response.msg; //msg will be shown in editable form
+            }
+        });
+        $('.bannerTitleEn').editable({
+            success: function (response, newValue) {
+                if (response.status === 'error') return response.msg; //msg will be shown in editable form
+            }
+        });
+        $('.bannerBrief').editable({
+            success: function (response, newValue) {
+                if (response.status === 'error') return response.msg; //msg will be shown in editable form
+            }
+        });
+        $('.bannerBriefEn').editable({
+            success: function (response, newValue) {
+                if (response.status === 'error') return response.msg; //msg will be shown in editable form
+            }
+        });
+    }
 
     /**
      * PIC数据
@@ -37,7 +66,13 @@ $(document).ready(function () {
             return new Handlebars.SafeString(Handlebars.escapeExpression(data.objectResult));
         });
 
+        Handlebars.registerHelper('updateUrl', function () {
+            return new Handlebars.SafeString(Handlebars.escapeExpression(web_path + ajax_url.update));
+        });
+
         picDataArea.prepend(template(data));
+
+        initEditable();
     }
 
     // 上传组件
