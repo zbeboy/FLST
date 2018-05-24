@@ -20,7 +20,7 @@ spring:
     static-locations: ["classpath:/META-INF/resources/","classpath:/resources/","classpath:/static/","classpath:/public/","file://${user.dir}/${flst.constants.document-root}/${flst.constants.static-images}"]
 
 server:
-  port: 9731
+  port: 80
   undertow:
     accesslog:
       dir: logs

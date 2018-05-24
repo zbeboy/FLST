@@ -58,6 +58,10 @@ open class SecurityConfiguration : WebSecurityConfigurerAdapter() {
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
         http
+                .headers()
+                // allow same origin to frame our site to support iframe SockJS
+                .frameOptions().sameOrigin()
+                .and()
                 .authorizeRequests().antMatchers("/css/**", "/js/**", "/fonts/**", "/images/**").permitAll()
                 .and().formLogin().loginPage("/login")
                 .successHandler(this.ajaxAuthenticationSuccessHandler)

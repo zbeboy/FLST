@@ -39,7 +39,7 @@
 
 <div class="myheader" th:fragment="receptionHearder">
     <img class="hidden-xs" src="images/logopng.png" th:src="@{${language == 'zh_cn'?'/images/logopng.png':'/images/logoen.png'}}" height="118"/>
-    <div class="top-content hidden-xs"><a href="http://flst.kmust.edu.cn/" class="white-color" th:text="#{web.old.website}">旧版网站</a> | <a
+    <div class="top-content hidden-xs"><a href="http://flst.kmust.edu.cn:8080/" class="white-color" th:text="#{web.old.website}">旧版网站</a> | <a
             href="#"
             th:href="@{'/language?language=en&redirect_uri='+ ${redirect_uri}}"
             class="white-color"
@@ -50,7 +50,7 @@
 
     <img class="hidden-sm hidden-md hidden-lg" src="images/logopng.png" th:src="@{${language == 'zh_cn'?'/images/logopng.png':'/images/logoen.png'}}" height="118"
          width="374"/>
-    <div class="top-content hidden-sm hidden-md hidden-lg" style="top:88px;right: 16px;"><a href="http://flst.kmust.edu.cn/" class="white-color"
+    <div class="top-content hidden-sm hidden-md hidden-lg" style="top:88px;right: 16px;"><a href="http://flst.kmust.edu.cn:8080/" class="white-color"
                                                                                             th:text="#{web.old.website}">旧版网站</a>
         | <a href="#"
              th:href="@{'/language?language=en&redirect_uri='+ ${redirect_uri}}"
