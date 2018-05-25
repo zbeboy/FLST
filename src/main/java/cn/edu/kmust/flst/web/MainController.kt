@@ -165,4 +165,14 @@ open class MainController {
         return ModelAndView("redirect:$redirect_uri")
     }
 
+    /**
+     * 兼容旧系统
+     *
+     * @return 后台欢迎页
+     */
+    @RequestMapping(value = ["/CN/**"], method = [(RequestMethod.GET)])
+    open fun oldSite(request: HttpServletRequest): String {
+        return "redirect:" + request.scheme + "://" + request.serverName + ":8080" + request.requestURI
+    }
+
 }

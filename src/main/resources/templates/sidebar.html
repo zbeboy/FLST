@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8"/>
     <title>Sidebar</title>
@@ -12,10 +13,13 @@
         </div>
     </form>
     <ul class="nav menu">
-        <li><a href="#" th:href="@{/web/backstage/menus}"><span class="glyphicon glyphicon-dashboard"></span> 栏目管理</a></li>
-        <li class="parent ">
+        <li sec:authorize="hasAnyRole('ROLE_ADMIN')"><a href="#" th:href="@{/web/backstage/menus}"><span
+                class="glyphicon glyphicon-dashboard"></span> 栏目管理</a>
+        </li>
+        <li class="parent " sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MAINTAIN')">
             <a data-toggle="collapse" href="#article-sub-item">
-                <span class="glyphicon glyphicon-list"></span> 文章管理 <span class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span>
+                <span class="glyphicon glyphicon-list"></span> 文章管理 <span class="icon pull-right"><em
+                    class="glyphicon glyphicon-s glyphicon-plus"></em></span>
             </a>
             <ul class="children collapse" id="article-sub-item">
                 <li>
@@ -30,10 +34,15 @@
                 </li>
             </ul>
         </li>
-        <li><a href="#" th:href="@{/web/backstage/banner}"><span class="glyphicon glyphicon-stats"></span> banner管理</a></li>
-        <li><a href="#" th:href="@{/web/backstage/files}" target="_blank"><span class="glyphicon glyphicon-folder-open"></span> 文件管理</a></li>
-        <li><a href="#" th:href="@{/web/backstage/links}"><span class="glyphicon glyphicon-star"></span> 友情链接</a></li>
-        <li><a href="#" th:href="@{/web/backstage/website}"><span class="glyphicon glyphicon-tags"></span> 网站信息</a></li>
+        <li sec:authorize="hasAnyRole('ROLE_ADMIN')"><a href="#" th:href="@{/web/backstage/banner}"><span
+                class="glyphicon glyphicon-stats"></span> banner管理</a>
+        </li>
+        <li sec:authorize="hasAnyRole('ROLE_ADMIN')"><a href="#" th:href="@{/web/backstage/files}" target="_blank"><span
+                class="glyphicon glyphicon-folder-open"></span> 文件管理</a></li>
+        <li sec:authorize="hasAnyRole('ROLE_ADMIN')"><a href="#" th:href="@{/web/backstage/links}"><span
+                class="glyphicon glyphicon-star"></span> 友情链接</a></li>
+        <li sec:authorize="hasAnyRole('ROLE_ADMIN')"><a href="#" th:href="@{/web/backstage/website}"><span
+                class="glyphicon glyphicon-tags"></span> 网站信息</a></li>
     </ul>
     <div class="attribution">
         &copy; Copyright <strong th:text="#{web.footer.info}">昆明理工大学</strong>. All Rights Reserved

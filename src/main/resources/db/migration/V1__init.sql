@@ -118,6 +118,12 @@ CREATE TABLE files (
 INSERT INTO users (username, password, enabled)
 VALUES ('govern', '$2a$10$wICea4jxjGeqeL99vXQBnO5dKtvT4Q2EbELrRoNZWCwuXJiLGNgE.', 1);
 INSERT INTO authorities (username, authority) VALUES ('govern', 'ROLE_ADMIN');
+INSERT INTO users (username, password, enabled)
+VALUES ('maintain1', '$2a$10$yIBhdUpSjXTyuU79DCcSgOD1KKICwsx8kSpCPcerl4LAUJ/OkC8Xy', 1);
+INSERT INTO authorities (username, authority) VALUES ('maintain1', 'ROLE_MAINTAIN');
+INSERT INTO users (username, password, enabled)
+VALUES ('maintain2', '$2a$10$yIBhdUpSjXTyuU79DCcSgOD1KKICwsx8kSpCPcerl4LAUJ/OkC8Xy', 1);
+INSERT INTO authorities (username, authority) VALUES ('maintain2', 'ROLE_MAINTAIN');
 
 INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, username)
 VALUES ('1dec1097f1334196aeb6889f36a4c9ae', '首页', 'Home', '/', '0', 0, 1, 'govern');
