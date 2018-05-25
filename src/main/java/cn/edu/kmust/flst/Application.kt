@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst
 
 /**
- * 初始化密码: govern MUt6N8h*
+ * 初始化密码: govern MUt6N8ha
  * 文章管理员密码: maintain1 , maintain2 XDbqe2aY
  */
 import cn.edu.kmust.flst.config.FLSTProperties
