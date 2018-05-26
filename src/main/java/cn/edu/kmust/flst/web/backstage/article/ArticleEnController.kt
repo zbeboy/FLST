@@ -111,7 +111,7 @@ open class ArticleEnController {
             articleEn.articleCover = articleEnAddVo.articleCover
             articleEn.articleDate = DateTimeUtils.getNow()
             articleEn.articleClicks = 0
-            articleEn.username = usersService.getUsernameFromSession()
+            articleEn.articleAuthor = usersService.getUsernameFromSession()
             articleEn.articleSources = articleEnAddVo.articleSources
             articleEn.articleSourcesName = articleEnAddVo.articleSourcesName
             articleEn.articleSourcesLink = articleEnAddVo.articleSourcesLink

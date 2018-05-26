@@ -86,6 +86,10 @@ a:hover, a:focus {
     color: #FFF;
 }
 
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #FFF;
+}
+
 .dropdown-menu {
     background-color: #a1b8f5;
 }

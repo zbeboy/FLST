@@ -130,10 +130,10 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun saveAndReturnId(article: ArticleEn): Int {
         return create.insertInto(ARTICLE_EN, ARTICLE_EN.ARTICLE_TITLE, ARTICLE_EN.ARTICLE_BRIEF, ARTICLE_EN.ARTICLE_COVER, ARTICLE_EN.ARTICLE_DATE,
-                ARTICLE_EN.ARTICLE_CLICKS, ARTICLE_EN.USERNAME, ARTICLE_EN.ARTICLE_SOURCES, ARTICLE_EN.ARTICLE_SOURCES_NAME, ARTICLE_EN.ARTICLE_SOURCES_LINK,
+                ARTICLE_EN.ARTICLE_CLICKS, ARTICLE_EN.ARTICLE_AUTHOR, ARTICLE_EN.ARTICLE_SOURCES, ARTICLE_EN.ARTICLE_SOURCES_NAME, ARTICLE_EN.ARTICLE_SOURCES_LINK,
                 ARTICLE_EN.MENU_ID)
                 .values(article.articleTitle, article.articleBrief, article.articleCover, article.articleDate, article.articleClicks,
-                        article.username, article.articleSources, article.articleSourcesName, article.articleSourcesLink, article.menuId)
+                        article.articleAuthor, article.articleSources, article.articleSourcesName, article.articleSourcesLink, article.menuId)
                 .returning(ARTICLE_EN.ARTICLE_ID)
                 .fetchOne().getValue(ARTICLE_EN.ARTICLE_ID)
     }

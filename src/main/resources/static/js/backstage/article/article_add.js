@@ -15,7 +15,7 @@ $(document).ready(function () {
      ajax url
     */
     var ajax_url = {
-        pids: '/web/backstage/menus/pids',
+        pids: '/web/backstage/article/menus',
         file_upload_url: '/web/backstage/article/cover/upload',
         del_cover:'/web/backstage/article/cover/delete',
         save: '/web/backstage/article/save',

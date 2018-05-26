@@ -29,8 +29,8 @@ CREATE TABLE menus (
   menu_show    BOOLEAN DEFAULT 1                  NOT NULL,
   menu_fixed   BOOLEAN DEFAULT 0                  NOT NULL,
   show_article BOOLEAN DEFAULT 0                  NOT NULL,
-  username     VARCHAR(64)                        NOT NULL,
-  FOREIGN KEY (username) REFERENCES users (username)
+  menu_creator VARCHAR(64)                        NOT NULL,
+  FOREIGN KEY (menu_creator) REFERENCES users (username)
 );
 
 CREATE TABLE article (
@@ -40,13 +40,13 @@ CREATE TABLE article (
   article_cover        VARCHAR(200),
   article_date         DATETIME      NOT NULL,
   article_clicks       INT,
-  username             VARCHAR(64)   NOT NULL,
+  article_author       VARCHAR(64)   NOT NULL,
   article_sources      INT DEFAULT 0 NOT NULL,
   article_sources_name VARCHAR(100),
   article_sources_link VARCHAR(200),
   menu_id              VARCHAR(64)   NOT NULL,
   FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
-  FOREIGN KEY (username) REFERENCES users (username)
+  FOREIGN KEY (article_author) REFERENCES users (username)
 );
 
 CREATE TABLE article_content (
@@ -62,13 +62,13 @@ CREATE TABLE article_en (
   article_cover        VARCHAR(200),
   article_date         DATETIME      NOT NULL,
   article_clicks       INT,
-  username             VARCHAR(64)   NOT NULL,
+  article_author       VARCHAR(64)   NOT NULL,
   article_sources      INT DEFAULT 0 NOT NULL,
   article_sources_name VARCHAR(100),
   article_sources_link VARCHAR(200),
   menu_id              VARCHAR(64)   NOT NULL,
   FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
-  FOREIGN KEY (username) REFERENCES users (username)
+  FOREIGN KEY (article_author) REFERENCES users (username)
 );
 
 CREATE TABLE article_en_content (
@@ -87,9 +87,9 @@ CREATE TABLE banner (
   banner_brief    VARCHAR(50),
   banner_brief_en VARCHAR(80),
   menu_id         VARCHAR(64)           NOT NULL,
-  username        VARCHAR(64)           NOT NULL,
+  banner_creator  VARCHAR(64)           NOT NULL,
   FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
-  FOREIGN KEY (username) REFERENCES users (username)
+  FOREIGN KEY (banner_creator) REFERENCES users (username)
 );
 
 CREATE TABLE friendly_link (
@@ -125,25 +125,25 @@ INSERT INTO users (username, password, enabled)
 VALUES ('maintain2', '$2a$10$yIBhdUpSjXTyuU79DCcSgOD1KKICwsx8kSpCPcerl4LAUJ/OkC8Xy', 1);
 INSERT INTO authorities (username, authority) VALUES ('maintain2', 'ROLE_MAINTAIN');
 
-INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, username)
+INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, menu_creator)
 VALUES ('1dec1097f1334196aeb6889f36a4c9ae', '首页', 'Home', '/', '0', 0, 1, 'govern');
-INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, username)
+INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, menu_creator)
 VALUES ('9733946a1c7f46d0b68bb7a5fa72ac53', '学院新闻', 'COLLEGE', '/user/menu/9733946a1c7f46d0b68bb7a5fa72ac53',
         '1dec1097f1334196aeb6889f36a4c9ae', 0, 1, 'govern');
-INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, username)
+INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, menu_creator)
 VALUES ('b54ee51a2998490bb770f45b1f727c7b', '通知公告', 'Notice bulletin', '/user/menu/b54ee51a2998490bb770f45b1f727c7b',
         '1dec1097f1334196aeb6889f36a4c9ae', 1, 1, 'govern');
-INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, username)
+INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, menu_creator)
 VALUES
   ('8ecdb9a3b15e499592d406af4b072263', '学术活动', 'Academic activities', '/user/menu/8ecdb9a3b15e499592d406af4b072263',
    '1dec1097f1334196aeb6889f36a4c9ae', 2, 1, 'govern');
-INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, username)
+INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, menu_creator)
 VALUES
   ('0c8b4b82fb674155b679a3a6f04a065d', '就业信息', 'Employment information', '/user/menu/0c8b4b82fb674155b679a3a6f04a065d',
    '1dec1097f1334196aeb6889f36a4c9ae', 3, 1, 'govern');
-INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, username)
+INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, menu_creator)
 VALUES ('464a4ada822c486ba5cf58f7d86e6c7d', '科研成果', 'Scientific research achievements',
         '/user/menu/464a4ada822c486ba5cf58f7d86e6c7d', '1dec1097f1334196aeb6889f36a4c9ae', 4, 1, 'govern');
-INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, username)
+INSERT INTO menus (menu_id, menu_name, menu_name_en, menu_link, menu_pid, menu_order, menu_fixed, menu_creator)
 VALUES ('9ce3b73dac3a4a21838df4ea7b4afce2', '科研动态', 'Research trends', '/user/menu/9ce3b73dac3a4a21838df4ea7b4afce2',
         '1dec1097f1334196aeb6889f36a4c9ae', 5, 1, 'govern');

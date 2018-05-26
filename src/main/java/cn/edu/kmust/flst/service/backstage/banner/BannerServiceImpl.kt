@@ -60,8 +60,8 @@ open class BannerServiceImpl @Autowired constructor(dslContext: DSLContext) : Bo
     @CacheEvict(cacheNames = ["banner"], key = "#banner.menuId", allEntries = true)
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun saveAndReturnId(banner: Banner): Int {
-        return create.insertInto(BANNER, BANNER.BANNER_LINK, BANNER.BANNER_DATE, BANNER.BANNER_SHOW, BANNER.MENU_ID, BANNER.USERNAME)
-                .values(banner.bannerLink, banner.bannerDate, banner.bannerShow, banner.menuId, banner.username)
+        return create.insertInto(BANNER, BANNER.BANNER_LINK, BANNER.BANNER_DATE, BANNER.BANNER_SHOW, BANNER.MENU_ID, BANNER.BANNER_CREATOR)
+                .values(banner.bannerLink, banner.bannerDate, banner.bannerShow, banner.menuId, banner.bannerCreator)
                 .returning(BANNER.BANNER_ID)
                 .fetchOne().getValue(BANNER.BANNER_ID)
     }

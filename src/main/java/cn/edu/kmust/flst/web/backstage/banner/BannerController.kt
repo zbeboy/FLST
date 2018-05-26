@@ -138,7 +138,7 @@ open class BannerController {
                 banner.bannerDate = DateTimeUtils.getNow()
                 banner.bannerShow = 1
                 banner.menuId = menuId
-                banner.username = usersService.getUsernameFromSession()
+                banner.bannerCreator = usersService.getUsernameFromSession()
                 val bannerId = bannerService.saveAndReturnId(banner)
                 ajaxUtils.success().msg("保存文件成功").listData(fileBeen).obj(bannerId)
             } else {

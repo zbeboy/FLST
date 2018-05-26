@@ -4,8 +4,10 @@ import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Article
 import cn.edu.kmust.flst.domain.tables.pojos.ArticleContent
+import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.article.ArticleContentService
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
+import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
@@ -23,6 +25,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
+import org.springframework.util.ObjectUtils
 import org.springframework.util.StringUtils
 import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.*
@@ -50,6 +53,9 @@ open class ArticleController {
 
     @Resource
     open lateinit var articleContentService: ArticleContentService
+
+    @Resource
+    open lateinit var menusService: MenusService
 
     @Resource
     open lateinit var uploadService: UploadService
@@ -146,6 +152,23 @@ open class ArticleController {
     }
 
     /**
+     * 获取栏目数据
+     *
+     * @return 数据
+     */
+    @RequestMapping(value = ["/web/backstage/article/menus"], method = [(RequestMethod.GET)])
+    @ResponseBody
+    fun pids(menuFixed: Byte?): AjaxUtils<Menus> {
+        val ajaxUtils = AjaxUtils.of<Menus>()
+        if (!ObjectUtils.isEmpty(menuFixed)) {
+            ajaxUtils.success().msg("获取数据成功").listData(menusService.findByMenuFixed(menuFixed!!))
+        } else {
+            ajaxUtils.success().msg("获取数据成功").listData(menusService.findAll())
+        }
+        return ajaxUtils
+    }
+
+    /**
      * 文章封面删除
      *
      * @param request                       请求
@@ -179,7 +202,7 @@ open class ArticleController {
             article.articleCover = articleAddVo.articleCover
             article.articleDate = DateTimeUtils.getNow()
             article.articleClicks = 0
-            article.username = usersService.getUsernameFromSession()
+            article.articleAuthor = usersService.getUsernameFromSession()
             article.articleSources = articleAddVo.articleSources
             article.articleSourcesName = articleAddVo.articleSourcesName
             article.articleSourcesLink = articleAddVo.articleSourcesLink

@@ -9,8 +9,5 @@
         <module name="FLST" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="FLST" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

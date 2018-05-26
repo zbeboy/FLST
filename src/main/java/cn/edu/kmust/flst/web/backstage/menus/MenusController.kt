@@ -220,7 +220,7 @@ open class MenusController {
             menus.menuShow = menusAddVo.menuShow
             menus.showArticle = menusAddVo.showArticle
             menus.menuFixed = 0
-            menus.username = usersService.getUsernameFromSession()
+            menus.menuCreator = usersService.getUsernameFromSession()
             menusService.save(menus)
             return AjaxUtils.of<Any>().success().msg("保存成功")
         }
