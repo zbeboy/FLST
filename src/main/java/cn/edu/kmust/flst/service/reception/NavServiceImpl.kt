@@ -90,6 +90,6 @@ open class NavServiceImpl : NavService {
      * 获取栏目链接
      */
     private fun getUrl(menuLink: String, request: HttpServletRequest): String {
-        return RequestUtils.getBaseUrl(request) + menuLink
+        return menuLink
     }
 }
