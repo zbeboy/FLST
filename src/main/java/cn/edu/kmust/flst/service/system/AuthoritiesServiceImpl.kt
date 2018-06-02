@@ -2,6 +2,7 @@ package cn.edu.kmust.flst.service.system
 
 import org.jooq.DSLContext
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.authentication.AuthenticationTrustResolverImpl
 import org.springframework.security.authentication.RememberMeAuthenticationToken
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Service
@@ -18,9 +19,9 @@ open class AuthoritiesServiceImpl @Autowired constructor(dslContext: DSLContext)
 
     private val create: DSLContext = dslContext
 
-    override fun isRememberMeAuthenticated(): Boolean {
+    override fun isAnonymousAuthenticated(): Boolean {
         val authentication = SecurityContextHolder.getContext().authentication
-        return !ObjectUtils.isEmpty(authentication) && RememberMeAuthenticationToken::class.java.isAssignableFrom(authentication.javaClass)
+        return !ObjectUtils.isEmpty(authentication) && AuthenticationTrustResolverImpl().isAnonymous(authentication)
     }
 
 }
