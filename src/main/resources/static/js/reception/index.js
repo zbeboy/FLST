@@ -171,7 +171,9 @@ $(document).ready(function () {
         return " <div class=\"col-sm-4\">" +
             "<div class=\"item\">" +
             "<div class=\"item-top\">" +
+            "<a href=\"" + url + "\">" +
             "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: " + height + "px; width: 100%; display: block;\">" +
+            "</a>" +
             "<a href=\"" + url + "\"><h4 class=\"sub-title\" style=\"word-wrap:break-word;word-break:break-all;\">" + titleImageWordLimit(title) + "</h4></a>" +
             "</div>" +
             "<p class=\"item-description\">" + briefWordLimit(brief) + "</p>" +
@@ -205,7 +207,9 @@ $(document).ready(function () {
      * @returns {string}
      */
     function imageDataTemplate(alt, src, title, url) {
-        return "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: 130px; width: 100%; display: block;\">" +
+        return "<a href=\"" + url + "\">" +
+            "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: 130px; width: 100%; display: block;\">" +
+            "</a>" +
             "<a href=\"" + url + "\"><span class=\"sub-title\" style=\"word-wrap:break-word;word-break:break-all;\">" + titleImageWordLimit(title) + "</span></a>";
     }
 
@@ -225,7 +229,9 @@ $(document).ready(function () {
             "<article class=\"post type-post\">" +
             "<div class=\"post-top\">" +
             "<div class=\"post-thumbnail\">" +
+            "<a href=\"" + url + "\">" +
             "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" >" +
+            "</a>" +
             "</div>" +
             "<div class=\"post-meta\">" +
             "<div class=\"entry-meta\">" +
@@ -257,7 +263,9 @@ $(document).ready(function () {
      * @returns {string}
      */
     function templateData5(alt, src, height, title, url, brief) {
-        return "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: " + height + "px; width: 100%; display: block;\">" +
+        return "<a href=\"" + url + "\">" +
+            "<img class=\"lazy\" alt=\"" + altWordLimit(alt) + "\" data-original=\"" + src + "\" data-holder-rendered=\"true\" style=\"height: " + height + "px; width: 100%; display: block;\">" +
+            "</a>" +
             "<a href=\"" + url + "\"><h4 style=\"word-wrap:break-word;word-break:break-all;color:#3498db;\">" + titleImageWordLimit(title) + "</h4></a>" +
             "<p style=\"word-wrap:break-word;word-break:break-all;color:#869093\">" + briefWordLimit(brief) + "</p>";
     }
