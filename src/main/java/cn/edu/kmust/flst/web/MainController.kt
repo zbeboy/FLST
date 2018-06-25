@@ -81,6 +81,21 @@ open class MainController {
     }
 
     /**
+     * 应学院上报网址要求
+     *
+     * @return home page
+     */
+    @RequestMapping("/defaul.html")
+    fun defaul(modelMap: ModelMap, request: HttpServletRequest): String {
+        receptionService.navData(modelMap, request)
+        modelMap.addAttribute("redirect_uri", "/")
+        receptionService.websiteData(modelMap, request)
+        receptionService.bannerData(modelMap, Workbook.WEB_FIXED_HOME_ID)
+        receptionService.linksData(modelMap)
+        return "index"
+    }
+
+    /**
      * 模块数据
      *
      * @return 数据
