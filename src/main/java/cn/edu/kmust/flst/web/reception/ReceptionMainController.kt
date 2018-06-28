@@ -62,6 +62,7 @@ open class ReceptionMainController {
     @RequestMapping(value = [Workbook.RECEPTION_LINK + "{menuId}"], method = [(RequestMethod.GET)])
     fun home(@PathVariable("menuId") menuId: String, session: HttpSession, request: HttpServletRequest, modelMap: ModelMap): String {
         val menu = menusService.findById(menuId)
+        val language = localeResolver.resolveLocale(request).displayLanguage
         return if (!ObjectUtils.isEmpty(menu)) {
             if (menu.menuShow == 1.toByte()) {
                 receptionService.navData(modelMap, request)
@@ -71,10 +72,10 @@ open class ReceptionMainController {
                 receptionService.linksData(modelMap)
                 receptionService.columnsData(modelMap, menu.menuPid, request)
                 modelMap.addAttribute("positions", list)
-                modelMap.addAttribute("columnId", menu.menuId)
+                modelMap.addAttribute("menu", menu)
+                // 直接关联文章
                 if (menu.showArticle == 1.toByte()) {
                     var page = "reception/article_content"
-                    val language = localeResolver.resolveLocale(request).displayLanguage
                     // 中文文章
                     if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
                         val data = articleService.findOneByPageOrderByArticleDate(menuId)
@@ -82,12 +83,13 @@ open class ReceptionMainController {
                             val article = data.get().into(ArticleBean::class.java)
                             article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy年MM月dd日")
                             modelMap.addAttribute("article", article)
+                            modelMap.addAttribute("title_msg", article.articleTitle)
                             calculationArticleClicks(article.articleId, session, request)
                             // 查询上一篇和下一篇
                             queryUpAndDownArticle(article.articleDate, menuId, modelMap)
                         } else {
-                            modelMap.addAttribute("status", 500)
-                            modelMap.addAttribute("message", "无对应文章")
+                            modelMap.addAttribute("status", 404)
+                            modelMap.addAttribute("message", "未查询到该文章信息")
                             page = "error"
                         }
                     } else {
@@ -96,18 +98,21 @@ open class ReceptionMainController {
                             val article = data.get().into(ArticleEnBean::class.java)
                             article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy-MM-dd")
                             modelMap.addAttribute("article", article)
+                            modelMap.addAttribute("title_msg", article.articleTitle)
                             calculationArticleEnClicks(article.articleId, session, request)
                             // 查询上一篇和下一篇
                             queryUpAndDownArticleEn(article.articleDate, menuId, modelMap)
                         } else {
-                            modelMap.addAttribute("status", 500)
-                            modelMap.addAttribute("message", "无对应文章")
+                            modelMap.addAttribute("status", 404)
+                            modelMap.addAttribute("message", "Article is not found")
                             page = "error"
                         }
                     }
                     modelMap.addAttribute("redirect_uri", "/")
                     page
                 } else {
+                    modelMap.addAttribute("title_msg", methodControllerCommon.returnMessage(menu.menuName,
+                            menu.menuNameEn, request))
                     modelMap.addAttribute("redirect_uri", Workbook.RECEPTION_LINK + menuId)
                     for (i in list) {
                         if (i.menuPid == "0") {
@@ -119,12 +124,14 @@ open class ReceptionMainController {
 
             } else {
                 modelMap.addAttribute("status", 500)
-                modelMap.addAttribute("message", "该栏目已关闭显示")
+                modelMap.addAttribute("message", methodControllerCommon.returnMessage("该栏目已关闭显示",
+                        "This menu is closed", request))
                 "error"
             }
         } else {
             modelMap.addAttribute("status", 500)
-            modelMap.addAttribute("message", "未查询到该文章信息")
+            modelMap.addAttribute("message", methodControllerCommon.returnMessage("未查询到该文章信息",
+                    "This article is found", request))
             "error"
         }
     }
@@ -137,7 +144,6 @@ open class ReceptionMainController {
     @RequestMapping(value = ["/user/search"], method = [(RequestMethod.GET)])
     fun search(searchContent: String?, request: HttpServletRequest, modelMap: ModelMap): String {
         modelMap.addAttribute("searchContent", searchContent)
-
         receptionService.navData(modelMap, request)
         // 因servlet会自动解码一次，因此取值会乱码，为此encode两次
         val m = URLEncoder.encode(URLEncoder.encode(searchContent, Charsets.UTF_8.displayName()), Charsets.UTF_8.displayName())
@@ -164,11 +170,12 @@ open class ReceptionMainController {
                 menuId = article.menuId
                 article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy年MM月dd日")
                 modelMap.addAttribute("article", article)
+                modelMap.addAttribute("title_msg", article.articleTitle)
                 calculationArticleClicks(articleId, session, request)
                 // 查询上一篇和下一篇
                 queryUpAndDownArticle(article.articleDate, menuId, modelMap)
             } else {
-                modelMap.addAttribute("status", 500)
+                modelMap.addAttribute("status", 404)
                 modelMap.addAttribute("message", "未查询到该文章")
                 return "error"
             }
@@ -179,12 +186,13 @@ open class ReceptionMainController {
                 menuId = article.menuId
                 article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy-MM-dd")
                 modelMap.addAttribute("article", article)
+                modelMap.addAttribute("title_msg", article.articleTitle)
                 calculationArticleEnClicks(articleId, session, request)
                 // 查询上一篇和下一篇
                 queryUpAndDownArticleEn(article.articleDate, menuId, modelMap)
             } else {
-                modelMap.addAttribute("status", 500)
-                modelMap.addAttribute("message", "未查询到该文章")
+                modelMap.addAttribute("status", 404)
+                modelMap.addAttribute("message", "Article is not found")
                 return "error"
             }
         }
@@ -198,7 +206,7 @@ open class ReceptionMainController {
         receptionService.linksData(modelMap)
         receptionService.columnsData(modelMap, menu.menuPid, request)
         modelMap.addAttribute("positions", list)
-        modelMap.addAttribute("columnId", menu.menuId)
+        modelMap.addAttribute("menu", menu)
 
         return "reception/article_content"
     }
@@ -317,7 +325,6 @@ open class ReceptionMainController {
     @ResponseBody
     fun searchData(request: HttpServletRequest): BootstrapTableUtils<*>? {
         val language = localeResolver.resolveLocale(request).displayLanguage
-
         return if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
             methodControllerCommon.articleData(request)
         } else {
