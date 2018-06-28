@@ -663,3 +663,9 @@ a:hover, a:focus {
     padding: 8px 15px;
     text-transform: uppercase;
 }
+
+.research-trends .btn:hover {
+    background-color: #ffffff;
+    border-color: #3498db;
+    color: #3498db;
+}
