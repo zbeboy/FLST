@@ -5,7 +5,7 @@
     <meta name="_csrf" content="" th:content="${_csrf.token}"/>
     <!-- default header name is X-CSRF-TOKEN -->
     <meta name="_csrf_header" content="" th:content="${_csrf.headerName}"/>
-    <title th:text="#{web.meta.description} + '-' + #{web.footer.info}"></title>
+    <title th:text="${title_msg} + '-' +#{web.meta.description} + '-' + #{web.footer.info}"></title>
     <!-- Libraries CSS Files -->
     <link href="css/animate.min.css" rel="stylesheet" th:href="@{/css/animate.min.css}"/>
     <!-- Main Stylesheet File -->
@@ -32,7 +32,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group" th:unless="${#lists.isEmpty(columns)}">
-                            <a th:class="${column.menuId == columnId?'list-group-item active':'list-group-item'}"
+                            <a th:class="${column.menuId == menu.menuId?'list-group-item active':'list-group-item'}"
                                th:each="column:${columns}" th:href="${column.menuLink}"
                                th:text="${ language == 'zh_cn'?column.menuName:column.menuNameEn}"></a>
                         </div>
@@ -77,15 +77,18 @@
                         <span th:text="#{web.info.clicks}"></span>： <span th:text="${article.articleClicks}"></span>
                     </h5>
                 </div>
-                <div style="padding-top:5px;font-size:17px;" class="wow fadeInUp" data-wow-delay="0.2s" id="editor-container">
+                <div style="padding-top:5px;font-size:17px;" class="wow fadeInUp" data-wow-delay="0.2s"
+                     id="editor-container">
 
                 </div>
-                <div style="padding-top:18px;" class="wow fadeInUp" data-wow-delay="0.3s" th:if="${upArticle.articleId!=null}">
+                <div style="padding-top:18px;" class="wow fadeInUp" data-wow-delay="0.3s"
+                     th:if="${upArticle.articleId!=null}">
                     <span class="text-primary" th:text="#{web.pagination.previous}"></span>
                     <a href="#" style="color:black;" th:text="${upArticle.articleTitle}"
                        th:href="@{'/user/article/' + ${upArticle.articleId}}"></a>
                 </div>
-                <div style="padding-top:10px;" class="wow fadeInUp" data-wow-delay="0.4s" th:if="${downArticle.articleId!=null}">
+                <div style="padding-top:10px;" class="wow fadeInUp" data-wow-delay="0.4s"
+                     th:if="${downArticle.articleId!=null}">
                     <span class="text-primary" th:text="#{web.pagination.next}"></span>
                     <a href="#" style="color:black;" th:text="${downArticle.articleTitle}"
                        th:href="@{'/user/article/' + ${downArticle.articleId}}"></a>
@@ -126,7 +129,7 @@
     var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
     var init_page_param = {
         'language': /*[[${language}]]*/ '',
-        'columnId': /*[[${columnId}]]*/ '',
+        'menuId': /*[[${menu.menuId}]]*/ '',
         'articleContent': /*[[${article.articleContent}]]*/ ''
     };
 </script>

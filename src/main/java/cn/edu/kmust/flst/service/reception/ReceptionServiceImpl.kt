@@ -58,6 +58,7 @@ open class ReceptionServiceImpl : ReceptionService {
         if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
             if (websiteRecord.isNotEmpty) {
                 websiteRecord.forEach { r ->
+                    // 地址有中英文，单独处理
                     if (r.dataKey != Workbook.WEBSITE_ADDRESS_EN) {
                         if (r.dataKey == Workbook.WEBSITE_ADDRESS) {
                             modelMap.addAttribute("website_address", r.dataValue)
@@ -102,7 +103,7 @@ open class ReceptionServiceImpl : ReceptionService {
 
     override fun columnsData(modelMap: ModelMap, menuId: String, request: HttpServletRequest) {
         val records = menusService.findByPIdAndMenuShow(menuId, 1)
-        var columns: List<Menus> = java.util.ArrayList()
+        var columns: List<Menus> = ArrayList()
         if (records.isNotEmpty) {
             columns = records.into(Menus::class.java)
             columns.forEach { i ->

@@ -15,7 +15,7 @@ $(document).ready(function () {
         pageSize: 10,
         sortName: 'articleDateStr',
         sortOrder: 'desc',
-        extraSearch: JSON.stringify({menuId: init_page_param.columnId})
+        extraSearch: JSON.stringify({menuId: init_page_param.menuId})
     };
 
     init();
@@ -24,7 +24,7 @@ $(document).ready(function () {
      * 初始化数据
      */
     function init() {
-        $.get(web_path + ajax_url.data_url + '/' + init_page_param.columnId, param, function (data) {
+        $.get(web_path + ajax_url.data_url + '/' + init_page_param.menuId, param, function (data) {
             createPage(data);
             listData(data);
         });
@@ -132,7 +132,7 @@ $(document).ready(function () {
      */
     function nextPage(pageNumber) {
         param.pageNumber = pageNumber;
-        $.get(web_path + ajax_url.data_url + '/' + init_page_param.columnId, param, function (data) {
+        $.get(web_path + ajax_url.data_url + '/' + init_page_param.menuId, param, function (data) {
             listData(data);
         });
     }
