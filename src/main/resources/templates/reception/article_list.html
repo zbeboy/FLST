@@ -130,7 +130,8 @@
     var web_path = /*[[${#httpServletRequest.getScheme()+'://'+#httpServletRequest.getServerName()+':'+#httpServletRequest.getServerPort()+#httpServletRequest.getContextPath()}]]*/ '';
     var init_page_param = {
         'language': /*[[${language}]]*/ '',
-        'menuId': /*[[${menu.menuId}]]*/ ''
+        'menuId': /*[[${menu.menuId}]]*/ '',
+        'orderWay': /*[[${menu.orderWay}]]*/ 0
     };
 </script>
 <script src="js/reception/article_list.js" th:src="@{/js/reception/article_list.js}"></script>

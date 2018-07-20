@@ -210,6 +210,15 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
                     sortField[0] = ARTICLE_EN.ARTICLE_DATE.desc()
                 }
             }
+
+            if ("articleSn".equals(orderColumnName, ignoreCase = true)) {
+                sortField = arrayOfNulls(1)
+                if (isAsc) {
+                    sortField[0] = ARTICLE_EN.ARTICLE_SN.asc()
+                } else {
+                    sortField[0] = ARTICLE_EN.ARTICLE_SN.desc()
+                }
+            }
         }
         sortToFinish(selectConditionStep, selectJoinStep, type, *sortField!!)
     }
