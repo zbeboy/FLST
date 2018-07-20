@@ -34,7 +34,8 @@ $(document).ready(function () {
         menuLink: '#menuLink',
         menuOrder: '#menuOrder',
         menuShow: '#menuShow',
-        showArticle: '#showArticle'
+        showArticle: '#showArticle',
+        orderWay: ''
     };
 
     /*
@@ -49,7 +50,8 @@ $(document).ready(function () {
         menuLink: $(paramId.menuLink).val(),
         menuOrder: $(paramId.menuOrder).val(),
         menuShow: $('input[name="menuShow"]:checked').val(),
-        showArticle: $('input[name="showArticle"]:checked').val()
+        showArticle: $('input[name="showArticle"]:checked').val(),
+        orderWay: $('input[name="orderWay"]:checked').val()
     };
 
     init();
@@ -84,6 +86,7 @@ $(document).ready(function () {
         if (typeof(param.showArticle) === "undefined") {
             param.showArticle = 0;
         }
+        param.orderWay = $('input[name="orderWay"]:checked').val();
     }
 
     /*

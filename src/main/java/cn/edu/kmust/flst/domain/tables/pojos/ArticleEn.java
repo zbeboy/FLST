@@ -25,7 +25,7 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ArticleEn implements Serializable {
 
-    private static final long serialVersionUID = -804165709;
+    private static final long serialVersionUID = -483333644;
 
     private Integer   articleId;
     private String    articleTitle;
@@ -37,6 +37,7 @@ public class ArticleEn implements Serializable {
     private Integer   articleSources;
     private String    articleSourcesName;
     private String    articleSourcesLink;
+    private Integer   articleSn;
     private String    menuId;
 
     public ArticleEn() {}
@@ -52,6 +53,7 @@ public class ArticleEn implements Serializable {
         this.articleSources = value.articleSources;
         this.articleSourcesName = value.articleSourcesName;
         this.articleSourcesLink = value.articleSourcesLink;
+        this.articleSn = value.articleSn;
         this.menuId = value.menuId;
     }
 
@@ -66,6 +68,7 @@ public class ArticleEn implements Serializable {
         Integer   articleSources,
         String    articleSourcesName,
         String    articleSourcesLink,
+        Integer   articleSn,
         String    menuId
     ) {
         this.articleId = articleId;
@@ -78,6 +81,7 @@ public class ArticleEn implements Serializable {
         this.articleSources = articleSources;
         this.articleSourcesName = articleSourcesName;
         this.articleSourcesLink = articleSourcesLink;
+        this.articleSn = articleSn;
         this.menuId = menuId;
     }
 
@@ -170,6 +174,14 @@ public class ArticleEn implements Serializable {
         this.articleSourcesLink = articleSourcesLink;
     }
 
+    public Integer getArticleSn() {
+        return this.articleSn;
+    }
+
+    public void setArticleSn(Integer articleSn) {
+        this.articleSn = articleSn;
+    }
+
     @NotNull
     @Size(max = 64)
     public String getMenuId() {
@@ -194,6 +206,7 @@ public class ArticleEn implements Serializable {
         sb.append(", ").append(articleSources);
         sb.append(", ").append(articleSourcesName);
         sb.append(", ").append(articleSourcesLink);
+        sb.append(", ").append(articleSn);
         sb.append(", ").append(menuId);
 
         sb.append(")");

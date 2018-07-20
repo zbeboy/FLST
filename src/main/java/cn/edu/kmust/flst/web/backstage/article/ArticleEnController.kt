@@ -115,6 +115,7 @@ open class ArticleEnController {
             articleEn.articleSources = articleEnAddVo.articleSources
             articleEn.articleSourcesName = articleEnAddVo.articleSourcesName
             articleEn.articleSourcesLink = articleEnAddVo.articleSourcesLink
+            articleEn.articleSn = articleEnAddVo.articleSn
             articleEn.menuId = articleEnAddVo.menuId
             val id = articleEnService.saveAndReturnId(articleEn)
             val articleEnContent = ArticleEnContent()
@@ -153,6 +154,7 @@ open class ArticleEnController {
             articleEn.articleSources = articleEnEditVo.articleSources
             articleEn.articleSourcesName = articleEnEditVo.articleSourcesName
             articleEn.articleSourcesLink = articleEnEditVo.articleSourcesLink
+            articleEn.articleSn = articleEnEditVo.articleSn
             articleEn.menuId = articleEnEditVo.menuId
             articleEnService.update(articleEn)
             val articleEnContent = ArticleEnContent()

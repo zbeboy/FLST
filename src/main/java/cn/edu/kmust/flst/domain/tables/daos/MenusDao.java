@@ -146,6 +146,13 @@ public class MenusDao extends DAOImpl<MenusRecord, cn.edu.kmust.flst.domain.tabl
     }
 
     /**
+     * Fetch records that have <code>order_way IN (values)</code>
+     */
+    public List<cn.edu.kmust.flst.domain.tables.pojos.Menus> fetchByOrderWay(Integer... values) {
+        return fetch(Menus.MENUS.ORDER_WAY, values);
+    }
+
+    /**
      * Fetch records that have <code>menu_creator IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.tables.pojos.Menus> fetchByMenuCreator(String... values) {

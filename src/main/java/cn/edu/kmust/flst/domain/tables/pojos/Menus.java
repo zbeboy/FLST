@@ -24,7 +24,7 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Menus implements Serializable {
 
-    private static final long serialVersionUID = 369870792;
+    private static final long serialVersionUID = -1750146875;
 
     private String  menuId;
     private String  menuName;
@@ -36,6 +36,7 @@ public class Menus implements Serializable {
     private Byte    menuShow;
     private Byte    menuFixed;
     private Byte    showArticle;
+    private Integer orderWay;
     private String  menuCreator;
 
     public Menus() {}
@@ -51,6 +52,7 @@ public class Menus implements Serializable {
         this.menuShow = value.menuShow;
         this.menuFixed = value.menuFixed;
         this.showArticle = value.showArticle;
+        this.orderWay = value.orderWay;
         this.menuCreator = value.menuCreator;
     }
 
@@ -65,6 +67,7 @@ public class Menus implements Serializable {
         Byte    menuShow,
         Byte    menuFixed,
         Byte    showArticle,
+        Integer orderWay,
         String  menuCreator
     ) {
         this.menuId = menuId;
@@ -77,6 +80,7 @@ public class Menus implements Serializable {
         this.menuShow = menuShow;
         this.menuFixed = menuFixed;
         this.showArticle = showArticle;
+        this.orderWay = orderWay;
         this.menuCreator = menuCreator;
     }
 
@@ -170,6 +174,14 @@ public class Menus implements Serializable {
         this.showArticle = showArticle;
     }
 
+    public Integer getOrderWay() {
+        return this.orderWay;
+    }
+
+    public void setOrderWay(Integer orderWay) {
+        this.orderWay = orderWay;
+    }
+
     @NotNull
     @Size(max = 64)
     public String getMenuCreator() {
@@ -194,6 +206,7 @@ public class Menus implements Serializable {
         sb.append(", ").append(menuShow);
         sb.append(", ").append(menuFixed);
         sb.append(", ").append(showArticle);
+        sb.append(", ").append(orderWay);
         sb.append(", ").append(menuCreator);
 
         sb.append(")");
