@@ -39,7 +39,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Menus extends TableImpl<MenusRecord> {
 
-    private static final long serialVersionUID = 468140535;
+    private static final long serialVersionUID = -1666773605;
 
     /**
      * The reference instance of <code>flst.menus</code>
@@ -103,6 +103,11 @@ public class Menus extends TableImpl<MenusRecord> {
      * The column <code>flst.menus.show_article</code>.
      */
     public final TableField<MenusRecord, Byte> SHOW_ARTICLE = createField("show_article", org.jooq.impl.SQLDataType.TINYINT.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.TINYINT)), this, "");
+
+    /**
+     * The column <code>flst.menus.order_way</code>.
+     */
+    public final TableField<MenusRecord, Integer> ORDER_WAY = createField("order_way", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>flst.menus.menu_creator</code>.

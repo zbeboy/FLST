@@ -157,6 +157,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-group" id="valid_article_sn">
+                    <label>文章序号</label>
+                    <input type="number" class="form-control" id="articleSn" name="articleSn" th:value="${article.articleSn}"/>
+                    <p class="text-danger hidden" id="article_sn_error_msg"></p>
+                </div>
                 <div class="text-center">
                     <button type="button" id="save" class="btn btn-primary">保存</button>
                     <button type="reset" class="btn btn-default">重置</button>
@@ -168,7 +173,7 @@
 <!--PID模板-->
 <script id="pid-template" type="text/x-handlebars-template">
     {{#each listResult}}
-    <option value="{{menuId}}">{{menuName}}</option>
+    <option value="{{menuId}}" data-sort-order="{{orderWay}}">{{menuName}}</option>
     {{/each}}
 </script>
 <script th:inline="javascript">

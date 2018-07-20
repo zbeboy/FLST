@@ -18,12 +18,26 @@ $(document).ready(function () {
         extraSearch: JSON.stringify({menuId: init_page_param.menuId})
     };
 
+    /**
+     * 重置排序字段
+     */
+    function ownSort() {
+        if (init_page_param.orderWay === 0) {
+            param.sortName = 'articleDateStr';
+            param.sortOrder = 'desc';
+        } else if (init_page_param.orderWay === 1) {
+            param.sortName = 'articleSn';
+            param.sortOrder = 'asc';
+        }
+    }
+
     init();
 
     /**
      * 初始化数据
      */
     function init() {
+        ownSort();
         $.get(web_path + ajax_url.data_url + '/' + init_page_param.menuId, param, function (data) {
             createPage(data);
             listData(data);

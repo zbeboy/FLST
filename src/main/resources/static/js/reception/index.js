@@ -64,12 +64,31 @@ $(document).ready(function () {
 
     }
 
+    /**
+     * 重置排序字段
+     */
+    function ownSort(menu) {
+        var param = {
+            sortName: 'articleDateStr',
+            sortOrder: 'desc'
+        };
+        if (menu.orderWay === 0) {
+            param.sortName = 'articleDateStr';
+            param.sortOrder = 'desc';
+        } else if (menu.orderWay === 1) {
+            param.sortName = 'articleSn';
+            param.sortOrder = 'asc';
+        }
+        return param;
+    }
+
     function sendAjax(pageNumber, pageSize, i, menu) {
+        var sortParam = ownSort(menu);
         $.get(web_path + ajax_url.articles + '/' + menu.menuId, {
             pageNumber: pageNumber,
             pageSize: pageSize,
-            sortName: 'articleDateStr',
-            sortOrder: 'desc',
+            sortName: sortParam.sortName,
+            sortOrder: sortParam.sortOrder,
             extraSearch: JSON.stringify({menuId: menu.menuId})
         }, function (data) {
             eval(data_id.template + i + "(" + JSON.stringify(data) + "," + i + ")");

@@ -22,4 +22,5 @@ open class ArticleEnAddVo {
     var articleSources: Int? = null
     var articleSourcesName: String? = null
     var articleSourcesLink: String? = null
+    var articleSn: Int? = 0
 }

@@ -219,6 +219,7 @@ open class MenusController {
             menus.menuOrder = menusAddVo.menuOrder
             menus.menuShow = menusAddVo.menuShow
             menus.showArticle = menusAddVo.showArticle
+            menus.orderWay = menusAddVo.orderWay
             menus.menuFixed = 0
             menus.menuCreator = usersService.getUsernameFromSession()
             menusService.save(menus)
@@ -255,6 +256,7 @@ open class MenusController {
                 menus.menuOrder = menusEditVo.menuOrder
                 menus.menuShow = menusEditVo.menuShow
                 menus.showArticle = menusEditVo.showArticle
+                menus.orderWay = menusEditVo.orderWay
                 menusService.update(menus)
                 ajaxUtils.success().msg("更新成功")
             }

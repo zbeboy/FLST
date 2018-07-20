@@ -89,6 +89,16 @@ function formatterShowArticle(value, row, index, field) {
     return "否";
 }
 
+function formatterOrderWay(value, row, index, field) {
+    var v = "";
+    if (value === 0) {
+        v = "日期";
+    } else if (value === 1) {
+        v = "序号";
+    }
+    return v;
+}
+
 // 预编译模板
 var template = Handlebars.compile($("#operator_button").html());
 

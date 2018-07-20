@@ -29,6 +29,7 @@ CREATE TABLE menus (
   menu_show    BOOLEAN DEFAULT 1                  NOT NULL,
   menu_fixed   BOOLEAN DEFAULT 0                  NOT NULL,
   show_article BOOLEAN DEFAULT 0                  NOT NULL,
+  order_way    INT DEFAULT 0                      NOT NULL,
   menu_creator VARCHAR(64)                        NOT NULL,
   FOREIGN KEY (menu_creator) REFERENCES users (username)
 );
@@ -44,6 +45,7 @@ CREATE TABLE article (
   article_sources      INT DEFAULT 0 NOT NULL,
   article_sources_name VARCHAR(100),
   article_sources_link VARCHAR(200),
+  article_sn           INT DEFAULT 0 NOT NULL,
   menu_id              VARCHAR(64)   NOT NULL,
   FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
   FOREIGN KEY (article_author) REFERENCES users (username)
@@ -66,6 +68,7 @@ CREATE TABLE article_en (
   article_sources      INT DEFAULT 0 NOT NULL,
   article_sources_name VARCHAR(100),
   article_sources_link VARCHAR(200),
+  article_sn           INT DEFAULT 0 NOT NULL,
   menu_id              VARCHAR(64)   NOT NULL,
   FOREIGN KEY (menu_id) REFERENCES menus (menu_id),
   FOREIGN KEY (article_author) REFERENCES users (username)
