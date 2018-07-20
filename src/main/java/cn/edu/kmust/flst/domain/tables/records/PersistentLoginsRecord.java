@@ -32,7 +32,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class PersistentLoginsRecord extends UpdatableRecordImpl<PersistentLoginsRecord> implements Record4<String, String, String, Timestamp> {
 
-    private static final long serialVersionUID = 1353726266;
+    private static final long serialVersionUID = 2144077472;
 
     /**
      * Setter for <code>flst.persistent_logins.username</code>.
@@ -92,6 +92,7 @@ public class PersistentLoginsRecord extends UpdatableRecordImpl<PersistentLogins
     /**
      * Getter for <code>flst.persistent_logins.last_used</code>.
      */
+    @NotNull
     public Timestamp getLastUsed() {
         return (Timestamp) get(3);
     }

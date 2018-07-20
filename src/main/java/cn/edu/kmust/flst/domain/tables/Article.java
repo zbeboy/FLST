@@ -41,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Article extends TableImpl<ArticleRecord> {
 
-    private static final long serialVersionUID = -456899214;
+    private static final long serialVersionUID = 626733498;
 
     /**
      * The reference instance of <code>flst.article</code>
@@ -105,6 +105,11 @@ public class Article extends TableImpl<ArticleRecord> {
      * The column <code>flst.article.article_sources_link</code>.
      */
     public final TableField<ArticleRecord, String> ARTICLE_SOURCES_LINK = createField("article_sources_link", org.jooq.impl.SQLDataType.VARCHAR(200), this, "");
+
+    /**
+     * The column <code>flst.article.article_sn</code>.
+     */
+    public final TableField<ArticleRecord, Integer> ARTICLE_SN = createField("article_sn", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.inline("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>flst.article.menu_id</code>.

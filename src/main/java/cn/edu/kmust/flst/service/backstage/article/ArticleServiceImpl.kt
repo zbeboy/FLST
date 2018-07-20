@@ -89,9 +89,9 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
     override fun saveAndReturnId(article: Article): Int {
         return create.insertInto(ARTICLE, ARTICLE.ARTICLE_TITLE, ARTICLE.ARTICLE_BRIEF, ARTICLE.ARTICLE_COVER, ARTICLE.ARTICLE_DATE,
                 ARTICLE.ARTICLE_CLICKS, ARTICLE.ARTICLE_AUTHOR, ARTICLE.ARTICLE_SOURCES, ARTICLE.ARTICLE_SOURCES_NAME, ARTICLE.ARTICLE_SOURCES_LINK,
-                ARTICLE.MENU_ID)
+                ARTICLE.ARTICLE_SN, ARTICLE.MENU_ID)
                 .values(article.articleTitle, article.articleBrief, article.articleCover, article.articleDate, article.articleClicks,
-                        article.articleAuthor, article.articleSources, article.articleSourcesName, article.articleSourcesLink, article.menuId)
+                        article.articleAuthor, article.articleSources, article.articleSourcesName, article.articleSourcesLink, article.articleSn, article.menuId)
                 .returning(ARTICLE.ARTICLE_ID)
                 .fetchOne().getValue(ARTICLE.ARTICLE_ID)
     }

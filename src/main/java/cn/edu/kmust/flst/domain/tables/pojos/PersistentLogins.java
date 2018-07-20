@@ -25,7 +25,7 @@ import javax.validation.constraints.Size;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class PersistentLogins implements Serializable {
 
-    private static final long serialVersionUID = 1049487119;
+    private static final long serialVersionUID = 739597811;
 
     private String    username;
     private String    series;
@@ -83,6 +83,7 @@ public class PersistentLogins implements Serializable {
         this.token = token;
     }
 
+    @NotNull
     public Timestamp getLastUsed() {
         return this.lastUsed;
     }

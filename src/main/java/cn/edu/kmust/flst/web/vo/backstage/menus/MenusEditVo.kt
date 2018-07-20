@@ -27,4 +27,6 @@ open class MenusEditVo {
     var menuOrder: Int? = null
     var menuShow: Byte? = null
     var showArticle: Byte? = null
+    @NotNull
+    var orderWay: Int? = null
 }

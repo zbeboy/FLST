@@ -133,6 +133,13 @@ public class ArticleEnDao extends DAOImpl<ArticleEnRecord, cn.edu.kmust.flst.dom
     }
 
     /**
+     * Fetch records that have <code>article_sn IN (values)</code>
+     */
+    public List<cn.edu.kmust.flst.domain.tables.pojos.ArticleEn> fetchByArticleSn(Integer... values) {
+        return fetch(ArticleEn.ARTICLE_EN.ARTICLE_SN, values);
+    }
+
+    /**
      * Fetch records that have <code>menu_id IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.tables.pojos.ArticleEn> fetchByMenuId(String... values) {

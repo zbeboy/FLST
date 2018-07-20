@@ -17,7 +17,7 @@ $(document).ready(function () {
     var ajax_url = {
         pids: '/web/backstage/article/menus',
         file_upload_url: '/web/backstage/article/cover/upload',
-        del_cover:'/web/backstage/article/cover/delete',
+        del_cover: '/web/backstage/article/cover/delete',
         save: '/web/backstage/article/save',
         back: '/web/backstage/article'
     };
@@ -33,7 +33,8 @@ $(document).ready(function () {
         articleCoverTemp: '#articleCoverTemp',
         articleSources: '#articleSources',
         articleSourcesName: '#articleSourcesName',
-        articleSourcesLink: '#articleSourcesLink'
+        articleSourcesLink: '#articleSourcesLink',
+        articleSn: '#articleSn'
     };
 
     /*
@@ -47,7 +48,8 @@ $(document).ready(function () {
         articleContent: '',
         articleSources: $("input[name='articleSources']:checked").val(),
         articleSourcesName: $(paramId.articleSourcesName).val(),
-        articleSourcesLink: $(paramId.articleSourcesLink).val()
+        articleSourcesLink: $(paramId.articleSourcesLink).val(),
+        articleSn: $(paramId.articleSn).val()
     };
 
     var IMG = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMzE5IiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMxOSAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTYyYmUyMDgyYWQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxNnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNjJiZTIwODJhZCI+PHJlY3Qgd2lkdGg9IjMxOSIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMTcuOTg0Mzc1IiB5PSIxMDcuMiI+MzE5eDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==";
@@ -87,20 +89,23 @@ $(document).ready(function () {
         param.articleSources = $("input[name='articleSources']:checked").val();
         param.articleSourcesName = $(paramId.articleSourcesName).val();
         param.articleSourcesLink = $(paramId.articleSourcesLink).val();
+        param.articleSn = $(paramId.articleSn).val();
     }
 
     /*
    检验id
    */
     var validId = {
-        articleTitle: '#valid_article_title'
+        articleTitle: '#valid_article_title',
+        articleSn: '#valid_article_sn'
     };
 
     /*
      错误消息id
      */
     var errorMsgId = {
-        articleTitle: '#article_title_error_msg'
+        articleTitle: '#article_title_error_msg',
+        articleSn: '#article_sn_error_msg'
     };
 
     /**
@@ -122,6 +127,16 @@ $(document).ready(function () {
     function validErrorDom(validId, errorMsgId, msg) {
         $(validId).addClass('has-error').removeClass('has-success');
         $(errorMsgId).removeClass('hidden').text(msg);
+    }
+
+    /**
+     * 清除检验
+     * @param validId
+     * @param errorMsgId
+     */
+    function validCleanDom(validId, errorMsgId) {
+        $(validId).removeClass('has-error').removeClass('has-success');
+        $(errorMsgId).addClass('hidden').text('');
     }
 
     /**
@@ -179,8 +194,8 @@ $(document).ready(function () {
     $('#clearImg').click(function () {
         $(paramId.articleCoverTemp).attr('src', IMG);
         var articleCover = $(paramId.articleCover).val();
-        if(articleCover !== ''){
-            $.post(web_path + ajax_url.del_cover,{articleCover:articleCover},function (data) {
+        if (articleCover !== '') {
+            $.post(web_path + ajax_url.del_cover, {articleCover: articleCover}, function (data) {
                 Messenger().post({
                     message: data.msg,
                     type: data.state ? 'info' : 'error',
@@ -202,6 +217,19 @@ $(document).ready(function () {
         }
     });
 
+    $(paramId.articleSn).blur(function () {
+        var orderWay = $(paramId.menuId + " option:selected").attr("data-sort-order");
+        if (Number(orderWay) === 1) {
+            initParam();
+            var articleSn = param.articleSn;
+            if (articleSn === '') {
+                validErrorDom(validId.articleSn, errorMsgId.articleSn, '请填写文章序号');
+            } else {
+                validSuccessDom(validId.articleSn, errorMsgId.articleSn);
+            }
+        }
+    });
+
     $('#original').click(function () {
         $(paramId.articleSourcesName).attr('type', 'hidden');
         $(paramId.articleSourcesLink).attr('type', 'hidden');
@@ -213,6 +241,25 @@ $(document).ready(function () {
         $(paramId.articleSourcesName).attr('type', 'text');
         $(paramId.articleSourcesLink).attr('type', 'text');
     });
+
+    $(paramId.menuId).on('loaded.bs.select', function (e) {
+        readonlyArticleSn();
+    });
+
+    $(paramId.menuId).on('changed.bs.select', function (e) {
+        readonlyArticleSn();
+    });
+
+    function readonlyArticleSn() {
+        var orderWay = $(paramId.menuId + " option:selected").attr("data-sort-order");
+        if (Number(orderWay) === 0) {
+            $(paramId.articleSn).prop('readonly', true);
+            $(paramId.articleSn).val(0);
+            validCleanDom(validId.articleSn, errorMsgId.articleSn);
+        } else if (Number(orderWay) === 1) {
+            $(paramId.articleSn).prop('readonly', false);
+        }
+    }
 
     /*
     返回
@@ -305,6 +352,22 @@ $(document).ready(function () {
             if (articleSourcesName.length <= 0) {
                 Messenger().post({
                     message: '请填写来源',
+                    type: 'error',
+                    showCloseButton: true
+                });
+                return;
+            }
+        }
+        validArticleSn();
+    }
+
+    function validArticleSn() {
+        var orderWay = $(paramId.menuId + " option:selected").attr("data-sort-order");
+        if (Number(orderWay) === 1) {
+            var articleSn = param.articleSn;
+            if (articleSn === '') {
+                Messenger().post({
+                    message: '请填写文章序号',
                     type: 'error',
                     showCloseButton: true
                 });
