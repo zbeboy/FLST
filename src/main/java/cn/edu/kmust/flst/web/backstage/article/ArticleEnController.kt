@@ -180,4 +180,18 @@ open class ArticleEnController {
         articleEnService.deleteById(id)
         return AjaxUtils.of<Any>().success().msg("删除成功")
     }
+
+    /**
+     * 更新序号
+     *
+     * @return 删除结果
+     */
+    @RequestMapping(value = ["/web/backstage/en/article/update/sno"], method = [(RequestMethod.POST)])
+    @ResponseBody
+    fun updateSno(@RequestParam("articleId") id: Int, @RequestParam("articleSn") articleSn: Int): AjaxUtils<*> {
+        val article = articleEnService.findById(id)
+        article.articleSn = articleSn
+        articleEnService.update(article)
+        return AjaxUtils.of<Any>().success().msg("更新成功")
+    }
 }
