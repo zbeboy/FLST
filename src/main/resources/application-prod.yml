@@ -13,7 +13,7 @@ spring:
     sql-dialect: mysql
   datasource:
     url: jdbc:mysql://localhost:3306/flst?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: flst
+    username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
   resources:
