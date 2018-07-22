@@ -1,2 +1,2 @@
 # FLST
-昆工-生命科学与技术学院
+Make for school
