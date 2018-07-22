@@ -17,4 +17,5 @@ class ArticleEnBean : ArticleEn() {
     var menuShow: Byte? = null
     var menuFixed: Byte? = null
     var showArticle: Byte? = null
+    var orderWay: Int? = null
 }

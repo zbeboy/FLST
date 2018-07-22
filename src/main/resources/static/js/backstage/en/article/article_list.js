@@ -10,7 +10,8 @@ function getAjaxUrl() {
         articles: '/web/backstage/en/article/data',
         add: '/web/backstage/en/article/add',
         edit: '/web/backstage/en/article/edit',
-        del: '/web/backstage/en/article/delete'
+        del: '/web/backstage/en/article/delete',
+        updateSno: '/web/backstage/en/article/update/sno'
     };
 }
 
@@ -70,14 +71,27 @@ function operation(value, row, index, field) {
                 "css": "edit",
                 "type": "primary",
                 "id": row.articleId,
-                "article": row.articleTitle
+                "article": row.articleTitle,
+                "orderWay": row.orderWay,
+                "articleSn": row.articleSn
             },
             {
                 "name": "删除",
                 "css": "del",
                 "type": "danger",
                 "id": row.articleId,
-                "article": row.articleTitle
+                "article": row.articleTitle,
+                "orderWay": row.orderWay,
+                "articleSn": row.articleSn
+            },
+            {
+                "name": "序号",
+                "css": "sno",
+                "type": "default",
+                "id": row.articleId,
+                "article": row.articleTitle,
+                "orderWay": row.orderWay,
+                "articleSn": row.articleSn
             }
         ]
     };
@@ -142,6 +156,62 @@ function del(id, name) {
     });
 }
 
+function sno(id, name, orderWay, sno) {
+    var msg;
+    msg = Messenger().post({
+        message: "确定修改文章 '" + name + "'  序号吗?",
+        actions: {
+            retry: {
+                label: '确定',
+                phrase: 'Retrying TIME',
+                action: function () {
+                    msg.cancel();
+                    if (Number(orderWay) === 1) {
+                        $('#articleSn').val(sno);
+                        $('#updateArticleSnoId').val(id);
+                        $('#snoModal').modal('show');
+                    } else {
+                        Messenger().post({
+                            message: '该文章所在栏目未采用序号排序',
+                            type: 'error',
+                            showCloseButton: true
+                        });
+                    }
+
+                }
+            },
+            cancel: {
+                label: '取消',
+                action: function () {
+                    return msg.cancel();
+                }
+            }
+        }
+    });
+}
+
+function updateSno() {
+    var id = $('#updateArticleSnoId').val();
+    var articleSn = $('#articleSn').val();
+    if (articleSn === '') {
+        Messenger().post({
+            message: '请填写序号',
+            type: 'error',
+            showCloseButton: true
+        });
+    } else {
+        $.post(web_path + getAjaxUrl().updateSno, {articleId: id, articleSn: articleSn}, function (data) {
+            refreshTable();
+            $('#snoModal').modal('hide');
+            Messenger().post({
+                message: data.msg,
+                type: data.state ? 'info' : 'error',
+                showCloseButton: true
+            });
+        });
+    }
+}
+
 $(document).ready(function () {
     /*
     init message.
@@ -172,6 +242,14 @@ $(document).ready(function () {
 
     dataTable.delegate('.del', "click", function () {
         del($(this).attr('data-id'), $(this).attr('data-article'));
+    });
+
+    dataTable.delegate('.sno', "click", function () {
+        sno($(this).attr('data-id'), $(this).attr('data-article'), $(this).attr('data-menu-order-way'), $(this).attr('data-article-sno'));
+    });
+
+    $('#saveSno').click(function () {
+        updateSno();
     });
 
     $(getParamId().articleTitle).keyup(function (event) {
