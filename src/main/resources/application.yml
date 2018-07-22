@@ -15,7 +15,7 @@ spring:
 # logging setting
 logging:
   file: flst.log
-  path: logs
+  path: logst
 
 # server setting
 server:
