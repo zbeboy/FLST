@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
-<head th:include="header :: header(~{::meta},~{::title},~{::link})">
+<head th:include="header :: no-metas-header(~{::title},~{::link})">
     <!-- csrf -->
     <meta name="_csrf" content="" th:content="${_csrf.token}"/>
     <!-- default header name is X-CSRF-TOKEN -->
