@@ -67,12 +67,33 @@
         </div>
     </div><!--/.row-->
 </div>    <!--/.main-->
+<!-- 更新序号modal -->
+<div class="modal fade" id="snoModal" tabindex="-1" role="dialog" aria-labelledby="snoModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="snoModalLabel">序号变更</h4>
+            </div>
+            <div class="modal-body">
+                <input type="number" class="form-control" id="articleSn" name="articleSn" placeholder="文章序号"/>
+                <input type="hidden" id="updateArticleSnoId"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="saveSno">保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!--定义操作列按钮模板-->
 <script id="operator_button" type="text/x-handlebars-template">
     <div class="btn-group" role="group">
         {{#each func}}
         <button type="button" class="btn btn-{{this.type}} btn-sm {{this.css}}" data-id="{{this.id}}"
-                data-article="{{this.article}}">
+                data-article="{{this.article}}" data-article-sno="{{this.articleSn}}"
+                data-menu-order-way="{{this.orderWay}}">
             {{this.name}}
         </button>
         {{/each}}
