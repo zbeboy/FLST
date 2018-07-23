@@ -6,6 +6,7 @@ import cn.edu.kmust.flst.domain.tables.pojos.Article
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
+import cn.edu.kmust.flst.web.bean.reception.SorterBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.*
 import org.springframework.beans.factory.annotation.Autowired
@@ -55,34 +56,23 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
                 .fetchOptional()
     }
 
-    override fun findOneGTArticleDateByPage(articleDate: Timestamp, menuId: String): Optional<Record> {
-        return create.select()
-                .from(ARTICLE)
-                .where(ARTICLE.ARTICLE_DATE.greaterThan(articleDate).and(ARTICLE.MENU_ID.eq(menuId)))
-                .orderBy(ARTICLE.ARTICLE_DATE)
-                .limit(0, 1)
-                .fetchOptional()
+    override fun findOneGTArticleDateByPage(articleDate: Timestamp, menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select().from(ARTICLE).where(ARTICLE.ARTICLE_DATE.greaterThan(articleDate).and(ARTICLE.MENU_ID.eq(menuId)))
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
     }
 
-    override fun findOneLTArticleDateByPage(articleDate: Timestamp, menuId: String): Optional<Record> {
-        return create.select()
-                .from(ARTICLE)
-                .where(ARTICLE.ARTICLE_DATE.lessThan(articleDate).and(ARTICLE.MENU_ID.eq(menuId)))
-                .orderBy(ARTICLE.ARTICLE_DATE.desc())
-                .limit(0, 1)
-                .fetchOptional()
+    override fun findOneLTArticleDateByPage(articleDate: Timestamp, menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select().from(ARTICLE).where(ARTICLE.ARTICLE_DATE.lessThan(articleDate).and(ARTICLE.MENU_ID.eq(menuId)))
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
     }
 
     @Cacheable(cacheNames = ["article"], key = "#menuId")
-    override fun findOneByPageOrderByArticleDate(menuId: String): Optional<Record> {
-        return create.select()
-                .from(ARTICLE)
-                .join(ARTICLE_CONTENT)
-                .on(ARTICLE.ARTICLE_ID.eq(ARTICLE_CONTENT.ID))
-                .where(ARTICLE.MENU_ID.eq(menuId))
-                .orderBy(ARTICLE.ARTICLE_DATE.desc())
-                .limit(0, 1)
-                .fetchOptional()
+    override fun findOneByPageOrderByArticleDate(menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select().from(ARTICLE).join(ARTICLE_CONTENT).on(ARTICLE.ARTICLE_ID.eq(ARTICLE_CONTENT.ID)).where(ARTICLE.MENU_ID.eq(menuId));
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
     }
 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
@@ -221,5 +211,23 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
             }
         }
         sortToFinish(selectConditionStep, selectJoinStep, type, *sortField!!)
+    }
+
+    private fun sorter(condition: SelectConditionStep<Record>, sorterBean: SorterBean) {
+        if (sorterBean.sortName == "articleDateStr") {
+            if (sorterBean.sortOrder == "desc") {
+                condition.orderBy(ARTICLE.ARTICLE_DATE.desc())
+            } else if (sorterBean.sortOrder == "asc") {
+                condition.orderBy(ARTICLE.ARTICLE_DATE.asc())
+            }
+        }
+
+        if (sorterBean.sortName == "articleSn") {
+            if (sorterBean.sortOrder == "desc") {
+                condition.orderBy(ARTICLE.ARTICLE_SN.desc())
+            } else if (sorterBean.sortOrder == "asc") {
+                condition.orderBy(ARTICLE.ARTICLE_SN.asc())
+            }
+        }
     }
 }

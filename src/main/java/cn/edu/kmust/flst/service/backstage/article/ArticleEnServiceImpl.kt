@@ -6,6 +6,7 @@ import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
+import cn.edu.kmust.flst.web.bean.reception.SorterBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.*
 import org.springframework.beans.factory.annotation.Autowired
@@ -55,34 +56,31 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
                 .fetchOptional()
     }
 
-    override fun findOneGTArticleDateByPage(articleDate: Timestamp, menuId: String): Optional<Record> {
-        return create.select()
+    override fun findOneGTArticleDateByPage(articleDate: Timestamp, menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select()
                 .from(ARTICLE_EN)
                 .where(ARTICLE_EN.ARTICLE_DATE.greaterThan(articleDate).and(ARTICLE_EN.MENU_ID.eq(menuId)))
-                .orderBy(ARTICLE_EN.ARTICLE_DATE)
-                .limit(0, 1)
-                .fetchOptional()
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
     }
 
-    override fun findOneLTArticleDateByPage(articleDate: Timestamp, menuId: String): Optional<Record> {
-        return create.select()
+    override fun findOneLTArticleDateByPage(articleDate: Timestamp, menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select()
                 .from(ARTICLE_EN)
                 .where(ARTICLE_EN.ARTICLE_DATE.lessThan(articleDate).and(ARTICLE_EN.MENU_ID.eq(menuId)))
-                .orderBy(ARTICLE_EN.ARTICLE_DATE.desc())
-                .limit(0, 1)
-                .fetchOptional()
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
     }
 
     @Cacheable(cacheNames = ["article_en"], key = "#menuId")
-    override fun findOneByPageOrderByArticleDate(menuId: String): Optional<Record> {
-        return create.select()
+    override fun findOneByPageOrderByArticleDate(menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select()
                 .from(ARTICLE_EN)
                 .join(ARTICLE_EN_CONTENT)
                 .on(ARTICLE_EN.ARTICLE_ID.eq(ARTICLE_EN_CONTENT.ID))
                 .where(ARTICLE_EN.MENU_ID.eq(menuId))
-                .orderBy(ARTICLE_EN.ARTICLE_DATE.desc())
-                .limit(0, 1)
-                .fetchOptional()
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
     }
 
     override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<ArticleEnBean>): Result<Record> {
@@ -221,5 +219,23 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
             }
         }
         sortToFinish(selectConditionStep, selectJoinStep, type, *sortField!!)
+    }
+
+    private fun sorter(condition: SelectConditionStep<Record>, sorterBean: SorterBean) {
+        if (sorterBean.sortName == "articleDateStr") {
+            if (sorterBean.sortOrder == "desc") {
+                condition.orderBy(ARTICLE_EN.ARTICLE_DATE.desc())
+            } else if (sorterBean.sortOrder == "asc") {
+                condition.orderBy(ARTICLE_EN.ARTICLE_DATE.asc())
+            }
+        }
+
+        if (sorterBean.sortName == "articleSn") {
+            if (sorterBean.sortOrder == "desc") {
+                condition.orderBy(ARTICLE_EN.ARTICLE_SN.desc())
+            } else if (sorterBean.sortOrder == "asc") {
+                condition.orderBy(ARTICLE_EN.ARTICLE_SN.asc())
+            }
+        }
     }
 }
