@@ -11,8 +11,6 @@ spring:
       enabled: true
   jooq:
     sql-dialect: mysql
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
 
 server:
   port: 8080
