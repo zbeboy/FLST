@@ -28,7 +28,7 @@ open class WebConfiguration : WebMvcConfigurer {
      */
     @Bean
     open fun localeResolver(): LocaleResolver {
-        return SessionLocaleResolver() as LocaleResolver
+        return SessionLocaleResolver()
     }
 
     @Bean
