@@ -204,7 +204,7 @@
                         <configuration>
                             <executable>true</executable>
                             <arguments>
-                                <argument>--spring.profiles.active=dev</argument>
+                                <argument>--spring.profiles.active=secrecy,dev</argument>
                             </arguments>
                         </configuration>
                     </plugin>
@@ -330,7 +330,7 @@
                         <configuration>
                             <executable>true</executable>
                             <arguments>
-                                <argument>--spring.profiles.active=prod</argument>
+                                <argument>--spring.profiles.active=secrecy,prod</argument>
                             </arguments>
                         </configuration>
                     </plugin>

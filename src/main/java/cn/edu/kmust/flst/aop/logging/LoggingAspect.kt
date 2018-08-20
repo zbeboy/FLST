@@ -31,7 +31,7 @@ class LoggingAspect {
     /**
      * 日志切面
      */
-    @Pointcut("within(top.zbeboy.isy.service..*) || within(top.zbeboy.isy.web..*)")
+    @Pointcut("within(cn.edu.kmust.flst.service..*) || within(cn.edu.kmust.flst.web..*)")
     fun loggingPointcut() {
     }
 

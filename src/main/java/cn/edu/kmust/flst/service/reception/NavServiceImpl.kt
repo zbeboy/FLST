@@ -3,7 +3,6 @@ package cn.edu.kmust.flst.service.reception
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.records.MenusRecord
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
-import cn.edu.kmust.flst.service.util.RequestUtils
 import org.jooq.Result
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
@@ -38,12 +37,12 @@ open class NavServiceImpl : NavService {
                 val list2 = menusService.findByPIdAndMenuShowAndMenuFixed(menu1.menuId, 1, 0)
                 if (!ObjectUtils.isEmpty(list2)) {
                     li += " class=\"dropdown\">"
-                    li += "<a href=\"${getUrl(menu1.menuLink, request)}\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">${getMenuName(language, menu1)} <span class=\"caret\"></span></a>"
+                    li += "<a href=\"${getUrl(menu1.menuLink)}\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">${getMenuName(language, menu1)} <span class=\"caret\"></span></a>"
                     li += "<ul class=\"dropdown-menu\">"
                     // 开始次级递归生成
                     li = generateHtml(list2, li, language, request)
                 } else {
-                    li += "><a href=\"${getUrl(menu1.menuLink, request)}\">${getMenuName(language, menu1)}</a></li>"
+                    li += "><a href=\"${getUrl(menu1.menuLink)}\">${getMenuName(language, menu1)}</a></li>"
                 }
             }
         }
@@ -64,11 +63,11 @@ open class NavServiceImpl : NavService {
             val list = menusService.findByPIdAndMenuShowAndMenuFixed(menu.menuId, 1, 0)
             if (!ObjectUtils.isEmpty(list)) {
                 li += "<li class=\"dropdown-submenu\"> "
-                li += "<a href=\"${getUrl(menu.menuLink, request)}\">${getMenuName(language, menu)}</a>"
+                li += "<a href=\"${getUrl(menu.menuLink)}\">${getMenuName(language, menu)}</a>"
                 li += "<ul class=\"dropdown-menu\"> "
                 li = generateHtml(list, li, language, request)
             } else {
-                li += "<li><a href=\"${getUrl(menu.menuLink, request)}\">${getMenuName(language, menu)}</a></li>"
+                li += "<li><a href=\"${getUrl(menu.menuLink)}\">${getMenuName(language, menu)}</a></li>"
             }
         }
         li += "</ul></li>"
@@ -89,7 +88,7 @@ open class NavServiceImpl : NavService {
     /**
      * 获取栏目链接
      */
-    private fun getUrl(menuLink: String, request: HttpServletRequest): String {
+    private fun getUrl(menuLink: String): String {
         return menuLink
     }
 }
