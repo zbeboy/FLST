@@ -83,6 +83,32 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
         return condition.limit(0, 1).fetchOptional()
     }
 
+    override fun findOneGTArticleSnByPage(articleSn: Int, menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select()
+                .from(ARTICLE_EN)
+                .where(ARTICLE_EN.ARTICLE_SN.greaterThan(articleSn).and(ARTICLE_EN.MENU_ID.eq(menuId)))
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
+    }
+
+    override fun findOneLTArticleSnByPage(articleSn: Int, menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select()
+                .from(ARTICLE_EN)
+                .where(ARTICLE_EN.ARTICLE_SN.lessThan(articleSn).and(ARTICLE_EN.MENU_ID.eq(menuId)))
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
+    }
+
+    override fun findOneByPageOrderByArticleSn(menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select()
+                .from(ARTICLE_EN)
+                .join(ARTICLE_EN_CONTENT)
+                .on(ARTICLE_EN.ARTICLE_ID.eq(ARTICLE_EN_CONTENT.ID))
+                .where(ARTICLE_EN.MENU_ID.eq(menuId))
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
+    }
+
     override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<ArticleEnBean>): Result<Record> {
         val a = searchCondition(bootstrapTableUtils)
         return if (ObjectUtils.isEmpty(a)) {

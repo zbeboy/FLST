@@ -62,6 +62,29 @@ interface ArticleService {
     fun findOneByPageOrderByArticleDate(menuId: String, sorterBean: SorterBean): Optional<Record>
 
     /**
+     * 通过查询下一篇文章
+     *
+     * @param articleSn 序号
+     * @return 数据
+     */
+    fun findOneGTArticleSnByPage(articleSn: Int, menuId: String, sorterBean: SorterBean): Optional<Record>
+
+    /**
+     * 通过查询上一篇文章
+     *
+     * @param articleSn 序号
+     * @return 数据
+     */
+    fun findOneLTArticleSnByPage(articleSn: Int, menuId: String, sorterBean: SorterBean): Optional<Record>
+
+    /**
+     * 查询最新一条
+     *
+     * @return 数据
+     */
+    fun findOneByPageOrderByArticleSn(menuId: String, sorterBean: SorterBean): Optional<Record>
+
+    /**
      * 分页查询
      *
      * @param bootstrapTableUtils bootstrapTable工具类

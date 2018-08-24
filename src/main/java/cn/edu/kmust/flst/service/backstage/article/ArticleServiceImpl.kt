@@ -70,7 +70,26 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
 
     @Cacheable(cacheNames = ["article"], key = "#menuId")
     override fun findOneByPageOrderByArticleDate(menuId: String, sorterBean: SorterBean): Optional<Record> {
-        val condition = create.select().from(ARTICLE).join(ARTICLE_CONTENT).on(ARTICLE.ARTICLE_ID.eq(ARTICLE_CONTENT.ID)).where(ARTICLE.MENU_ID.eq(menuId));
+        val condition = create.select().from(ARTICLE).join(ARTICLE_CONTENT).on(ARTICLE.ARTICLE_ID.eq(ARTICLE_CONTENT.ID)).where(ARTICLE.MENU_ID.eq(menuId))
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
+    }
+
+    override fun findOneGTArticleSnByPage(articleSn: Int, menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select().from(ARTICLE).where(ARTICLE.ARTICLE_SN.greaterThan(articleSn).and(ARTICLE.MENU_ID.eq(menuId)))
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
+    }
+
+    override fun findOneLTArticleSnByPage(articleSn: Int, menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select().from(ARTICLE).where(ARTICLE.ARTICLE_SN.lessThan(articleSn).and(ARTICLE.MENU_ID.eq(menuId)))
+        sorter(condition, sorterBean)
+        return condition.limit(0, 1).fetchOptional()
+    }
+
+    @Cacheable(cacheNames = ["article"], key = "#menuId")
+    override fun findOneByPageOrderByArticleSn(menuId: String, sorterBean: SorterBean): Optional<Record> {
+        val condition = create.select().from(ARTICLE).join(ARTICLE_CONTENT).on(ARTICLE.ARTICLE_ID.eq(ARTICLE_CONTENT.ID)).where(ARTICLE.MENU_ID.eq(menuId))
         sorter(condition, sorterBean)
         return condition.limit(0, 1).fetchOptional()
     }

@@ -2,6 +2,7 @@ package cn.edu.kmust.flst.web.reception
 
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Article
+import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
@@ -14,6 +15,7 @@ import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
 import cn.edu.kmust.flst.web.bean.reception.SorterBean
 import cn.edu.kmust.flst.web.common.MethodControllerCommon
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
+import org.jooq.Record
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
@@ -24,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.LocaleResolver
 import java.net.URLEncoder
-import java.sql.Timestamp
 import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
@@ -79,7 +80,12 @@ open class ReceptionMainController {
                     var page = "reception/article_content"
                     // 中文文章
                     if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
-                        val data = articleService.findOneByPageOrderByArticleDate(menuId, sorter(menu.orderWay))
+                        var data = Optional.empty<Record>()
+                        if (menu.orderWay == 0) {
+                            data = articleService.findOneByPageOrderByArticleDate(menuId, sorter(menu.orderWay, "desc"))
+                        } else if (menu.orderWay == 1) {
+                            data = articleService.findOneByPageOrderByArticleSn(menuId, sorter(menu.orderWay, "asc"))
+                        }
                         if (data.isPresent) {
                             val article = data.get().into(ArticleBean::class.java)
                             article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy年MM月dd日")
@@ -87,14 +93,19 @@ open class ReceptionMainController {
                             modelMap.addAttribute("title_msg", article.articleTitle)
                             calculationArticleClicks(article.articleId, session, request)
                             // 查询上一篇和下一篇
-                            queryUpAndDownArticle(article.articleDate, menuId, menu.orderWay, modelMap)
+                            queryUpAndDownArticle(article, menu, modelMap)
                         } else {
                             modelMap.addAttribute("status", 404)
                             modelMap.addAttribute("message", "未查询到该文章信息")
                             page = "error"
                         }
                     } else {
-                        val data = articleEnService.findOneByPageOrderByArticleDate(menuId, sorter(menu.orderWay))
+                        var data = Optional.empty<Record>()
+                        if (menu.orderWay == 0) {
+                            data = articleEnService.findOneByPageOrderByArticleDate(menuId, sorter(menu.orderWay, "desc"))
+                        } else if (menu.orderWay == 1) {
+                            data = articleEnService.findOneByPageOrderByArticleSn(menuId, sorter(menu.orderWay, "asc"))
+                        }
                         if (data.isPresent) {
                             val article = data.get().into(ArticleEnBean::class.java)
                             article.articleDateStr = DateTimeUtils.timestampToString(article.articleDate, "yyyy-MM-dd")
@@ -102,7 +113,7 @@ open class ReceptionMainController {
                             modelMap.addAttribute("title_msg", article.articleTitle)
                             calculationArticleEnClicks(article.articleId, session, request)
                             // 查询上一篇和下一篇
-                            queryUpAndDownArticleEn(article.articleDate, menuId, menu.orderWay, modelMap)
+                            queryUpAndDownArticleEn(article, menu, modelMap)
                         } else {
                             modelMap.addAttribute("status", 404)
                             modelMap.addAttribute("message", "Article is not found")
@@ -176,7 +187,7 @@ open class ReceptionMainController {
                 calculationArticleClicks(articleId, session, request)
                 // 查询上一篇和下一篇
                 menu = menusService.findById(menuId)
-                queryUpAndDownArticle(article.articleDate, menuId, menu.orderWay, modelMap)
+                queryUpAndDownArticle(article, menu, modelMap)
             } else {
                 modelMap.addAttribute("status", 404)
                 modelMap.addAttribute("message", "未查询到该文章")
@@ -193,7 +204,7 @@ open class ReceptionMainController {
                 calculationArticleEnClicks(articleId, session, request)
                 // 查询上一篇和下一篇
                 menu = menusService.findById(menuId)
-                queryUpAndDownArticleEn(article.articleDate, menuId, menu.orderWay, modelMap)
+                queryUpAndDownArticleEn(article, menu, modelMap)
             } else {
                 modelMap.addAttribute("status", 404)
                 modelMap.addAttribute("message", "Article is not found")
@@ -257,16 +268,24 @@ open class ReceptionMainController {
     /**
      * 查询中文上一篇和下一篇
      */
-    private fun queryUpAndDownArticle(articleDate: Timestamp, menuId: String, orderWay: Int, modelMap: ModelMap) {
+    private fun queryUpAndDownArticle(article: Article, menu: Menus, modelMap: ModelMap) {
         // 查询上一篇和下一篇
-        val upData = articleService.findOneGTArticleDateByPage(articleDate, menuId, sorter(orderWay))
+        var upData = Optional.empty<Record>()
+        var downData = Optional.empty<Record>()
+        if (menu.orderWay == 0) {
+            upData = articleService.findOneGTArticleDateByPage(article.articleDate, menu.menuId, sorter(menu.orderWay, "asc"))
+            downData = articleService.findOneLTArticleDateByPage(article.articleDate, menu.menuId, sorter(menu.orderWay, "desc"))
+        } else if (menu.orderWay == 1) {
+            upData = articleService.findOneLTArticleSnByPage(article.articleSn, menu.menuId, sorter(menu.orderWay, "desc"))
+            downData = articleService.findOneGTArticleSnByPage(article.articleSn, menu.menuId, sorter(menu.orderWay, "asc"))
+        }
+
         if (upData.isPresent) {
             modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
         } else {
             modelMap.addAttribute("upArticle", Article())
         }
 
-        val downData = articleService.findOneLTArticleDateByPage(articleDate, menuId, sorter(orderWay))
         if (downData.isPresent) {
             modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
         } else {
@@ -277,16 +296,23 @@ open class ReceptionMainController {
     /**
      * 查询英文上一篇和下一篇
      */
-    private fun queryUpAndDownArticleEn(articleDate: Timestamp, menuId: String, orderWay: Int, modelMap: ModelMap) {
+    private fun queryUpAndDownArticleEn(article: ArticleEn, menu: Menus, modelMap: ModelMap) {
         // 查询上一篇和下一篇
-        val upData = articleEnService.findOneGTArticleDateByPage(articleDate, menuId, sorter(orderWay))
+        var upData = Optional.empty<Record>()
+        var downData = Optional.empty<Record>()
+        if (menu.orderWay == 0) {
+            upData = articleEnService.findOneGTArticleDateByPage(article.articleDate, menu.menuId, sorter(menu.orderWay, "asc"))
+            downData = articleEnService.findOneLTArticleDateByPage(article.articleDate, menu.menuId, sorter(menu.orderWay, "desc"))
+        } else if (menu.orderWay == 1) {
+            upData = articleEnService.findOneLTArticleSnByPage(article.articleSn, menu.menuId, sorter(menu.orderWay, "desc"))
+            downData = articleEnService.findOneGTArticleSnByPage(article.articleSn, menu.menuId, sorter(menu.orderWay, "asc"))
+        }
         if (upData.isPresent) {
             modelMap.addAttribute("upArticle", upData.get().into(Article::class.java))
         } else {
             modelMap.addAttribute("upArticle", Article())
         }
 
-        val downData = articleEnService.findOneLTArticleDateByPage(articleDate, menuId, sorter(orderWay))
         if (downData.isPresent) {
             modelMap.addAttribute("downArticle", downData.get().into(Article::class.java))
         } else {
@@ -339,16 +365,17 @@ open class ReceptionMainController {
      * 获取该栏目下文章排序
      *
      * @param orderWay 排序方式
+     * @param order 序列
      * @return 排序对象
      */
-    private fun sorter(orderWay: Int): SorterBean {
+    private fun sorter(orderWay: Int, order: String): SorterBean {
         val sorterBean = SorterBean()
         if (orderWay == 0) {
             sorterBean.sortName = "articleDateStr"
-            sorterBean.sortOrder = "desc"
+            sorterBean.sortOrder = order
         } else if (orderWay == 1) {
             sorterBean.sortName = "articleSn"
-            sorterBean.sortOrder = "asc"
+            sorterBean.sortOrder = order
         }
         return sorterBean
     }
