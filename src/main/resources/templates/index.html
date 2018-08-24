@@ -18,14 +18,14 @@
      th:include="nav::receptionNav">
 </nav>
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" th:unless="${#lists.isEmpty(banners)}">
+<div id="carousel-example-generic"  class="carousel slide" style="height: 400px;" data-ride="carousel" th:unless="${#lists.isEmpty(banners)}">
     <ol class="carousel-indicators">
         <li data-target="#carousel-example-generic" data-slide-to="0" th:data-slide-to="${row.count-1}"
             th:each="banner,row:${banners}" th:class="${row.count == 1?'active':''}"></li>
     </ol>
     <div class="carousel-inner" role="listbox">
         <div th:each="banner,row:${banners}" th:class="${row.count == 1?'item active':'item'}">
-            <img alt="banner" th:src="@{'/' + ${banner.bannerLink}}">
+            <img alt="banner" th:src="@{'/' + ${banner.bannerLink}}" style="height: 400px;width: 100%;">
             <div class="carousel-caption">
                 <h3 th:text="${language == 'zh_cn'?banner.bannerTitle:banner.bannerTitleEn}"></h3>
                 <p th:text="${language == 'zh_cn'?banner.bannerBrief:banner.bannerBriefEn}"></p>
@@ -41,8 +41,10 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+
 <div class="container">
     <div class="row">
+
         <div class="col-md-12 about wow fadeInUp">
             <div class="container">
                 <div class="about-area">
