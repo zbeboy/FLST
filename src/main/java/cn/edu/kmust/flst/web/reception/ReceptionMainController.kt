@@ -120,12 +120,10 @@ open class ReceptionMainController {
                             page = "error"
                         }
                     }
-                    modelMap.addAttribute("redirect_uri", "/")
                     page
                 } else {
                     modelMap.addAttribute("title_msg", methodControllerCommon.returnMessage(menu.menuName,
                             menu.menuNameEn, request))
-                    modelMap.addAttribute("redirect_uri", Workbook.RECEPTION_LINK + menuId)
                     for (i in list) {
                         if (i.menuPid == "0") {
                             receptionService.bannerData(modelMap, i.menuId)
@@ -158,8 +156,7 @@ open class ReceptionMainController {
         modelMap.addAttribute("searchContent", searchContent)
         receptionService.navData(modelMap, request)
         // 因servlet会自动解码一次，因此取值会乱码，为此encode两次
-        val m = URLEncoder.encode(URLEncoder.encode(searchContent, Charsets.UTF_8.displayName()), Charsets.UTF_8.displayName())
-        modelMap.addAttribute("redirect_uri", "/user/search?searchContent=$m")
+//        val m = URLEncoder.encode(URLEncoder.encode(searchContent, Charsets.UTF_8.displayName()), Charsets.UTF_8.displayName())
         receptionService.websiteData(modelMap, request)
         receptionService.linksData(modelMap)
         return "reception/article_search"
@@ -213,7 +210,6 @@ open class ReceptionMainController {
         }
 
         receptionService.navData(modelMap, request)
-        modelMap.addAttribute("redirect_uri", "/")
         receptionService.websiteData(modelMap, request)
         val list: ArrayList<Menus> = ArrayList()
         receptionService.getMaxPid(menu, list, request)
