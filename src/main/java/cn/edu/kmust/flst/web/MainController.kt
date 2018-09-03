@@ -1,6 +1,5 @@
 package cn.edu.kmust.flst.web
 
-import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
 import cn.edu.kmust.flst.domain.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.files.FilesService
@@ -10,7 +9,6 @@ import cn.edu.kmust.flst.service.reception.ReceptionService
 import cn.edu.kmust.flst.service.system.AuthoritiesService
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.util.AjaxUtils
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.LocaleResolver
 import org.springframework.web.servlet.ModelAndView
-import java.io.File
 import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
@@ -46,9 +43,6 @@ open class MainController {
 
     @Resource
     open lateinit var filesService: FilesService
-
-    @Autowired
-    open lateinit var flstProperties: FLSTProperties
 
     /**
      * main page
@@ -133,7 +127,7 @@ open class MainController {
      * @return 后台欢迎页
      */
     @RequestMapping(value = ["/web/backstage"], method = [(RequestMethod.GET)])
-    open fun backstage(request: HttpServletRequest): String {
+    open fun backstage(): String {
         return "backstage"
     }
 
@@ -161,7 +155,7 @@ open class MainController {
      * @return 重置页面
      */
     @RequestMapping("/language/{language}")
-    fun language(request: HttpServletRequest, response: HttpServletResponse, @PathVariable("language")language: String): ModelAndView {
+    fun language(request: HttpServletRequest, response: HttpServletResponse, @PathVariable("language") language: String): ModelAndView {
         val languageLowerCase = language.toLowerCase()
         when (languageLowerCase) {
             "zh_cn" -> localeResolver.setLocale(request, response, Locale.CHINA)
