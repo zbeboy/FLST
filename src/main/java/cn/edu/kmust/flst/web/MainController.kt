@@ -94,7 +94,7 @@ open class MainController {
     @RequestMapping(value = ["/data/home/template"], method = [(RequestMethod.GET)])
     @ResponseBody
     fun templateData(request: HttpServletRequest): AjaxUtils<Menus> {
-        val ajaxUtils = AjaxUtils.of<Menus>();
+        val ajaxUtils = AjaxUtils.of<Menus>()
         val records = menusService.findByPIdAndMenuShowAndMenuFixed(Workbook.WEB_FIXED_HOME_ID, 1, 1)
         var menus: List<Menus> = ArrayList()
         if (!ObjectUtils.isEmpty(records) && records.isNotEmpty) {
