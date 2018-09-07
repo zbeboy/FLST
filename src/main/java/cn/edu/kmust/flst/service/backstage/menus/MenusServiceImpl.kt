@@ -1,16 +1,15 @@
 package cn.edu.kmust.flst.service.backstage.menus
 
-import cn.edu.kmust.flst.domain.Tables.MENUS
-import cn.edu.kmust.flst.domain.tables.daos.MenusDao
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
-import cn.edu.kmust.flst.domain.tables.records.MenusRecord
+import cn.edu.kmust.flst.domain.public_.Tables.MENUS
+import cn.edu.kmust.flst.domain.public_.tables.daos.MenusDao
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.public_.tables.records.MenusRecord
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cache.annotation.CacheEvict
-import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
@@ -38,14 +37,14 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
         return menusDao.findAll()
     }
 
-    override fun findByPIdAndMenuShowAndMenuFixed(pid: String, menuShow: Byte, menuFixed: Byte): Result<MenusRecord> {
+    override fun findByPIdAndMenuShowAndMenuFixed(pid: String, menuShow: Boolean, menuFixed: Boolean): Result<MenusRecord> {
         return create.selectFrom(MENUS)
                 .where(MENUS.MENU_PID.eq(pid).and(MENUS.MENU_SHOW.eq(menuShow)).and(MENUS.MENU_FIXED.eq(menuFixed)))
                 .orderBy(MENUS.MENU_ORDER)
                 .fetch()
     }
 
-    override fun findByPIdAndMenuShow(pid: String, menuShow: Byte): Result<MenusRecord> {
+    override fun findByPIdAndMenuShow(pid: String, menuShow: Boolean): Result<MenusRecord> {
         return create.selectFrom(MENUS)
                 .where(MENUS.MENU_PID.eq(pid).and(MENUS.MENU_SHOW.eq(menuShow)))
                 .orderBy(MENUS.MENU_ORDER)
@@ -74,7 +73,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
                 .fetch()
     }
 
-    override fun findByMenuFixed(menuFixed: Byte): List<Menus> {
+    override fun findByMenuFixed(menuFixed: Boolean): List<Menus> {
         return menusDao.fetchByMenuFixed(menuFixed)
     }
 
@@ -89,7 +88,7 @@ open class MenusServiceImpl @Autowired constructor(dslContext: DSLContext) : Men
         menusDao.update(menus)
     }
 
-    override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record11<String, String, String, String, String, Byte, String, Int, Byte, Byte, Int>> {
+    override fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record11<String, String, String, String, String, Boolean, String, Int, Boolean, Boolean, Int>> {
         val a = searchCondition(bootstrapTableUtils)
         val selectOnConditionStep = if (ObjectUtils.isEmpty(a)) {
             create.select(

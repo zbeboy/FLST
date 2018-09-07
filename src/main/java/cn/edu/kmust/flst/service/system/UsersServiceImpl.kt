@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.system
 
-import cn.edu.kmust.flst.domain.tables.daos.UsersDao
-import cn.edu.kmust.flst.domain.tables.pojos.Users
+import cn.edu.kmust.flst.domain.public_.tables.daos.UsersDao
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Users
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.stereotype.Service

@@ -1,9 +1,9 @@
 package cn.edu.kmust.flst.service.backstage.links
 
-import cn.edu.kmust.flst.domain.Tables.FRIENDLY_LINK
-import cn.edu.kmust.flst.domain.tables.daos.FriendlyLinkDao
-import cn.edu.kmust.flst.domain.tables.pojos.FriendlyLink
-import cn.edu.kmust.flst.domain.tables.records.FriendlyLinkRecord
+import cn.edu.kmust.flst.domain.public_.Tables.FRIENDLY_LINK
+import cn.edu.kmust.flst.domain.public_.tables.daos.FriendlyLinkDao
+import cn.edu.kmust.flst.domain.public_.tables.pojos.FriendlyLink
+import cn.edu.kmust.flst.domain.public_.tables.records.FriendlyLinkRecord
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
@@ -36,7 +36,7 @@ open class LinksServiceImpl @Autowired constructor(dslContext: DSLContext) : Boo
     }
 
     @Cacheable(cacheNames = ["friendly_links"], key = "#linkShow")
-    override fun findAllByLinkShow(linkShow: Byte): Result<FriendlyLinkRecord> {
+    override fun findAllByLinkShow(linkShow: Boolean): Result<FriendlyLinkRecord> {
         return create.selectFrom(FRIENDLY_LINK)
                 .where(FRIENDLY_LINK.LINK_SHOW.eq(linkShow))
                 .fetch()

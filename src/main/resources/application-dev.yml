@@ -10,7 +10,7 @@ spring:
     restart:
       enabled: true
   jooq:
-    sql-dialect: mysql
+    sql-dialect: h2
 
 server:
   port: 8080

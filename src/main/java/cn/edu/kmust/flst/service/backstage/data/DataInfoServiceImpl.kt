@@ -1,9 +1,9 @@
 package cn.edu.kmust.flst.service.backstage.data
 
-import cn.edu.kmust.flst.domain.Tables.DATA_INFO
-import cn.edu.kmust.flst.domain.tables.daos.DataInfoDao
-import cn.edu.kmust.flst.domain.tables.pojos.DataInfo
-import cn.edu.kmust.flst.domain.tables.records.DataInfoRecord
+import cn.edu.kmust.flst.domain.public_.Tables.DATA_INFO
+import cn.edu.kmust.flst.domain.public_.tables.daos.DataInfoDao
+import cn.edu.kmust.flst.domain.public_.tables.pojos.DataInfo
+import cn.edu.kmust.flst.domain.public_.tables.records.DataInfoRecord
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import org.jooq.DSLContext
 import org.jooq.Result

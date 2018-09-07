@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.web
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.files.FilesService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.common.UploadService
@@ -95,12 +95,12 @@ open class MainController {
     @ResponseBody
     fun templateData(request: HttpServletRequest): AjaxUtils<Menus> {
         val ajaxUtils = AjaxUtils.of<Menus>()
-        val records = menusService.findByPIdAndMenuShowAndMenuFixed(Workbook.WEB_FIXED_HOME_ID, 1, 1)
+        val records = menusService.findByPIdAndMenuShowAndMenuFixed(Workbook.WEB_FIXED_HOME_ID, true, true)
         var menus: List<Menus> = ArrayList()
         if (!ObjectUtils.isEmpty(records) && records.isNotEmpty) {
             menus = records.into(Menus::class.java)
             menus.forEach { i ->
-                i.menuLink = if (i.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
+                i.menuLink = if (!i.outLink) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
             }
         }
         return ajaxUtils.success().msg("获取数据成功").listData(menus)

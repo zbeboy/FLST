@@ -2,16 +2,15 @@ package cn.edu.kmust.flst.web.backstage.article
 
 import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.pojos.Article
-import cn.edu.kmust.flst.domain.tables.pojos.ArticleContent
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Article
+import cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleContent
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.article.ArticleContentService
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
-import cn.edu.kmust.flst.service.util.FilesUtils
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean
 import cn.edu.kmust.flst.web.bean.file.FileBean
@@ -158,7 +157,7 @@ open class ArticleController {
      */
     @RequestMapping(value = ["/web/backstage/article/menus"], method = [(RequestMethod.GET)])
     @ResponseBody
-    fun pids(menuFixed: Byte?): AjaxUtils<Menus> {
+    fun pids(menuFixed: Boolean?): AjaxUtils<Menus> {
         val ajaxUtils = AjaxUtils.of<Menus>()
         if (!ObjectUtils.isEmpty(menuFixed)) {
             ajaxUtils.success().msg("获取数据成功").listData(menusService.findByMenuFixed(menuFixed!!))

@@ -1,6 +1,6 @@
 package cn.edu.kmust.flst.web.backstage.links
 
-import cn.edu.kmust.flst.domain.tables.pojos.FriendlyLink
+import cn.edu.kmust.flst.domain.public_.tables.pojos.FriendlyLink
 import cn.edu.kmust.flst.service.backstage.links.LinksService
 import cn.edu.kmust.flst.service.util.UUIDUtils
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
@@ -138,7 +138,7 @@ open class LinksController {
      */
     @RequestMapping(value = ["/web/backstage/links/show"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun show(@RequestParam("linkId") linkId: String, @RequestParam("linkShow") linkShow: Byte): AjaxUtils<*> {
+    fun show(@RequestParam("linkId") linkId: String, @RequestParam("linkShow") linkShow: Boolean): AjaxUtils<*> {
         val links = linksService.findById(linkId)
         links.linkShow = linkShow
         linksService.update(links)

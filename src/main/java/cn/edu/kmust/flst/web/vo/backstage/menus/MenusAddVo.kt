@@ -17,13 +17,13 @@ open class MenusAddVo {
     @Size(max = 100)
     var menuNameEn: String? = null
     @NotNull
-    var outLink: Byte? = null
+    var outLink: Boolean? = null
     @Size(max = 150)
     var menuLink: String? = null
     @NotNull
     var menuOrder: Int? = null
-    var menuShow: Byte? = null
-    var showArticle: Byte? = null
+    var menuShow: Boolean? = null
+    var showArticle: Boolean? = null
     @NotNull
     var orderWay: Int? = null
 }

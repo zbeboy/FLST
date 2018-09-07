@@ -1,11 +1,10 @@
 package cn.edu.kmust.flst.service.backstage.menus
 
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
-import cn.edu.kmust.flst.domain.tables.records.MenusRecord
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.public_.tables.records.MenusRecord
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record
-import org.jooq.Record10
 import org.jooq.Record11
 import org.jooq.Result
 
@@ -35,7 +34,7 @@ interface MenusService {
      * @param menuFixed 是否是固定模块
      * @return 数据
      */
-    fun findByPIdAndMenuShowAndMenuFixed(pid: String, menuShow: Byte, menuFixed: Byte): Result<MenusRecord>
+    fun findByPIdAndMenuShowAndMenuFixed(pid: String, menuShow: Boolean, menuFixed: Boolean): Result<MenusRecord>
 
     /**
      * 通过pid查询
@@ -44,7 +43,7 @@ interface MenusService {
      * @param menuShow 是否显示
      * @return 数据
      */
-    fun findByPIdAndMenuShow(pid: String, menuShow: Byte): Result<MenusRecord>
+    fun findByPIdAndMenuShow(pid: String, menuShow: Boolean): Result<MenusRecord>
 
     /**
      * 分页查询
@@ -52,7 +51,7 @@ interface MenusService {
      * @param bootstrapTableUtils bootstrapTable工具类
      * @return 分页数据
      */
-    fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record11<String, String, String, String, String, Byte, String, Int, Byte, Byte, Int>>
+    fun findAllByPage(bootstrapTableUtils: BootstrapTableUtils<MenusBean>): Result<Record11<String, String, String, String, String, Boolean, String, Int, Boolean, Boolean, Int>>
 
     /**
      * 根据条件查询总数
@@ -101,7 +100,7 @@ interface MenusService {
      * @param menuFixed 栏目状态
      * @return 数据
      */
-    fun findByMenuFixed(menuFixed: Byte): List<Menus>
+    fun findByMenuFixed(menuFixed: Boolean): List<Menus>
 
     /**
      * 保存

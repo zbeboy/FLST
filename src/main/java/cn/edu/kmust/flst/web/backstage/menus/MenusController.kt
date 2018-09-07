@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.web.backstage.menus
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.UUIDUtils
@@ -104,7 +104,7 @@ open class MenusController {
      */
     @RequestMapping(value = ["/web/backstage/menus/pids"], method = [(RequestMethod.GET)])
     @ResponseBody
-    fun pids(menuFixed: Byte?): AjaxUtils<Menus> {
+    fun pids(menuFixed: Boolean?): AjaxUtils<Menus> {
         val ajaxUtils = AjaxUtils.of<Menus>()
         if (!ObjectUtils.isEmpty(menuFixed)) {
             ajaxUtils.success().msg("获取数据成功").listData(menusService.findByMenuFixed(menuFixed!!))
@@ -210,7 +210,7 @@ open class MenusController {
             menus.menuName = menusAddVo.menuName
             menus.menuNameEn = menusAddVo.menuNameEn
             menus.outLink = menusAddVo.outLink
-            menus.menuLink = if (menus.outLink != 1.toByte()) {
+            menus.menuLink = if (!menus.outLink) {
                 Workbook.RECEPTION_LINK + menus.menuId
             } else {
                 menusAddVo.menuLink
@@ -220,7 +220,7 @@ open class MenusController {
             menus.menuShow = menusAddVo.menuShow
             menus.showArticle = menusAddVo.showArticle
             menus.orderWay = menusAddVo.orderWay
-            menus.menuFixed = 0
+            menus.menuFixed = false
             menus.menuCreator = usersService.getUsernameFromSession()
             menusService.save(menus)
             return AjaxUtils.of<Any>().success().msg("保存成功")
@@ -247,7 +247,7 @@ open class MenusController {
                 menus.menuName = menusEditVo.menuName
                 menus.menuNameEn = menusEditVo.menuNameEn
                 menus.outLink = menusEditVo.outLink
-                menus.menuLink = if (menus.outLink != 1.toByte()) {
+                menus.menuLink = if (!menus.outLink) {
                     Workbook.RECEPTION_LINK + menus.menuId
                 } else {
                     menusEditVo.menuLink
@@ -275,7 +275,7 @@ open class MenusController {
      */
     @RequestMapping(value = ["/web/backstage/menus/show"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun show(@RequestParam("menuId") menuId: String, @RequestParam("menuShow") menuShow: Byte): AjaxUtils<*> {
+    fun show(@RequestParam("menuId") menuId: String, @RequestParam("menuShow") menuShow: Boolean): AjaxUtils<*> {
         val menus = menusService.findById(menuId)
         menus.menuShow = menuShow
         menusService.update(menus)

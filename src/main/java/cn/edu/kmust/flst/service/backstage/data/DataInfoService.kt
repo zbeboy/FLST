@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.data
 
-import cn.edu.kmust.flst.domain.tables.pojos.DataInfo
-import cn.edu.kmust.flst.domain.tables.records.DataInfoRecord
+import cn.edu.kmust.flst.domain.public_.tables.pojos.DataInfo
+import cn.edu.kmust.flst.domain.public_.tables.records.DataInfoRecord
 import org.jooq.Result
 
 /**

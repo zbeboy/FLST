@@ -1,6 +1,6 @@
 package cn.edu.kmust.flst.service.backstage.article
 
-import cn.edu.kmust.flst.domain.tables.pojos.ArticleContent
+import cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleContent
 
 /**
  * Created by zbeboy 2018-04-25 .

@@ -1,9 +1,9 @@
 package cn.edu.kmust.flst.web.reception
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.pojos.Article
-import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Article
+import cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
@@ -25,7 +25,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.LocaleResolver
-import java.net.URLEncoder
 import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
@@ -66,7 +65,7 @@ open class ReceptionMainController {
         val menu = menusService.findById(menuId)
         val language = localeResolver.resolveLocale(request).displayLanguage
         return if (!ObjectUtils.isEmpty(menu)) {
-            if (menu.menuShow == 1.toByte()) {
+            if (menu.menuShow) {
                 receptionService.navData(modelMap, request)
                 receptionService.websiteData(modelMap, request)
                 val list: ArrayList<Menus> = ArrayList()
@@ -76,7 +75,7 @@ open class ReceptionMainController {
                 modelMap.addAttribute("positions", list)
                 modelMap.addAttribute("menu", menu)
                 // 直接关联文章
-                if (menu.showArticle == 1.toByte()) {
+                if (menu.showArticle) {
                     var page = "reception/article_content"
                     // 中文文章
                     if (language == Workbook.LANGUAGE_ZH_CN_NAME) {
@@ -328,7 +327,7 @@ open class ReceptionMainController {
         var bootstrapTableUtils: BootstrapTableUtils<*>? = BootstrapTableUtils<Any>()
         val menu = menusService.findById(menuId)
         // 该栏目是否正常显示
-        if (menu.menuShow == 1.toByte()) {
+        if (menu.menuShow) {
             // 显示列表
             // 中文文章
             bootstrapTableUtils = if (language == Workbook.LANGUAGE_ZH_CN_NAME) {

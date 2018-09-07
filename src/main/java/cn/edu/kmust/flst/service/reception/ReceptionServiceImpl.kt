@@ -1,8 +1,7 @@
 package cn.edu.kmust.flst.service.reception
 
-import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.banner.BannerService
 import cn.edu.kmust.flst.service.backstage.data.DataInfoService
 import cn.edu.kmust.flst.service.backstage.links.LinksService
@@ -10,7 +9,6 @@ import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.banner.BannerBean
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import org.springframework.ui.ModelMap
 import org.springframework.web.servlet.LocaleResolver
@@ -19,9 +17,6 @@ import javax.servlet.http.HttpServletRequest
 
 @Service("receptionService")
 open class ReceptionServiceImpl : ReceptionService {
-
-    @Autowired
-    open lateinit var flstProperties: FLSTProperties
 
     @Resource
     open lateinit var localeResolver: LocaleResolver
@@ -84,7 +79,7 @@ open class ReceptionServiceImpl : ReceptionService {
     }
 
     override fun bannerData(modelMap: ModelMap, menuId: String) {
-        val bannerRecord = bannerService.findByMenuIdAndBannerShow(menuId, 1)
+        val bannerRecord = bannerService.findByMenuIdAndBannerShow(menuId, true)
         var banners: List<BannerBean> = ArrayList()
         if (bannerRecord.isNotEmpty) {
             banners = bannerRecord.into(BannerBean::class.java)
@@ -93,7 +88,7 @@ open class ReceptionServiceImpl : ReceptionService {
     }
 
     override fun linksData(modelMap: ModelMap) {
-        val linkRecord = linksService.findAllByLinkShow(1)
+        val linkRecord = linksService.findAllByLinkShow(true)
         var links: List<LinksBean> = ArrayList()
         if (linkRecord.isNotEmpty) {
             links = linkRecord.into(LinksBean::class.java)
@@ -102,12 +97,12 @@ open class ReceptionServiceImpl : ReceptionService {
     }
 
     override fun columnsData(modelMap: ModelMap, menuId: String, request: HttpServletRequest) {
-        val records = menusService.findByPIdAndMenuShow(menuId, 1)
+        val records = menusService.findByPIdAndMenuShow(menuId, true)
         var columns: List<Menus> = ArrayList()
         if (records.isNotEmpty) {
             columns = records.into(Menus::class.java)
             columns.forEach { i ->
-                i.menuLink = if (i.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
+                i.menuLink = if (!i.outLink) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
             }
         }
         modelMap.addAttribute("columns", columns)
@@ -119,7 +114,7 @@ open class ReceptionServiceImpl : ReceptionService {
             val menu = menusService.findById(menus.menuPid)
             getMaxPid(menu, list, request)
         }
-        menus.menuLink = if (menus.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + menus.menuLink else menus.menuLink
+        menus.menuLink = if (!menus.outLink) RequestUtils.getBaseUrl(request) + menus.menuLink else menus.menuLink
         list.add(menus)
     }
 

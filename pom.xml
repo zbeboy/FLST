@@ -113,6 +113,11 @@
         </dependency>
 
         <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
@@ -224,10 +229,10 @@
                         <!-- This is a minimal working configuration. See the manual's section about the code generator for more details -->
                         <configuration>
                             <jdbc>
-                                <driver>com.mysql.jdbc.Driver</driver>
-                                <url>jdbc:mysql://localhost/flst?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</url>
-                                <user>root</user>
-                                <password>123456</password>
+                                <driver>org.h2.Driver</driver>
+                                <url>jdbc:h2:~/flst</url>
+                                <user>sa</user>
+                                <password></password>
                             </jdbc>
                             <generator>
                                 <generate>
@@ -236,12 +241,11 @@
                                     <springAnnotations>true</springAnnotations>
                                 </generate>
                                 <database>
-                                    <name>org.jooq.util.mysql.MySQLDatabase</name>
+                                    <name>org.jooq.util.h2.H2Database</name>
                                     <includes>.*</includes>
                                     <excludes>
                                         flyway_schema_history
                                     </excludes>
-                                    <inputSchema>flst</inputSchema>
                                 </database>
                                 <target>
                                     <packageName>cn.edu.kmust.flst.domain</packageName>

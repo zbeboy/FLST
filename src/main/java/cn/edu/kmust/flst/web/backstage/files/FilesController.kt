@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.web.backstage.files
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.pojos.Files
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Files
 import cn.edu.kmust.flst.service.backstage.files.FilesService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
@@ -87,7 +87,7 @@ open class FilesController {
                 val files = Files()
                 val fileBean = fileBeen[0]
                 files.fileId = UUIDUtils.getUUID()
-                files.size = fileBean.size.toString()
+                files.size = fileBean.size
                 files.originalFileName = fileBean.originalFileName
                 files.newName = fileBean.newName
                 files.relativePath = path + fileBean.newName

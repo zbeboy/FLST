@@ -1,6 +1,7 @@
 package cn.edu.kmust.flst.service.system
 
-import cn.edu.kmust.flst.domain.tables.pojos.Users
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Users
+
 
 /**
  * Created by zbeboy 2017-11-19 .

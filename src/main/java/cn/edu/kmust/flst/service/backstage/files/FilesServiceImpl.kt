@@ -1,8 +1,8 @@
 package cn.edu.kmust.flst.service.backstage.files
 
-import cn.edu.kmust.flst.domain.Tables.FILES
-import cn.edu.kmust.flst.domain.tables.daos.FilesDao
-import cn.edu.kmust.flst.domain.tables.pojos.Files
+import cn.edu.kmust.flst.domain.public_.Tables.FILES
+import cn.edu.kmust.flst.domain.public_.tables.daos.FilesDao
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Files
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.files.FilesBean

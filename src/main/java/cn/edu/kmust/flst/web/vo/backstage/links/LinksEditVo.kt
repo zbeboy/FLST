@@ -19,5 +19,5 @@ open class LinksEditVo {
     @NotNull
     @Size(max = 200)
     var linkUrl: String? = null
-    var linkShow: Byte? = null
+    var linkShow: Boolean? = null
 }

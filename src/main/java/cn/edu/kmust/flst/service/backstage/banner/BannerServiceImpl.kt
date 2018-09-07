@@ -1,10 +1,10 @@
 package cn.edu.kmust.flst.service.backstage.banner
 
-import cn.edu.kmust.flst.domain.Tables.BANNER
-import cn.edu.kmust.flst.domain.Tables.MENUS
-import cn.edu.kmust.flst.domain.tables.daos.BannerDao
-import cn.edu.kmust.flst.domain.tables.pojos.Banner
-import cn.edu.kmust.flst.domain.tables.records.BannerRecord
+import cn.edu.kmust.flst.domain.public_.Tables.BANNER
+import cn.edu.kmust.flst.domain.public_.Tables.MENUS
+import cn.edu.kmust.flst.domain.public_.tables.daos.BannerDao
+import cn.edu.kmust.flst.domain.public_.tables.pojos.Banner
+import cn.edu.kmust.flst.domain.public_.tables.records.BannerRecord
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
@@ -44,7 +44,7 @@ open class BannerServiceImpl @Autowired constructor(dslContext: DSLContext) : Bo
     }
 
     @Cacheable(cacheNames = ["banner"], key = "#menuId")
-    override fun findByMenuIdAndBannerShow(menuId: String, bannerShow: Byte): Result<BannerRecord> {
+    override fun findByMenuIdAndBannerShow(menuId: String, bannerShow: Boolean): Result<BannerRecord> {
         return create.selectFrom(BANNER)
                 .where(BANNER.MENU_ID.eq(menuId).and(BANNER.BANNER_SHOW.eq(bannerShow)))
                 .orderBy(BANNER.BANNER_DATE.desc())

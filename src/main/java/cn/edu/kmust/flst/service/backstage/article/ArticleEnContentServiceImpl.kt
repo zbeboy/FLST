@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.article
 
-import cn.edu.kmust.flst.domain.tables.daos.ArticleEnContentDao
-import cn.edu.kmust.flst.domain.tables.pojos.ArticleEnContent
+import cn.edu.kmust.flst.domain.public_.tables.daos.ArticleEnContentDao
+import cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEnContent
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
