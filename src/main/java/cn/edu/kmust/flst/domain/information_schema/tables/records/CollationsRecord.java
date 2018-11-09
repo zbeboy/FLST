@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class CollationsRecord extends TableRecordImpl<CollationsRecord> implements Record2<String, String> {
 
-    private static final long serialVersionUID = -1085107821;
+    private static final long serialVersionUID = 1801239955;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLLATIONS.NAME</code>.
+     * Setter for <code>information_schema.collations.name</code>.
      */
     public void setName(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLLATIONS.NAME</code>.
+     * Getter for <code>information_schema.collations.name</code>.
      */
     @Size(max = 2147483647)
     public String getName() {
@@ -46,14 +46,14 @@ public class CollationsRecord extends TableRecordImpl<CollationsRecord> implemen
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLLATIONS.KEY</code>.
+     * Setter for <code>information_schema.collations.key</code>.
      */
     public void setKey(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLLATIONS.KEY</code>.
+     * Getter for <code>information_schema.collations.key</code>.
      */
     @Size(max = 2147483647)
     public String getKey() {

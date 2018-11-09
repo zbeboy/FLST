@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class InDoubtRecord extends TableRecordImpl<InDoubtRecord> implements Record2<String, String> {
 
-    private static final long serialVersionUID = -1269721769;
+    private static final long serialVersionUID = -1083177641;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.IN_DOUBT.TRANSACTION</code>.
+     * Setter for <code>information_schema.in_doubt.transaction</code>.
      */
     public void setTransaction(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.IN_DOUBT.TRANSACTION</code>.
+     * Getter for <code>information_schema.in_doubt.transaction</code>.
      */
     @Size(max = 2147483647)
     public String getTransaction() {
@@ -46,14 +46,14 @@ public class InDoubtRecord extends TableRecordImpl<InDoubtRecord> implements Rec
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.IN_DOUBT.STATE</code>.
+     * Setter for <code>information_schema.in_doubt.state</code>.
      */
     public void setState(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.IN_DOUBT.STATE</code>.
+     * Getter for <code>information_schema.in_doubt.state</code>.
      */
     @Size(max = 2147483647)
     public String getState() {

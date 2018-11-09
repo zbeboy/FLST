@@ -42,70 +42,70 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends SchemaImpl {
 
-    private static final long serialVersionUID = 1092417295;
+    private static final long serialVersionUID = -798016881;
 
     /**
-     * The reference instance of <code>PUBLIC</code>
+     * The reference instance of <code>public</code>
      */
     public static final Public PUBLIC = new Public();
 
     /**
-     * The table <code>PUBLIC.ARTICLE</code>.
+     * The table <code>public.article</code>.
      */
     public final Article ARTICLE = cn.edu.kmust.flst.domain.public_.tables.Article.ARTICLE;
 
     /**
-     * The table <code>PUBLIC.ARTICLE_CONTENT</code>.
+     * The table <code>public.article_content</code>.
      */
     public final ArticleContent ARTICLE_CONTENT = cn.edu.kmust.flst.domain.public_.tables.ArticleContent.ARTICLE_CONTENT;
 
     /**
-     * The table <code>PUBLIC.ARTICLE_EN</code>.
+     * The table <code>public.article_en</code>.
      */
     public final ArticleEn ARTICLE_EN = cn.edu.kmust.flst.domain.public_.tables.ArticleEn.ARTICLE_EN;
 
     /**
-     * The table <code>PUBLIC.ARTICLE_EN_CONTENT</code>.
+     * The table <code>public.article_en_content</code>.
      */
     public final ArticleEnContent ARTICLE_EN_CONTENT = cn.edu.kmust.flst.domain.public_.tables.ArticleEnContent.ARTICLE_EN_CONTENT;
 
     /**
-     * The table <code>PUBLIC.AUTHORITIES</code>.
+     * The table <code>public.authorities</code>.
      */
     public final Authorities AUTHORITIES = cn.edu.kmust.flst.domain.public_.tables.Authorities.AUTHORITIES;
 
     /**
-     * The table <code>PUBLIC.BANNER</code>.
+     * The table <code>public.banner</code>.
      */
     public final Banner BANNER = cn.edu.kmust.flst.domain.public_.tables.Banner.BANNER;
 
     /**
-     * The table <code>PUBLIC.DATA_INFO</code>.
+     * The table <code>public.data_info</code>.
      */
     public final DataInfo DATA_INFO = cn.edu.kmust.flst.domain.public_.tables.DataInfo.DATA_INFO;
 
     /**
-     * The table <code>PUBLIC.FILES</code>.
+     * The table <code>public.files</code>.
      */
     public final Files FILES = cn.edu.kmust.flst.domain.public_.tables.Files.FILES;
 
     /**
-     * The table <code>PUBLIC.FRIENDLY_LINK</code>.
+     * The table <code>public.friendly_link</code>.
      */
     public final FriendlyLink FRIENDLY_LINK = cn.edu.kmust.flst.domain.public_.tables.FriendlyLink.FRIENDLY_LINK;
 
     /**
-     * The table <code>PUBLIC.MENUS</code>.
+     * The table <code>public.menus</code>.
      */
     public final Menus MENUS = cn.edu.kmust.flst.domain.public_.tables.Menus.MENUS;
 
     /**
-     * The table <code>PUBLIC.PERSISTENT_LOGINS</code>.
+     * The table <code>public.persistent_logins</code>.
      */
     public final PersistentLogins PERSISTENT_LOGINS = cn.edu.kmust.flst.domain.public_.tables.PersistentLogins.PERSISTENT_LOGINS;
 
     /**
-     * The table <code>PUBLIC.USERS</code>.
+     * The table <code>public.users</code>.
      */
     public final Users USERS = cn.edu.kmust.flst.domain.public_.tables.Users.USERS;
 
@@ -113,7 +113,7 @@ public class Public extends SchemaImpl {
      * No further instances allowed
      */
     private Public() {
-        super("PUBLIC", null);
+        super("public", null);
     }
 
 

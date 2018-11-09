@@ -39,10 +39,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Menus extends TableImpl<MenusRecord> {
 
-    private static final long serialVersionUID = 1297090003;
+    private static final long serialVersionUID = 1199148659;
 
     /**
-     * The reference instance of <code>PUBLIC.MENUS</code>
+     * The reference instance of <code>public.menus</code>
      */
     public static final Menus MENUS = new Menus();
 
@@ -55,81 +55,81 @@ public class Menus extends TableImpl<MenusRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.MENUS.MENU_ID</code>.
+     * The column <code>public.menus.menu_id</code>.
      */
-    public final TableField<MenusRecord, String> MENU_ID = createField("MENU_ID", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<MenusRecord, String> MENU_ID = createField("menu_id", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.MENU_NAME</code>.
+     * The column <code>public.menus.menu_name</code>.
      */
-    public final TableField<MenusRecord, String> MENU_NAME = createField("MENU_NAME", org.jooq.impl.SQLDataType.VARCHAR(20).nullable(false), this, "");
+    public final TableField<MenusRecord, String> MENU_NAME = createField("menu_name", org.jooq.impl.SQLDataType.VARCHAR(20).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.MENU_NAME_EN</code>.
+     * The column <code>public.menus.menu_name_en</code>.
      */
-    public final TableField<MenusRecord, String> MENU_NAME_EN = createField("MENU_NAME_EN", org.jooq.impl.SQLDataType.VARCHAR(100).nullable(false), this, "");
+    public final TableField<MenusRecord, String> MENU_NAME_EN = createField("menu_name_en", org.jooq.impl.SQLDataType.VARCHAR(100).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.OUT_LINK</code>.
+     * The column <code>public.menus.out_link</code>.
      */
-    public final TableField<MenusRecord, Boolean> OUT_LINK = createField("OUT_LINK", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
+    public final TableField<MenusRecord, Boolean> OUT_LINK = createField("out_link", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.MENU_LINK</code>.
+     * The column <code>public.menus.menu_link</code>.
      */
-    public final TableField<MenusRecord, String> MENU_LINK = createField("MENU_LINK", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
+    public final TableField<MenusRecord, String> MENU_LINK = createField("menu_link", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.MENU_PID</code>.
+     * The column <code>public.menus.menu_pid</code>.
      */
-    public final TableField<MenusRecord, String> MENU_PID = createField("MENU_PID", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
+    public final TableField<MenusRecord, String> MENU_PID = createField("menu_pid", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.MENU_ORDER</code>.
+     * The column <code>public.menus.menu_order</code>.
      */
-    public final TableField<MenusRecord, Integer> MENU_ORDER = createField("MENU_ORDER", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MenusRecord, Integer> MENU_ORDER = createField("menu_order", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.MENU_SHOW</code>.
+     * The column <code>public.menus.menu_show</code>.
      */
-    public final TableField<MenusRecord, Boolean> MENU_SHOW = createField("MENU_SHOW", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("1", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
+    public final TableField<MenusRecord, Boolean> MENU_SHOW = createField("menu_show", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("1", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.MENU_FIXED</code>.
+     * The column <code>public.menus.menu_fixed</code>.
      */
-    public final TableField<MenusRecord, Boolean> MENU_FIXED = createField("MENU_FIXED", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
+    public final TableField<MenusRecord, Boolean> MENU_FIXED = createField("menu_fixed", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.SHOW_ARTICLE</code>.
+     * The column <code>public.menus.show_article</code>.
      */
-    public final TableField<MenusRecord, Boolean> SHOW_ARTICLE = createField("SHOW_ARTICLE", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
+    public final TableField<MenusRecord, Boolean> SHOW_ARTICLE = createField("show_article", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.ORDER_WAY</code>.
+     * The column <code>public.menus.order_way</code>.
      */
-    public final TableField<MenusRecord, Integer> ORDER_WAY = createField("ORDER_WAY", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+    public final TableField<MenusRecord, Integer> ORDER_WAY = createField("order_way", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>PUBLIC.MENUS.MENU_CREATOR</code>.
+     * The column <code>public.menus.menu_creator</code>.
      */
-    public final TableField<MenusRecord, String> MENU_CREATOR = createField("MENU_CREATOR", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<MenusRecord, String> MENU_CREATOR = createField("menu_creator", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * Create a <code>PUBLIC.MENUS</code> table reference
+     * Create a <code>public.menus</code> table reference
      */
     public Menus() {
-        this(DSL.name("MENUS"), null);
+        this(DSL.name("menus"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.MENUS</code> table reference
+     * Create an aliased <code>public.menus</code> table reference
      */
     public Menus(String alias) {
         this(DSL.name(alias), MENUS);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.MENUS</code> table reference
+     * Create an aliased <code>public.menus</code> table reference
      */
     public Menus(Name alias) {
         this(alias, MENUS);

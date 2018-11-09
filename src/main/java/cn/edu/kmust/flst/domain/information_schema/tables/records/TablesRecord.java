@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TablesRecord extends TableRecordImpl<TablesRecord> implements Record12<String, String, String, String, String, String, String, Long, Integer, String, String, Long> {
 
-    private static final long serialVersionUID = 194706701;
+    private static final long serialVersionUID = -1095030067;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.TABLE_CATALOG</code>.
+     * Setter for <code>information_schema.tables.table_catalog</code>.
      */
     public void setTableCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.TABLE_CATALOG</code>.
+     * Getter for <code>information_schema.tables.table_catalog</code>.
      */
     @Size(max = 2147483647)
     public String getTableCatalog() {
@@ -46,14 +46,14 @@ public class TablesRecord extends TableRecordImpl<TablesRecord> implements Recor
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.TABLE_SCHEMA</code>.
+     * Setter for <code>information_schema.tables.table_schema</code>.
      */
     public void setTableSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.TABLE_SCHEMA</code>.
+     * Getter for <code>information_schema.tables.table_schema</code>.
      */
     @Size(max = 2147483647)
     public String getTableSchema() {
@@ -61,14 +61,14 @@ public class TablesRecord extends TableRecordImpl<TablesRecord> implements Recor
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.TABLE_NAME</code>.
+     * Setter for <code>information_schema.tables.table_name</code>.
      */
     public void setTableName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.TABLE_NAME</code>.
+     * Getter for <code>information_schema.tables.table_name</code>.
      */
     @Size(max = 2147483647)
     public String getTableName() {
@@ -76,14 +76,14 @@ public class TablesRecord extends TableRecordImpl<TablesRecord> implements Recor
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.TABLE_TYPE</code>.
+     * Setter for <code>information_schema.tables.table_type</code>.
      */
     public void setTableType(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.TABLE_TYPE</code>.
+     * Getter for <code>information_schema.tables.table_type</code>.
      */
     @Size(max = 2147483647)
     public String getTableType() {
@@ -91,14 +91,14 @@ public class TablesRecord extends TableRecordImpl<TablesRecord> implements Recor
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.STORAGE_TYPE</code>.
+     * Setter for <code>information_schema.tables.storage_type</code>.
      */
     public void setStorageType(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.STORAGE_TYPE</code>.
+     * Getter for <code>information_schema.tables.storage_type</code>.
      */
     @Size(max = 2147483647)
     public String getStorageType() {
@@ -106,14 +106,14 @@ public class TablesRecord extends TableRecordImpl<TablesRecord> implements Recor
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.SQL</code>.
+     * Setter for <code>information_schema.tables.sql</code>.
      */
     public void setSql(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.SQL</code>.
+     * Getter for <code>information_schema.tables.sql</code>.
      */
     @Size(max = 2147483647)
     public String getSql() {
@@ -121,14 +121,14 @@ public class TablesRecord extends TableRecordImpl<TablesRecord> implements Recor
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.REMARKS</code>.
+     * Setter for <code>information_schema.tables.remarks</code>.
      */
     public void setRemarks(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.REMARKS</code>.
+     * Getter for <code>information_schema.tables.remarks</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -136,42 +136,42 @@ public class TablesRecord extends TableRecordImpl<TablesRecord> implements Recor
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.LAST_MODIFICATION</code>.
+     * Setter for <code>information_schema.tables.last_modification</code>.
      */
     public void setLastModification(Long value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.LAST_MODIFICATION</code>.
+     * Getter for <code>information_schema.tables.last_modification</code>.
      */
     public Long getLastModification() {
         return (Long) get(7);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.ID</code>.
+     * Setter for <code>information_schema.tables.id</code>.
      */
     public void setId(Integer value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.ID</code>.
+     * Getter for <code>information_schema.tables.id</code>.
      */
     public Integer getId() {
         return (Integer) get(8);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.TYPE_NAME</code>.
+     * Setter for <code>information_schema.tables.type_name</code>.
      */
     public void setTypeName(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.TYPE_NAME</code>.
+     * Getter for <code>information_schema.tables.type_name</code>.
      */
     @Size(max = 2147483647)
     public String getTypeName() {
@@ -179,14 +179,14 @@ public class TablesRecord extends TableRecordImpl<TablesRecord> implements Recor
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.TABLE_CLASS</code>.
+     * Setter for <code>information_schema.tables.table_class</code>.
      */
     public void setTableClass(String value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.TABLE_CLASS</code>.
+     * Getter for <code>information_schema.tables.table_class</code>.
      */
     @Size(max = 2147483647)
     public String getTableClass() {
@@ -194,14 +194,14 @@ public class TablesRecord extends TableRecordImpl<TablesRecord> implements Recor
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.TABLES.ROW_COUNT_ESTIMATE</code>.
+     * Setter for <code>information_schema.tables.row_count_estimate</code>.
      */
     public void setRowCountEstimate(Long value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.TABLES.ROW_COUNT_ESTIMATE</code>.
+     * Getter for <code>information_schema.tables.row_count_estimate</code>.
      */
     public Long getRowCountEstimate() {
         return (Long) get(11);

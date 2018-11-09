@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TableConstraints extends TableImpl<TableConstraintsRecord> {
 
-    private static final long serialVersionUID = -161833210;
+    private static final long serialVersionUID = 363400870;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code>
+     * The reference instance of <code>information_schema.table_constraints</code>
      */
     public static final TableConstraints TABLE_CONSTRAINTS = new TableConstraints();
 
@@ -47,66 +47,66 @@ public class TableConstraints extends TableImpl<TableConstraintsRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_CATALOG</code>.
+     * The column <code>information_schema.table_constraints.constraint_catalog</code>.
      */
-    public final TableField<TableConstraintsRecord, String> CONSTRAINT_CATALOG = createField("CONSTRAINT_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TableConstraintsRecord, String> CONSTRAINT_CATALOG = createField("constraint_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
+     * The column <code>information_schema.table_constraints.constraint_schema</code>.
      */
-    public final TableField<TableConstraintsRecord, String> CONSTRAINT_SCHEMA = createField("CONSTRAINT_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TableConstraintsRecord, String> CONSTRAINT_SCHEMA = createField("constraint_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_NAME</code>.
+     * The column <code>information_schema.table_constraints.constraint_name</code>.
      */
-    public final TableField<TableConstraintsRecord, String> CONSTRAINT_NAME = createField("CONSTRAINT_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TableConstraintsRecord, String> CONSTRAINT_NAME = createField("constraint_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_TYPE</code>.
+     * The column <code>information_schema.table_constraints.constraint_type</code>.
      */
-    public final TableField<TableConstraintsRecord, String> CONSTRAINT_TYPE = createField("CONSTRAINT_TYPE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TableConstraintsRecord, String> CONSTRAINT_TYPE = createField("constraint_type", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.TABLE_CATALOG</code>.
+     * The column <code>information_schema.table_constraints.table_catalog</code>.
      */
-    public final TableField<TableConstraintsRecord, String> TABLE_CATALOG = createField("TABLE_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TableConstraintsRecord, String> TABLE_CATALOG = createField("table_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.TABLE_SCHEMA</code>.
+     * The column <code>information_schema.table_constraints.table_schema</code>.
      */
-    public final TableField<TableConstraintsRecord, String> TABLE_SCHEMA = createField("TABLE_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TableConstraintsRecord, String> TABLE_SCHEMA = createField("table_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.TABLE_NAME</code>.
+     * The column <code>information_schema.table_constraints.table_name</code>.
      */
-    public final TableField<TableConstraintsRecord, String> TABLE_NAME = createField("TABLE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TableConstraintsRecord, String> TABLE_NAME = createField("table_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.IS_DEFERRABLE</code>.
+     * The column <code>information_schema.table_constraints.is_deferrable</code>.
      */
-    public final TableField<TableConstraintsRecord, String> IS_DEFERRABLE = createField("IS_DEFERRABLE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TableConstraintsRecord, String> IS_DEFERRABLE = createField("is_deferrable", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.INITIALLY_DEFERRED</code>.
+     * The column <code>information_schema.table_constraints.initially_deferred</code>.
      */
-    public final TableField<TableConstraintsRecord, String> INITIALLY_DEFERRED = createField("INITIALLY_DEFERRED", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TableConstraintsRecord, String> INITIALLY_DEFERRED = createField("initially_deferred", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code> table reference
+     * Create a <code>information_schema.table_constraints</code> table reference
      */
     public TableConstraints() {
-        this(DSL.name("TABLE_CONSTRAINTS"), null);
+        this(DSL.name("table_constraints"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code> table reference
+     * Create an aliased <code>information_schema.table_constraints</code> table reference
      */
     public TableConstraints(String alias) {
         this(DSL.name(alias), TABLE_CONSTRAINTS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code> table reference
+     * Create an aliased <code>information_schema.table_constraints</code> table reference
      */
     public TableConstraints(Name alias) {
         this(alias, TABLE_CONSTRAINTS);

@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewsRecord extends TableRecordImpl<ViewsRecord> implements Record9<String, String, String, String, String, String, String, String, Integer> {
 
-    private static final long serialVersionUID = -1621075738;
+    private static final long serialVersionUID = 587596070;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.VIEWS.TABLE_CATALOG</code>.
+     * Setter for <code>information_schema.views.table_catalog</code>.
      */
     public void setTableCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.VIEWS.TABLE_CATALOG</code>.
+     * Getter for <code>information_schema.views.table_catalog</code>.
      */
     @Size(max = 2147483647)
     public String getTableCatalog() {
@@ -46,14 +46,14 @@ public class ViewsRecord extends TableRecordImpl<ViewsRecord> implements Record9
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.VIEWS.TABLE_SCHEMA</code>.
+     * Setter for <code>information_schema.views.table_schema</code>.
      */
     public void setTableSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.VIEWS.TABLE_SCHEMA</code>.
+     * Getter for <code>information_schema.views.table_schema</code>.
      */
     @Size(max = 2147483647)
     public String getTableSchema() {
@@ -61,14 +61,14 @@ public class ViewsRecord extends TableRecordImpl<ViewsRecord> implements Record9
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.VIEWS.TABLE_NAME</code>.
+     * Setter for <code>information_schema.views.table_name</code>.
      */
     public void setTableName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.VIEWS.TABLE_NAME</code>.
+     * Getter for <code>information_schema.views.table_name</code>.
      */
     @Size(max = 2147483647)
     public String getTableName() {
@@ -76,14 +76,14 @@ public class ViewsRecord extends TableRecordImpl<ViewsRecord> implements Record9
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.VIEWS.VIEW_DEFINITION</code>.
+     * Setter for <code>information_schema.views.view_definition</code>.
      */
     public void setViewDefinition(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.VIEWS.VIEW_DEFINITION</code>.
+     * Getter for <code>information_schema.views.view_definition</code>.
      */
     @Size(max = 2147483647)
     public String getViewDefinition() {
@@ -91,14 +91,14 @@ public class ViewsRecord extends TableRecordImpl<ViewsRecord> implements Record9
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.VIEWS.CHECK_OPTION</code>.
+     * Setter for <code>information_schema.views.check_option</code>.
      */
     public void setCheckOption(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.VIEWS.CHECK_OPTION</code>.
+     * Getter for <code>information_schema.views.check_option</code>.
      */
     @Size(max = 2147483647)
     public String getCheckOption() {
@@ -106,14 +106,14 @@ public class ViewsRecord extends TableRecordImpl<ViewsRecord> implements Record9
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.VIEWS.IS_UPDATABLE</code>.
+     * Setter for <code>information_schema.views.is_updatable</code>.
      */
     public void setIsUpdatable(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.VIEWS.IS_UPDATABLE</code>.
+     * Getter for <code>information_schema.views.is_updatable</code>.
      */
     @Size(max = 2147483647)
     public String getIsUpdatable() {
@@ -121,14 +121,14 @@ public class ViewsRecord extends TableRecordImpl<ViewsRecord> implements Record9
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.VIEWS.STATUS</code>.
+     * Setter for <code>information_schema.views.status</code>.
      */
     public void setStatus(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.VIEWS.STATUS</code>.
+     * Getter for <code>information_schema.views.status</code>.
      */
     @Size(max = 2147483647)
     public String getStatus() {
@@ -136,14 +136,14 @@ public class ViewsRecord extends TableRecordImpl<ViewsRecord> implements Record9
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.VIEWS.REMARKS</code>.
+     * Setter for <code>information_schema.views.remarks</code>.
      */
     public void setRemarks(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.VIEWS.REMARKS</code>.
+     * Getter for <code>information_schema.views.remarks</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -151,14 +151,14 @@ public class ViewsRecord extends TableRecordImpl<ViewsRecord> implements Record9
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.VIEWS.ID</code>.
+     * Setter for <code>information_schema.views.id</code>.
      */
     public void setId(Integer value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.VIEWS.ID</code>.
+     * Getter for <code>information_schema.views.id</code>.
      */
     public Integer getId() {
         return (Integer) get(8);

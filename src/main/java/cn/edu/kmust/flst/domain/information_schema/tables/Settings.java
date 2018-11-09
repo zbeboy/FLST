@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Settings extends TableImpl<SettingsRecord> {
 
-    private static final long serialVersionUID = 1830727291;
+    private static final long serialVersionUID = -1938908485;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SETTINGS</code>
+     * The reference instance of <code>information_schema.settings</code>
      */
     public static final Settings SETTINGS = new Settings();
 
@@ -47,31 +47,31 @@ public class Settings extends TableImpl<SettingsRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SETTINGS.NAME</code>.
+     * The column <code>information_schema.settings.name</code>.
      */
-    public final TableField<SettingsRecord, String> NAME = createField("NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SettingsRecord, String> NAME = createField("name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SETTINGS.VALUE</code>.
+     * The column <code>information_schema.settings.value</code>.
      */
-    public final TableField<SettingsRecord, String> VALUE = createField("VALUE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SettingsRecord, String> VALUE = createField("value", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SETTINGS</code> table reference
+     * Create a <code>information_schema.settings</code> table reference
      */
     public Settings() {
-        this(DSL.name("SETTINGS"), null);
+        this(DSL.name("settings"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SETTINGS</code> table reference
+     * Create an aliased <code>information_schema.settings</code> table reference
      */
     public Settings(String alias) {
         this(DSL.name(alias), SETTINGS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SETTINGS</code> table reference
+     * Create an aliased <code>information_schema.settings</code> table reference
      */
     public Settings(Name alias) {
         this(alias, SETTINGS);

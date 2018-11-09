@@ -39,10 +39,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class PersistentLogins extends TableImpl<PersistentLoginsRecord> {
 
-    private static final long serialVersionUID = -1179240363;
+    private static final long serialVersionUID = -1843184555;
 
     /**
-     * The reference instance of <code>PUBLIC.PERSISTENT_LOGINS</code>
+     * The reference instance of <code>public.persistent_logins</code>
      */
     public static final PersistentLogins PERSISTENT_LOGINS = new PersistentLogins();
 
@@ -55,41 +55,41 @@ public class PersistentLogins extends TableImpl<PersistentLoginsRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.PERSISTENT_LOGINS.USERNAME</code>.
+     * The column <code>public.persistent_logins.username</code>.
      */
-    public final TableField<PersistentLoginsRecord, String> USERNAME = createField("USERNAME", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<PersistentLoginsRecord, String> USERNAME = createField("username", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.PERSISTENT_LOGINS.SERIES</code>.
+     * The column <code>public.persistent_logins.series</code>.
      */
-    public final TableField<PersistentLoginsRecord, String> SERIES = createField("SERIES", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<PersistentLoginsRecord, String> SERIES = createField("series", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.PERSISTENT_LOGINS.TOKEN</code>.
+     * The column <code>public.persistent_logins.token</code>.
      */
-    public final TableField<PersistentLoginsRecord, String> TOKEN = createField("TOKEN", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<PersistentLoginsRecord, String> TOKEN = createField("token", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.PERSISTENT_LOGINS.LAST_USED</code>.
+     * The column <code>public.persistent_logins.last_used</code>.
      */
-    public final TableField<PersistentLoginsRecord, Timestamp> LAST_USED = createField("LAST_USED", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
+    public final TableField<PersistentLoginsRecord, Timestamp> LAST_USED = createField("last_used", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
 
     /**
-     * Create a <code>PUBLIC.PERSISTENT_LOGINS</code> table reference
+     * Create a <code>public.persistent_logins</code> table reference
      */
     public PersistentLogins() {
-        this(DSL.name("PERSISTENT_LOGINS"), null);
+        this(DSL.name("persistent_logins"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.PERSISTENT_LOGINS</code> table reference
+     * Create an aliased <code>public.persistent_logins</code> table reference
      */
     public PersistentLogins(String alias) {
         this(DSL.name(alias), PERSISTENT_LOGINS);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.PERSISTENT_LOGINS</code> table reference
+     * Create an aliased <code>public.persistent_logins</code> table reference
      */
     public PersistentLogins(Name alias) {
         this(alias, PERSISTENT_LOGINS);

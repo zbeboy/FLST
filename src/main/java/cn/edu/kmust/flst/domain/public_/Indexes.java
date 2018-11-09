@@ -25,7 +25,7 @@ import org.jooq.impl.Internal;
 
 
 /**
- * A class modelling indexes of tables of the <code>PUBLIC</code> schema.
+ * A class modelling indexes of tables of the <code>public</code> schema.
  */
 @Generated(
     value = {
@@ -69,27 +69,27 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     private static class Indexes0 {
-        public static Index CONSTRAINT_INDEX_F = Internal.createIndex("CONSTRAINT_INDEX_F", Article.ARTICLE, new OrderField[] { Article.ARTICLE.MENU_ID }, false);
-        public static Index CONSTRAINT_INDEX_FF = Internal.createIndex("CONSTRAINT_INDEX_FF", Article.ARTICLE, new OrderField[] { Article.ARTICLE.ARTICLE_AUTHOR }, false);
-        public static Index PRIMARY_KEY_F = Internal.createIndex("PRIMARY_KEY_F", Article.ARTICLE, new OrderField[] { Article.ARTICLE.ARTICLE_ID }, true);
-        public static Index PRIMARY_KEY_2 = Internal.createIndex("PRIMARY_KEY_2", ArticleContent.ARTICLE_CONTENT, new OrderField[] { ArticleContent.ARTICLE_CONTENT.ID }, true);
-        public static Index CONSTRAINT_INDEX_2 = Internal.createIndex("CONSTRAINT_INDEX_2", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.MENU_ID }, false);
-        public static Index CONSTRAINT_INDEX_26 = Internal.createIndex("CONSTRAINT_INDEX_26", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.ARTICLE_AUTHOR }, false);
-        public static Index PRIMARY_KEY_26 = Internal.createIndex("PRIMARY_KEY_26", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.ARTICLE_ID }, true);
-        public static Index PRIMARY_KEY_9 = Internal.createIndex("PRIMARY_KEY_9", ArticleEnContent.ARTICLE_EN_CONTENT, new OrderField[] { ArticleEnContent.ARTICLE_EN_CONTENT.ID }, true);
-        public static Index CONSTRAINT_INDEX_A = Internal.createIndex("CONSTRAINT_INDEX_A", Authorities.AUTHORITIES, new OrderField[] { Authorities.AUTHORITIES.USERNAME }, false);
-        public static Index PRIMARY_KEY_A = Internal.createIndex("PRIMARY_KEY_A", Authorities.AUTHORITIES, new OrderField[] { Authorities.AUTHORITIES.USERNAME, Authorities.AUTHORITIES.AUTHORITY }, true);
-        public static Index CONSTRAINT_INDEX_7 = Internal.createIndex("CONSTRAINT_INDEX_7", Banner.BANNER, new OrderField[] { Banner.BANNER.MENU_ID }, false);
-        public static Index CONSTRAINT_INDEX_74 = Internal.createIndex("CONSTRAINT_INDEX_74", Banner.BANNER, new OrderField[] { Banner.BANNER.BANNER_CREATOR }, false);
-        public static Index PRIMARY_KEY_7 = Internal.createIndex("PRIMARY_KEY_7", Banner.BANNER, new OrderField[] { Banner.BANNER.BANNER_ID }, true);
-        public static Index PRIMARY_KEY_92 = Internal.createIndex("PRIMARY_KEY_92", DataInfo.DATA_INFO, new OrderField[] { DataInfo.DATA_INFO.DATA_KEY }, true);
-        public static Index PRIMARY_KEY_3 = Internal.createIndex("PRIMARY_KEY_3", Files.FILES, new OrderField[] { Files.FILES.FILE_ID }, true);
-        public static Index PRIMARY_KEY_1 = Internal.createIndex("PRIMARY_KEY_1", FriendlyLink.FRIENDLY_LINK, new OrderField[] { FriendlyLink.FRIENDLY_LINK.LINK_ID }, true);
-        public static Index CONSTRAINT_INDEX_4 = Internal.createIndex("CONSTRAINT_INDEX_4", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_NAME }, true);
-        public static Index CONSTRAINT_INDEX_45 = Internal.createIndex("CONSTRAINT_INDEX_45", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_NAME_EN }, true);
-        public static Index CONSTRAINT_INDEX_45D = Internal.createIndex("CONSTRAINT_INDEX_45D", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_CREATOR }, false);
-        public static Index PRIMARY_KEY_45 = Internal.createIndex("PRIMARY_KEY_45", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_ID }, true);
-        public static Index PRIMARY_KEY_A3 = Internal.createIndex("PRIMARY_KEY_A3", PersistentLogins.PERSISTENT_LOGINS, new OrderField[] { PersistentLogins.PERSISTENT_LOGINS.SERIES }, true);
-        public static Index PRIMARY_KEY_4 = Internal.createIndex("PRIMARY_KEY_4", Users.USERS, new OrderField[] { Users.USERS.USERNAME }, true);
+        public static Index CONSTRAINT_INDEX_F = Internal.createIndex("constraint_index_f", Article.ARTICLE, new OrderField[] { Article.ARTICLE.MENU_ID }, false);
+        public static Index CONSTRAINT_INDEX_FF = Internal.createIndex("constraint_index_ff", Article.ARTICLE, new OrderField[] { Article.ARTICLE.ARTICLE_AUTHOR }, false);
+        public static Index PRIMARY_KEY_F = Internal.createIndex("primary_key_f", Article.ARTICLE, new OrderField[] { Article.ARTICLE.ARTICLE_ID }, true);
+        public static Index PRIMARY_KEY_2 = Internal.createIndex("primary_key_2", ArticleContent.ARTICLE_CONTENT, new OrderField[] { ArticleContent.ARTICLE_CONTENT.ID }, true);
+        public static Index CONSTRAINT_INDEX_2 = Internal.createIndex("constraint_index_2", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.MENU_ID }, false);
+        public static Index CONSTRAINT_INDEX_26 = Internal.createIndex("constraint_index_26", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.ARTICLE_AUTHOR }, false);
+        public static Index PRIMARY_KEY_26 = Internal.createIndex("primary_key_26", ArticleEn.ARTICLE_EN, new OrderField[] { ArticleEn.ARTICLE_EN.ARTICLE_ID }, true);
+        public static Index PRIMARY_KEY_9 = Internal.createIndex("primary_key_9", ArticleEnContent.ARTICLE_EN_CONTENT, new OrderField[] { ArticleEnContent.ARTICLE_EN_CONTENT.ID }, true);
+        public static Index CONSTRAINT_INDEX_A = Internal.createIndex("constraint_index_a", Authorities.AUTHORITIES, new OrderField[] { Authorities.AUTHORITIES.USERNAME }, false);
+        public static Index PRIMARY_KEY_A = Internal.createIndex("primary_key_a", Authorities.AUTHORITIES, new OrderField[] { Authorities.AUTHORITIES.USERNAME, Authorities.AUTHORITIES.AUTHORITY }, true);
+        public static Index CONSTRAINT_INDEX_7 = Internal.createIndex("constraint_index_7", Banner.BANNER, new OrderField[] { Banner.BANNER.MENU_ID }, false);
+        public static Index CONSTRAINT_INDEX_74 = Internal.createIndex("constraint_index_74", Banner.BANNER, new OrderField[] { Banner.BANNER.BANNER_CREATOR }, false);
+        public static Index PRIMARY_KEY_7 = Internal.createIndex("primary_key_7", Banner.BANNER, new OrderField[] { Banner.BANNER.BANNER_ID }, true);
+        public static Index PRIMARY_KEY_92 = Internal.createIndex("primary_key_92", DataInfo.DATA_INFO, new OrderField[] { DataInfo.DATA_INFO.DATA_KEY }, true);
+        public static Index PRIMARY_KEY_3 = Internal.createIndex("primary_key_3", Files.FILES, new OrderField[] { Files.FILES.FILE_ID }, true);
+        public static Index PRIMARY_KEY_1 = Internal.createIndex("primary_key_1", FriendlyLink.FRIENDLY_LINK, new OrderField[] { FriendlyLink.FRIENDLY_LINK.LINK_ID }, true);
+        public static Index CONSTRAINT_INDEX_4 = Internal.createIndex("constraint_index_4", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_NAME }, true);
+        public static Index CONSTRAINT_INDEX_45 = Internal.createIndex("constraint_index_45", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_NAME_EN }, true);
+        public static Index CONSTRAINT_INDEX_45D = Internal.createIndex("constraint_index_45d", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_CREATOR }, false);
+        public static Index PRIMARY_KEY_45 = Internal.createIndex("primary_key_45", Menus.MENUS, new OrderField[] { Menus.MENUS.MENU_ID }, true);
+        public static Index PRIMARY_KEY_A3 = Internal.createIndex("primary_key_a3", PersistentLogins.PERSISTENT_LOGINS, new OrderField[] { PersistentLogins.PERSISTENT_LOGINS.SERIES }, true);
+        public static Index PRIMARY_KEY_4 = Internal.createIndex("primary_key_4", Users.USERS, new OrderField[] { Users.USERS.USERNAME }, true);
     }
 }

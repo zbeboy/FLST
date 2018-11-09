@@ -55,42 +55,42 @@ public class FriendlyLinkDao extends DAOImpl<FriendlyLinkRecord, cn.edu.kmust.fl
     }
 
     /**
-     * Fetch records that have <code>LINK_ID IN (values)</code>
+     * Fetch records that have <code>link_id IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.FriendlyLink> fetchByLinkId(String... values) {
         return fetch(FriendlyLink.FRIENDLY_LINK.LINK_ID, values);
     }
 
     /**
-     * Fetch a unique record that has <code>LINK_ID = value</code>
+     * Fetch a unique record that has <code>link_id = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.FriendlyLink fetchOneByLinkId(String value) {
         return fetchOne(FriendlyLink.FRIENDLY_LINK.LINK_ID, value);
     }
 
     /**
-     * Fetch records that have <code>LINK_NAME IN (values)</code>
+     * Fetch records that have <code>link_name IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.FriendlyLink> fetchByLinkName(String... values) {
         return fetch(FriendlyLink.FRIENDLY_LINK.LINK_NAME, values);
     }
 
     /**
-     * Fetch records that have <code>LINK_NAME_EN IN (values)</code>
+     * Fetch records that have <code>link_name_en IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.FriendlyLink> fetchByLinkNameEn(String... values) {
         return fetch(FriendlyLink.FRIENDLY_LINK.LINK_NAME_EN, values);
     }
 
     /**
-     * Fetch records that have <code>LINK_URL IN (values)</code>
+     * Fetch records that have <code>link_url IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.FriendlyLink> fetchByLinkUrl(String... values) {
         return fetch(FriendlyLink.FRIENDLY_LINK.LINK_URL, values);
     }
 
     /**
-     * Fetch records that have <code>LINK_SHOW IN (values)</code>
+     * Fetch records that have <code>link_show IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.FriendlyLink> fetchByLinkShow(Boolean... values) {
         return fetch(FriendlyLink.FRIENDLY_LINK.LINK_SHOW, values);

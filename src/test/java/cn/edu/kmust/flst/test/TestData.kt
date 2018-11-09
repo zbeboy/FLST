@@ -37,6 +37,107 @@ open class TestData {
     }
 
     @Test
+    open fun users() {
+        val statement = con!!.createStatement()
+        val sql = "select * from users "
+        val rs = statement.executeQuery(sql)
+
+        while (rs.next()) {
+            create.insertInto(USERS, USERS.USERNAME, USERS.PASSWORD, USERS.ENABLED)
+                    .values(rs.getString("username"), rs.getString("password"), rs.getBoolean("enabled"))
+                    .execute()
+        }
+        rs.close()
+        con!!.close()
+    }
+
+    @Test
+    open fun authorities() {
+        val statement = con!!.createStatement()
+        val sql = "select * from authorities "
+        val rs = statement.executeQuery(sql)
+
+        while (rs.next()) {
+            create.insertInto(AUTHORITIES, AUTHORITIES.USERNAME, AUTHORITIES.AUTHORITY)
+                    .values(rs.getString("username"), rs.getString("AUTHORITY"))
+                    .execute()
+        }
+        rs.close()
+        con!!.close()
+    }
+
+    @Test
+    open fun persistentLogins() {
+        val statement = con!!.createStatement()
+        val sql = "select * from persistent_logins "
+        val rs = statement.executeQuery(sql)
+
+        while (rs.next()) {
+            create.insertInto(PERSISTENT_LOGINS, PERSISTENT_LOGINS.USERNAME, PERSISTENT_LOGINS.SERIES, PERSISTENT_LOGINS.TOKEN, PERSISTENT_LOGINS.LAST_USED)
+                    .values(rs.getString("username"), rs.getString("series"),rs.getString("token"),
+                            rs.getTimestamp("last_used"))
+                    .execute()
+        }
+        rs.close()
+        con!!.close()
+    }
+
+    @Test
+    open fun menus() {
+        val statement = con!!.createStatement()
+        val sql = "select * from menus "
+        val rs = statement.executeQuery(sql)
+
+        while (rs.next()) {
+            create.insertInto(MENUS, MENUS.MENU_ID, MENUS.MENU_NAME, MENUS.MENU_NAME_EN, MENUS.OUT_LINK,
+                    MENUS.MENU_LINK, MENUS.MENU_PID, MENUS.MENU_ORDER, MENUS.MENU_SHOW, MENUS.MENU_FIXED,
+                    MENUS.SHOW_ARTICLE, MENUS.ORDER_WAY, MENUS.MENU_CREATOR)
+                    .values(rs.getString("menu_id"), rs.getString("menu_name"),rs.getString("menu_name_en"),
+                            rs.getBoolean("out_link"),rs.getString("menu_link"),rs.getString("menu_pid"),
+                            rs.getInt("menu_order"),rs.getBoolean("menu_show"),rs.getBoolean("menu_fixed"),
+                            rs.getBoolean("show_article"),rs.getInt("order_way"),rs.getString("menu_creator"))
+                    .execute()
+        }
+        rs.close()
+        con!!.close()
+    }
+
+    @Test
+    open fun article() {
+        val statement = con!!.createStatement()
+        val sql = "select * from article "
+        val rs = statement.executeQuery(sql)
+
+        while (rs.next()) {
+            create.insertInto(ARTICLE, ARTICLE.ARTICLE_ID, ARTICLE.ARTICLE_TITLE, ARTICLE.ARTICLE_BRIEF, ARTICLE.ARTICLE_COVER,
+                    ARTICLE.ARTICLE_DATE, ARTICLE.ARTICLE_CLICKS, ARTICLE.ARTICLE_AUTHOR, ARTICLE.ARTICLE_SOURCES, ARTICLE.ARTICLE_SOURCES_NAME,
+                    ARTICLE.ARTICLE_SOURCES_LINK, ARTICLE.ARTICLE_SN, ARTICLE.MENU_ID)
+                    .values(rs.getInt("article_id"), rs.getString("article_title"),rs.getString("article_brief"),
+                            rs.getString("article_cover"),rs.getTimestamp("article_date"),rs.getInt("article_clicks"),
+                            rs.getString("article_author"),rs.getInt("article_sources"),rs.getString("article_sources_name"),
+                            rs.getString("article_sources_link"),rs.getInt("article_sn"),rs.getString("menu_id"))
+                    .execute()
+        }
+        rs.close()
+        con!!.close()
+    }
+
+    @Test
+    open fun articleContent() {
+        val statement = con!!.createStatement()
+        val sql = "select * from article_content "
+        val rs = statement.executeQuery(sql)
+
+        while (rs.next()) {
+            create.insertInto(ARTICLE_CONTENT, ARTICLE_CONTENT.ID, ARTICLE_CONTENT.ARTICLE_CONTENT_)
+                    .values(rs.getInt("id"), rs.getString("article_content"))
+                    .execute()
+        }
+        rs.close()
+        con!!.close()
+    }
+
+    @Test
     open fun articleEn() {
         val statement = con!!.createStatement()
         val sql = "select * from article_en "

@@ -30,7 +30,7 @@ import org.jooq.impl.CatalogImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DefaultCatalog extends CatalogImpl {
 
-    private static final long serialVersionUID = -983882537;
+    private static final long serialVersionUID = -982560521;
 
     /**
      * The reference instance of <code></code>
@@ -38,12 +38,12 @@ public class DefaultCatalog extends CatalogImpl {
     public static final DefaultCatalog DEFAULT_CATALOG = new DefaultCatalog();
 
     /**
-     * The schema <code>INFORMATION_SCHEMA</code>.
+     * The schema <code>information_schema</code>.
      */
     public final InformationSchema INFORMATION_SCHEMA = cn.edu.kmust.flst.domain.information_schema.InformationSchema.INFORMATION_SCHEMA;
 
     /**
-     * The schema <code>PUBLIC</code>.
+     * The schema <code>public</code>.
      */
     public final Public PUBLIC = cn.edu.kmust.flst.domain.public_.Public.PUBLIC;
 

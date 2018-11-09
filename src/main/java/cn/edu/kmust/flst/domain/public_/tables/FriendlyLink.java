@@ -38,10 +38,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FriendlyLink extends TableImpl<FriendlyLinkRecord> {
 
-    private static final long serialVersionUID = -1048440365;
+    private static final long serialVersionUID = -1693695533;
 
     /**
-     * The reference instance of <code>PUBLIC.FRIENDLY_LINK</code>
+     * The reference instance of <code>public.friendly_link</code>
      */
     public static final FriendlyLink FRIENDLY_LINK = new FriendlyLink();
 
@@ -54,46 +54,46 @@ public class FriendlyLink extends TableImpl<FriendlyLinkRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.FRIENDLY_LINK.LINK_ID</code>.
+     * The column <code>public.friendly_link.link_id</code>.
      */
-    public final TableField<FriendlyLinkRecord, String> LINK_ID = createField("LINK_ID", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<FriendlyLinkRecord, String> LINK_ID = createField("link_id", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.FRIENDLY_LINK.LINK_NAME</code>.
+     * The column <code>public.friendly_link.link_name</code>.
      */
-    public final TableField<FriendlyLinkRecord, String> LINK_NAME = createField("LINK_NAME", org.jooq.impl.SQLDataType.VARCHAR(100).nullable(false), this, "");
+    public final TableField<FriendlyLinkRecord, String> LINK_NAME = createField("link_name", org.jooq.impl.SQLDataType.VARCHAR(100).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.FRIENDLY_LINK.LINK_NAME_EN</code>.
+     * The column <code>public.friendly_link.link_name_en</code>.
      */
-    public final TableField<FriendlyLinkRecord, String> LINK_NAME_EN = createField("LINK_NAME_EN", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
+    public final TableField<FriendlyLinkRecord, String> LINK_NAME_EN = createField("link_name_en", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.FRIENDLY_LINK.LINK_URL</code>.
+     * The column <code>public.friendly_link.link_url</code>.
      */
-    public final TableField<FriendlyLinkRecord, String> LINK_URL = createField("LINK_URL", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
+    public final TableField<FriendlyLinkRecord, String> LINK_URL = createField("link_url", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.FRIENDLY_LINK.LINK_SHOW</code>.
+     * The column <code>public.friendly_link.link_show</code>.
      */
-    public final TableField<FriendlyLinkRecord, Boolean> LINK_SHOW = createField("LINK_SHOW", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("1", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
+    public final TableField<FriendlyLinkRecord, Boolean> LINK_SHOW = createField("link_show", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("1", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
 
     /**
-     * Create a <code>PUBLIC.FRIENDLY_LINK</code> table reference
+     * Create a <code>public.friendly_link</code> table reference
      */
     public FriendlyLink() {
-        this(DSL.name("FRIENDLY_LINK"), null);
+        this(DSL.name("friendly_link"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.FRIENDLY_LINK</code> table reference
+     * Create an aliased <code>public.friendly_link</code> table reference
      */
     public FriendlyLink(String alias) {
         this(DSL.name(alias), FRIENDLY_LINK);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.FRIENDLY_LINK</code> table reference
+     * Create an aliased <code>public.friendly_link</code> table reference
      */
     public FriendlyLink(Name alias) {
         this(alias, FRIENDLY_LINK);

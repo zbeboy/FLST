@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Sessions extends TableImpl<SessionsRecord> {
 
-    private static final long serialVersionUID = -1457284769;
+    private static final long serialVersionUID = 723246687;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SESSIONS</code>
+     * The reference instance of <code>information_schema.sessions</code>
      */
     public static final Sessions SESSIONS = new Sessions();
 
@@ -47,51 +47,51 @@ public class Sessions extends TableImpl<SessionsRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SESSIONS.ID</code>.
+     * The column <code>information_schema.sessions.id</code>.
      */
-    public final TableField<SessionsRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<SessionsRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SESSIONS.USER_NAME</code>.
+     * The column <code>information_schema.sessions.user_name</code>.
      */
-    public final TableField<SessionsRecord, String> USER_NAME = createField("USER_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SessionsRecord, String> USER_NAME = createField("user_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SESSIONS.SESSION_START</code>.
+     * The column <code>information_schema.sessions.session_start</code>.
      */
-    public final TableField<SessionsRecord, String> SESSION_START = createField("SESSION_START", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SessionsRecord, String> SESSION_START = createField("session_start", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SESSIONS.STATEMENT</code>.
+     * The column <code>information_schema.sessions.statement</code>.
      */
-    public final TableField<SessionsRecord, String> STATEMENT = createField("STATEMENT", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SessionsRecord, String> STATEMENT = createField("statement", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SESSIONS.STATEMENT_START</code>.
+     * The column <code>information_schema.sessions.statement_start</code>.
      */
-    public final TableField<SessionsRecord, String> STATEMENT_START = createField("STATEMENT_START", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SessionsRecord, String> STATEMENT_START = createField("statement_start", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SESSIONS.CONTAINS_UNCOMMITTED</code>.
+     * The column <code>information_schema.sessions.contains_uncommitted</code>.
      */
-    public final TableField<SessionsRecord, String> CONTAINS_UNCOMMITTED = createField("CONTAINS_UNCOMMITTED", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SessionsRecord, String> CONTAINS_UNCOMMITTED = createField("contains_uncommitted", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SESSIONS</code> table reference
+     * Create a <code>information_schema.sessions</code> table reference
      */
     public Sessions() {
-        this(DSL.name("SESSIONS"), null);
+        this(DSL.name("sessions"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SESSIONS</code> table reference
+     * Create an aliased <code>information_schema.sessions</code> table reference
      */
     public Sessions(String alias) {
         this(DSL.name(alias), SESSIONS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SESSIONS</code> table reference
+     * Create an aliased <code>information_schema.sessions</code> table reference
      */
     public Sessions(Name alias) {
         this(alias, SESSIONS);

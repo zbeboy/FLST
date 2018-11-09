@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SequencesRecord extends TableRecordImpl<SequencesRecord> implements Record12<String, String, String, Long, Long, Boolean, String, Long, Long, Long, Boolean, Integer> {
 
-    private static final long serialVersionUID = 420244022;
+    private static final long serialVersionUID = -14189898;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_CATALOG</code>.
+     * Setter for <code>information_schema.sequences.sequence_catalog</code>.
      */
     public void setSequenceCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_CATALOG</code>.
+     * Getter for <code>information_schema.sequences.sequence_catalog</code>.
      */
     @Size(max = 2147483647)
     public String getSequenceCatalog() {
@@ -46,14 +46,14 @@ public class SequencesRecord extends TableRecordImpl<SequencesRecord> implements
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_SCHEMA</code>.
+     * Setter for <code>information_schema.sequences.sequence_schema</code>.
      */
     public void setSequenceSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_SCHEMA</code>.
+     * Getter for <code>information_schema.sequences.sequence_schema</code>.
      */
     @Size(max = 2147483647)
     public String getSequenceSchema() {
@@ -61,14 +61,14 @@ public class SequencesRecord extends TableRecordImpl<SequencesRecord> implements
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_NAME</code>.
+     * Setter for <code>information_schema.sequences.sequence_name</code>.
      */
     public void setSequenceName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_NAME</code>.
+     * Getter for <code>information_schema.sequences.sequence_name</code>.
      */
     @Size(max = 2147483647)
     public String getSequenceName() {
@@ -76,56 +76,56 @@ public class SequencesRecord extends TableRecordImpl<SequencesRecord> implements
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.CURRENT_VALUE</code>.
+     * Setter for <code>information_schema.sequences.current_value</code>.
      */
     public void setCurrentValue(Long value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.CURRENT_VALUE</code>.
+     * Getter for <code>information_schema.sequences.current_value</code>.
      */
     public Long getCurrentValue() {
         return (Long) get(3);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.INCREMENT</code>.
+     * Setter for <code>information_schema.sequences.increment</code>.
      */
     public void setIncrement(Long value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.INCREMENT</code>.
+     * Getter for <code>information_schema.sequences.increment</code>.
      */
     public Long getIncrement() {
         return (Long) get(4);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.IS_GENERATED</code>.
+     * Setter for <code>information_schema.sequences.is_generated</code>.
      */
     public void setIsGenerated(Boolean value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.IS_GENERATED</code>.
+     * Getter for <code>information_schema.sequences.is_generated</code>.
      */
     public Boolean getIsGenerated() {
         return (Boolean) get(5);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.REMARKS</code>.
+     * Setter for <code>information_schema.sequences.remarks</code>.
      */
     public void setRemarks(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.REMARKS</code>.
+     * Getter for <code>information_schema.sequences.remarks</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -133,70 +133,70 @@ public class SequencesRecord extends TableRecordImpl<SequencesRecord> implements
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.CACHE</code>.
+     * Setter for <code>information_schema.sequences.cache</code>.
      */
     public void setCache(Long value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.CACHE</code>.
+     * Getter for <code>information_schema.sequences.cache</code>.
      */
     public Long getCache() {
         return (Long) get(7);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.MIN_VALUE</code>.
+     * Setter for <code>information_schema.sequences.min_value</code>.
      */
     public void setMinValue(Long value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.MIN_VALUE</code>.
+     * Getter for <code>information_schema.sequences.min_value</code>.
      */
     public Long getMinValue() {
         return (Long) get(8);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.MAX_VALUE</code>.
+     * Setter for <code>information_schema.sequences.max_value</code>.
      */
     public void setMaxValue(Long value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.MAX_VALUE</code>.
+     * Getter for <code>information_schema.sequences.max_value</code>.
      */
     public Long getMaxValue() {
         return (Long) get(9);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.IS_CYCLE</code>.
+     * Setter for <code>information_schema.sequences.is_cycle</code>.
      */
     public void setIsCycle(Boolean value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.IS_CYCLE</code>.
+     * Getter for <code>information_schema.sequences.is_cycle</code>.
      */
     public Boolean getIsCycle() {
         return (Boolean) get(10);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SEQUENCES.ID</code>.
+     * Setter for <code>information_schema.sequences.id</code>.
      */
     public void setId(Integer value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SEQUENCES.ID</code>.
+     * Getter for <code>information_schema.sequences.id</code>.
      */
     public Integer getId() {
         return (Integer) get(11);

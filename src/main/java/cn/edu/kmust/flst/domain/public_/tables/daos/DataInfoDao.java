@@ -55,21 +55,21 @@ public class DataInfoDao extends DAOImpl<DataInfoRecord, cn.edu.kmust.flst.domai
     }
 
     /**
-     * Fetch records that have <code>DATA_KEY IN (values)</code>
+     * Fetch records that have <code>data_key IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.DataInfo> fetchByDataKey(String... values) {
         return fetch(DataInfo.DATA_INFO.DATA_KEY, values);
     }
 
     /**
-     * Fetch a unique record that has <code>DATA_KEY = value</code>
+     * Fetch a unique record that has <code>data_key = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.DataInfo fetchOneByDataKey(String value) {
         return fetchOne(DataInfo.DATA_INFO.DATA_KEY, value);
     }
 
     /**
-     * Fetch records that have <code>DATA_VALUE IN (values)</code>
+     * Fetch records that have <code>data_value IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.DataInfo> fetchByDataValue(String... values) {
         return fetch(DataInfo.DATA_INFO.DATA_VALUE, values);

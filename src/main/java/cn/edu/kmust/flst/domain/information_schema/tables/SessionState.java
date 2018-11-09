@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SessionState extends TableImpl<SessionStateRecord> {
 
-    private static final long serialVersionUID = 143352782;
+    private static final long serialVersionUID = 1335649294;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SESSION_STATE</code>
+     * The reference instance of <code>information_schema.session_state</code>
      */
     public static final SessionState SESSION_STATE = new SessionState();
 
@@ -47,31 +47,31 @@ public class SessionState extends TableImpl<SessionStateRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SESSION_STATE.KEY</code>.
+     * The column <code>information_schema.session_state.key</code>.
      */
-    public final TableField<SessionStateRecord, String> KEY = createField("KEY", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SessionStateRecord, String> KEY = createField("key", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SESSION_STATE.SQL</code>.
+     * The column <code>information_schema.session_state.sql</code>.
      */
-    public final TableField<SessionStateRecord, String> SQL = createField("SQL", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SessionStateRecord, String> SQL = createField("sql", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SESSION_STATE</code> table reference
+     * Create a <code>information_schema.session_state</code> table reference
      */
     public SessionState() {
-        this(DSL.name("SESSION_STATE"), null);
+        this(DSL.name("session_state"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SESSION_STATE</code> table reference
+     * Create an aliased <code>information_schema.session_state</code> table reference
      */
     public SessionState(String alias) {
         this(DSL.name(alias), SESSION_STATE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SESSION_STATE</code> table reference
+     * Create an aliased <code>information_schema.session_state</code> table reference
      */
     public SessionState(Name alias) {
         this(alias, SESSION_STATE);

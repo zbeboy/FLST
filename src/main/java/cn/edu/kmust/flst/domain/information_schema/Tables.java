@@ -41,7 +41,7 @@ import javax.annotation.Generated;
 
 
 /**
- * Convenience access to all tables in INFORMATION_SCHEMA
+ * Convenience access to all tables in information_schema
  */
 @Generated(
     value = {
@@ -54,167 +54,167 @@ import javax.annotation.Generated;
 public class Tables {
 
     /**
-     * The table <code>INFORMATION_SCHEMA.CATALOGS</code>.
+     * The table <code>information_schema.catalogs</code>.
      */
     public static final Catalogs CATALOGS = cn.edu.kmust.flst.domain.information_schema.tables.Catalogs.CATALOGS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.COLLATIONS</code>.
+     * The table <code>information_schema.collations</code>.
      */
     public static final Collations COLLATIONS = cn.edu.kmust.flst.domain.information_schema.tables.Collations.COLLATIONS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.COLUMNS</code>.
-     */
-    public static final Columns COLUMNS = cn.edu.kmust.flst.domain.information_schema.tables.Columns.COLUMNS;
-
-    /**
-     * The table <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES</code>.
+     * The table <code>information_schema.column_privileges</code>.
      */
     public static final ColumnPrivileges COLUMN_PRIVILEGES = cn.edu.kmust.flst.domain.information_schema.tables.ColumnPrivileges.COLUMN_PRIVILEGES;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.CONSTANTS</code>.
+     * The table <code>information_schema.columns</code>.
+     */
+    public static final Columns COLUMNS = cn.edu.kmust.flst.domain.information_schema.tables.Columns.COLUMNS;
+
+    /**
+     * The table <code>information_schema.constants</code>.
      */
     public static final Constants CONSTANTS = cn.edu.kmust.flst.domain.information_schema.tables.Constants.CONSTANTS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.CONSTRAINTS</code>.
+     * The table <code>information_schema.constraints</code>.
      */
     public static final Constraints CONSTRAINTS = cn.edu.kmust.flst.domain.information_schema.tables.Constraints.CONSTRAINTS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.CROSS_REFERENCES</code>.
+     * The table <code>information_schema.cross_references</code>.
      */
     public static final CrossReferences CROSS_REFERENCES = cn.edu.kmust.flst.domain.information_schema.tables.CrossReferences.CROSS_REFERENCES;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.DOMAINS</code>.
+     * The table <code>information_schema.domains</code>.
      */
     public static final Domains DOMAINS = cn.edu.kmust.flst.domain.information_schema.tables.Domains.DOMAINS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.FUNCTION_ALIASES</code>.
+     * The table <code>information_schema.function_aliases</code>.
      */
     public static final FunctionAliases FUNCTION_ALIASES = cn.edu.kmust.flst.domain.information_schema.tables.FunctionAliases.FUNCTION_ALIASES;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS</code>.
+     * The table <code>information_schema.function_columns</code>.
      */
     public static final FunctionColumns FUNCTION_COLUMNS = cn.edu.kmust.flst.domain.information_schema.tables.FunctionColumns.FUNCTION_COLUMNS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.HELP</code>.
+     * The table <code>information_schema.help</code>.
      */
     public static final Help HELP = cn.edu.kmust.flst.domain.information_schema.tables.Help.HELP;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.INDEXES</code>.
-     */
-    public static final Indexes INDEXES = cn.edu.kmust.flst.domain.information_schema.tables.Indexes.INDEXES;
-
-    /**
-     * The table <code>INFORMATION_SCHEMA.IN_DOUBT</code>.
+     * The table <code>information_schema.in_doubt</code>.
      */
     public static final InDoubt IN_DOUBT = cn.edu.kmust.flst.domain.information_schema.tables.InDoubt.IN_DOUBT;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE</code>.
+     * The table <code>information_schema.indexes</code>.
+     */
+    public static final Indexes INDEXES = cn.edu.kmust.flst.domain.information_schema.tables.Indexes.INDEXES;
+
+    /**
+     * The table <code>information_schema.key_column_usage</code>.
      */
     public static final KeyColumnUsage KEY_COLUMN_USAGE = cn.edu.kmust.flst.domain.information_schema.tables.KeyColumnUsage.KEY_COLUMN_USAGE;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.LOCKS</code>.
+     * The table <code>information_schema.locks</code>.
      */
     public static final Locks LOCKS = cn.edu.kmust.flst.domain.information_schema.tables.Locks.LOCKS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.QUERY_STATISTICS</code>.
+     * The table <code>information_schema.query_statistics</code>.
      */
     public static final QueryStatistics QUERY_STATISTICS = cn.edu.kmust.flst.domain.information_schema.tables.QueryStatistics.QUERY_STATISTICS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS</code>.
+     * The table <code>information_schema.referential_constraints</code>.
      */
     public static final ReferentialConstraints REFERENTIAL_CONSTRAINTS = cn.edu.kmust.flst.domain.information_schema.tables.ReferentialConstraints.REFERENTIAL_CONSTRAINTS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.RIGHTS</code>.
+     * The table <code>information_schema.rights</code>.
      */
     public static final Rights RIGHTS = cn.edu.kmust.flst.domain.information_schema.tables.Rights.RIGHTS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.ROLES</code>.
+     * The table <code>information_schema.roles</code>.
      */
     public static final Roles ROLES = cn.edu.kmust.flst.domain.information_schema.tables.Roles.ROLES;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.SCHEMATA</code>.
+     * The table <code>information_schema.schemata</code>.
      */
     public static final Schemata SCHEMATA = cn.edu.kmust.flst.domain.information_schema.tables.Schemata.SCHEMATA;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.SEQUENCES</code>.
+     * The table <code>information_schema.sequences</code>.
      */
     public static final Sequences SEQUENCES = cn.edu.kmust.flst.domain.information_schema.tables.Sequences.SEQUENCES;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.SESSIONS</code>.
-     */
-    public static final Sessions SESSIONS = cn.edu.kmust.flst.domain.information_schema.tables.Sessions.SESSIONS;
-
-    /**
-     * The table <code>INFORMATION_SCHEMA.SESSION_STATE</code>.
+     * The table <code>information_schema.session_state</code>.
      */
     public static final SessionState SESSION_STATE = cn.edu.kmust.flst.domain.information_schema.tables.SessionState.SESSION_STATE;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.SETTINGS</code>.
+     * The table <code>information_schema.sessions</code>.
+     */
+    public static final Sessions SESSIONS = cn.edu.kmust.flst.domain.information_schema.tables.Sessions.SESSIONS;
+
+    /**
+     * The table <code>information_schema.settings</code>.
      */
     public static final Settings SETTINGS = cn.edu.kmust.flst.domain.information_schema.tables.Settings.SETTINGS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.SYNONYMS</code>.
+     * The table <code>information_schema.synonyms</code>.
      */
     public static final Synonyms SYNONYMS = cn.edu.kmust.flst.domain.information_schema.tables.Synonyms.SYNONYMS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.TABLES</code>.
-     */
-    public static final cn.edu.kmust.flst.domain.information_schema.tables.Tables TABLES = cn.edu.kmust.flst.domain.information_schema.tables.Tables.TABLES;
-
-    /**
-     * The table <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code>.
+     * The table <code>information_schema.table_constraints</code>.
      */
     public static final TableConstraints TABLE_CONSTRAINTS = cn.edu.kmust.flst.domain.information_schema.tables.TableConstraints.TABLE_CONSTRAINTS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code>.
+     * The table <code>information_schema.table_privileges</code>.
      */
     public static final TablePrivileges TABLE_PRIVILEGES = cn.edu.kmust.flst.domain.information_schema.tables.TablePrivileges.TABLE_PRIVILEGES;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.TABLE_TYPES</code>.
+     * The table <code>information_schema.table_types</code>.
      */
     public static final TableTypes TABLE_TYPES = cn.edu.kmust.flst.domain.information_schema.tables.TableTypes.TABLE_TYPES;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.TRIGGERS</code>.
+     * The table <code>information_schema.tables</code>.
+     */
+    public static final cn.edu.kmust.flst.domain.information_schema.tables.Tables TABLES = cn.edu.kmust.flst.domain.information_schema.tables.Tables.TABLES;
+
+    /**
+     * The table <code>information_schema.triggers</code>.
      */
     public static final Triggers TRIGGERS = cn.edu.kmust.flst.domain.information_schema.tables.Triggers.TRIGGERS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.TYPE_INFO</code>.
+     * The table <code>information_schema.type_info</code>.
      */
     public static final TypeInfo TYPE_INFO = cn.edu.kmust.flst.domain.information_schema.tables.TypeInfo.TYPE_INFO;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.USERS</code>.
+     * The table <code>information_schema.users</code>.
      */
     public static final Users USERS = cn.edu.kmust.flst.domain.information_schema.tables.Users.USERS;
 
     /**
-     * The table <code>INFORMATION_SCHEMA.VIEWS</code>.
+     * The table <code>information_schema.views</code>.
      */
     public static final Views VIEWS = cn.edu.kmust.flst.domain.information_schema.tables.Views.VIEWS;
 }

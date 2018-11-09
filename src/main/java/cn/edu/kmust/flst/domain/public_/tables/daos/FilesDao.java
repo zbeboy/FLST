@@ -56,56 +56,56 @@ public class FilesDao extends DAOImpl<FilesRecord, cn.edu.kmust.flst.domain.publ
     }
 
     /**
-     * Fetch records that have <code>FILE_ID IN (values)</code>
+     * Fetch records that have <code>file_id IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Files> fetchByFileId(String... values) {
         return fetch(Files.FILES.FILE_ID, values);
     }
 
     /**
-     * Fetch a unique record that has <code>FILE_ID = value</code>
+     * Fetch a unique record that has <code>file_id = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.Files fetchOneByFileId(String value) {
         return fetchOne(Files.FILES.FILE_ID, value);
     }
 
     /**
-     * Fetch records that have <code>SIZE IN (values)</code>
+     * Fetch records that have <code>size IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Files> fetchBySize(Long... values) {
         return fetch(Files.FILES.SIZE, values);
     }
 
     /**
-     * Fetch records that have <code>ORIGINAL_FILE_NAME IN (values)</code>
+     * Fetch records that have <code>original_file_name IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Files> fetchByOriginalFileName(String... values) {
         return fetch(Files.FILES.ORIGINAL_FILE_NAME, values);
     }
 
     /**
-     * Fetch records that have <code>NEW_NAME IN (values)</code>
+     * Fetch records that have <code>new_name IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Files> fetchByNewName(String... values) {
         return fetch(Files.FILES.NEW_NAME, values);
     }
 
     /**
-     * Fetch records that have <code>RELATIVE_PATH IN (values)</code>
+     * Fetch records that have <code>relative_path IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Files> fetchByRelativePath(String... values) {
         return fetch(Files.FILES.RELATIVE_PATH, values);
     }
 
     /**
-     * Fetch records that have <code>EXT IN (values)</code>
+     * Fetch records that have <code>ext IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Files> fetchByExt(String... values) {
         return fetch(Files.FILES.EXT, values);
     }
 
     /**
-     * Fetch records that have <code>UPLOAD_DATE IN (values)</code>
+     * Fetch records that have <code>upload_date IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Files> fetchByUploadDate(Timestamp... values) {
         return fetch(Files.FILES.UPLOAD_DATE, values);

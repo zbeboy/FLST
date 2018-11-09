@@ -30,17 +30,17 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FriendlyLinkRecord extends UpdatableRecordImpl<FriendlyLinkRecord> implements Record5<String, String, String, String, Boolean> {
 
-    private static final long serialVersionUID = -1080997398;
+    private static final long serialVersionUID = 437624298;
 
     /**
-     * Setter for <code>PUBLIC.FRIENDLY_LINK.LINK_ID</code>.
+     * Setter for <code>public.friendly_link.link_id</code>.
      */
     public void setLinkId(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FRIENDLY_LINK.LINK_ID</code>.
+     * Getter for <code>public.friendly_link.link_id</code>.
      */
     @NotNull
     @Size(max = 64)
@@ -49,14 +49,14 @@ public class FriendlyLinkRecord extends UpdatableRecordImpl<FriendlyLinkRecord> 
     }
 
     /**
-     * Setter for <code>PUBLIC.FRIENDLY_LINK.LINK_NAME</code>.
+     * Setter for <code>public.friendly_link.link_name</code>.
      */
     public void setLinkName(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FRIENDLY_LINK.LINK_NAME</code>.
+     * Getter for <code>public.friendly_link.link_name</code>.
      */
     @NotNull
     @Size(max = 100)
@@ -65,14 +65,14 @@ public class FriendlyLinkRecord extends UpdatableRecordImpl<FriendlyLinkRecord> 
     }
 
     /**
-     * Setter for <code>PUBLIC.FRIENDLY_LINK.LINK_NAME_EN</code>.
+     * Setter for <code>public.friendly_link.link_name_en</code>.
      */
     public void setLinkNameEn(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FRIENDLY_LINK.LINK_NAME_EN</code>.
+     * Getter for <code>public.friendly_link.link_name_en</code>.
      */
     @NotNull
     @Size(max = 200)
@@ -81,14 +81,14 @@ public class FriendlyLinkRecord extends UpdatableRecordImpl<FriendlyLinkRecord> 
     }
 
     /**
-     * Setter for <code>PUBLIC.FRIENDLY_LINK.LINK_URL</code>.
+     * Setter for <code>public.friendly_link.link_url</code>.
      */
     public void setLinkUrl(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FRIENDLY_LINK.LINK_URL</code>.
+     * Getter for <code>public.friendly_link.link_url</code>.
      */
     @NotNull
     @Size(max = 200)
@@ -97,14 +97,14 @@ public class FriendlyLinkRecord extends UpdatableRecordImpl<FriendlyLinkRecord> 
     }
 
     /**
-     * Setter for <code>PUBLIC.FRIENDLY_LINK.LINK_SHOW</code>.
+     * Setter for <code>public.friendly_link.link_show</code>.
      */
     public void setLinkShow(Boolean value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FRIENDLY_LINK.LINK_SHOW</code>.
+     * Getter for <code>public.friendly_link.link_show</code>.
      */
     public Boolean getLinkShow() {
         return (Boolean) get(4);

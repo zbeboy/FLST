@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables extends TableImpl<TablesRecord> {
 
-    private static final long serialVersionUID = 351983570;
+    private static final long serialVersionUID = 1380028434;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.TABLES</code>
+     * The reference instance of <code>information_schema.tables</code>
      */
     public static final Tables TABLES = new Tables();
 
@@ -47,81 +47,81 @@ public class Tables extends TableImpl<TablesRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.TABLE_CATALOG</code>.
+     * The column <code>information_schema.tables.table_catalog</code>.
      */
-    public final TableField<TablesRecord, String> TABLE_CATALOG = createField("TABLE_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablesRecord, String> TABLE_CATALOG = createField("table_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.TABLE_SCHEMA</code>.
+     * The column <code>information_schema.tables.table_schema</code>.
      */
-    public final TableField<TablesRecord, String> TABLE_SCHEMA = createField("TABLE_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablesRecord, String> TABLE_SCHEMA = createField("table_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.TABLE_NAME</code>.
+     * The column <code>information_schema.tables.table_name</code>.
      */
-    public final TableField<TablesRecord, String> TABLE_NAME = createField("TABLE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablesRecord, String> TABLE_NAME = createField("table_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.TABLE_TYPE</code>.
+     * The column <code>information_schema.tables.table_type</code>.
      */
-    public final TableField<TablesRecord, String> TABLE_TYPE = createField("TABLE_TYPE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablesRecord, String> TABLE_TYPE = createField("table_type", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.STORAGE_TYPE</code>.
+     * The column <code>information_schema.tables.storage_type</code>.
      */
-    public final TableField<TablesRecord, String> STORAGE_TYPE = createField("STORAGE_TYPE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablesRecord, String> STORAGE_TYPE = createField("storage_type", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.SQL</code>.
+     * The column <code>information_schema.tables.sql</code>.
      */
-    public final TableField<TablesRecord, String> SQL = createField("SQL", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablesRecord, String> SQL = createField("sql", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.REMARKS</code>.
+     * The column <code>information_schema.tables.remarks</code>.
      */
-    public final TableField<TablesRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablesRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.LAST_MODIFICATION</code>.
+     * The column <code>information_schema.tables.last_modification</code>.
      */
-    public final TableField<TablesRecord, Long> LAST_MODIFICATION = createField("LAST_MODIFICATION", org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<TablesRecord, Long> LAST_MODIFICATION = createField("last_modification", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.ID</code>.
+     * The column <code>information_schema.tables.id</code>.
      */
-    public final TableField<TablesRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<TablesRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.TYPE_NAME</code>.
+     * The column <code>information_schema.tables.type_name</code>.
      */
-    public final TableField<TablesRecord, String> TYPE_NAME = createField("TYPE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablesRecord, String> TYPE_NAME = createField("type_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.TABLE_CLASS</code>.
+     * The column <code>information_schema.tables.table_class</code>.
      */
-    public final TableField<TablesRecord, String> TABLE_CLASS = createField("TABLE_CLASS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablesRecord, String> TABLE_CLASS = createField("table_class", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.ROW_COUNT_ESTIMATE</code>.
+     * The column <code>information_schema.tables.row_count_estimate</code>.
      */
-    public final TableField<TablesRecord, Long> ROW_COUNT_ESTIMATE = createField("ROW_COUNT_ESTIMATE", org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<TablesRecord, Long> ROW_COUNT_ESTIMATE = createField("row_count_estimate", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.TABLES</code> table reference
+     * Create a <code>information_schema.tables</code> table reference
      */
     public Tables() {
-        this(DSL.name("TABLES"), null);
+        this(DSL.name("tables"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TABLES</code> table reference
+     * Create an aliased <code>information_schema.tables</code> table reference
      */
     public Tables(String alias) {
         this(DSL.name(alias), TABLES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TABLES</code> table reference
+     * Create an aliased <code>information_schema.tables</code> table reference
      */
     public Tables(Name alias) {
         this(alias, TABLES);

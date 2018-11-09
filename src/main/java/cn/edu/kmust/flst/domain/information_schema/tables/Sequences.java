@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Sequences extends TableImpl<SequencesRecord> {
 
-    private static final long serialVersionUID = 1479934596;
+    private static final long serialVersionUID = 2115005348;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SEQUENCES</code>
+     * The reference instance of <code>information_schema.sequences</code>
      */
     public static final Sequences SEQUENCES = new Sequences();
 
@@ -47,81 +47,81 @@ public class Sequences extends TableImpl<SequencesRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_CATALOG</code>.
+     * The column <code>information_schema.sequences.sequence_catalog</code>.
      */
-    public final TableField<SequencesRecord, String> SEQUENCE_CATALOG = createField("SEQUENCE_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SequencesRecord, String> SEQUENCE_CATALOG = createField("sequence_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_SCHEMA</code>.
+     * The column <code>information_schema.sequences.sequence_schema</code>.
      */
-    public final TableField<SequencesRecord, String> SEQUENCE_SCHEMA = createField("SEQUENCE_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SequencesRecord, String> SEQUENCE_SCHEMA = createField("sequence_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_NAME</code>.
+     * The column <code>information_schema.sequences.sequence_name</code>.
      */
-    public final TableField<SequencesRecord, String> SEQUENCE_NAME = createField("SEQUENCE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SequencesRecord, String> SEQUENCE_NAME = createField("sequence_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.CURRENT_VALUE</code>.
+     * The column <code>information_schema.sequences.current_value</code>.
      */
-    public final TableField<SequencesRecord, Long> CURRENT_VALUE = createField("CURRENT_VALUE", org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<SequencesRecord, Long> CURRENT_VALUE = createField("current_value", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.INCREMENT</code>.
+     * The column <code>information_schema.sequences.increment</code>.
      */
-    public final TableField<SequencesRecord, Long> INCREMENT = createField("INCREMENT", org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<SequencesRecord, Long> INCREMENT = createField("increment", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.IS_GENERATED</code>.
+     * The column <code>information_schema.sequences.is_generated</code>.
      */
-    public final TableField<SequencesRecord, Boolean> IS_GENERATED = createField("IS_GENERATED", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+    public final TableField<SequencesRecord, Boolean> IS_GENERATED = createField("is_generated", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.REMARKS</code>.
+     * The column <code>information_schema.sequences.remarks</code>.
      */
-    public final TableField<SequencesRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SequencesRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.CACHE</code>.
+     * The column <code>information_schema.sequences.cache</code>.
      */
-    public final TableField<SequencesRecord, Long> CACHE = createField("CACHE", org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<SequencesRecord, Long> CACHE = createField("cache", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.MIN_VALUE</code>.
+     * The column <code>information_schema.sequences.min_value</code>.
      */
-    public final TableField<SequencesRecord, Long> MIN_VALUE = createField("MIN_VALUE", org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<SequencesRecord, Long> MIN_VALUE = createField("min_value", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.MAX_VALUE</code>.
+     * The column <code>information_schema.sequences.max_value</code>.
      */
-    public final TableField<SequencesRecord, Long> MAX_VALUE = createField("MAX_VALUE", org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<SequencesRecord, Long> MAX_VALUE = createField("max_value", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.IS_CYCLE</code>.
+     * The column <code>information_schema.sequences.is_cycle</code>.
      */
-    public final TableField<SequencesRecord, Boolean> IS_CYCLE = createField("IS_CYCLE", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+    public final TableField<SequencesRecord, Boolean> IS_CYCLE = createField("is_cycle", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SEQUENCES.ID</code>.
+     * The column <code>information_schema.sequences.id</code>.
      */
-    public final TableField<SequencesRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<SequencesRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SEQUENCES</code> table reference
+     * Create a <code>information_schema.sequences</code> table reference
      */
     public Sequences() {
-        this(DSL.name("SEQUENCES"), null);
+        this(DSL.name("sequences"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SEQUENCES</code> table reference
+     * Create an aliased <code>information_schema.sequences</code> table reference
      */
     public Sequences(String alias) {
         this(DSL.name(alias), SEQUENCES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SEQUENCES</code> table reference
+     * Create an aliased <code>information_schema.sequences</code> table reference
      */
     public Sequences(Name alias) {
         this(alias, SEQUENCES);

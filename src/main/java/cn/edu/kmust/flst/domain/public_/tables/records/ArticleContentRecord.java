@@ -30,17 +30,17 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ArticleContentRecord extends UpdatableRecordImpl<ArticleContentRecord> implements Record2<Integer, String> {
 
-    private static final long serialVersionUID = -189608858;
+    private static final long serialVersionUID = 1619088486;
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE_CONTENT.ID</code>.
+     * Setter for <code>public.article_content.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE_CONTENT.ID</code>.
+     * Getter for <code>public.article_content.id</code>.
      */
     @NotNull
     public Integer getId() {
@@ -48,14 +48,14 @@ public class ArticleContentRecord extends UpdatableRecordImpl<ArticleContentReco
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE_CONTENT.ARTICLE_CONTENT</code>.
+     * Setter for <code>public.article_content.article_content</code>.
      */
     public void setArticleContent(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE_CONTENT.ARTICLE_CONTENT</code>.
+     * Getter for <code>public.article_content.article_content</code>.
      */
     @NotNull
     @Size(max = 2147483647)

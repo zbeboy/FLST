@@ -56,14 +56,14 @@ public class AuthoritiesDao extends DAOImpl<AuthoritiesRecord, cn.edu.kmust.flst
     }
 
     /**
-     * Fetch records that have <code>USERNAME IN (values)</code>
+     * Fetch records that have <code>username IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Authorities> fetchByUsername(String... values) {
         return fetch(Authorities.AUTHORITIES.USERNAME, values);
     }
 
     /**
-     * Fetch records that have <code>AUTHORITY IN (values)</code>
+     * Fetch records that have <code>authority IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Authorities> fetchByAuthority(String... values) {
         return fetch(Authorities.AUTHORITIES.AUTHORITY, values);

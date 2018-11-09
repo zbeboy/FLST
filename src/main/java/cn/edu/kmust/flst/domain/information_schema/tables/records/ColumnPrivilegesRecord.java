@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ColumnPrivilegesRecord extends TableRecordImpl<ColumnPrivilegesRecord> implements Record8<String, String, String, String, String, String, String, String> {
 
-    private static final long serialVersionUID = -640896241;
+    private static final long serialVersionUID = 195740431;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.GRANTOR</code>.
+     * Setter for <code>information_schema.column_privileges.grantor</code>.
      */
     public void setGrantor(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.GRANTOR</code>.
+     * Getter for <code>information_schema.column_privileges.grantor</code>.
      */
     @Size(max = 2147483647)
     public String getGrantor() {
@@ -46,14 +46,14 @@ public class ColumnPrivilegesRecord extends TableRecordImpl<ColumnPrivilegesReco
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.GRANTEE</code>.
+     * Setter for <code>information_schema.column_privileges.grantee</code>.
      */
     public void setGrantee(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.GRANTEE</code>.
+     * Getter for <code>information_schema.column_privileges.grantee</code>.
      */
     @Size(max = 2147483647)
     public String getGrantee() {
@@ -61,14 +61,14 @@ public class ColumnPrivilegesRecord extends TableRecordImpl<ColumnPrivilegesReco
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.TABLE_CATALOG</code>.
+     * Setter for <code>information_schema.column_privileges.table_catalog</code>.
      */
     public void setTableCatalog(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.TABLE_CATALOG</code>.
+     * Getter for <code>information_schema.column_privileges.table_catalog</code>.
      */
     @Size(max = 2147483647)
     public String getTableCatalog() {
@@ -76,14 +76,14 @@ public class ColumnPrivilegesRecord extends TableRecordImpl<ColumnPrivilegesReco
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.TABLE_SCHEMA</code>.
+     * Setter for <code>information_schema.column_privileges.table_schema</code>.
      */
     public void setTableSchema(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.TABLE_SCHEMA</code>.
+     * Getter for <code>information_schema.column_privileges.table_schema</code>.
      */
     @Size(max = 2147483647)
     public String getTableSchema() {
@@ -91,14 +91,14 @@ public class ColumnPrivilegesRecord extends TableRecordImpl<ColumnPrivilegesReco
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.TABLE_NAME</code>.
+     * Setter for <code>information_schema.column_privileges.table_name</code>.
      */
     public void setTableName(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.TABLE_NAME</code>.
+     * Getter for <code>information_schema.column_privileges.table_name</code>.
      */
     @Size(max = 2147483647)
     public String getTableName() {
@@ -106,14 +106,14 @@ public class ColumnPrivilegesRecord extends TableRecordImpl<ColumnPrivilegesReco
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.COLUMN_NAME</code>.
+     * Setter for <code>information_schema.column_privileges.column_name</code>.
      */
     public void setColumnName(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.COLUMN_NAME</code>.
+     * Getter for <code>information_schema.column_privileges.column_name</code>.
      */
     @Size(max = 2147483647)
     public String getColumnName() {
@@ -121,14 +121,14 @@ public class ColumnPrivilegesRecord extends TableRecordImpl<ColumnPrivilegesReco
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.PRIVILEGE_TYPE</code>.
+     * Setter for <code>information_schema.column_privileges.privilege_type</code>.
      */
     public void setPrivilegeType(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.PRIVILEGE_TYPE</code>.
+     * Getter for <code>information_schema.column_privileges.privilege_type</code>.
      */
     @Size(max = 2147483647)
     public String getPrivilegeType() {
@@ -136,14 +136,14 @@ public class ColumnPrivilegesRecord extends TableRecordImpl<ColumnPrivilegesReco
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.IS_GRANTABLE</code>.
+     * Setter for <code>information_schema.column_privileges.is_grantable</code>.
      */
     public void setIsGrantable(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.IS_GRANTABLE</code>.
+     * Getter for <code>information_schema.column_privileges.is_grantable</code>.
      */
     @Size(max = 2147483647)
     public String getIsGrantable() {

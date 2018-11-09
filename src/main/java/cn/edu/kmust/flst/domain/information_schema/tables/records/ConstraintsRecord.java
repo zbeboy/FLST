@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implements Record13<String, String, String, String, String, String, String, String, String, String, String, String, Integer> {
 
-    private static final long serialVersionUID = 1014846666;
+    private static final long serialVersionUID = -733035254;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.CONSTRAINT_CATALOG</code>.
+     * Setter for <code>information_schema.constraints.constraint_catalog</code>.
      */
     public void setConstraintCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.CONSTRAINT_CATALOG</code>.
+     * Getter for <code>information_schema.constraints.constraint_catalog</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintCatalog() {
@@ -46,14 +46,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
+     * Setter for <code>information_schema.constraints.constraint_schema</code>.
      */
     public void setConstraintSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
+     * Getter for <code>information_schema.constraints.constraint_schema</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintSchema() {
@@ -61,14 +61,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.CONSTRAINT_NAME</code>.
+     * Setter for <code>information_schema.constraints.constraint_name</code>.
      */
     public void setConstraintName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.CONSTRAINT_NAME</code>.
+     * Getter for <code>information_schema.constraints.constraint_name</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintName() {
@@ -76,14 +76,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.CONSTRAINT_TYPE</code>.
+     * Setter for <code>information_schema.constraints.constraint_type</code>.
      */
     public void setConstraintType(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.CONSTRAINT_TYPE</code>.
+     * Getter for <code>information_schema.constraints.constraint_type</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintType() {
@@ -91,14 +91,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.TABLE_CATALOG</code>.
+     * Setter for <code>information_schema.constraints.table_catalog</code>.
      */
     public void setTableCatalog(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.TABLE_CATALOG</code>.
+     * Getter for <code>information_schema.constraints.table_catalog</code>.
      */
     @Size(max = 2147483647)
     public String getTableCatalog() {
@@ -106,14 +106,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.TABLE_SCHEMA</code>.
+     * Setter for <code>information_schema.constraints.table_schema</code>.
      */
     public void setTableSchema(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.TABLE_SCHEMA</code>.
+     * Getter for <code>information_schema.constraints.table_schema</code>.
      */
     @Size(max = 2147483647)
     public String getTableSchema() {
@@ -121,14 +121,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.TABLE_NAME</code>.
+     * Setter for <code>information_schema.constraints.table_name</code>.
      */
     public void setTableName(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.TABLE_NAME</code>.
+     * Getter for <code>information_schema.constraints.table_name</code>.
      */
     @Size(max = 2147483647)
     public String getTableName() {
@@ -136,14 +136,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.UNIQUE_INDEX_NAME</code>.
+     * Setter for <code>information_schema.constraints.unique_index_name</code>.
      */
     public void setUniqueIndexName(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.UNIQUE_INDEX_NAME</code>.
+     * Getter for <code>information_schema.constraints.unique_index_name</code>.
      */
     @Size(max = 2147483647)
     public String getUniqueIndexName() {
@@ -151,14 +151,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.CHECK_EXPRESSION</code>.
+     * Setter for <code>information_schema.constraints.check_expression</code>.
      */
     public void setCheckExpression(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.CHECK_EXPRESSION</code>.
+     * Getter for <code>information_schema.constraints.check_expression</code>.
      */
     @Size(max = 2147483647)
     public String getCheckExpression() {
@@ -166,14 +166,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.COLUMN_LIST</code>.
+     * Setter for <code>information_schema.constraints.column_list</code>.
      */
     public void setColumnList(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.COLUMN_LIST</code>.
+     * Getter for <code>information_schema.constraints.column_list</code>.
      */
     @Size(max = 2147483647)
     public String getColumnList() {
@@ -181,14 +181,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.REMARKS</code>.
+     * Setter for <code>information_schema.constraints.remarks</code>.
      */
     public void setRemarks(String value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.REMARKS</code>.
+     * Getter for <code>information_schema.constraints.remarks</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -196,14 +196,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.SQL</code>.
+     * Setter for <code>information_schema.constraints.sql</code>.
      */
     public void setSql(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.SQL</code>.
+     * Getter for <code>information_schema.constraints.sql</code>.
      */
     @Size(max = 2147483647)
     public String getSql() {
@@ -211,14 +211,14 @@ public class ConstraintsRecord extends TableRecordImpl<ConstraintsRecord> implem
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.CONSTRAINTS.ID</code>.
+     * Setter for <code>information_schema.constraints.id</code>.
      */
     public void setId(Integer value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.CONSTRAINTS.ID</code>.
+     * Getter for <code>information_schema.constraints.id</code>.
      */
     public Integer getId() {
         return (Integer) get(12);

@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Users extends TableImpl<UsersRecord> {
 
-    private static final long serialVersionUID = 116844608;
+    private static final long serialVersionUID = -1523361824;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.USERS</code>
+     * The reference instance of <code>information_schema.users</code>
      */
     public static final Users USERS = new Users();
 
@@ -47,41 +47,41 @@ public class Users extends TableImpl<UsersRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.USERS.NAME</code>.
+     * The column <code>information_schema.users.name</code>.
      */
-    public final TableField<UsersRecord, String> NAME = createField("NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<UsersRecord, String> NAME = createField("name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.USERS.ADMIN</code>.
+     * The column <code>information_schema.users.admin</code>.
      */
-    public final TableField<UsersRecord, String> ADMIN = createField("ADMIN", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<UsersRecord, String> ADMIN = createField("admin", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.USERS.REMARKS</code>.
+     * The column <code>information_schema.users.remarks</code>.
      */
-    public final TableField<UsersRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<UsersRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.USERS.ID</code>.
+     * The column <code>information_schema.users.id</code>.
      */
-    public final TableField<UsersRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<UsersRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.USERS</code> table reference
+     * Create a <code>information_schema.users</code> table reference
      */
     public Users() {
-        this(DSL.name("USERS"), null);
+        this(DSL.name("users"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.USERS</code> table reference
+     * Create an aliased <code>information_schema.users</code> table reference
      */
     public Users(String alias) {
         this(DSL.name(alias), USERS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.USERS</code> table reference
+     * Create an aliased <code>information_schema.users</code> table reference
      */
     public Users(Name alias) {
         this(alias, USERS);

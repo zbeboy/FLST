@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Indexes extends TableImpl<IndexesRecord> {
 
-    private static final long serialVersionUID = -1895240071;
+    private static final long serialVersionUID = 32002585;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.INDEXES</code>
+     * The reference instance of <code>information_schema.indexes</code>
      */
     public static final Indexes INDEXES = new Indexes();
 
@@ -47,131 +47,131 @@ public class Indexes extends TableImpl<IndexesRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.TABLE_CATALOG</code>.
+     * The column <code>information_schema.indexes.table_catalog</code>.
      */
-    public final TableField<IndexesRecord, String> TABLE_CATALOG = createField("TABLE_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> TABLE_CATALOG = createField("table_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.TABLE_SCHEMA</code>.
+     * The column <code>information_schema.indexes.table_schema</code>.
      */
-    public final TableField<IndexesRecord, String> TABLE_SCHEMA = createField("TABLE_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> TABLE_SCHEMA = createField("table_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.TABLE_NAME</code>.
+     * The column <code>information_schema.indexes.table_name</code>.
      */
-    public final TableField<IndexesRecord, String> TABLE_NAME = createField("TABLE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> TABLE_NAME = createField("table_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.NON_UNIQUE</code>.
+     * The column <code>information_schema.indexes.non_unique</code>.
      */
-    public final TableField<IndexesRecord, Boolean> NON_UNIQUE = createField("NON_UNIQUE", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+    public final TableField<IndexesRecord, Boolean> NON_UNIQUE = createField("non_unique", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.INDEX_NAME</code>.
+     * The column <code>information_schema.indexes.index_name</code>.
      */
-    public final TableField<IndexesRecord, String> INDEX_NAME = createField("INDEX_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> INDEX_NAME = createField("index_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.ORDINAL_POSITION</code>.
+     * The column <code>information_schema.indexes.ordinal_position</code>.
      */
-    public final TableField<IndexesRecord, Short> ORDINAL_POSITION = createField("ORDINAL_POSITION", org.jooq.impl.SQLDataType.SMALLINT, this, "");
+    public final TableField<IndexesRecord, Short> ORDINAL_POSITION = createField("ordinal_position", org.jooq.impl.SQLDataType.SMALLINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.COLUMN_NAME</code>.
+     * The column <code>information_schema.indexes.column_name</code>.
      */
-    public final TableField<IndexesRecord, String> COLUMN_NAME = createField("COLUMN_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> COLUMN_NAME = createField("column_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.CARDINALITY</code>.
+     * The column <code>information_schema.indexes.cardinality</code>.
      */
-    public final TableField<IndexesRecord, Integer> CARDINALITY = createField("CARDINALITY", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<IndexesRecord, Integer> CARDINALITY = createField("cardinality", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.PRIMARY_KEY</code>.
+     * The column <code>information_schema.indexes.primary_key</code>.
      */
-    public final TableField<IndexesRecord, Boolean> PRIMARY_KEY = createField("PRIMARY_KEY", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+    public final TableField<IndexesRecord, Boolean> PRIMARY_KEY = createField("primary_key", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.INDEX_TYPE_NAME</code>.
+     * The column <code>information_schema.indexes.index_type_name</code>.
      */
-    public final TableField<IndexesRecord, String> INDEX_TYPE_NAME = createField("INDEX_TYPE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> INDEX_TYPE_NAME = createField("index_type_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.IS_GENERATED</code>.
+     * The column <code>information_schema.indexes.is_generated</code>.
      */
-    public final TableField<IndexesRecord, Boolean> IS_GENERATED = createField("IS_GENERATED", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+    public final TableField<IndexesRecord, Boolean> IS_GENERATED = createField("is_generated", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.INDEX_TYPE</code>.
+     * The column <code>information_schema.indexes.index_type</code>.
      */
-    public final TableField<IndexesRecord, Short> INDEX_TYPE = createField("INDEX_TYPE", org.jooq.impl.SQLDataType.SMALLINT, this, "");
+    public final TableField<IndexesRecord, Short> INDEX_TYPE = createField("index_type", org.jooq.impl.SQLDataType.SMALLINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.ASC_OR_DESC</code>.
+     * The column <code>information_schema.indexes.asc_or_desc</code>.
      */
-    public final TableField<IndexesRecord, String> ASC_OR_DESC = createField("ASC_OR_DESC", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> ASC_OR_DESC = createField("asc_or_desc", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.PAGES</code>.
+     * The column <code>information_schema.indexes.pages</code>.
      */
-    public final TableField<IndexesRecord, Integer> PAGES = createField("PAGES", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<IndexesRecord, Integer> PAGES = createField("pages", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.FILTER_CONDITION</code>.
+     * The column <code>information_schema.indexes.filter_condition</code>.
      */
-    public final TableField<IndexesRecord, String> FILTER_CONDITION = createField("FILTER_CONDITION", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> FILTER_CONDITION = createField("filter_condition", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.REMARKS</code>.
+     * The column <code>information_schema.indexes.remarks</code>.
      */
-    public final TableField<IndexesRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.SQL</code>.
+     * The column <code>information_schema.indexes.sql</code>.
      */
-    public final TableField<IndexesRecord, String> SQL = createField("SQL", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> SQL = createField("sql", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.ID</code>.
+     * The column <code>information_schema.indexes.id</code>.
      */
-    public final TableField<IndexesRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<IndexesRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.SORT_TYPE</code>.
+     * The column <code>information_schema.indexes.sort_type</code>.
      */
-    public final TableField<IndexesRecord, Integer> SORT_TYPE = createField("SORT_TYPE", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<IndexesRecord, Integer> SORT_TYPE = createField("sort_type", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.CONSTRAINT_NAME</code>.
+     * The column <code>information_schema.indexes.constraint_name</code>.
      */
-    public final TableField<IndexesRecord, String> CONSTRAINT_NAME = createField("CONSTRAINT_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> CONSTRAINT_NAME = createField("constraint_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.INDEX_CLASS</code>.
+     * The column <code>information_schema.indexes.index_class</code>.
      */
-    public final TableField<IndexesRecord, String> INDEX_CLASS = createField("INDEX_CLASS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<IndexesRecord, String> INDEX_CLASS = createField("index_class", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INDEXES.AFFINITY</code>.
+     * The column <code>information_schema.indexes.affinity</code>.
      */
-    public final TableField<IndexesRecord, Boolean> AFFINITY = createField("AFFINITY", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+    public final TableField<IndexesRecord, Boolean> AFFINITY = createField("affinity", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.INDEXES</code> table reference
+     * Create a <code>information_schema.indexes</code> table reference
      */
     public Indexes() {
-        this(DSL.name("INDEXES"), null);
+        this(DSL.name("indexes"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.INDEXES</code> table reference
+     * Create an aliased <code>information_schema.indexes</code> table reference
      */
     public Indexes(String alias) {
         this(DSL.name(alias), INDEXES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.INDEXES</code> table reference
+     * Create an aliased <code>information_schema.indexes</code> table reference
      */
     public Indexes(Name alias) {
         this(alias, INDEXES);

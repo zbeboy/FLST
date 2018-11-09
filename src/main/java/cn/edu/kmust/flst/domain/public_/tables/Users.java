@@ -38,10 +38,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Users extends TableImpl<UsersRecord> {
 
-    private static final long serialVersionUID = 682471008;
+    private static final long serialVersionUID = -1659003296;
 
     /**
-     * The reference instance of <code>PUBLIC.USERS</code>
+     * The reference instance of <code>public.users</code>
      */
     public static final Users USERS = new Users();
 
@@ -54,36 +54,36 @@ public class Users extends TableImpl<UsersRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.USERS.USERNAME</code>.
+     * The column <code>public.users.username</code>.
      */
-    public final TableField<UsersRecord, String> USERNAME = createField("USERNAME", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<UsersRecord, String> USERNAME = createField("username", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.USERS.PASSWORD</code>.
+     * The column <code>public.users.password</code>.
      */
-    public final TableField<UsersRecord, String> PASSWORD = createField("PASSWORD", org.jooq.impl.SQLDataType.VARCHAR(300).nullable(false), this, "");
+    public final TableField<UsersRecord, String> PASSWORD = createField("password", org.jooq.impl.SQLDataType.VARCHAR(300).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.USERS.ENABLED</code>.
+     * The column <code>public.users.enabled</code>.
      */
-    public final TableField<UsersRecord, Boolean> ENABLED = createField("ENABLED", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false), this, "");
+    public final TableField<UsersRecord, Boolean> ENABLED = createField("enabled", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false), this, "");
 
     /**
-     * Create a <code>PUBLIC.USERS</code> table reference
+     * Create a <code>public.users</code> table reference
      */
     public Users() {
-        this(DSL.name("USERS"), null);
+        this(DSL.name("users"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.USERS</code> table reference
+     * Create an aliased <code>public.users</code> table reference
      */
     public Users(String alias) {
         this(DSL.name(alias), USERS);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.USERS</code> table reference
+     * Create an aliased <code>public.users</code> table reference
      */
     public Users(Name alias) {
         this(alias, USERS);

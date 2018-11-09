@@ -32,31 +32,31 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ArticleRecord extends UpdatableRecordImpl<ArticleRecord> implements Record12<Integer, String, String, String, Timestamp, Integer, String, Integer, String, String, Integer, String> {
 
-    private static final long serialVersionUID = 2079886345;
+    private static final long serialVersionUID = 1537713417;
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_ID</code>.
+     * Setter for <code>public.article.article_id</code>.
      */
     public void setArticleId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_ID</code>.
+     * Getter for <code>public.article.article_id</code>.
      */
     public Integer getArticleId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_TITLE</code>.
+     * Setter for <code>public.article.article_title</code>.
      */
     public void setArticleTitle(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_TITLE</code>.
+     * Getter for <code>public.article.article_title</code>.
      */
     @NotNull
     @Size(max = 100)
@@ -65,14 +65,14 @@ public class ArticleRecord extends UpdatableRecordImpl<ArticleRecord> implements
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_BRIEF</code>.
+     * Setter for <code>public.article.article_brief</code>.
      */
     public void setArticleBrief(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_BRIEF</code>.
+     * Getter for <code>public.article.article_brief</code>.
      */
     @Size(max = 200)
     public String getArticleBrief() {
@@ -80,14 +80,14 @@ public class ArticleRecord extends UpdatableRecordImpl<ArticleRecord> implements
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_COVER</code>.
+     * Setter for <code>public.article.article_cover</code>.
      */
     public void setArticleCover(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_COVER</code>.
+     * Getter for <code>public.article.article_cover</code>.
      */
     @Size(max = 200)
     public String getArticleCover() {
@@ -95,14 +95,14 @@ public class ArticleRecord extends UpdatableRecordImpl<ArticleRecord> implements
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_DATE</code>.
+     * Setter for <code>public.article.article_date</code>.
      */
     public void setArticleDate(Timestamp value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_DATE</code>.
+     * Getter for <code>public.article.article_date</code>.
      */
     @NotNull
     public Timestamp getArticleDate() {
@@ -110,28 +110,28 @@ public class ArticleRecord extends UpdatableRecordImpl<ArticleRecord> implements
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_CLICKS</code>.
+     * Setter for <code>public.article.article_clicks</code>.
      */
     public void setArticleClicks(Integer value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_CLICKS</code>.
+     * Getter for <code>public.article.article_clicks</code>.
      */
     public Integer getArticleClicks() {
         return (Integer) get(5);
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_AUTHOR</code>.
+     * Setter for <code>public.article.article_author</code>.
      */
     public void setArticleAuthor(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_AUTHOR</code>.
+     * Getter for <code>public.article.article_author</code>.
      */
     @NotNull
     @Size(max = 64)
@@ -140,28 +140,28 @@ public class ArticleRecord extends UpdatableRecordImpl<ArticleRecord> implements
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_SOURCES</code>.
+     * Setter for <code>public.article.article_sources</code>.
      */
     public void setArticleSources(Integer value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_SOURCES</code>.
+     * Getter for <code>public.article.article_sources</code>.
      */
     public Integer getArticleSources() {
         return (Integer) get(7);
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_SOURCES_NAME</code>.
+     * Setter for <code>public.article.article_sources_name</code>.
      */
     public void setArticleSourcesName(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_SOURCES_NAME</code>.
+     * Getter for <code>public.article.article_sources_name</code>.
      */
     @Size(max = 100)
     public String getArticleSourcesName() {
@@ -169,14 +169,14 @@ public class ArticleRecord extends UpdatableRecordImpl<ArticleRecord> implements
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_SOURCES_LINK</code>.
+     * Setter for <code>public.article.article_sources_link</code>.
      */
     public void setArticleSourcesLink(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_SOURCES_LINK</code>.
+     * Getter for <code>public.article.article_sources_link</code>.
      */
     @Size(max = 200)
     public String getArticleSourcesLink() {
@@ -184,28 +184,28 @@ public class ArticleRecord extends UpdatableRecordImpl<ArticleRecord> implements
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.ARTICLE_SN</code>.
+     * Setter for <code>public.article.article_sn</code>.
      */
     public void setArticleSn(Integer value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.ARTICLE_SN</code>.
+     * Getter for <code>public.article.article_sn</code>.
      */
     public Integer getArticleSn() {
         return (Integer) get(10);
     }
 
     /**
-     * Setter for <code>PUBLIC.ARTICLE.MENU_ID</code>.
+     * Setter for <code>public.article.menu_id</code>.
      */
     public void setMenuId(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.ARTICLE.MENU_ID</code>.
+     * Getter for <code>public.article.menu_id</code>.
      */
     @NotNull
     @Size(max = 64)

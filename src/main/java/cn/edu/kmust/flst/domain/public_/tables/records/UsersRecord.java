@@ -30,17 +30,17 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UsersRecord extends UpdatableRecordImpl<UsersRecord> implements Record3<String, String, Boolean> {
 
-    private static final long serialVersionUID = 99780904;
+    private static final long serialVersionUID = -1969057368;
 
     /**
-     * Setter for <code>PUBLIC.USERS.USERNAME</code>.
+     * Setter for <code>public.users.username</code>.
      */
     public void setUsername(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USERS.USERNAME</code>.
+     * Getter for <code>public.users.username</code>.
      */
     @NotNull
     @Size(max = 64)
@@ -49,14 +49,14 @@ public class UsersRecord extends UpdatableRecordImpl<UsersRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.USERS.PASSWORD</code>.
+     * Setter for <code>public.users.password</code>.
      */
     public void setPassword(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USERS.PASSWORD</code>.
+     * Getter for <code>public.users.password</code>.
      */
     @NotNull
     @Size(max = 300)
@@ -65,14 +65,14 @@ public class UsersRecord extends UpdatableRecordImpl<UsersRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.USERS.ENABLED</code>.
+     * Setter for <code>public.users.enabled</code>.
      */
     public void setEnabled(Boolean value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.USERS.ENABLED</code>.
+     * Getter for <code>public.users.enabled</code>.
      */
     @NotNull
     public Boolean getEnabled() {

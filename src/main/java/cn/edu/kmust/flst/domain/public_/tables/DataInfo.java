@@ -38,10 +38,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DataInfo extends TableImpl<DataInfoRecord> {
 
-    private static final long serialVersionUID = -374341139;
+    private static final long serialVersionUID = 22704621;
 
     /**
-     * The reference instance of <code>PUBLIC.DATA_INFO</code>
+     * The reference instance of <code>public.data_info</code>
      */
     public static final DataInfo DATA_INFO = new DataInfo();
 
@@ -54,31 +54,31 @@ public class DataInfo extends TableImpl<DataInfoRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.DATA_INFO.DATA_KEY</code>.
+     * The column <code>public.data_info.data_key</code>.
      */
-    public final TableField<DataInfoRecord, String> DATA_KEY = createField("DATA_KEY", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
+    public final TableField<DataInfoRecord, String> DATA_KEY = createField("data_key", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.DATA_INFO.DATA_VALUE</code>.
+     * The column <code>public.data_info.data_value</code>.
      */
-    public final TableField<DataInfoRecord, String> DATA_VALUE = createField("DATA_VALUE", org.jooq.impl.SQLDataType.VARCHAR(200), this, "");
+    public final TableField<DataInfoRecord, String> DATA_VALUE = createField("data_value", org.jooq.impl.SQLDataType.VARCHAR(200), this, "");
 
     /**
-     * Create a <code>PUBLIC.DATA_INFO</code> table reference
+     * Create a <code>public.data_info</code> table reference
      */
     public DataInfo() {
-        this(DSL.name("DATA_INFO"), null);
+        this(DSL.name("data_info"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.DATA_INFO</code> table reference
+     * Create an aliased <code>public.data_info</code> table reference
      */
     public DataInfo(String alias) {
         this(DSL.name(alias), DATA_INFO);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.DATA_INFO</code> table reference
+     * Create an aliased <code>public.data_info</code> table reference
      */
     public DataInfo(Name alias) {
         this(alias, DATA_INFO);

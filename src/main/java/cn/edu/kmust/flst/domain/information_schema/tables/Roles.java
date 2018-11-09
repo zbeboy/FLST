@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Roles extends TableImpl<RolesRecord> {
 
-    private static final long serialVersionUID = -129365996;
+    private static final long serialVersionUID = 590339060;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.ROLES</code>
+     * The reference instance of <code>information_schema.roles</code>
      */
     public static final Roles ROLES = new Roles();
 
@@ -47,36 +47,36 @@ public class Roles extends TableImpl<RolesRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLES.NAME</code>.
+     * The column <code>information_schema.roles.name</code>.
      */
-    public final TableField<RolesRecord, String> NAME = createField("NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<RolesRecord, String> NAME = createField("name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLES.REMARKS</code>.
+     * The column <code>information_schema.roles.remarks</code>.
      */
-    public final TableField<RolesRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<RolesRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLES.ID</code>.
+     * The column <code>information_schema.roles.id</code>.
      */
-    public final TableField<RolesRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<RolesRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.ROLES</code> table reference
+     * Create a <code>information_schema.roles</code> table reference
      */
     public Roles() {
-        this(DSL.name("ROLES"), null);
+        this(DSL.name("roles"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROLES</code> table reference
+     * Create an aliased <code>information_schema.roles</code> table reference
      */
     public Roles(String alias) {
         this(DSL.name(alias), ROLES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROLES</code> table reference
+     * Create an aliased <code>information_schema.roles</code> table reference
      */
     public Roles(Name alias) {
         this(alias, ROLES);

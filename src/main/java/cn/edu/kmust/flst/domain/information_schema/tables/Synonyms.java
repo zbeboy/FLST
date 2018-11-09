@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Synonyms extends TableImpl<SynonymsRecord> {
 
-    private static final long serialVersionUID = -306478888;
+    private static final long serialVersionUID = 1326441592;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYNONYMS</code>
+     * The reference instance of <code>information_schema.synonyms</code>
      */
     public static final Synonyms SYNONYMS = new Synonyms();
 
@@ -47,66 +47,66 @@ public class Synonyms extends TableImpl<SynonymsRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_CATALOG</code>.
+     * The column <code>information_schema.synonyms.synonym_catalog</code>.
      */
-    public final TableField<SynonymsRecord, String> SYNONYM_CATALOG = createField("SYNONYM_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SynonymsRecord, String> SYNONYM_CATALOG = createField("synonym_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_SCHEMA</code>.
+     * The column <code>information_schema.synonyms.synonym_schema</code>.
      */
-    public final TableField<SynonymsRecord, String> SYNONYM_SCHEMA = createField("SYNONYM_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SynonymsRecord, String> SYNONYM_SCHEMA = createField("synonym_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_NAME</code>.
+     * The column <code>information_schema.synonyms.synonym_name</code>.
      */
-    public final TableField<SynonymsRecord, String> SYNONYM_NAME = createField("SYNONYM_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SynonymsRecord, String> SYNONYM_NAME = createField("synonym_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_FOR</code>.
+     * The column <code>information_schema.synonyms.synonym_for</code>.
      */
-    public final TableField<SynonymsRecord, String> SYNONYM_FOR = createField("SYNONYM_FOR", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SynonymsRecord, String> SYNONYM_FOR = createField("synonym_for", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_FOR_SCHEMA</code>.
+     * The column <code>information_schema.synonyms.synonym_for_schema</code>.
      */
-    public final TableField<SynonymsRecord, String> SYNONYM_FOR_SCHEMA = createField("SYNONYM_FOR_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SynonymsRecord, String> SYNONYM_FOR_SCHEMA = createField("synonym_for_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYNONYMS.TYPE_NAME</code>.
+     * The column <code>information_schema.synonyms.type_name</code>.
      */
-    public final TableField<SynonymsRecord, String> TYPE_NAME = createField("TYPE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SynonymsRecord, String> TYPE_NAME = createField("type_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYNONYMS.STATUS</code>.
+     * The column <code>information_schema.synonyms.status</code>.
      */
-    public final TableField<SynonymsRecord, String> STATUS = createField("STATUS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SynonymsRecord, String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYNONYMS.REMARKS</code>.
+     * The column <code>information_schema.synonyms.remarks</code>.
      */
-    public final TableField<SynonymsRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SynonymsRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYNONYMS.ID</code>.
+     * The column <code>information_schema.synonyms.id</code>.
      */
-    public final TableField<SynonymsRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<SynonymsRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYNONYMS</code> table reference
+     * Create a <code>information_schema.synonyms</code> table reference
      */
     public Synonyms() {
-        this(DSL.name("SYNONYMS"), null);
+        this(DSL.name("synonyms"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYNONYMS</code> table reference
+     * Create an aliased <code>information_schema.synonyms</code> table reference
      */
     public Synonyms(String alias) {
         this(DSL.name(alias), SYNONYMS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYNONYMS</code> table reference
+     * Create an aliased <code>information_schema.synonyms</code> table reference
      */
     public Synonyms(Name alias) {
         this(alias, SYNONYMS);

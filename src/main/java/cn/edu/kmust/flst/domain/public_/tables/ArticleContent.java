@@ -39,10 +39,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ArticleContent extends TableImpl<ArticleContentRecord> {
 
-    private static final long serialVersionUID = 1539624395;
+    private static final long serialVersionUID = 323022347;
 
     /**
-     * The reference instance of <code>PUBLIC.ARTICLE_CONTENT</code>
+     * The reference instance of <code>public.article_content</code>
      */
     public static final ArticleContent ARTICLE_CONTENT = new ArticleContent();
 
@@ -55,31 +55,31 @@ public class ArticleContent extends TableImpl<ArticleContentRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.ARTICLE_CONTENT.ID</code>.
+     * The column <code>public.article_content.id</code>.
      */
-    public final TableField<ArticleContentRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<ArticleContentRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_CONTENT.ARTICLE_CONTENT</code>.
+     * The column <code>public.article_content.article_content</code>.
      */
-    public final TableField<ArticleContentRecord, String> ARTICLE_CONTENT_ = createField("ARTICLE_CONTENT", org.jooq.impl.SQLDataType.CLOB.nullable(false), this, "");
+    public final TableField<ArticleContentRecord, String> ARTICLE_CONTENT_ = createField("article_content", org.jooq.impl.SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * Create a <code>PUBLIC.ARTICLE_CONTENT</code> table reference
+     * Create a <code>public.article_content</code> table reference
      */
     public ArticleContent() {
-        this(DSL.name("ARTICLE_CONTENT"), null);
+        this(DSL.name("article_content"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.ARTICLE_CONTENT</code> table reference
+     * Create an aliased <code>public.article_content</code> table reference
      */
     public ArticleContent(String alias) {
         this(DSL.name(alias), ARTICLE_CONTENT);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.ARTICLE_CONTENT</code> table reference
+     * Create an aliased <code>public.article_content</code> table reference
      */
     public ArticleContent(Name alias) {
         this(alias, ARTICLE_CONTENT);

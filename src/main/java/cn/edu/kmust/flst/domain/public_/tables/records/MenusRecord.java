@@ -30,17 +30,17 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class MenusRecord extends UpdatableRecordImpl<MenusRecord> implements Record12<String, String, String, Boolean, String, String, Integer, Boolean, Boolean, Boolean, Integer, String> {
 
-    private static final long serialVersionUID = -1337024107;
+    private static final long serialVersionUID = 115732885;
 
     /**
-     * Setter for <code>PUBLIC.MENUS.MENU_ID</code>.
+     * Setter for <code>public.menus.menu_id</code>.
      */
     public void setMenuId(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.MENU_ID</code>.
+     * Getter for <code>public.menus.menu_id</code>.
      */
     @NotNull
     @Size(max = 64)
@@ -49,14 +49,14 @@ public class MenusRecord extends UpdatableRecordImpl<MenusRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.MENU_NAME</code>.
+     * Setter for <code>public.menus.menu_name</code>.
      */
     public void setMenuName(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.MENU_NAME</code>.
+     * Getter for <code>public.menus.menu_name</code>.
      */
     @NotNull
     @Size(max = 20)
@@ -65,14 +65,14 @@ public class MenusRecord extends UpdatableRecordImpl<MenusRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.MENU_NAME_EN</code>.
+     * Setter for <code>public.menus.menu_name_en</code>.
      */
     public void setMenuNameEn(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.MENU_NAME_EN</code>.
+     * Getter for <code>public.menus.menu_name_en</code>.
      */
     @NotNull
     @Size(max = 100)
@@ -81,28 +81,28 @@ public class MenusRecord extends UpdatableRecordImpl<MenusRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.OUT_LINK</code>.
+     * Setter for <code>public.menus.out_link</code>.
      */
     public void setOutLink(Boolean value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.OUT_LINK</code>.
+     * Getter for <code>public.menus.out_link</code>.
      */
     public Boolean getOutLink() {
         return (Boolean) get(3);
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.MENU_LINK</code>.
+     * Setter for <code>public.menus.menu_link</code>.
      */
     public void setMenuLink(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.MENU_LINK</code>.
+     * Getter for <code>public.menus.menu_link</code>.
      */
     @NotNull
     @Size(max = 200)
@@ -111,14 +111,14 @@ public class MenusRecord extends UpdatableRecordImpl<MenusRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.MENU_PID</code>.
+     * Setter for <code>public.menus.menu_pid</code>.
      */
     public void setMenuPid(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.MENU_PID</code>.
+     * Getter for <code>public.menus.menu_pid</code>.
      */
     @Size(max = 64)
     public String getMenuPid() {
@@ -126,14 +126,14 @@ public class MenusRecord extends UpdatableRecordImpl<MenusRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.MENU_ORDER</code>.
+     * Setter for <code>public.menus.menu_order</code>.
      */
     public void setMenuOrder(Integer value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.MENU_ORDER</code>.
+     * Getter for <code>public.menus.menu_order</code>.
      */
     @NotNull
     public Integer getMenuOrder() {
@@ -141,70 +141,70 @@ public class MenusRecord extends UpdatableRecordImpl<MenusRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.MENU_SHOW</code>.
+     * Setter for <code>public.menus.menu_show</code>.
      */
     public void setMenuShow(Boolean value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.MENU_SHOW</code>.
+     * Getter for <code>public.menus.menu_show</code>.
      */
     public Boolean getMenuShow() {
         return (Boolean) get(7);
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.MENU_FIXED</code>.
+     * Setter for <code>public.menus.menu_fixed</code>.
      */
     public void setMenuFixed(Boolean value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.MENU_FIXED</code>.
+     * Getter for <code>public.menus.menu_fixed</code>.
      */
     public Boolean getMenuFixed() {
         return (Boolean) get(8);
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.SHOW_ARTICLE</code>.
+     * Setter for <code>public.menus.show_article</code>.
      */
     public void setShowArticle(Boolean value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.SHOW_ARTICLE</code>.
+     * Getter for <code>public.menus.show_article</code>.
      */
     public Boolean getShowArticle() {
         return (Boolean) get(9);
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.ORDER_WAY</code>.
+     * Setter for <code>public.menus.order_way</code>.
      */
     public void setOrderWay(Integer value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.ORDER_WAY</code>.
+     * Getter for <code>public.menus.order_way</code>.
      */
     public Integer getOrderWay() {
         return (Integer) get(10);
     }
 
     /**
-     * Setter for <code>PUBLIC.MENUS.MENU_CREATOR</code>.
+     * Setter for <code>public.menus.menu_creator</code>.
      */
     public void setMenuCreator(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.MENUS.MENU_CREATOR</code>.
+     * Getter for <code>public.menus.menu_creator</code>.
      */
     @NotNull
     @Size(max = 64)

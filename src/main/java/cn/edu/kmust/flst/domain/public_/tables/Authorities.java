@@ -39,10 +39,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Authorities extends TableImpl<AuthoritiesRecord> {
 
-    private static final long serialVersionUID = 284384307;
+    private static final long serialVersionUID = -1449238445;
 
     /**
-     * The reference instance of <code>PUBLIC.AUTHORITIES</code>
+     * The reference instance of <code>public.authorities</code>
      */
     public static final Authorities AUTHORITIES = new Authorities();
 
@@ -55,31 +55,31 @@ public class Authorities extends TableImpl<AuthoritiesRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.AUTHORITIES.USERNAME</code>.
+     * The column <code>public.authorities.username</code>.
      */
-    public final TableField<AuthoritiesRecord, String> USERNAME = createField("USERNAME", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<AuthoritiesRecord, String> USERNAME = createField("username", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.AUTHORITIES.AUTHORITY</code>.
+     * The column <code>public.authorities.authority</code>.
      */
-    public final TableField<AuthoritiesRecord, String> AUTHORITY = createField("AUTHORITY", org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
+    public final TableField<AuthoritiesRecord, String> AUTHORITY = createField("authority", org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * Create a <code>PUBLIC.AUTHORITIES</code> table reference
+     * Create a <code>public.authorities</code> table reference
      */
     public Authorities() {
-        this(DSL.name("AUTHORITIES"), null);
+        this(DSL.name("authorities"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.AUTHORITIES</code> table reference
+     * Create an aliased <code>public.authorities</code> table reference
      */
     public Authorities(String alias) {
         this(DSL.name(alias), AUTHORITIES);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.AUTHORITIES</code> table reference
+     * Create an aliased <code>public.authorities</code> table reference
      */
     public Authorities(Name alias) {
         this(alias, AUTHORITIES);

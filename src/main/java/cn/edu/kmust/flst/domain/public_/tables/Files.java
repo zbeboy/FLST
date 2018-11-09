@@ -39,10 +39,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Files extends TableImpl<FilesRecord> {
 
-    private static final long serialVersionUID = -337769864;
+    private static final long serialVersionUID = -304970248;
 
     /**
-     * The reference instance of <code>PUBLIC.FILES</code>
+     * The reference instance of <code>public.files</code>
      */
     public static final Files FILES = new Files();
 
@@ -55,56 +55,56 @@ public class Files extends TableImpl<FilesRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.FILES.FILE_ID</code>.
+     * The column <code>public.files.file_id</code>.
      */
-    public final TableField<FilesRecord, String> FILE_ID = createField("FILE_ID", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<FilesRecord, String> FILE_ID = createField("file_id", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.FILES.SIZE</code>.
+     * The column <code>public.files.size</code>.
      */
-    public final TableField<FilesRecord, Long> SIZE = createField("SIZE", org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<FilesRecord, Long> SIZE = createField("size", org.jooq.impl.SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>PUBLIC.FILES.ORIGINAL_FILE_NAME</code>.
+     * The column <code>public.files.original_file_name</code>.
      */
-    public final TableField<FilesRecord, String> ORIGINAL_FILE_NAME = createField("ORIGINAL_FILE_NAME", org.jooq.impl.SQLDataType.VARCHAR(300), this, "");
+    public final TableField<FilesRecord, String> ORIGINAL_FILE_NAME = createField("original_file_name", org.jooq.impl.SQLDataType.VARCHAR(300), this, "");
 
     /**
-     * The column <code>PUBLIC.FILES.NEW_NAME</code>.
+     * The column <code>public.files.new_name</code>.
      */
-    public final TableField<FilesRecord, String> NEW_NAME = createField("NEW_NAME", org.jooq.impl.SQLDataType.VARCHAR(300), this, "");
+    public final TableField<FilesRecord, String> NEW_NAME = createField("new_name", org.jooq.impl.SQLDataType.VARCHAR(300), this, "");
 
     /**
-     * The column <code>PUBLIC.FILES.RELATIVE_PATH</code>.
+     * The column <code>public.files.relative_path</code>.
      */
-    public final TableField<FilesRecord, String> RELATIVE_PATH = createField("RELATIVE_PATH", org.jooq.impl.SQLDataType.VARCHAR(500), this, "");
+    public final TableField<FilesRecord, String> RELATIVE_PATH = createField("relative_path", org.jooq.impl.SQLDataType.VARCHAR(500), this, "");
 
     /**
-     * The column <code>PUBLIC.FILES.EXT</code>.
+     * The column <code>public.files.ext</code>.
      */
-    public final TableField<FilesRecord, String> EXT = createField("EXT", org.jooq.impl.SQLDataType.VARCHAR(10), this, "");
+    public final TableField<FilesRecord, String> EXT = createField("ext", org.jooq.impl.SQLDataType.VARCHAR(10), this, "");
 
     /**
-     * The column <code>PUBLIC.FILES.UPLOAD_DATE</code>.
+     * The column <code>public.files.upload_date</code>.
      */
-    public final TableField<FilesRecord, Timestamp> UPLOAD_DATE = createField("UPLOAD_DATE", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
+    public final TableField<FilesRecord, Timestamp> UPLOAD_DATE = createField("upload_date", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
 
     /**
-     * Create a <code>PUBLIC.FILES</code> table reference
+     * Create a <code>public.files</code> table reference
      */
     public Files() {
-        this(DSL.name("FILES"), null);
+        this(DSL.name("files"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.FILES</code> table reference
+     * Create an aliased <code>public.files</code> table reference
      */
     public Files(String alias) {
         this(DSL.name(alias), FILES);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.FILES</code> table reference
+     * Create an aliased <code>public.files</code> table reference
      */
     public Files(Name alias) {
         this(alias, FILES);

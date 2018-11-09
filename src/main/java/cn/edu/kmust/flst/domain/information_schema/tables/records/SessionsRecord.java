@@ -28,31 +28,31 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SessionsRecord extends TableRecordImpl<SessionsRecord> implements Record6<Integer, String, String, String, String, String> {
 
-    private static final long serialVersionUID = -624248268;
+    private static final long serialVersionUID = 813961524;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SESSIONS.ID</code>.
+     * Setter for <code>information_schema.sessions.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SESSIONS.ID</code>.
+     * Getter for <code>information_schema.sessions.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SESSIONS.USER_NAME</code>.
+     * Setter for <code>information_schema.sessions.user_name</code>.
      */
     public void setUserName(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SESSIONS.USER_NAME</code>.
+     * Getter for <code>information_schema.sessions.user_name</code>.
      */
     @Size(max = 2147483647)
     public String getUserName() {
@@ -60,14 +60,14 @@ public class SessionsRecord extends TableRecordImpl<SessionsRecord> implements R
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SESSIONS.SESSION_START</code>.
+     * Setter for <code>information_schema.sessions.session_start</code>.
      */
     public void setSessionStart(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SESSIONS.SESSION_START</code>.
+     * Getter for <code>information_schema.sessions.session_start</code>.
      */
     @Size(max = 2147483647)
     public String getSessionStart() {
@@ -75,14 +75,14 @@ public class SessionsRecord extends TableRecordImpl<SessionsRecord> implements R
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SESSIONS.STATEMENT</code>.
+     * Setter for <code>information_schema.sessions.statement</code>.
      */
     public void setStatement(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SESSIONS.STATEMENT</code>.
+     * Getter for <code>information_schema.sessions.statement</code>.
      */
     @Size(max = 2147483647)
     public String getStatement() {
@@ -90,14 +90,14 @@ public class SessionsRecord extends TableRecordImpl<SessionsRecord> implements R
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SESSIONS.STATEMENT_START</code>.
+     * Setter for <code>information_schema.sessions.statement_start</code>.
      */
     public void setStatementStart(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SESSIONS.STATEMENT_START</code>.
+     * Getter for <code>information_schema.sessions.statement_start</code>.
      */
     @Size(max = 2147483647)
     public String getStatementStart() {
@@ -105,14 +105,14 @@ public class SessionsRecord extends TableRecordImpl<SessionsRecord> implements R
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SESSIONS.CONTAINS_UNCOMMITTED</code>.
+     * Setter for <code>information_schema.sessions.contains_uncommitted</code>.
      */
     public void setContainsUncommitted(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SESSIONS.CONTAINS_UNCOMMITTED</code>.
+     * Getter for <code>information_schema.sessions.contains_uncommitted</code>.
      */
     @Size(max = 2147483647)
     public String getContainsUncommitted() {

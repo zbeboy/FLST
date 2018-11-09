@@ -29,17 +29,17 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AuthoritiesRecord extends UpdatableRecordImpl<AuthoritiesRecord> implements Record2<String, String> {
 
-    private static final long serialVersionUID = -1493323799;
+    private static final long serialVersionUID = -1578665815;
 
     /**
-     * Setter for <code>PUBLIC.AUTHORITIES.USERNAME</code>.
+     * Setter for <code>public.authorities.username</code>.
      */
     public void setUsername(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.AUTHORITIES.USERNAME</code>.
+     * Getter for <code>public.authorities.username</code>.
      */
     @NotNull
     @Size(max = 64)
@@ -48,14 +48,14 @@ public class AuthoritiesRecord extends UpdatableRecordImpl<AuthoritiesRecord> im
     }
 
     /**
-     * Setter for <code>PUBLIC.AUTHORITIES.AUTHORITY</code>.
+     * Setter for <code>public.authorities.authority</code>.
      */
     public void setAuthority(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.AUTHORITIES.AUTHORITY</code>.
+     * Getter for <code>public.authorities.authority</code>.
      */
     @NotNull
     @Size(max = 50)

@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class LocksRecord extends TableRecordImpl<LocksRecord> implements Record4<String, String, Integer, String> {
 
-    private static final long serialVersionUID = 2133079860;
+    private static final long serialVersionUID = -1901256844;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.LOCKS.TABLE_SCHEMA</code>.
+     * Setter for <code>information_schema.locks.table_schema</code>.
      */
     public void setTableSchema(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.LOCKS.TABLE_SCHEMA</code>.
+     * Getter for <code>information_schema.locks.table_schema</code>.
      */
     @Size(max = 2147483647)
     public String getTableSchema() {
@@ -46,14 +46,14 @@ public class LocksRecord extends TableRecordImpl<LocksRecord> implements Record4
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.LOCKS.TABLE_NAME</code>.
+     * Setter for <code>information_schema.locks.table_name</code>.
      */
     public void setTableName(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.LOCKS.TABLE_NAME</code>.
+     * Getter for <code>information_schema.locks.table_name</code>.
      */
     @Size(max = 2147483647)
     public String getTableName() {
@@ -61,28 +61,28 @@ public class LocksRecord extends TableRecordImpl<LocksRecord> implements Record4
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.LOCKS.SESSION_ID</code>.
+     * Setter for <code>information_schema.locks.session_id</code>.
      */
     public void setSessionId(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.LOCKS.SESSION_ID</code>.
+     * Getter for <code>information_schema.locks.session_id</code>.
      */
     public Integer getSessionId() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.LOCKS.LOCK_TYPE</code>.
+     * Setter for <code>information_schema.locks.lock_type</code>.
      */
     public void setLockType(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.LOCKS.LOCK_TYPE</code>.
+     * Getter for <code>information_schema.locks.lock_type</code>.
      */
     @Size(max = 2147483647)
     public String getLockType() {

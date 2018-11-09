@@ -41,10 +41,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ArticleEn extends TableImpl<ArticleEnRecord> {
 
-    private static final long serialVersionUID = 761980364;
+    private static final long serialVersionUID = 553038444;
 
     /**
-     * The reference instance of <code>PUBLIC.ARTICLE_EN</code>
+     * The reference instance of <code>public.article_en</code>
      */
     public static final ArticleEn ARTICLE_EN = new ArticleEn();
 
@@ -57,81 +57,81 @@ public class ArticleEn extends TableImpl<ArticleEnRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_ID</code>.
+     * The column <code>public.article_en.article_id</code>.
      */
-    public final TableField<ArticleEnRecord, Integer> ARTICLE_ID = createField("ARTICLE_ID", org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<ArticleEnRecord, Integer> ARTICLE_ID = createField("article_id", org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_TITLE</code>.
+     * The column <code>public.article_en.article_title</code>.
      */
-    public final TableField<ArticleEnRecord, String> ARTICLE_TITLE = createField("ARTICLE_TITLE", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
+    public final TableField<ArticleEnRecord, String> ARTICLE_TITLE = createField("article_title", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_BRIEF</code>.
+     * The column <code>public.article_en.article_brief</code>.
      */
-    public final TableField<ArticleEnRecord, String> ARTICLE_BRIEF = createField("ARTICLE_BRIEF", org.jooq.impl.SQLDataType.VARCHAR(300), this, "");
+    public final TableField<ArticleEnRecord, String> ARTICLE_BRIEF = createField("article_brief", org.jooq.impl.SQLDataType.VARCHAR(300), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_COVER</code>.
+     * The column <code>public.article_en.article_cover</code>.
      */
-    public final TableField<ArticleEnRecord, String> ARTICLE_COVER = createField("ARTICLE_COVER", org.jooq.impl.SQLDataType.VARCHAR(200), this, "");
+    public final TableField<ArticleEnRecord, String> ARTICLE_COVER = createField("article_cover", org.jooq.impl.SQLDataType.VARCHAR(200), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_DATE</code>.
+     * The column <code>public.article_en.article_date</code>.
      */
-    public final TableField<ArticleEnRecord, Timestamp> ARTICLE_DATE = createField("ARTICLE_DATE", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
+    public final TableField<ArticleEnRecord, Timestamp> ARTICLE_DATE = createField("article_date", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_CLICKS</code>.
+     * The column <code>public.article_en.article_clicks</code>.
      */
-    public final TableField<ArticleEnRecord, Integer> ARTICLE_CLICKS = createField("ARTICLE_CLICKS", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<ArticleEnRecord, Integer> ARTICLE_CLICKS = createField("article_clicks", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_AUTHOR</code>.
+     * The column <code>public.article_en.article_author</code>.
      */
-    public final TableField<ArticleEnRecord, String> ARTICLE_AUTHOR = createField("ARTICLE_AUTHOR", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<ArticleEnRecord, String> ARTICLE_AUTHOR = createField("article_author", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_SOURCES</code>.
+     * The column <code>public.article_en.article_sources</code>.
      */
-    public final TableField<ArticleEnRecord, Integer> ARTICLE_SOURCES = createField("ARTICLE_SOURCES", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+    public final TableField<ArticleEnRecord, Integer> ARTICLE_SOURCES = createField("article_sources", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_SOURCES_NAME</code>.
+     * The column <code>public.article_en.article_sources_name</code>.
      */
-    public final TableField<ArticleEnRecord, String> ARTICLE_SOURCES_NAME = createField("ARTICLE_SOURCES_NAME", org.jooq.impl.SQLDataType.VARCHAR(100), this, "");
+    public final TableField<ArticleEnRecord, String> ARTICLE_SOURCES_NAME = createField("article_sources_name", org.jooq.impl.SQLDataType.VARCHAR(100), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_SOURCES_LINK</code>.
+     * The column <code>public.article_en.article_sources_link</code>.
      */
-    public final TableField<ArticleEnRecord, String> ARTICLE_SOURCES_LINK = createField("ARTICLE_SOURCES_LINK", org.jooq.impl.SQLDataType.VARCHAR(200), this, "");
+    public final TableField<ArticleEnRecord, String> ARTICLE_SOURCES_LINK = createField("article_sources_link", org.jooq.impl.SQLDataType.VARCHAR(200), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.ARTICLE_SN</code>.
+     * The column <code>public.article_en.article_sn</code>.
      */
-    public final TableField<ArticleEnRecord, Integer> ARTICLE_SN = createField("ARTICLE_SN", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+    public final TableField<ArticleEnRecord, Integer> ARTICLE_SN = createField("article_sn", org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>PUBLIC.ARTICLE_EN.MENU_ID</code>.
+     * The column <code>public.article_en.menu_id</code>.
      */
-    public final TableField<ArticleEnRecord, String> MENU_ID = createField("MENU_ID", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<ArticleEnRecord, String> MENU_ID = createField("menu_id", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * Create a <code>PUBLIC.ARTICLE_EN</code> table reference
+     * Create a <code>public.article_en</code> table reference
      */
     public ArticleEn() {
-        this(DSL.name("ARTICLE_EN"), null);
+        this(DSL.name("article_en"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.ARTICLE_EN</code> table reference
+     * Create an aliased <code>public.article_en</code> table reference
      */
     public ArticleEn(String alias) {
         this(DSL.name(alias), ARTICLE_EN);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.ARTICLE_EN</code> table reference
+     * Create an aliased <code>public.article_en</code> table reference
      */
     public ArticleEn(Name alias) {
         this(alias, ARTICLE_EN);

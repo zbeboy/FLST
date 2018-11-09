@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Rights extends TableImpl<RightsRecord> {
 
-    private static final long serialVersionUID = 2083479715;
+    private static final long serialVersionUID = -1133990909;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.RIGHTS</code>
+     * The reference instance of <code>information_schema.rights</code>
      */
     public static final Rights RIGHTS = new Rights();
 
@@ -47,56 +47,56 @@ public class Rights extends TableImpl<RightsRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.RIGHTS.GRANTEE</code>.
+     * The column <code>information_schema.rights.grantee</code>.
      */
-    public final TableField<RightsRecord, String> GRANTEE = createField("GRANTEE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<RightsRecord, String> GRANTEE = createField("grantee", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.RIGHTS.GRANTEETYPE</code>.
+     * The column <code>information_schema.rights.granteetype</code>.
      */
-    public final TableField<RightsRecord, String> GRANTEETYPE = createField("GRANTEETYPE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<RightsRecord, String> GRANTEETYPE = createField("granteetype", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.RIGHTS.GRANTEDROLE</code>.
+     * The column <code>information_schema.rights.grantedrole</code>.
      */
-    public final TableField<RightsRecord, String> GRANTEDROLE = createField("GRANTEDROLE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<RightsRecord, String> GRANTEDROLE = createField("grantedrole", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.RIGHTS.RIGHTS</code>.
+     * The column <code>information_schema.rights.rights</code>.
      */
-    public final TableField<RightsRecord, String> RIGHTS_ = createField("RIGHTS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<RightsRecord, String> RIGHTS_ = createField("rights", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.RIGHTS.TABLE_SCHEMA</code>.
+     * The column <code>information_schema.rights.table_schema</code>.
      */
-    public final TableField<RightsRecord, String> TABLE_SCHEMA = createField("TABLE_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<RightsRecord, String> TABLE_SCHEMA = createField("table_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.RIGHTS.TABLE_NAME</code>.
+     * The column <code>information_schema.rights.table_name</code>.
      */
-    public final TableField<RightsRecord, String> TABLE_NAME = createField("TABLE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<RightsRecord, String> TABLE_NAME = createField("table_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.RIGHTS.ID</code>.
+     * The column <code>information_schema.rights.id</code>.
      */
-    public final TableField<RightsRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<RightsRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.RIGHTS</code> table reference
+     * Create a <code>information_schema.rights</code> table reference
      */
     public Rights() {
-        this(DSL.name("RIGHTS"), null);
+        this(DSL.name("rights"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.RIGHTS</code> table reference
+     * Create an aliased <code>information_schema.rights</code> table reference
      */
     public Rights(String alias) {
         this(DSL.name(alias), RIGHTS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.RIGHTS</code> table reference
+     * Create an aliased <code>information_schema.rights</code> table reference
      */
     public Rights(Name alias) {
         this(alias, RIGHTS);

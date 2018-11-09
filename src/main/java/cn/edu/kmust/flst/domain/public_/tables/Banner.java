@@ -41,10 +41,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Banner extends TableImpl<BannerRecord> {
 
-    private static final long serialVersionUID = -579241910;
+    private static final long serialVersionUID = 1880891466;
 
     /**
-     * The reference instance of <code>PUBLIC.BANNER</code>
+     * The reference instance of <code>public.banner</code>
      */
     public static final Banner BANNER = new Banner();
 
@@ -57,71 +57,71 @@ public class Banner extends TableImpl<BannerRecord> {
     }
 
     /**
-     * The column <code>PUBLIC.BANNER.BANNER_ID</code>.
+     * The column <code>public.banner.banner_id</code>.
      */
-    public final TableField<BannerRecord, Integer> BANNER_ID = createField("BANNER_ID", org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<BannerRecord, Integer> BANNER_ID = createField("banner_id", org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>PUBLIC.BANNER.BANNER_LINK</code>.
+     * The column <code>public.banner.banner_link</code>.
      */
-    public final TableField<BannerRecord, String> BANNER_LINK = createField("BANNER_LINK", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
+    public final TableField<BannerRecord, String> BANNER_LINK = createField("banner_link", org.jooq.impl.SQLDataType.VARCHAR(200).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.BANNER.BANNER_DATE</code>.
+     * The column <code>public.banner.banner_date</code>.
      */
-    public final TableField<BannerRecord, Timestamp> BANNER_DATE = createField("BANNER_DATE", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
+    public final TableField<BannerRecord, Timestamp> BANNER_DATE = createField("banner_date", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.BANNER.BANNER_SHOW</code>.
+     * The column <code>public.banner.banner_show</code>.
      */
-    public final TableField<BannerRecord, Boolean> BANNER_SHOW = createField("BANNER_SHOW", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("1", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
+    public final TableField<BannerRecord, Boolean> BANNER_SHOW = createField("banner_show", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaultValue(org.jooq.impl.DSL.field("1", org.jooq.impl.SQLDataType.BOOLEAN)), this, "");
 
     /**
-     * The column <code>PUBLIC.BANNER.BANNER_TITLE</code>.
+     * The column <code>public.banner.banner_title</code>.
      */
-    public final TableField<BannerRecord, String> BANNER_TITLE = createField("BANNER_TITLE", org.jooq.impl.SQLDataType.VARCHAR(30), this, "");
+    public final TableField<BannerRecord, String> BANNER_TITLE = createField("banner_title", org.jooq.impl.SQLDataType.VARCHAR(30), this, "");
 
     /**
-     * The column <code>PUBLIC.BANNER.BANNER_TITLE_EN</code>.
+     * The column <code>public.banner.banner_title_en</code>.
      */
-    public final TableField<BannerRecord, String> BANNER_TITLE_EN = createField("BANNER_TITLE_EN", org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
+    public final TableField<BannerRecord, String> BANNER_TITLE_EN = createField("banner_title_en", org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
 
     /**
-     * The column <code>PUBLIC.BANNER.BANNER_BRIEF</code>.
+     * The column <code>public.banner.banner_brief</code>.
      */
-    public final TableField<BannerRecord, String> BANNER_BRIEF = createField("BANNER_BRIEF", org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
+    public final TableField<BannerRecord, String> BANNER_BRIEF = createField("banner_brief", org.jooq.impl.SQLDataType.VARCHAR(50), this, "");
 
     /**
-     * The column <code>PUBLIC.BANNER.BANNER_BRIEF_EN</code>.
+     * The column <code>public.banner.banner_brief_en</code>.
      */
-    public final TableField<BannerRecord, String> BANNER_BRIEF_EN = createField("BANNER_BRIEF_EN", org.jooq.impl.SQLDataType.VARCHAR(80), this, "");
+    public final TableField<BannerRecord, String> BANNER_BRIEF_EN = createField("banner_brief_en", org.jooq.impl.SQLDataType.VARCHAR(80), this, "");
 
     /**
-     * The column <code>PUBLIC.BANNER.MENU_ID</code>.
+     * The column <code>public.banner.menu_id</code>.
      */
-    public final TableField<BannerRecord, String> MENU_ID = createField("MENU_ID", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<BannerRecord, String> MENU_ID = createField("menu_id", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>PUBLIC.BANNER.BANNER_CREATOR</code>.
+     * The column <code>public.banner.banner_creator</code>.
      */
-    public final TableField<BannerRecord, String> BANNER_CREATOR = createField("BANNER_CREATOR", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<BannerRecord, String> BANNER_CREATOR = createField("banner_creator", org.jooq.impl.SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * Create a <code>PUBLIC.BANNER</code> table reference
+     * Create a <code>public.banner</code> table reference
      */
     public Banner() {
-        this(DSL.name("BANNER"), null);
+        this(DSL.name("banner"), null);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.BANNER</code> table reference
+     * Create an aliased <code>public.banner</code> table reference
      */
     public Banner(String alias) {
         this(DSL.name(alias), BANNER);
     }
 
     /**
-     * Create an aliased <code>PUBLIC.BANNER</code> table reference
+     * Create an aliased <code>public.banner</code> table reference
      */
     public Banner(Name alias) {
         this(alias, BANNER);

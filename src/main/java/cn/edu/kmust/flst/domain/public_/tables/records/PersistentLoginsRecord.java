@@ -32,17 +32,17 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class PersistentLoginsRecord extends UpdatableRecordImpl<PersistentLoginsRecord> implements Record4<String, String, String, Timestamp> {
 
-    private static final long serialVersionUID = -1852162528;
+    private static final long serialVersionUID = 64579040;
 
     /**
-     * Setter for <code>PUBLIC.PERSISTENT_LOGINS.USERNAME</code>.
+     * Setter for <code>public.persistent_logins.username</code>.
      */
     public void setUsername(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.PERSISTENT_LOGINS.USERNAME</code>.
+     * Getter for <code>public.persistent_logins.username</code>.
      */
     @NotNull
     @Size(max = 64)
@@ -51,14 +51,14 @@ public class PersistentLoginsRecord extends UpdatableRecordImpl<PersistentLogins
     }
 
     /**
-     * Setter for <code>PUBLIC.PERSISTENT_LOGINS.SERIES</code>.
+     * Setter for <code>public.persistent_logins.series</code>.
      */
     public void setSeries(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.PERSISTENT_LOGINS.SERIES</code>.
+     * Getter for <code>public.persistent_logins.series</code>.
      */
     @NotNull
     @Size(max = 64)
@@ -67,14 +67,14 @@ public class PersistentLoginsRecord extends UpdatableRecordImpl<PersistentLogins
     }
 
     /**
-     * Setter for <code>PUBLIC.PERSISTENT_LOGINS.TOKEN</code>.
+     * Setter for <code>public.persistent_logins.token</code>.
      */
     public void setToken(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.PERSISTENT_LOGINS.TOKEN</code>.
+     * Getter for <code>public.persistent_logins.token</code>.
      */
     @NotNull
     @Size(max = 64)
@@ -83,14 +83,14 @@ public class PersistentLoginsRecord extends UpdatableRecordImpl<PersistentLogins
     }
 
     /**
-     * Setter for <code>PUBLIC.PERSISTENT_LOGINS.LAST_USED</code>.
+     * Setter for <code>public.persistent_logins.last_used</code>.
      */
     public void setLastUsed(Timestamp value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.PERSISTENT_LOGINS.LAST_USED</code>.
+     * Getter for <code>public.persistent_logins.last_used</code>.
      */
     @NotNull
     public Timestamp getLastUsed() {

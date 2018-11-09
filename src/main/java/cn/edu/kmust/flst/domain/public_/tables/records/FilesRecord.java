@@ -32,17 +32,17 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FilesRecord extends UpdatableRecordImpl<FilesRecord> implements Record7<String, Long, String, String, String, String, Timestamp> {
 
-    private static final long serialVersionUID = -1424700807;
+    private static final long serialVersionUID = -1623878983;
 
     /**
-     * Setter for <code>PUBLIC.FILES.FILE_ID</code>.
+     * Setter for <code>public.files.file_id</code>.
      */
     public void setFileId(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FILES.FILE_ID</code>.
+     * Getter for <code>public.files.file_id</code>.
      */
     @NotNull
     @Size(max = 64)
@@ -51,28 +51,28 @@ public class FilesRecord extends UpdatableRecordImpl<FilesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.FILES.SIZE</code>.
+     * Setter for <code>public.files.size</code>.
      */
     public void setSize(Long value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FILES.SIZE</code>.
+     * Getter for <code>public.files.size</code>.
      */
     public Long getSize() {
         return (Long) get(1);
     }
 
     /**
-     * Setter for <code>PUBLIC.FILES.ORIGINAL_FILE_NAME</code>.
+     * Setter for <code>public.files.original_file_name</code>.
      */
     public void setOriginalFileName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FILES.ORIGINAL_FILE_NAME</code>.
+     * Getter for <code>public.files.original_file_name</code>.
      */
     @Size(max = 300)
     public String getOriginalFileName() {
@@ -80,14 +80,14 @@ public class FilesRecord extends UpdatableRecordImpl<FilesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.FILES.NEW_NAME</code>.
+     * Setter for <code>public.files.new_name</code>.
      */
     public void setNewName(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FILES.NEW_NAME</code>.
+     * Getter for <code>public.files.new_name</code>.
      */
     @Size(max = 300)
     public String getNewName() {
@@ -95,14 +95,14 @@ public class FilesRecord extends UpdatableRecordImpl<FilesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.FILES.RELATIVE_PATH</code>.
+     * Setter for <code>public.files.relative_path</code>.
      */
     public void setRelativePath(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FILES.RELATIVE_PATH</code>.
+     * Getter for <code>public.files.relative_path</code>.
      */
     @Size(max = 500)
     public String getRelativePath() {
@@ -110,14 +110,14 @@ public class FilesRecord extends UpdatableRecordImpl<FilesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.FILES.EXT</code>.
+     * Setter for <code>public.files.ext</code>.
      */
     public void setExt(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FILES.EXT</code>.
+     * Getter for <code>public.files.ext</code>.
      */
     @Size(max = 10)
     public String getExt() {
@@ -125,14 +125,14 @@ public class FilesRecord extends UpdatableRecordImpl<FilesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>PUBLIC.FILES.UPLOAD_DATE</code>.
+     * Setter for <code>public.files.upload_date</code>.
      */
     public void setUploadDate(Timestamp value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.FILES.UPLOAD_DATE</code>.
+     * Getter for <code>public.files.upload_date</code>.
      */
     @NotNull
     public Timestamp getUploadDate() {

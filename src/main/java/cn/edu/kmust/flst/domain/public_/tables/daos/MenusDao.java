@@ -55,105 +55,105 @@ public class MenusDao extends DAOImpl<MenusRecord, cn.edu.kmust.flst.domain.publ
     }
 
     /**
-     * Fetch records that have <code>MENU_ID IN (values)</code>
+     * Fetch records that have <code>menu_id IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByMenuId(String... values) {
         return fetch(Menus.MENUS.MENU_ID, values);
     }
 
     /**
-     * Fetch a unique record that has <code>MENU_ID = value</code>
+     * Fetch a unique record that has <code>menu_id = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.Menus fetchOneByMenuId(String value) {
         return fetchOne(Menus.MENUS.MENU_ID, value);
     }
 
     /**
-     * Fetch records that have <code>MENU_NAME IN (values)</code>
+     * Fetch records that have <code>menu_name IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByMenuName(String... values) {
         return fetch(Menus.MENUS.MENU_NAME, values);
     }
 
     /**
-     * Fetch a unique record that has <code>MENU_NAME = value</code>
+     * Fetch a unique record that has <code>menu_name = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.Menus fetchOneByMenuName(String value) {
         return fetchOne(Menus.MENUS.MENU_NAME, value);
     }
 
     /**
-     * Fetch records that have <code>MENU_NAME_EN IN (values)</code>
+     * Fetch records that have <code>menu_name_en IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByMenuNameEn(String... values) {
         return fetch(Menus.MENUS.MENU_NAME_EN, values);
     }
 
     /**
-     * Fetch a unique record that has <code>MENU_NAME_EN = value</code>
+     * Fetch a unique record that has <code>menu_name_en = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.Menus fetchOneByMenuNameEn(String value) {
         return fetchOne(Menus.MENUS.MENU_NAME_EN, value);
     }
 
     /**
-     * Fetch records that have <code>OUT_LINK IN (values)</code>
+     * Fetch records that have <code>out_link IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByOutLink(Boolean... values) {
         return fetch(Menus.MENUS.OUT_LINK, values);
     }
 
     /**
-     * Fetch records that have <code>MENU_LINK IN (values)</code>
+     * Fetch records that have <code>menu_link IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByMenuLink(String... values) {
         return fetch(Menus.MENUS.MENU_LINK, values);
     }
 
     /**
-     * Fetch records that have <code>MENU_PID IN (values)</code>
+     * Fetch records that have <code>menu_pid IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByMenuPid(String... values) {
         return fetch(Menus.MENUS.MENU_PID, values);
     }
 
     /**
-     * Fetch records that have <code>MENU_ORDER IN (values)</code>
+     * Fetch records that have <code>menu_order IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByMenuOrder(Integer... values) {
         return fetch(Menus.MENUS.MENU_ORDER, values);
     }
 
     /**
-     * Fetch records that have <code>MENU_SHOW IN (values)</code>
+     * Fetch records that have <code>menu_show IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByMenuShow(Boolean... values) {
         return fetch(Menus.MENUS.MENU_SHOW, values);
     }
 
     /**
-     * Fetch records that have <code>MENU_FIXED IN (values)</code>
+     * Fetch records that have <code>menu_fixed IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByMenuFixed(Boolean... values) {
         return fetch(Menus.MENUS.MENU_FIXED, values);
     }
 
     /**
-     * Fetch records that have <code>SHOW_ARTICLE IN (values)</code>
+     * Fetch records that have <code>show_article IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByShowArticle(Boolean... values) {
         return fetch(Menus.MENUS.SHOW_ARTICLE, values);
     }
 
     /**
-     * Fetch records that have <code>ORDER_WAY IN (values)</code>
+     * Fetch records that have <code>order_way IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByOrderWay(Integer... values) {
         return fetch(Menus.MENUS.ORDER_WAY, values);
     }
 
     /**
-     * Fetch records that have <code>MENU_CREATOR IN (values)</code>
+     * Fetch records that have <code>menu_creator IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Menus> fetchByMenuCreator(String... values) {
         return fetch(Menus.MENUS.MENU_CREATOR, values);

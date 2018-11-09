@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Collations extends TableImpl<CollationsRecord> {
 
-    private static final long serialVersionUID = 22222583;
+    private static final long serialVersionUID = 586725175;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.COLLATIONS</code>
+     * The reference instance of <code>information_schema.collations</code>
      */
     public static final Collations COLLATIONS = new Collations();
 
@@ -47,31 +47,31 @@ public class Collations extends TableImpl<CollationsRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLLATIONS.NAME</code>.
+     * The column <code>information_schema.collations.name</code>.
      */
-    public final TableField<CollationsRecord, String> NAME = createField("NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<CollationsRecord, String> NAME = createField("name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLLATIONS.KEY</code>.
+     * The column <code>information_schema.collations.key</code>.
      */
-    public final TableField<CollationsRecord, String> KEY = createField("KEY", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<CollationsRecord, String> KEY = createField("key", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.COLLATIONS</code> table reference
+     * Create a <code>information_schema.collations</code> table reference
      */
     public Collations() {
-        this(DSL.name("COLLATIONS"), null);
+        this(DSL.name("collations"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLLATIONS</code> table reference
+     * Create an aliased <code>information_schema.collations</code> table reference
      */
     public Collations(String alias) {
         this(DSL.name(alias), COLLATIONS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLLATIONS</code> table reference
+     * Create an aliased <code>information_schema.collations</code> table reference
      */
     public Collations(Name alias) {
         this(alias, COLLATIONS);

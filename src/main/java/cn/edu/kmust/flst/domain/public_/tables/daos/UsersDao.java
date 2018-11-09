@@ -55,28 +55,28 @@ public class UsersDao extends DAOImpl<UsersRecord, cn.edu.kmust.flst.domain.publ
     }
 
     /**
-     * Fetch records that have <code>USERNAME IN (values)</code>
+     * Fetch records that have <code>username IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Users> fetchByUsername(String... values) {
         return fetch(Users.USERS.USERNAME, values);
     }
 
     /**
-     * Fetch a unique record that has <code>USERNAME = value</code>
+     * Fetch a unique record that has <code>username = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.Users fetchOneByUsername(String value) {
         return fetchOne(Users.USERS.USERNAME, value);
     }
 
     /**
-     * Fetch records that have <code>PASSWORD IN (values)</code>
+     * Fetch records that have <code>password IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Users> fetchByPassword(String... values) {
         return fetch(Users.USERS.PASSWORD, values);
     }
 
     /**
-     * Fetch records that have <code>ENABLED IN (values)</code>
+     * Fetch records that have <code>enabled IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Users> fetchByEnabled(Boolean... values) {
         return fetch(Users.USERS.ENABLED, values);

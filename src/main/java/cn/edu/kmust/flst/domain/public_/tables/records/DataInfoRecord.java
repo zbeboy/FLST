@@ -30,17 +30,17 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DataInfoRecord extends UpdatableRecordImpl<DataInfoRecord> implements Record2<String, String> {
 
-    private static final long serialVersionUID = 661129768;
+    private static final long serialVersionUID = 116849192;
 
     /**
-     * Setter for <code>PUBLIC.DATA_INFO.DATA_KEY</code>.
+     * Setter for <code>public.data_info.data_key</code>.
      */
     public void setDataKey(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.DATA_INFO.DATA_KEY</code>.
+     * Getter for <code>public.data_info.data_key</code>.
      */
     @NotNull
     @Size(max = 200)
@@ -49,14 +49,14 @@ public class DataInfoRecord extends UpdatableRecordImpl<DataInfoRecord> implemen
     }
 
     /**
-     * Setter for <code>PUBLIC.DATA_INFO.DATA_VALUE</code>.
+     * Setter for <code>public.data_info.data_value</code>.
      */
     public void setDataValue(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.DATA_INFO.DATA_VALUE</code>.
+     * Getter for <code>public.data_info.data_value</code>.
      */
     @Size(max = 200)
     public String getDataValue() {

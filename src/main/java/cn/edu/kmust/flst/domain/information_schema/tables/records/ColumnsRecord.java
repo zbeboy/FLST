@@ -25,17 +25,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
 
-    private static final long serialVersionUID = -851573082;
+    private static final long serialVersionUID = 434556518;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.TABLE_CATALOG</code>.
+     * Setter for <code>information_schema.columns.table_catalog</code>.
      */
     public void setTableCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.TABLE_CATALOG</code>.
+     * Getter for <code>information_schema.columns.table_catalog</code>.
      */
     @Size(max = 2147483647)
     public String getTableCatalog() {
@@ -43,14 +43,14 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.TABLE_SCHEMA</code>.
+     * Setter for <code>information_schema.columns.table_schema</code>.
      */
     public void setTableSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.TABLE_SCHEMA</code>.
+     * Getter for <code>information_schema.columns.table_schema</code>.
      */
     @Size(max = 2147483647)
     public String getTableSchema() {
@@ -58,14 +58,14 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.TABLE_NAME</code>.
+     * Setter for <code>information_schema.columns.table_name</code>.
      */
     public void setTableName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.TABLE_NAME</code>.
+     * Getter for <code>information_schema.columns.table_name</code>.
      */
     @Size(max = 2147483647)
     public String getTableName() {
@@ -73,14 +73,14 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.COLUMN_NAME</code>.
+     * Setter for <code>information_schema.columns.column_name</code>.
      */
     public void setColumnName(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.COLUMN_NAME</code>.
+     * Getter for <code>information_schema.columns.column_name</code>.
      */
     @Size(max = 2147483647)
     public String getColumnName() {
@@ -88,28 +88,28 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.ORDINAL_POSITION</code>.
+     * Setter for <code>information_schema.columns.ordinal_position</code>.
      */
     public void setOrdinalPosition(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.ORDINAL_POSITION</code>.
+     * Getter for <code>information_schema.columns.ordinal_position</code>.
      */
     public Integer getOrdinalPosition() {
         return (Integer) get(4);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.COLUMN_DEFAULT</code>.
+     * Setter for <code>information_schema.columns.column_default</code>.
      */
     public void setColumnDefault(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.COLUMN_DEFAULT</code>.
+     * Getter for <code>information_schema.columns.column_default</code>.
      */
     @Size(max = 2147483647)
     public String getColumnDefault() {
@@ -117,14 +117,14 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.IS_NULLABLE</code>.
+     * Setter for <code>information_schema.columns.is_nullable</code>.
      */
     public void setIsNullable(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.IS_NULLABLE</code>.
+     * Getter for <code>information_schema.columns.is_nullable</code>.
      */
     @Size(max = 2147483647)
     public String getIsNullable() {
@@ -132,98 +132,98 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.DATA_TYPE</code>.
+     * Setter for <code>information_schema.columns.data_type</code>.
      */
     public void setDataType(Integer value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.DATA_TYPE</code>.
+     * Getter for <code>information_schema.columns.data_type</code>.
      */
     public Integer getDataType() {
         return (Integer) get(7);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.CHARACTER_MAXIMUM_LENGTH</code>.
+     * Setter for <code>information_schema.columns.character_maximum_length</code>.
      */
     public void setCharacterMaximumLength(Integer value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.CHARACTER_MAXIMUM_LENGTH</code>.
+     * Getter for <code>information_schema.columns.character_maximum_length</code>.
      */
     public Integer getCharacterMaximumLength() {
         return (Integer) get(8);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.CHARACTER_OCTET_LENGTH</code>.
+     * Setter for <code>information_schema.columns.character_octet_length</code>.
      */
     public void setCharacterOctetLength(Integer value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.CHARACTER_OCTET_LENGTH</code>.
+     * Getter for <code>information_schema.columns.character_octet_length</code>.
      */
     public Integer getCharacterOctetLength() {
         return (Integer) get(9);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.NUMERIC_PRECISION</code>.
+     * Setter for <code>information_schema.columns.numeric_precision</code>.
      */
     public void setNumericPrecision(Integer value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.NUMERIC_PRECISION</code>.
+     * Getter for <code>information_schema.columns.numeric_precision</code>.
      */
     public Integer getNumericPrecision() {
         return (Integer) get(10);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.NUMERIC_PRECISION_RADIX</code>.
+     * Setter for <code>information_schema.columns.numeric_precision_radix</code>.
      */
     public void setNumericPrecisionRadix(Integer value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.NUMERIC_PRECISION_RADIX</code>.
+     * Getter for <code>information_schema.columns.numeric_precision_radix</code>.
      */
     public Integer getNumericPrecisionRadix() {
         return (Integer) get(11);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.NUMERIC_SCALE</code>.
+     * Setter for <code>information_schema.columns.numeric_scale</code>.
      */
     public void setNumericScale(Integer value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.NUMERIC_SCALE</code>.
+     * Getter for <code>information_schema.columns.numeric_scale</code>.
      */
     public Integer getNumericScale() {
         return (Integer) get(12);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.CHARACTER_SET_NAME</code>.
+     * Setter for <code>information_schema.columns.character_set_name</code>.
      */
     public void setCharacterSetName(String value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.CHARACTER_SET_NAME</code>.
+     * Getter for <code>information_schema.columns.character_set_name</code>.
      */
     @Size(max = 2147483647)
     public String getCharacterSetName() {
@@ -231,14 +231,14 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.COLLATION_NAME</code>.
+     * Setter for <code>information_schema.columns.collation_name</code>.
      */
     public void setCollationName(String value) {
         set(14, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.COLLATION_NAME</code>.
+     * Getter for <code>information_schema.columns.collation_name</code>.
      */
     @Size(max = 2147483647)
     public String getCollationName() {
@@ -246,14 +246,14 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.TYPE_NAME</code>.
+     * Setter for <code>information_schema.columns.type_name</code>.
      */
     public void setTypeName(String value) {
         set(15, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.TYPE_NAME</code>.
+     * Getter for <code>information_schema.columns.type_name</code>.
      */
     @Size(max = 2147483647)
     public String getTypeName() {
@@ -261,56 +261,56 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.NULLABLE</code>.
+     * Setter for <code>information_schema.columns.nullable</code>.
      */
     public void setNullable(Integer value) {
         set(16, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.NULLABLE</code>.
+     * Getter for <code>information_schema.columns.nullable</code>.
      */
     public Integer getNullable() {
         return (Integer) get(16);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.IS_COMPUTED</code>.
+     * Setter for <code>information_schema.columns.is_computed</code>.
      */
     public void setIsComputed(Boolean value) {
         set(17, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.IS_COMPUTED</code>.
+     * Getter for <code>information_schema.columns.is_computed</code>.
      */
     public Boolean getIsComputed() {
         return (Boolean) get(17);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.SELECTIVITY</code>.
+     * Setter for <code>information_schema.columns.selectivity</code>.
      */
     public void setSelectivity(Integer value) {
         set(18, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.SELECTIVITY</code>.
+     * Getter for <code>information_schema.columns.selectivity</code>.
      */
     public Integer getSelectivity() {
         return (Integer) get(18);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.CHECK_CONSTRAINT</code>.
+     * Setter for <code>information_schema.columns.check_constraint</code>.
      */
     public void setCheckConstraint(String value) {
         set(19, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.CHECK_CONSTRAINT</code>.
+     * Getter for <code>information_schema.columns.check_constraint</code>.
      */
     @Size(max = 2147483647)
     public String getCheckConstraint() {
@@ -318,14 +318,14 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.SEQUENCE_NAME</code>.
+     * Setter for <code>information_schema.columns.sequence_name</code>.
      */
     public void setSequenceName(String value) {
         set(20, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.SEQUENCE_NAME</code>.
+     * Getter for <code>information_schema.columns.sequence_name</code>.
      */
     @Size(max = 2147483647)
     public String getSequenceName() {
@@ -333,14 +333,14 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.REMARKS</code>.
+     * Setter for <code>information_schema.columns.remarks</code>.
      */
     public void setRemarks(String value) {
         set(21, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.REMARKS</code>.
+     * Getter for <code>information_schema.columns.remarks</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -348,28 +348,28 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.SOURCE_DATA_TYPE</code>.
+     * Setter for <code>information_schema.columns.source_data_type</code>.
      */
     public void setSourceDataType(Short value) {
         set(22, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.SOURCE_DATA_TYPE</code>.
+     * Getter for <code>information_schema.columns.source_data_type</code>.
      */
     public Short getSourceDataType() {
         return (Short) get(22);
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.COLUMN_TYPE</code>.
+     * Setter for <code>information_schema.columns.column_type</code>.
      */
     public void setColumnType(String value) {
         set(23, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.COLUMN_TYPE</code>.
+     * Getter for <code>information_schema.columns.column_type</code>.
      */
     @Size(max = 2147483647)
     public String getColumnType() {
@@ -377,14 +377,14 @@ public class ColumnsRecord extends TableRecordImpl<ColumnsRecord> {
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.COLUMNS.COLUMN_ON_UPDATE</code>.
+     * Setter for <code>information_schema.columns.column_on_update</code>.
      */
     public void setColumnOnUpdate(String value) {
         set(24, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.COLUMNS.COLUMN_ON_UPDATE</code>.
+     * Getter for <code>information_schema.columns.column_on_update</code>.
      */
     @Size(max = 2147483647)
     public String getColumnOnUpdate() {

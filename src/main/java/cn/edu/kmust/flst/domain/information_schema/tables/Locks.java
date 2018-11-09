@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Locks extends TableImpl<LocksRecord> {
 
-    private static final long serialVersionUID = 710218506;
+    private static final long serialVersionUID = 2057338666;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.LOCKS</code>
+     * The reference instance of <code>information_schema.locks</code>
      */
     public static final Locks LOCKS = new Locks();
 
@@ -47,41 +47,41 @@ public class Locks extends TableImpl<LocksRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.LOCKS.TABLE_SCHEMA</code>.
+     * The column <code>information_schema.locks.table_schema</code>.
      */
-    public final TableField<LocksRecord, String> TABLE_SCHEMA = createField("TABLE_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<LocksRecord, String> TABLE_SCHEMA = createField("table_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.LOCKS.TABLE_NAME</code>.
+     * The column <code>information_schema.locks.table_name</code>.
      */
-    public final TableField<LocksRecord, String> TABLE_NAME = createField("TABLE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<LocksRecord, String> TABLE_NAME = createField("table_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.LOCKS.SESSION_ID</code>.
+     * The column <code>information_schema.locks.session_id</code>.
      */
-    public final TableField<LocksRecord, Integer> SESSION_ID = createField("SESSION_ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<LocksRecord, Integer> SESSION_ID = createField("session_id", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.LOCKS.LOCK_TYPE</code>.
+     * The column <code>information_schema.locks.lock_type</code>.
      */
-    public final TableField<LocksRecord, String> LOCK_TYPE = createField("LOCK_TYPE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<LocksRecord, String> LOCK_TYPE = createField("lock_type", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.LOCKS</code> table reference
+     * Create a <code>information_schema.locks</code> table reference
      */
     public Locks() {
-        this(DSL.name("LOCKS"), null);
+        this(DSL.name("locks"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.LOCKS</code> table reference
+     * Create an aliased <code>information_schema.locks</code> table reference
      */
     public Locks(String alias) {
         this(DSL.name(alias), LOCKS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.LOCKS</code> table reference
+     * Create an aliased <code>information_schema.locks</code> table reference
      */
     public Locks(Name alias) {
         this(alias, LOCKS);

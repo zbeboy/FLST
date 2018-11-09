@@ -32,31 +32,31 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements Record10<Integer, String, Timestamp, Boolean, String, String, String, String, String, String> {
 
-    private static final long serialVersionUID = -236206950;
+    private static final long serialVersionUID = 1770347866;
 
     /**
-     * Setter for <code>PUBLIC.BANNER.BANNER_ID</code>.
+     * Setter for <code>public.banner.banner_id</code>.
      */
     public void setBannerId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.BANNER.BANNER_ID</code>.
+     * Getter for <code>public.banner.banner_id</code>.
      */
     public Integer getBannerId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>PUBLIC.BANNER.BANNER_LINK</code>.
+     * Setter for <code>public.banner.banner_link</code>.
      */
     public void setBannerLink(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.BANNER.BANNER_LINK</code>.
+     * Getter for <code>public.banner.banner_link</code>.
      */
     @NotNull
     @Size(max = 200)
@@ -65,14 +65,14 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
     }
 
     /**
-     * Setter for <code>PUBLIC.BANNER.BANNER_DATE</code>.
+     * Setter for <code>public.banner.banner_date</code>.
      */
     public void setBannerDate(Timestamp value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.BANNER.BANNER_DATE</code>.
+     * Getter for <code>public.banner.banner_date</code>.
      */
     @NotNull
     public Timestamp getBannerDate() {
@@ -80,28 +80,28 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
     }
 
     /**
-     * Setter for <code>PUBLIC.BANNER.BANNER_SHOW</code>.
+     * Setter for <code>public.banner.banner_show</code>.
      */
     public void setBannerShow(Boolean value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.BANNER.BANNER_SHOW</code>.
+     * Getter for <code>public.banner.banner_show</code>.
      */
     public Boolean getBannerShow() {
         return (Boolean) get(3);
     }
 
     /**
-     * Setter for <code>PUBLIC.BANNER.BANNER_TITLE</code>.
+     * Setter for <code>public.banner.banner_title</code>.
      */
     public void setBannerTitle(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.BANNER.BANNER_TITLE</code>.
+     * Getter for <code>public.banner.banner_title</code>.
      */
     @Size(max = 30)
     public String getBannerTitle() {
@@ -109,14 +109,14 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
     }
 
     /**
-     * Setter for <code>PUBLIC.BANNER.BANNER_TITLE_EN</code>.
+     * Setter for <code>public.banner.banner_title_en</code>.
      */
     public void setBannerTitleEn(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.BANNER.BANNER_TITLE_EN</code>.
+     * Getter for <code>public.banner.banner_title_en</code>.
      */
     @Size(max = 50)
     public String getBannerTitleEn() {
@@ -124,14 +124,14 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
     }
 
     /**
-     * Setter for <code>PUBLIC.BANNER.BANNER_BRIEF</code>.
+     * Setter for <code>public.banner.banner_brief</code>.
      */
     public void setBannerBrief(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.BANNER.BANNER_BRIEF</code>.
+     * Getter for <code>public.banner.banner_brief</code>.
      */
     @Size(max = 50)
     public String getBannerBrief() {
@@ -139,14 +139,14 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
     }
 
     /**
-     * Setter for <code>PUBLIC.BANNER.BANNER_BRIEF_EN</code>.
+     * Setter for <code>public.banner.banner_brief_en</code>.
      */
     public void setBannerBriefEn(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.BANNER.BANNER_BRIEF_EN</code>.
+     * Getter for <code>public.banner.banner_brief_en</code>.
      */
     @Size(max = 80)
     public String getBannerBriefEn() {
@@ -154,14 +154,14 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
     }
 
     /**
-     * Setter for <code>PUBLIC.BANNER.MENU_ID</code>.
+     * Setter for <code>public.banner.menu_id</code>.
      */
     public void setMenuId(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.BANNER.MENU_ID</code>.
+     * Getter for <code>public.banner.menu_id</code>.
      */
     @NotNull
     @Size(max = 64)
@@ -170,14 +170,14 @@ public class BannerRecord extends UpdatableRecordImpl<BannerRecord> implements R
     }
 
     /**
-     * Setter for <code>PUBLIC.BANNER.BANNER_CREATOR</code>.
+     * Setter for <code>public.banner.banner_creator</code>.
      */
     public void setBannerCreator(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>PUBLIC.BANNER.BANNER_CREATOR</code>.
+     * Getter for <code>public.banner.banner_creator</code>.
      */
     @NotNull
     @Size(max = 64)

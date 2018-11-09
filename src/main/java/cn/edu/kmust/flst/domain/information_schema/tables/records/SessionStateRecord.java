@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SessionStateRecord extends TableRecordImpl<SessionStateRecord> implements Record2<String, String> {
 
-    private static final long serialVersionUID = -1349264121;
+    private static final long serialVersionUID = -1772229369;
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SESSION_STATE.KEY</code>.
+     * Setter for <code>information_schema.session_state.key</code>.
      */
     public void setKey(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SESSION_STATE.KEY</code>.
+     * Getter for <code>information_schema.session_state.key</code>.
      */
     @Size(max = 2147483647)
     public String getKey() {
@@ -46,14 +46,14 @@ public class SessionStateRecord extends TableRecordImpl<SessionStateRecord> impl
     }
 
     /**
-     * Setter for <code>INFORMATION_SCHEMA.SESSION_STATE.SQL</code>.
+     * Setter for <code>information_schema.session_state.sql</code>.
      */
     public void setSql(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>INFORMATION_SCHEMA.SESSION_STATE.SQL</code>.
+     * Getter for <code>information_schema.session_state.sql</code>.
      */
     @Size(max = 2147483647)
     public String getSql() {

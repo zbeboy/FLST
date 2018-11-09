@@ -56,91 +56,91 @@ public class ArticleEnDao extends DAOImpl<ArticleEnRecord, cn.edu.kmust.flst.dom
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_ID IN (values)</code>
+     * Fetch records that have <code>article_id IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleId(Integer... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_ID, values);
     }
 
     /**
-     * Fetch a unique record that has <code>ARTICLE_ID = value</code>
+     * Fetch a unique record that has <code>article_id = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn fetchOneByArticleId(Integer value) {
         return fetchOne(ArticleEn.ARTICLE_EN.ARTICLE_ID, value);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_TITLE IN (values)</code>
+     * Fetch records that have <code>article_title IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleTitle(String... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_TITLE, values);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_BRIEF IN (values)</code>
+     * Fetch records that have <code>article_brief IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleBrief(String... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_BRIEF, values);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_COVER IN (values)</code>
+     * Fetch records that have <code>article_cover IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleCover(String... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_COVER, values);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_DATE IN (values)</code>
+     * Fetch records that have <code>article_date IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleDate(Timestamp... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_DATE, values);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_CLICKS IN (values)</code>
+     * Fetch records that have <code>article_clicks IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleClicks(Integer... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_CLICKS, values);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_AUTHOR IN (values)</code>
+     * Fetch records that have <code>article_author IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleAuthor(String... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_AUTHOR, values);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_SOURCES IN (values)</code>
+     * Fetch records that have <code>article_sources IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleSources(Integer... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_SOURCES, values);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_SOURCES_NAME IN (values)</code>
+     * Fetch records that have <code>article_sources_name IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleSourcesName(String... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_SOURCES_NAME, values);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_SOURCES_LINK IN (values)</code>
+     * Fetch records that have <code>article_sources_link IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleSourcesLink(String... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_SOURCES_LINK, values);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_SN IN (values)</code>
+     * Fetch records that have <code>article_sn IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByArticleSn(Integer... values) {
         return fetch(ArticleEn.ARTICLE_EN.ARTICLE_SN, values);
     }
 
     /**
-     * Fetch records that have <code>MENU_ID IN (values)</code>
+     * Fetch records that have <code>menu_id IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn> fetchByMenuId(String... values) {
         return fetch(ArticleEn.ARTICLE_EN.MENU_ID, values);

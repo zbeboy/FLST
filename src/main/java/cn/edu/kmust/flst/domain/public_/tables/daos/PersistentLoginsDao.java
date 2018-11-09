@@ -56,35 +56,35 @@ public class PersistentLoginsDao extends DAOImpl<PersistentLoginsRecord, cn.edu.
     }
 
     /**
-     * Fetch records that have <code>USERNAME IN (values)</code>
+     * Fetch records that have <code>username IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.PersistentLogins> fetchByUsername(String... values) {
         return fetch(PersistentLogins.PERSISTENT_LOGINS.USERNAME, values);
     }
 
     /**
-     * Fetch records that have <code>SERIES IN (values)</code>
+     * Fetch records that have <code>series IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.PersistentLogins> fetchBySeries(String... values) {
         return fetch(PersistentLogins.PERSISTENT_LOGINS.SERIES, values);
     }
 
     /**
-     * Fetch a unique record that has <code>SERIES = value</code>
+     * Fetch a unique record that has <code>series = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.PersistentLogins fetchOneBySeries(String value) {
         return fetchOne(PersistentLogins.PERSISTENT_LOGINS.SERIES, value);
     }
 
     /**
-     * Fetch records that have <code>TOKEN IN (values)</code>
+     * Fetch records that have <code>token IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.PersistentLogins> fetchByToken(String... values) {
         return fetch(PersistentLogins.PERSISTENT_LOGINS.TOKEN, values);
     }
 
     /**
-     * Fetch records that have <code>LAST_USED IN (values)</code>
+     * Fetch records that have <code>last_used IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.PersistentLogins> fetchByLastUsed(Timestamp... values) {
         return fetch(PersistentLogins.PERSISTENT_LOGINS.LAST_USED, values);

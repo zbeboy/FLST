@@ -55,21 +55,21 @@ public class ArticleContentDao extends DAOImpl<ArticleContentRecord, cn.edu.kmus
     }
 
     /**
-     * Fetch records that have <code>ID IN (values)</code>
+     * Fetch records that have <code>id IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleContent> fetchById(Integer... values) {
         return fetch(ArticleContent.ARTICLE_CONTENT.ID, values);
     }
 
     /**
-     * Fetch a unique record that has <code>ID = value</code>
+     * Fetch a unique record that has <code>id = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleContent fetchOneById(Integer value) {
         return fetchOne(ArticleContent.ARTICLE_CONTENT.ID, value);
     }
 
     /**
-     * Fetch records that have <code>ARTICLE_CONTENT IN (values)</code>
+     * Fetch records that have <code>article_content IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleContent> fetchByArticleContent(String... values) {
         return fetch(ArticleContent.ARTICLE_CONTENT.ARTICLE_CONTENT_, values);

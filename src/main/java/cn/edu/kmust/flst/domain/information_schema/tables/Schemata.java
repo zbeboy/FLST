@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Schemata extends TableImpl<SchemataRecord> {
 
-    private static final long serialVersionUID = -1466750487;
+    private static final long serialVersionUID = -338358807;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SCHEMATA</code>
+     * The reference instance of <code>information_schema.schemata</code>
      */
     public static final Schemata SCHEMATA = new Schemata();
 
@@ -47,61 +47,61 @@ public class Schemata extends TableImpl<SchemataRecord> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SCHEMATA.CATALOG_NAME</code>.
+     * The column <code>information_schema.schemata.catalog_name</code>.
      */
-    public final TableField<SchemataRecord, String> CATALOG_NAME = createField("CATALOG_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SchemataRecord, String> CATALOG_NAME = createField("catalog_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SCHEMATA.SCHEMA_NAME</code>.
+     * The column <code>information_schema.schemata.schema_name</code>.
      */
-    public final TableField<SchemataRecord, String> SCHEMA_NAME = createField("SCHEMA_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SchemataRecord, String> SCHEMA_NAME = createField("schema_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SCHEMATA.SCHEMA_OWNER</code>.
+     * The column <code>information_schema.schemata.schema_owner</code>.
      */
-    public final TableField<SchemataRecord, String> SCHEMA_OWNER = createField("SCHEMA_OWNER", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SchemataRecord, String> SCHEMA_OWNER = createField("schema_owner", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SCHEMATA.DEFAULT_CHARACTER_SET_NAME</code>.
+     * The column <code>information_schema.schemata.default_character_set_name</code>.
      */
-    public final TableField<SchemataRecord, String> DEFAULT_CHARACTER_SET_NAME = createField("DEFAULT_CHARACTER_SET_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SchemataRecord, String> DEFAULT_CHARACTER_SET_NAME = createField("default_character_set_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SCHEMATA.DEFAULT_COLLATION_NAME</code>.
+     * The column <code>information_schema.schemata.default_collation_name</code>.
      */
-    public final TableField<SchemataRecord, String> DEFAULT_COLLATION_NAME = createField("DEFAULT_COLLATION_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SchemataRecord, String> DEFAULT_COLLATION_NAME = createField("default_collation_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SCHEMATA.IS_DEFAULT</code>.
+     * The column <code>information_schema.schemata.is_default</code>.
      */
-    public final TableField<SchemataRecord, Boolean> IS_DEFAULT = createField("IS_DEFAULT", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+    public final TableField<SchemataRecord, Boolean> IS_DEFAULT = createField("is_default", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SCHEMATA.REMARKS</code>.
+     * The column <code>information_schema.schemata.remarks</code>.
      */
-    public final TableField<SchemataRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<SchemataRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SCHEMATA.ID</code>.
+     * The column <code>information_schema.schemata.id</code>.
      */
-    public final TableField<SchemataRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<SchemataRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SCHEMATA</code> table reference
+     * Create a <code>information_schema.schemata</code> table reference
      */
     public Schemata() {
-        this(DSL.name("SCHEMATA"), null);
+        this(DSL.name("schemata"), null);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SCHEMATA</code> table reference
+     * Create an aliased <code>information_schema.schemata</code> table reference
      */
     public Schemata(String alias) {
         this(DSL.name(alias), SCHEMATA);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SCHEMATA</code> table reference
+     * Create an aliased <code>information_schema.schemata</code> table reference
      */
     public Schemata(Name alias) {
         this(alias, SCHEMATA);

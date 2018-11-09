@@ -56,77 +56,77 @@ public class BannerDao extends DAOImpl<BannerRecord, cn.edu.kmust.flst.domain.pu
     }
 
     /**
-     * Fetch records that have <code>BANNER_ID IN (values)</code>
+     * Fetch records that have <code>banner_id IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Banner> fetchByBannerId(Integer... values) {
         return fetch(Banner.BANNER.BANNER_ID, values);
     }
 
     /**
-     * Fetch a unique record that has <code>BANNER_ID = value</code>
+     * Fetch a unique record that has <code>banner_id = value</code>
      */
     public cn.edu.kmust.flst.domain.public_.tables.pojos.Banner fetchOneByBannerId(Integer value) {
         return fetchOne(Banner.BANNER.BANNER_ID, value);
     }
 
     /**
-     * Fetch records that have <code>BANNER_LINK IN (values)</code>
+     * Fetch records that have <code>banner_link IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Banner> fetchByBannerLink(String... values) {
         return fetch(Banner.BANNER.BANNER_LINK, values);
     }
 
     /**
-     * Fetch records that have <code>BANNER_DATE IN (values)</code>
+     * Fetch records that have <code>banner_date IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Banner> fetchByBannerDate(Timestamp... values) {
         return fetch(Banner.BANNER.BANNER_DATE, values);
     }
 
     /**
-     * Fetch records that have <code>BANNER_SHOW IN (values)</code>
+     * Fetch records that have <code>banner_show IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Banner> fetchByBannerShow(Boolean... values) {
         return fetch(Banner.BANNER.BANNER_SHOW, values);
     }
 
     /**
-     * Fetch records that have <code>BANNER_TITLE IN (values)</code>
+     * Fetch records that have <code>banner_title IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Banner> fetchByBannerTitle(String... values) {
         return fetch(Banner.BANNER.BANNER_TITLE, values);
     }
 
     /**
-     * Fetch records that have <code>BANNER_TITLE_EN IN (values)</code>
+     * Fetch records that have <code>banner_title_en IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Banner> fetchByBannerTitleEn(String... values) {
         return fetch(Banner.BANNER.BANNER_TITLE_EN, values);
     }
 
     /**
-     * Fetch records that have <code>BANNER_BRIEF IN (values)</code>
+     * Fetch records that have <code>banner_brief IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Banner> fetchByBannerBrief(String... values) {
         return fetch(Banner.BANNER.BANNER_BRIEF, values);
     }
 
     /**
-     * Fetch records that have <code>BANNER_BRIEF_EN IN (values)</code>
+     * Fetch records that have <code>banner_brief_en IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Banner> fetchByBannerBriefEn(String... values) {
         return fetch(Banner.BANNER.BANNER_BRIEF_EN, values);
     }
 
     /**
-     * Fetch records that have <code>MENU_ID IN (values)</code>
+     * Fetch records that have <code>menu_id IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Banner> fetchByMenuId(String... values) {
         return fetch(Banner.BANNER.MENU_ID, values);
     }
 
     /**
-     * Fetch records that have <code>BANNER_CREATOR IN (values)</code>
+     * Fetch records that have <code>banner_creator IN (values)</code>
      */
     public List<cn.edu.kmust.flst.domain.public_.tables.pojos.Banner> fetchByBannerCreator(String... values) {
         return fetch(Banner.BANNER.BANNER_CREATOR, values);
