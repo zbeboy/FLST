@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Constants extends TableImpl<ConstantsRecord> {
 
-    private static final long serialVersionUID = 1986418559;
+    private static final long serialVersionUID = -760040545;
 
     /**
-     * The reference instance of <code>information_schema.constants</code>
+     * The reference instance of <code>INFORMATION_SCHEMA.CONSTANTS</code>
      */
     public static final Constants CONSTANTS = new Constants();
 
@@ -47,56 +47,56 @@ public class Constants extends TableImpl<ConstantsRecord> {
     }
 
     /**
-     * The column <code>information_schema.constants.constant_catalog</code>.
+     * The column <code>INFORMATION_SCHEMA.CONSTANTS.CONSTANT_CATALOG</code>.
      */
-    public final TableField<ConstantsRecord, String> CONSTANT_CATALOG = createField("constant_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ConstantsRecord, String> CONSTANT_CATALOG = createField("CONSTANT_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.constants.constant_schema</code>.
+     * The column <code>INFORMATION_SCHEMA.CONSTANTS.CONSTANT_SCHEMA</code>.
      */
-    public final TableField<ConstantsRecord, String> CONSTANT_SCHEMA = createField("constant_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ConstantsRecord, String> CONSTANT_SCHEMA = createField("CONSTANT_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.constants.constant_name</code>.
+     * The column <code>INFORMATION_SCHEMA.CONSTANTS.CONSTANT_NAME</code>.
      */
-    public final TableField<ConstantsRecord, String> CONSTANT_NAME = createField("constant_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ConstantsRecord, String> CONSTANT_NAME = createField("CONSTANT_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.constants.data_type</code>.
+     * The column <code>INFORMATION_SCHEMA.CONSTANTS.DATA_TYPE</code>.
      */
-    public final TableField<ConstantsRecord, Integer> DATA_TYPE = createField("data_type", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<ConstantsRecord, Integer> DATA_TYPE = createField("DATA_TYPE", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>information_schema.constants.remarks</code>.
+     * The column <code>INFORMATION_SCHEMA.CONSTANTS.REMARKS</code>.
      */
-    public final TableField<ConstantsRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ConstantsRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.constants.sql</code>.
+     * The column <code>INFORMATION_SCHEMA.CONSTANTS.SQL</code>.
      */
-    public final TableField<ConstantsRecord, String> SQL = createField("sql", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ConstantsRecord, String> SQL = createField("SQL", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.constants.id</code>.
+     * The column <code>INFORMATION_SCHEMA.CONSTANTS.ID</code>.
      */
-    public final TableField<ConstantsRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<ConstantsRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * Create a <code>information_schema.constants</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.CONSTANTS</code> table reference
      */
     public Constants() {
-        this(DSL.name("constants"), null);
+        this(DSL.name("CONSTANTS"), null);
     }
 
     /**
-     * Create an aliased <code>information_schema.constants</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.CONSTANTS</code> table reference
      */
     public Constants(String alias) {
         this(DSL.name(alias), CONSTANTS);
     }
 
     /**
-     * Create an aliased <code>information_schema.constants</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.CONSTANTS</code> table reference
      */
     public Constants(Name alias) {
         this(alias, CONSTANTS);

@@ -1,9 +1,9 @@
 package cn.edu.kmust.flst.service.backstage.menus
 
-import cn.edu.kmust.flst.domain.public_.Tables.MENUS
-import cn.edu.kmust.flst.domain.public_.tables.daos.MenusDao
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
-import cn.edu.kmust.flst.domain.public_.tables.records.MenusRecord
+import cn.edu.kmust.flst.domain.flst.Tables.MENUS
+import cn.edu.kmust.flst.domain.flst.tables.daos.MenusDao
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.flst.tables.records.MenusRecord
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils

@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.reception
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.public_.tables.records.MenusRecord
+import cn.edu.kmust.flst.domain.flst.tables.records.MenusRecord
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import org.jooq.Result
 import org.springframework.cache.annotation.Cacheable

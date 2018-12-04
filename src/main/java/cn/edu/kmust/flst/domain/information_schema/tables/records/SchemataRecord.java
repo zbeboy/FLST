@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SchemataRecord extends TableRecordImpl<SchemataRecord> implements Record8<String, String, String, String, String, Boolean, String, Integer> {
 
-    private static final long serialVersionUID = -1036100958;
+    private static final long serialVersionUID = -928297182;
 
     /**
-     * Setter for <code>information_schema.schemata.catalog_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SCHEMATA.CATALOG_NAME</code>.
      */
     public void setCatalogName(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.schemata.catalog_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SCHEMATA.CATALOG_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getCatalogName() {
@@ -46,14 +46,14 @@ public class SchemataRecord extends TableRecordImpl<SchemataRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.schemata.schema_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SCHEMATA.SCHEMA_NAME</code>.
      */
     public void setSchemaName(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.schemata.schema_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SCHEMATA.SCHEMA_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getSchemaName() {
@@ -61,14 +61,14 @@ public class SchemataRecord extends TableRecordImpl<SchemataRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.schemata.schema_owner</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SCHEMATA.SCHEMA_OWNER</code>.
      */
     public void setSchemaOwner(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.schemata.schema_owner</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SCHEMATA.SCHEMA_OWNER</code>.
      */
     @Size(max = 2147483647)
     public String getSchemaOwner() {
@@ -76,14 +76,14 @@ public class SchemataRecord extends TableRecordImpl<SchemataRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.schemata.default_character_set_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SCHEMATA.DEFAULT_CHARACTER_SET_NAME</code>.
      */
     public void setDefaultCharacterSetName(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.schemata.default_character_set_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SCHEMATA.DEFAULT_CHARACTER_SET_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getDefaultCharacterSetName() {
@@ -91,14 +91,14 @@ public class SchemataRecord extends TableRecordImpl<SchemataRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.schemata.default_collation_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SCHEMATA.DEFAULT_COLLATION_NAME</code>.
      */
     public void setDefaultCollationName(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.schemata.default_collation_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SCHEMATA.DEFAULT_COLLATION_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getDefaultCollationName() {
@@ -106,28 +106,28 @@ public class SchemataRecord extends TableRecordImpl<SchemataRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.schemata.is_default</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SCHEMATA.IS_DEFAULT</code>.
      */
     public void setIsDefault(Boolean value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.schemata.is_default</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SCHEMATA.IS_DEFAULT</code>.
      */
     public Boolean getIsDefault() {
         return (Boolean) get(5);
     }
 
     /**
-     * Setter for <code>information_schema.schemata.remarks</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SCHEMATA.REMARKS</code>.
      */
     public void setRemarks(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.schemata.remarks</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SCHEMATA.REMARKS</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -135,14 +135,14 @@ public class SchemataRecord extends TableRecordImpl<SchemataRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.schemata.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SCHEMATA.ID</code>.
      */
     public void setId(Integer value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.schemata.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SCHEMATA.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(7);

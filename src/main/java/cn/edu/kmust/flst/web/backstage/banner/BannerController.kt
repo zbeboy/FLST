@@ -2,7 +2,7 @@ package cn.edu.kmust.flst.web.backstage.banner
 
 import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Banner
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Banner
 import cn.edu.kmust.flst.service.backstage.banner.BannerService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.common.UploadService

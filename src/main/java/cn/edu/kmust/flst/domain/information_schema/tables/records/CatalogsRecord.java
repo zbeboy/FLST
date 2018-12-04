@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class CatalogsRecord extends TableRecordImpl<CatalogsRecord> implements Record1<String> {
 
-    private static final long serialVersionUID = -2027670938;
+    private static final long serialVersionUID = 892701158;
 
     /**
-     * Setter for <code>information_schema.catalogs.catalog_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CATALOGS.CATALOG_NAME</code>.
      */
     public void setCatalogName(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.catalogs.catalog_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CATALOGS.CATALOG_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getCatalogName() {

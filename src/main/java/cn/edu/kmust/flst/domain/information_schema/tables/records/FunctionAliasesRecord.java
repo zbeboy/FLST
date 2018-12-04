@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FunctionAliasesRecord extends TableRecordImpl<FunctionAliasesRecord> implements Record12<String, String, String, String, String, Integer, String, Integer, Short, String, Integer, String> {
 
-    private static final long serialVersionUID = -1186298051;
+    private static final long serialVersionUID = -1527245955;
 
     /**
-     * Setter for <code>information_schema.function_aliases.alias_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.ALIAS_CATALOG</code>.
      */
     public void setAliasCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.alias_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.ALIAS_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getAliasCatalog() {
@@ -46,14 +46,14 @@ public class FunctionAliasesRecord extends TableRecordImpl<FunctionAliasesRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.alias_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.ALIAS_SCHEMA</code>.
      */
     public void setAliasSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.alias_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.ALIAS_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getAliasSchema() {
@@ -61,14 +61,14 @@ public class FunctionAliasesRecord extends TableRecordImpl<FunctionAliasesRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.alias_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.ALIAS_NAME</code>.
      */
     public void setAliasName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.alias_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.ALIAS_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getAliasName() {
@@ -76,14 +76,14 @@ public class FunctionAliasesRecord extends TableRecordImpl<FunctionAliasesRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.java_class</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.JAVA_CLASS</code>.
      */
     public void setJavaClass(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.java_class</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.JAVA_CLASS</code>.
      */
     @Size(max = 2147483647)
     public String getJavaClass() {
@@ -91,14 +91,14 @@ public class FunctionAliasesRecord extends TableRecordImpl<FunctionAliasesRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.java_method</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.JAVA_METHOD</code>.
      */
     public void setJavaMethod(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.java_method</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.JAVA_METHOD</code>.
      */
     @Size(max = 2147483647)
     public String getJavaMethod() {
@@ -106,28 +106,28 @@ public class FunctionAliasesRecord extends TableRecordImpl<FunctionAliasesRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.data_type</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.DATA_TYPE</code>.
      */
     public void setDataType(Integer value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.data_type</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.DATA_TYPE</code>.
      */
     public Integer getDataType() {
         return (Integer) get(5);
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.type_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.TYPE_NAME</code>.
      */
     public void setTypeName(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.type_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.TYPE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getTypeName() {
@@ -135,42 +135,42 @@ public class FunctionAliasesRecord extends TableRecordImpl<FunctionAliasesRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.column_count</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.COLUMN_COUNT</code>.
      */
     public void setColumnCount(Integer value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.column_count</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.COLUMN_COUNT</code>.
      */
     public Integer getColumnCount() {
         return (Integer) get(7);
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.returns_result</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.RETURNS_RESULT</code>.
      */
     public void setReturnsResult(Short value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.returns_result</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.RETURNS_RESULT</code>.
      */
     public Short getReturnsResult() {
         return (Short) get(8);
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.remarks</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.REMARKS</code>.
      */
     public void setRemarks(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.remarks</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.REMARKS</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -178,28 +178,28 @@ public class FunctionAliasesRecord extends TableRecordImpl<FunctionAliasesRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.ID</code>.
      */
     public void setId(Integer value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(10);
     }
 
     /**
-     * Setter for <code>information_schema.function_aliases.source</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.SOURCE</code>.
      */
     public void setSource(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_aliases.source</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_ALIASES.SOURCE</code>.
      */
     @Size(max = 2147483647)
     public String getSource() {

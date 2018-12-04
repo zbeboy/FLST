@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SynonymsRecord extends TableRecordImpl<SynonymsRecord> implements Record9<String, String, String, String, String, String, String, String, Integer> {
 
-    private static final long serialVersionUID = -1060717001;
+    private static final long serialVersionUID = 1062612535;
 
     /**
-     * Setter for <code>information_schema.synonyms.synonym_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_CATALOG</code>.
      */
     public void setSynonymCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.synonyms.synonym_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getSynonymCatalog() {
@@ -46,14 +46,14 @@ public class SynonymsRecord extends TableRecordImpl<SynonymsRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.synonyms.synonym_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_SCHEMA</code>.
      */
     public void setSynonymSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.synonyms.synonym_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getSynonymSchema() {
@@ -61,14 +61,14 @@ public class SynonymsRecord extends TableRecordImpl<SynonymsRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.synonyms.synonym_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_NAME</code>.
      */
     public void setSynonymName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.synonyms.synonym_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getSynonymName() {
@@ -76,14 +76,14 @@ public class SynonymsRecord extends TableRecordImpl<SynonymsRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.synonyms.synonym_for</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_FOR</code>.
      */
     public void setSynonymFor(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.synonyms.synonym_for</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_FOR</code>.
      */
     @Size(max = 2147483647)
     public String getSynonymFor() {
@@ -91,14 +91,14 @@ public class SynonymsRecord extends TableRecordImpl<SynonymsRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.synonyms.synonym_for_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_FOR_SCHEMA</code>.
      */
     public void setSynonymForSchema(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.synonyms.synonym_for_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SYNONYMS.SYNONYM_FOR_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getSynonymForSchema() {
@@ -106,14 +106,14 @@ public class SynonymsRecord extends TableRecordImpl<SynonymsRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.synonyms.type_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SYNONYMS.TYPE_NAME</code>.
      */
     public void setTypeName(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.synonyms.type_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SYNONYMS.TYPE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getTypeName() {
@@ -121,14 +121,14 @@ public class SynonymsRecord extends TableRecordImpl<SynonymsRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.synonyms.status</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SYNONYMS.STATUS</code>.
      */
     public void setStatus(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.synonyms.status</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SYNONYMS.STATUS</code>.
      */
     @Size(max = 2147483647)
     public String getStatus() {
@@ -136,14 +136,14 @@ public class SynonymsRecord extends TableRecordImpl<SynonymsRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.synonyms.remarks</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SYNONYMS.REMARKS</code>.
      */
     public void setRemarks(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.synonyms.remarks</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SYNONYMS.REMARKS</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -151,14 +151,14 @@ public class SynonymsRecord extends TableRecordImpl<SynonymsRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.synonyms.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SYNONYMS.ID</code>.
      */
     public void setId(Integer value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.synonyms.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SYNONYMS.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(8);

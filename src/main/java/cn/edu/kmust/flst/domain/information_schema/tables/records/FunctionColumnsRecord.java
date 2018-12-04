@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FunctionColumnsRecord extends TableRecordImpl<FunctionColumnsRecord> implements Record17<String, String, String, String, String, Integer, Integer, String, Integer, String, Integer, Short, Short, Short, Short, String, String> {
 
-    private static final long serialVersionUID = -1453147427;
+    private static final long serialVersionUID = 306017821;
 
     /**
-     * Setter for <code>information_schema.function_columns.alias_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.ALIAS_CATALOG</code>.
      */
     public void setAliasCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.alias_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.ALIAS_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getAliasCatalog() {
@@ -46,14 +46,14 @@ public class FunctionColumnsRecord extends TableRecordImpl<FunctionColumnsRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.alias_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.ALIAS_SCHEMA</code>.
      */
     public void setAliasSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.alias_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.ALIAS_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getAliasSchema() {
@@ -61,14 +61,14 @@ public class FunctionColumnsRecord extends TableRecordImpl<FunctionColumnsRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.alias_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.ALIAS_NAME</code>.
      */
     public void setAliasName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.alias_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.ALIAS_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getAliasName() {
@@ -76,14 +76,14 @@ public class FunctionColumnsRecord extends TableRecordImpl<FunctionColumnsRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.java_class</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.JAVA_CLASS</code>.
      */
     public void setJavaClass(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.java_class</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.JAVA_CLASS</code>.
      */
     @Size(max = 2147483647)
     public String getJavaClass() {
@@ -91,14 +91,14 @@ public class FunctionColumnsRecord extends TableRecordImpl<FunctionColumnsRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.java_method</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.JAVA_METHOD</code>.
      */
     public void setJavaMethod(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.java_method</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.JAVA_METHOD</code>.
      */
     @Size(max = 2147483647)
     public String getJavaMethod() {
@@ -106,42 +106,42 @@ public class FunctionColumnsRecord extends TableRecordImpl<FunctionColumnsRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.column_count</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_COUNT</code>.
      */
     public void setColumnCount(Integer value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.column_count</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_COUNT</code>.
      */
     public Integer getColumnCount() {
         return (Integer) get(5);
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.pos</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.POS</code>.
      */
     public void setPos(Integer value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.pos</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.POS</code>.
      */
     public Integer getPos() {
         return (Integer) get(6);
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.column_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_NAME</code>.
      */
     public void setColumnName(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.column_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getColumnName() {
@@ -149,28 +149,28 @@ public class FunctionColumnsRecord extends TableRecordImpl<FunctionColumnsRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.data_type</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.DATA_TYPE</code>.
      */
     public void setDataType(Integer value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.data_type</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.DATA_TYPE</code>.
      */
     public Integer getDataType() {
         return (Integer) get(8);
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.type_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.TYPE_NAME</code>.
      */
     public void setTypeName(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.type_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.TYPE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getTypeName() {
@@ -178,84 +178,84 @@ public class FunctionColumnsRecord extends TableRecordImpl<FunctionColumnsRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.precision</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.PRECISION</code>.
      */
     public void setPrecision(Integer value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.precision</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.PRECISION</code>.
      */
     public Integer getPrecision() {
         return (Integer) get(10);
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.scale</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.SCALE</code>.
      */
     public void setScale(Short value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.scale</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.SCALE</code>.
      */
     public Short getScale() {
         return (Short) get(11);
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.radix</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.RADIX</code>.
      */
     public void setRadix(Short value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.radix</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.RADIX</code>.
      */
     public Short getRadix() {
         return (Short) get(12);
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.nullable</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.NULLABLE</code>.
      */
     public void setNullable(Short value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.nullable</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.NULLABLE</code>.
      */
     public Short getNullable() {
         return (Short) get(13);
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.column_type</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_TYPE</code>.
      */
     public void setColumnType(Short value) {
         set(14, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.column_type</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_TYPE</code>.
      */
     public Short getColumnType() {
         return (Short) get(14);
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.remarks</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.REMARKS</code>.
      */
     public void setRemarks(String value) {
         set(15, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.remarks</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.REMARKS</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -263,14 +263,14 @@ public class FunctionColumnsRecord extends TableRecordImpl<FunctionColumnsRecord
     }
 
     /**
-     * Setter for <code>information_schema.function_columns.column_default</code>.
+     * Setter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_DEFAULT</code>.
      */
     public void setColumnDefault(String value) {
         set(16, value);
     }
 
     /**
-     * Getter for <code>information_schema.function_columns.column_default</code>.
+     * Getter for <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_DEFAULT</code>.
      */
     @Size(max = 2147483647)
     public String getColumnDefault() {

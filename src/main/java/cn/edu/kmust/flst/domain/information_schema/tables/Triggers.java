@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Triggers extends TableImpl<TriggersRecord> {
 
-    private static final long serialVersionUID = -704892680;
+    private static final long serialVersionUID = 431682744;
 
     /**
-     * The reference instance of <code>information_schema.triggers</code>
+     * The reference instance of <code>INFORMATION_SCHEMA.TRIGGERS</code>
      */
     public static final Triggers TRIGGERS = new Triggers();
 
@@ -47,91 +47,91 @@ public class Triggers extends TableImpl<TriggersRecord> {
     }
 
     /**
-     * The column <code>information_schema.triggers.trigger_catalog</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_CATALOG</code>.
      */
-    public final TableField<TriggersRecord, String> TRIGGER_CATALOG = createField("trigger_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TriggersRecord, String> TRIGGER_CATALOG = createField("TRIGGER_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.triggers.trigger_schema</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_SCHEMA</code>.
      */
-    public final TableField<TriggersRecord, String> TRIGGER_SCHEMA = createField("trigger_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TriggersRecord, String> TRIGGER_SCHEMA = createField("TRIGGER_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.triggers.trigger_name</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_NAME</code>.
      */
-    public final TableField<TriggersRecord, String> TRIGGER_NAME = createField("trigger_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TriggersRecord, String> TRIGGER_NAME = createField("TRIGGER_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.triggers.trigger_type</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_TYPE</code>.
      */
-    public final TableField<TriggersRecord, String> TRIGGER_TYPE = createField("trigger_type", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TriggersRecord, String> TRIGGER_TYPE = createField("TRIGGER_TYPE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.triggers.table_catalog</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.TABLE_CATALOG</code>.
      */
-    public final TableField<TriggersRecord, String> TABLE_CATALOG = createField("table_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TriggersRecord, String> TABLE_CATALOG = createField("TABLE_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.triggers.table_schema</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.TABLE_SCHEMA</code>.
      */
-    public final TableField<TriggersRecord, String> TABLE_SCHEMA = createField("table_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TriggersRecord, String> TABLE_SCHEMA = createField("TABLE_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.triggers.table_name</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.TABLE_NAME</code>.
      */
-    public final TableField<TriggersRecord, String> TABLE_NAME = createField("table_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TriggersRecord, String> TABLE_NAME = createField("TABLE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.triggers.before</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.BEFORE</code>.
      */
-    public final TableField<TriggersRecord, Boolean> BEFORE = createField("before", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+    public final TableField<TriggersRecord, Boolean> BEFORE = createField("BEFORE", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
     /**
-     * The column <code>information_schema.triggers.java_class</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.JAVA_CLASS</code>.
      */
-    public final TableField<TriggersRecord, String> JAVA_CLASS = createField("java_class", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TriggersRecord, String> JAVA_CLASS = createField("JAVA_CLASS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.triggers.queue_size</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.QUEUE_SIZE</code>.
      */
-    public final TableField<TriggersRecord, Integer> QUEUE_SIZE = createField("queue_size", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<TriggersRecord, Integer> QUEUE_SIZE = createField("QUEUE_SIZE", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>information_schema.triggers.no_wait</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.NO_WAIT</code>.
      */
-    public final TableField<TriggersRecord, Boolean> NO_WAIT = createField("no_wait", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
+    public final TableField<TriggersRecord, Boolean> NO_WAIT = createField("NO_WAIT", org.jooq.impl.SQLDataType.BOOLEAN, this, "");
 
     /**
-     * The column <code>information_schema.triggers.remarks</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.REMARKS</code>.
      */
-    public final TableField<TriggersRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TriggersRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.triggers.sql</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.SQL</code>.
      */
-    public final TableField<TriggersRecord, String> SQL = createField("sql", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TriggersRecord, String> SQL = createField("SQL", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.triggers.id</code>.
+     * The column <code>INFORMATION_SCHEMA.TRIGGERS.ID</code>.
      */
-    public final TableField<TriggersRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<TriggersRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * Create a <code>information_schema.triggers</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.TRIGGERS</code> table reference
      */
     public Triggers() {
-        this(DSL.name("triggers"), null);
+        this(DSL.name("TRIGGERS"), null);
     }
 
     /**
-     * Create an aliased <code>information_schema.triggers</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGERS</code> table reference
      */
     public Triggers(String alias) {
         this(DSL.name(alias), TRIGGERS);
     }
 
     /**
-     * Create an aliased <code>information_schema.triggers</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGERS</code> table reference
      */
     public Triggers(Name alias) {
         this(alias, TRIGGERS);

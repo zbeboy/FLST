@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Help extends TableImpl<HelpRecord> {
 
-    private static final long serialVersionUID = 933409386;
+    private static final long serialVersionUID = -500946230;
 
     /**
-     * The reference instance of <code>information_schema.help</code>
+     * The reference instance of <code>INFORMATION_SCHEMA.HELP</code>
      */
     public static final Help HELP = new Help();
 
@@ -47,46 +47,46 @@ public class Help extends TableImpl<HelpRecord> {
     }
 
     /**
-     * The column <code>information_schema.help.id</code>.
+     * The column <code>INFORMATION_SCHEMA.HELP.ID</code>.
      */
-    public final TableField<HelpRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<HelpRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>information_schema.help.section</code>.
+     * The column <code>INFORMATION_SCHEMA.HELP.SECTION</code>.
      */
-    public final TableField<HelpRecord, String> SECTION = createField("section", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<HelpRecord, String> SECTION = createField("SECTION", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.help.topic</code>.
+     * The column <code>INFORMATION_SCHEMA.HELP.TOPIC</code>.
      */
-    public final TableField<HelpRecord, String> TOPIC = createField("topic", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<HelpRecord, String> TOPIC = createField("TOPIC", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.help.syntax</code>.
+     * The column <code>INFORMATION_SCHEMA.HELP.SYNTAX</code>.
      */
-    public final TableField<HelpRecord, String> SYNTAX = createField("syntax", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<HelpRecord, String> SYNTAX = createField("SYNTAX", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.help.text</code>.
+     * The column <code>INFORMATION_SCHEMA.HELP.TEXT</code>.
      */
-    public final TableField<HelpRecord, String> TEXT = createField("text", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<HelpRecord, String> TEXT = createField("TEXT", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>information_schema.help</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.HELP</code> table reference
      */
     public Help() {
-        this(DSL.name("help"), null);
+        this(DSL.name("HELP"), null);
     }
 
     /**
-     * Create an aliased <code>information_schema.help</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.HELP</code> table reference
      */
     public Help(String alias) {
         this(DSL.name(alias), HELP);
     }
 
     /**
-     * Create an aliased <code>information_schema.help</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.HELP</code> table reference
      */
     public Help(Name alias) {
         this(alias, HELP);

@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ReferentialConstraintsRecord extends TableRecordImpl<ReferentialConstraintsRecord> implements Record9<String, String, String, String, String, String, String, String, String> {
 
-    private static final long serialVersionUID = -1606518315;
+    private static final long serialVersionUID = 1502237013;
 
     /**
-     * Setter for <code>information_schema.referential_constraints.constraint_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_CATALOG</code>.
      */
     public void setConstraintCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.referential_constraints.constraint_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintCatalog() {
@@ -46,14 +46,14 @@ public class ReferentialConstraintsRecord extends TableRecordImpl<ReferentialCon
     }
 
     /**
-     * Setter for <code>information_schema.referential_constraints.constraint_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
      */
     public void setConstraintSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.referential_constraints.constraint_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintSchema() {
@@ -61,14 +61,14 @@ public class ReferentialConstraintsRecord extends TableRecordImpl<ReferentialCon
     }
 
     /**
-     * Setter for <code>information_schema.referential_constraints.constraint_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_NAME</code>.
      */
     public void setConstraintName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.referential_constraints.constraint_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintName() {
@@ -76,14 +76,14 @@ public class ReferentialConstraintsRecord extends TableRecordImpl<ReferentialCon
     }
 
     /**
-     * Setter for <code>information_schema.referential_constraints.unique_constraint_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_CATALOG</code>.
      */
     public void setUniqueConstraintCatalog(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.referential_constraints.unique_constraint_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getUniqueConstraintCatalog() {
@@ -91,14 +91,14 @@ public class ReferentialConstraintsRecord extends TableRecordImpl<ReferentialCon
     }
 
     /**
-     * Setter for <code>information_schema.referential_constraints.unique_constraint_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_SCHEMA</code>.
      */
     public void setUniqueConstraintSchema(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.referential_constraints.unique_constraint_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getUniqueConstraintSchema() {
@@ -106,14 +106,14 @@ public class ReferentialConstraintsRecord extends TableRecordImpl<ReferentialCon
     }
 
     /**
-     * Setter for <code>information_schema.referential_constraints.unique_constraint_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_NAME</code>.
      */
     public void setUniqueConstraintName(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.referential_constraints.unique_constraint_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getUniqueConstraintName() {
@@ -121,14 +121,14 @@ public class ReferentialConstraintsRecord extends TableRecordImpl<ReferentialCon
     }
 
     /**
-     * Setter for <code>information_schema.referential_constraints.match_option</code>.
+     * Setter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.MATCH_OPTION</code>.
      */
     public void setMatchOption(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.referential_constraints.match_option</code>.
+     * Getter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.MATCH_OPTION</code>.
      */
     @Size(max = 2147483647)
     public String getMatchOption() {
@@ -136,14 +136,14 @@ public class ReferentialConstraintsRecord extends TableRecordImpl<ReferentialCon
     }
 
     /**
-     * Setter for <code>information_schema.referential_constraints.update_rule</code>.
+     * Setter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UPDATE_RULE</code>.
      */
     public void setUpdateRule(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.referential_constraints.update_rule</code>.
+     * Getter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UPDATE_RULE</code>.
      */
     @Size(max = 2147483647)
     public String getUpdateRule() {
@@ -151,14 +151,14 @@ public class ReferentialConstraintsRecord extends TableRecordImpl<ReferentialCon
     }
 
     /**
-     * Setter for <code>information_schema.referential_constraints.delete_rule</code>.
+     * Setter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.DELETE_RULE</code>.
      */
     public void setDeleteRule(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.referential_constraints.delete_rule</code>.
+     * Getter for <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.DELETE_RULE</code>.
      */
     @Size(max = 2147483647)
     public String getDeleteRule() {

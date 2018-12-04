@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Catalogs extends TableImpl<CatalogsRecord> {
 
-    private static final long serialVersionUID = -1235307941;
+    private static final long serialVersionUID = 1743327739;
 
     /**
-     * The reference instance of <code>information_schema.catalogs</code>
+     * The reference instance of <code>INFORMATION_SCHEMA.CATALOGS</code>
      */
     public static final Catalogs CATALOGS = new Catalogs();
 
@@ -47,26 +47,26 @@ public class Catalogs extends TableImpl<CatalogsRecord> {
     }
 
     /**
-     * The column <code>information_schema.catalogs.catalog_name</code>.
+     * The column <code>INFORMATION_SCHEMA.CATALOGS.CATALOG_NAME</code>.
      */
-    public final TableField<CatalogsRecord, String> CATALOG_NAME = createField("catalog_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<CatalogsRecord, String> CATALOG_NAME = createField("CATALOG_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>information_schema.catalogs</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.CATALOGS</code> table reference
      */
     public Catalogs() {
-        this(DSL.name("catalogs"), null);
+        this(DSL.name("CATALOGS"), null);
     }
 
     /**
-     * Create an aliased <code>information_schema.catalogs</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.CATALOGS</code> table reference
      */
     public Catalogs(String alias) {
         this(DSL.name(alias), CATALOGS);
     }
 
     /**
-     * Create an aliased <code>information_schema.catalogs</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.CATALOGS</code> table reference
      */
     public Catalogs(Name alias) {
         this(alias, CATALOGS);

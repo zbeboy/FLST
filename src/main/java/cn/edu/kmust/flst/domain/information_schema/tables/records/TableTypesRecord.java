@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TableTypesRecord extends TableRecordImpl<TableTypesRecord> implements Record1<String> {
 
-    private static final long serialVersionUID = 773825701;
+    private static final long serialVersionUID = -89858843;
 
     /**
-     * Setter for <code>information_schema.table_types.type</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TABLE_TYPES.TYPE</code>.
      */
     public void setType(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.table_types.type</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TABLE_TYPES.TYPE</code>.
      */
     @Size(max = 2147483647)
     public String getType() {

@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Views extends TableImpl<ViewsRecord> {
 
-    private static final long serialVersionUID = -990674473;
+    private static final long serialVersionUID = -2016961289;
 
     /**
-     * The reference instance of <code>information_schema.views</code>
+     * The reference instance of <code>INFORMATION_SCHEMA.VIEWS</code>
      */
     public static final Views VIEWS = new Views();
 
@@ -47,66 +47,66 @@ public class Views extends TableImpl<ViewsRecord> {
     }
 
     /**
-     * The column <code>information_schema.views.table_catalog</code>.
+     * The column <code>INFORMATION_SCHEMA.VIEWS.TABLE_CATALOG</code>.
      */
-    public final TableField<ViewsRecord, String> TABLE_CATALOG = createField("table_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ViewsRecord, String> TABLE_CATALOG = createField("TABLE_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.views.table_schema</code>.
+     * The column <code>INFORMATION_SCHEMA.VIEWS.TABLE_SCHEMA</code>.
      */
-    public final TableField<ViewsRecord, String> TABLE_SCHEMA = createField("table_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ViewsRecord, String> TABLE_SCHEMA = createField("TABLE_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.views.table_name</code>.
+     * The column <code>INFORMATION_SCHEMA.VIEWS.TABLE_NAME</code>.
      */
-    public final TableField<ViewsRecord, String> TABLE_NAME = createField("table_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ViewsRecord, String> TABLE_NAME = createField("TABLE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.views.view_definition</code>.
+     * The column <code>INFORMATION_SCHEMA.VIEWS.VIEW_DEFINITION</code>.
      */
-    public final TableField<ViewsRecord, String> VIEW_DEFINITION = createField("view_definition", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ViewsRecord, String> VIEW_DEFINITION = createField("VIEW_DEFINITION", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.views.check_option</code>.
+     * The column <code>INFORMATION_SCHEMA.VIEWS.CHECK_OPTION</code>.
      */
-    public final TableField<ViewsRecord, String> CHECK_OPTION = createField("check_option", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ViewsRecord, String> CHECK_OPTION = createField("CHECK_OPTION", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.views.is_updatable</code>.
+     * The column <code>INFORMATION_SCHEMA.VIEWS.IS_UPDATABLE</code>.
      */
-    public final TableField<ViewsRecord, String> IS_UPDATABLE = createField("is_updatable", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ViewsRecord, String> IS_UPDATABLE = createField("IS_UPDATABLE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.views.status</code>.
+     * The column <code>INFORMATION_SCHEMA.VIEWS.STATUS</code>.
      */
-    public final TableField<ViewsRecord, String> STATUS = createField("status", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ViewsRecord, String> STATUS = createField("STATUS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.views.remarks</code>.
+     * The column <code>INFORMATION_SCHEMA.VIEWS.REMARKS</code>.
      */
-    public final TableField<ViewsRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<ViewsRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.views.id</code>.
+     * The column <code>INFORMATION_SCHEMA.VIEWS.ID</code>.
      */
-    public final TableField<ViewsRecord, Integer> ID = createField("id", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<ViewsRecord, Integer> ID = createField("ID", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * Create a <code>information_schema.views</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.VIEWS</code> table reference
      */
     public Views() {
-        this(DSL.name("views"), null);
+        this(DSL.name("VIEWS"), null);
     }
 
     /**
-     * Create an aliased <code>information_schema.views</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.VIEWS</code> table reference
      */
     public Views(String alias) {
         this(DSL.name(alias), VIEWS);
     }
 
     /**
-     * Create an aliased <code>information_schema.views</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.VIEWS</code> table reference
      */
     public Views(Name alias) {
         this(alias, VIEWS);

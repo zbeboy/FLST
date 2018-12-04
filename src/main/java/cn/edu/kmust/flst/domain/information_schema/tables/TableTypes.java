@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TableTypes extends TableImpl<TableTypesRecord> {
 
-    private static final long serialVersionUID = 1285508793;
+    private static final long serialVersionUID = 745544281;
 
     /**
-     * The reference instance of <code>information_schema.table_types</code>
+     * The reference instance of <code>INFORMATION_SCHEMA.TABLE_TYPES</code>
      */
     public static final TableTypes TABLE_TYPES = new TableTypes();
 
@@ -47,26 +47,26 @@ public class TableTypes extends TableImpl<TableTypesRecord> {
     }
 
     /**
-     * The column <code>information_schema.table_types.type</code>.
+     * The column <code>INFORMATION_SCHEMA.TABLE_TYPES.TYPE</code>.
      */
-    public final TableField<TableTypesRecord, String> TYPE = createField("type", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TableTypesRecord, String> TYPE = createField("TYPE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>information_schema.table_types</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.TABLE_TYPES</code> table reference
      */
     public TableTypes() {
-        this(DSL.name("table_types"), null);
+        this(DSL.name("TABLE_TYPES"), null);
     }
 
     /**
-     * Create an aliased <code>information_schema.table_types</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_TYPES</code> table reference
      */
     public TableTypes(String alias) {
         this(DSL.name(alias), TABLE_TYPES);
     }
 
     /**
-     * Create an aliased <code>information_schema.table_types</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_TYPES</code> table reference
      */
     public TableTypes(Name alias) {
         this(alias, TABLE_TYPES);

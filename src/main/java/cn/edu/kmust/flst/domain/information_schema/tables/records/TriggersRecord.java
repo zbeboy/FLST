@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements Record14<String, String, String, String, String, String, String, Boolean, String, Integer, Boolean, String, String, Integer> {
 
-    private static final long serialVersionUID = 1733232012;
+    private static final long serialVersionUID = 1791136396;
 
     /**
-     * Setter for <code>information_schema.triggers.trigger_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_CATALOG</code>.
      */
     public void setTriggerCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.trigger_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getTriggerCatalog() {
@@ -46,14 +46,14 @@ public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.triggers.trigger_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_SCHEMA</code>.
      */
     public void setTriggerSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.trigger_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getTriggerSchema() {
@@ -61,14 +61,14 @@ public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.triggers.trigger_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_NAME</code>.
      */
     public void setTriggerName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.trigger_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getTriggerName() {
@@ -76,14 +76,14 @@ public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.triggers.trigger_type</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_TYPE</code>.
      */
     public void setTriggerType(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.trigger_type</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_TYPE</code>.
      */
     @Size(max = 2147483647)
     public String getTriggerType() {
@@ -91,14 +91,14 @@ public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.triggers.table_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.TABLE_CATALOG</code>.
      */
     public void setTableCatalog(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.table_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.TABLE_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getTableCatalog() {
@@ -106,14 +106,14 @@ public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.triggers.table_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.TABLE_SCHEMA</code>.
      */
     public void setTableSchema(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.table_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.TABLE_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getTableSchema() {
@@ -121,14 +121,14 @@ public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.triggers.table_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.TABLE_NAME</code>.
      */
     public void setTableName(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.table_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.TABLE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getTableName() {
@@ -136,28 +136,28 @@ public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.triggers.before</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.BEFORE</code>.
      */
     public void setBefore(Boolean value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.before</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.BEFORE</code>.
      */
     public Boolean getBefore() {
         return (Boolean) get(7);
     }
 
     /**
-     * Setter for <code>information_schema.triggers.java_class</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.JAVA_CLASS</code>.
      */
     public void setJavaClass(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.java_class</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.JAVA_CLASS</code>.
      */
     @Size(max = 2147483647)
     public String getJavaClass() {
@@ -165,42 +165,42 @@ public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.triggers.queue_size</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.QUEUE_SIZE</code>.
      */
     public void setQueueSize(Integer value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.queue_size</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.QUEUE_SIZE</code>.
      */
     public Integer getQueueSize() {
         return (Integer) get(9);
     }
 
     /**
-     * Setter for <code>information_schema.triggers.no_wait</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.NO_WAIT</code>.
      */
     public void setNoWait(Boolean value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.no_wait</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.NO_WAIT</code>.
      */
     public Boolean getNoWait() {
         return (Boolean) get(10);
     }
 
     /**
-     * Setter for <code>information_schema.triggers.remarks</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.REMARKS</code>.
      */
     public void setRemarks(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.remarks</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.REMARKS</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -208,14 +208,14 @@ public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.triggers.sql</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.SQL</code>.
      */
     public void setSql(String value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.sql</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.SQL</code>.
      */
     @Size(max = 2147483647)
     public String getSql() {
@@ -223,14 +223,14 @@ public class TriggersRecord extends TableRecordImpl<TriggersRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.triggers.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TRIGGERS.ID</code>.
      */
     public void setId(Integer value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>information_schema.triggers.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TRIGGERS.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(13);

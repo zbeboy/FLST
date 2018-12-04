@@ -1,6 +1,6 @@
 package cn.edu.kmust.flst.service.backstage.article
 
-import cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn
+import cn.edu.kmust.flst.domain.flst.tables.pojos.ArticleEn
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
 import cn.edu.kmust.flst.web.bean.reception.SorterBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils

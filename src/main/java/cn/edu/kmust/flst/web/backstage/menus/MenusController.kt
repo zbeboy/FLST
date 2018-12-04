@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.web.backstage.menus
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.UUIDUtils

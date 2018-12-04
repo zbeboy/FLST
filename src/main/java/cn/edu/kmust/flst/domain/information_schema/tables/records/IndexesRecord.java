@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Record22<String, String, String, Boolean, String, Short, String, Integer, Boolean, String, Boolean, Short, String, Integer, String, String, String, Integer, Integer, String, String, Boolean> {
 
-    private static final long serialVersionUID = -491285958;
+    private static final long serialVersionUID = 1783416570;
 
     /**
-     * Setter for <code>information_schema.indexes.table_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.TABLE_CATALOG</code>.
      */
     public void setTableCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.table_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.TABLE_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getTableCatalog() {
@@ -46,14 +46,14 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.table_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.TABLE_SCHEMA</code>.
      */
     public void setTableSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.table_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.TABLE_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getTableSchema() {
@@ -61,14 +61,14 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.table_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.TABLE_NAME</code>.
      */
     public void setTableName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.table_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.TABLE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getTableName() {
@@ -76,28 +76,28 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.non_unique</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.NON_UNIQUE</code>.
      */
     public void setNonUnique(Boolean value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.non_unique</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.NON_UNIQUE</code>.
      */
     public Boolean getNonUnique() {
         return (Boolean) get(3);
     }
 
     /**
-     * Setter for <code>information_schema.indexes.index_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.INDEX_NAME</code>.
      */
     public void setIndexName(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.index_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.INDEX_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getIndexName() {
@@ -105,28 +105,28 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.ordinal_position</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.ORDINAL_POSITION</code>.
      */
     public void setOrdinalPosition(Short value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.ordinal_position</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.ORDINAL_POSITION</code>.
      */
     public Short getOrdinalPosition() {
         return (Short) get(5);
     }
 
     /**
-     * Setter for <code>information_schema.indexes.column_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.COLUMN_NAME</code>.
      */
     public void setColumnName(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.column_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.COLUMN_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getColumnName() {
@@ -134,42 +134,42 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.cardinality</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.CARDINALITY</code>.
      */
     public void setCardinality(Integer value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.cardinality</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.CARDINALITY</code>.
      */
     public Integer getCardinality() {
         return (Integer) get(7);
     }
 
     /**
-     * Setter for <code>information_schema.indexes.primary_key</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.PRIMARY_KEY</code>.
      */
     public void setPrimaryKey_(Boolean value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.primary_key</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.PRIMARY_KEY</code>.
      */
     public Boolean getPrimaryKey_() {
         return (Boolean) get(8);
     }
 
     /**
-     * Setter for <code>information_schema.indexes.index_type_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.INDEX_TYPE_NAME</code>.
      */
     public void setIndexTypeName(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.index_type_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.INDEX_TYPE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getIndexTypeName() {
@@ -177,42 +177,42 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.is_generated</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.IS_GENERATED</code>.
      */
     public void setIsGenerated(Boolean value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.is_generated</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.IS_GENERATED</code>.
      */
     public Boolean getIsGenerated() {
         return (Boolean) get(10);
     }
 
     /**
-     * Setter for <code>information_schema.indexes.index_type</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.INDEX_TYPE</code>.
      */
     public void setIndexType(Short value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.index_type</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.INDEX_TYPE</code>.
      */
     public Short getIndexType() {
         return (Short) get(11);
     }
 
     /**
-     * Setter for <code>information_schema.indexes.asc_or_desc</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.ASC_OR_DESC</code>.
      */
     public void setAscOrDesc(String value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.asc_or_desc</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.ASC_OR_DESC</code>.
      */
     @Size(max = 2147483647)
     public String getAscOrDesc() {
@@ -220,28 +220,28 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.pages</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.PAGES</code>.
      */
     public void setPages(Integer value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.pages</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.PAGES</code>.
      */
     public Integer getPages() {
         return (Integer) get(13);
     }
 
     /**
-     * Setter for <code>information_schema.indexes.filter_condition</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.FILTER_CONDITION</code>.
      */
     public void setFilterCondition(String value) {
         set(14, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.filter_condition</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.FILTER_CONDITION</code>.
      */
     @Size(max = 2147483647)
     public String getFilterCondition() {
@@ -249,14 +249,14 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.remarks</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.REMARKS</code>.
      */
     public void setRemarks(String value) {
         set(15, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.remarks</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.REMARKS</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -264,14 +264,14 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.sql</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.SQL</code>.
      */
     public void setSql(String value) {
         set(16, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.sql</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.SQL</code>.
      */
     @Size(max = 2147483647)
     public String getSql() {
@@ -279,42 +279,42 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.ID</code>.
      */
     public void setId(Integer value) {
         set(17, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(17);
     }
 
     /**
-     * Setter for <code>information_schema.indexes.sort_type</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.SORT_TYPE</code>.
      */
     public void setSortType(Integer value) {
         set(18, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.sort_type</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.SORT_TYPE</code>.
      */
     public Integer getSortType() {
         return (Integer) get(18);
     }
 
     /**
-     * Setter for <code>information_schema.indexes.constraint_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.CONSTRAINT_NAME</code>.
      */
     public void setConstraintName(String value) {
         set(19, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.constraint_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.CONSTRAINT_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintName() {
@@ -322,14 +322,14 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.index_class</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.INDEX_CLASS</code>.
      */
     public void setIndexClass(String value) {
         set(20, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.index_class</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.INDEX_CLASS</code>.
      */
     @Size(max = 2147483647)
     public String getIndexClass() {
@@ -337,14 +337,14 @@ public class IndexesRecord extends TableRecordImpl<IndexesRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.indexes.affinity</code>.
+     * Setter for <code>INFORMATION_SCHEMA.INDEXES.AFFINITY</code>.
      */
     public void setAffinity(Boolean value) {
         set(21, value);
     }
 
     /**
-     * Getter for <code>information_schema.indexes.affinity</code>.
+     * Getter for <code>INFORMATION_SCHEMA.INDEXES.AFFINITY</code>.
      */
     public Boolean getAffinity() {
         return (Boolean) get(21);

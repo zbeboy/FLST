@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.links
 
-import cn.edu.kmust.flst.domain.public_.tables.pojos.FriendlyLink
-import cn.edu.kmust.flst.domain.public_.tables.records.FriendlyLinkRecord
+import cn.edu.kmust.flst.domain.flst.tables.pojos.FriendlyLink
+import cn.edu.kmust.flst.domain.flst.tables.records.FriendlyLinkRecord
 import cn.edu.kmust.flst.web.bean.backstage.links.LinksBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record

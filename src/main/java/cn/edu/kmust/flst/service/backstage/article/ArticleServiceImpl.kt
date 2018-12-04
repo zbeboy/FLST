@@ -1,8 +1,8 @@
 package cn.edu.kmust.flst.service.backstage.article
 
-import cn.edu.kmust.flst.domain.public_.Tables.*
-import cn.edu.kmust.flst.domain.public_.tables.daos.ArticleDao
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Article
+import cn.edu.kmust.flst.domain.flst.Tables.*
+import cn.edu.kmust.flst.domain.flst.tables.daos.ArticleDao
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Article
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleBean

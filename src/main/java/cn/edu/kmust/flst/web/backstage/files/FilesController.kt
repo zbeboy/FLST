@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.web.backstage.files
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Files
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Files
 import cn.edu.kmust.flst.service.backstage.files.FilesService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.util.DateTimeUtils

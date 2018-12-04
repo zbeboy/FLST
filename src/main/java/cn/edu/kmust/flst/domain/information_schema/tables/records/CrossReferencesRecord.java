@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord> implements Record14<String, String, String, String, String, String, String, String, Short, Short, Short, String, String, Short> {
 
-    private static final long serialVersionUID = -290006527;
+    private static final long serialVersionUID = 727993089;
 
     /**
-     * Setter for <code>information_schema.cross_references.pktable_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.PKTABLE_CATALOG</code>.
      */
     public void setPktableCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.pktable_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.PKTABLE_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getPktableCatalog() {
@@ -46,14 +46,14 @@ public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.pktable_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.PKTABLE_SCHEMA</code>.
      */
     public void setPktableSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.pktable_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.PKTABLE_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getPktableSchema() {
@@ -61,14 +61,14 @@ public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.pktable_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.PKTABLE_NAME</code>.
      */
     public void setPktableName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.pktable_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.PKTABLE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getPktableName() {
@@ -76,14 +76,14 @@ public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.pkcolumn_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.PKCOLUMN_NAME</code>.
      */
     public void setPkcolumnName(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.pkcolumn_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.PKCOLUMN_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getPkcolumnName() {
@@ -91,14 +91,14 @@ public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.fktable_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.FKTABLE_CATALOG</code>.
      */
     public void setFktableCatalog(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.fktable_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.FKTABLE_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getFktableCatalog() {
@@ -106,14 +106,14 @@ public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.fktable_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.FKTABLE_SCHEMA</code>.
      */
     public void setFktableSchema(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.fktable_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.FKTABLE_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getFktableSchema() {
@@ -121,14 +121,14 @@ public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.fktable_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.FKTABLE_NAME</code>.
      */
     public void setFktableName(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.fktable_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.FKTABLE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getFktableName() {
@@ -136,14 +136,14 @@ public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.fkcolumn_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.FKCOLUMN_NAME</code>.
      */
     public void setFkcolumnName(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.fkcolumn_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.FKCOLUMN_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getFkcolumnName() {
@@ -151,56 +151,56 @@ public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.ordinal_position</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.ORDINAL_POSITION</code>.
      */
     public void setOrdinalPosition(Short value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.ordinal_position</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.ORDINAL_POSITION</code>.
      */
     public Short getOrdinalPosition() {
         return (Short) get(8);
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.update_rule</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.UPDATE_RULE</code>.
      */
     public void setUpdateRule(Short value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.update_rule</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.UPDATE_RULE</code>.
      */
     public Short getUpdateRule() {
         return (Short) get(9);
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.delete_rule</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.DELETE_RULE</code>.
      */
     public void setDeleteRule(Short value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.delete_rule</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.DELETE_RULE</code>.
      */
     public Short getDeleteRule() {
         return (Short) get(10);
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.fk_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.FK_NAME</code>.
      */
     public void setFkName(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.fk_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.FK_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getFkName() {
@@ -208,14 +208,14 @@ public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.pk_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.PK_NAME</code>.
      */
     public void setPkName(String value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.pk_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.PK_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getPkName() {
@@ -223,14 +223,14 @@ public class CrossReferencesRecord extends TableRecordImpl<CrossReferencesRecord
     }
 
     /**
-     * Setter for <code>information_schema.cross_references.deferrability</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.DEFERRABILITY</code>.
      */
     public void setDeferrability(Short value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>information_schema.cross_references.deferrability</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CROSS_REFERENCES.DEFERRABILITY</code>.
      */
     public Short getDeferrability() {
         return (Short) get(13);

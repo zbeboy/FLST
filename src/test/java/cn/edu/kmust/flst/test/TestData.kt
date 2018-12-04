@@ -1,6 +1,6 @@
 package cn.edu.kmust.flst.test
 
-import cn.edu.kmust.flst.domain.public_.Tables.*
+import cn.edu.kmust.flst.domain.flst.Tables.*
 import org.jooq.DSLContext
 import org.junit.Before
 import org.junit.Test

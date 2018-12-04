@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class KeyColumnUsageRecord extends TableRecordImpl<KeyColumnUsageRecord> implements Record9<String, String, String, String, String, String, String, String, String> {
 
-    private static final long serialVersionUID = -1763091814;
+    private static final long serialVersionUID = 359621466;
 
     /**
-     * Setter for <code>information_schema.key_column_usage.constraint_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.CONSTRAINT_CATALOG</code>.
      */
     public void setConstraintCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.key_column_usage.constraint_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.CONSTRAINT_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintCatalog() {
@@ -46,14 +46,14 @@ public class KeyColumnUsageRecord extends TableRecordImpl<KeyColumnUsageRecord> 
     }
 
     /**
-     * Setter for <code>information_schema.key_column_usage.constraint_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.CONSTRAINT_SCHEMA</code>.
      */
     public void setConstraintSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.key_column_usage.constraint_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.CONSTRAINT_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintSchema() {
@@ -61,14 +61,14 @@ public class KeyColumnUsageRecord extends TableRecordImpl<KeyColumnUsageRecord> 
     }
 
     /**
-     * Setter for <code>information_schema.key_column_usage.constraint_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.CONSTRAINT_NAME</code>.
      */
     public void setConstraintName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.key_column_usage.constraint_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.CONSTRAINT_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getConstraintName() {
@@ -76,14 +76,14 @@ public class KeyColumnUsageRecord extends TableRecordImpl<KeyColumnUsageRecord> 
     }
 
     /**
-     * Setter for <code>information_schema.key_column_usage.table_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.TABLE_CATALOG</code>.
      */
     public void setTableCatalog(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.key_column_usage.table_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.TABLE_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getTableCatalog() {
@@ -91,14 +91,14 @@ public class KeyColumnUsageRecord extends TableRecordImpl<KeyColumnUsageRecord> 
     }
 
     /**
-     * Setter for <code>information_schema.key_column_usage.table_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.TABLE_SCHEMA</code>.
      */
     public void setTableSchema(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.key_column_usage.table_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.TABLE_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getTableSchema() {
@@ -106,14 +106,14 @@ public class KeyColumnUsageRecord extends TableRecordImpl<KeyColumnUsageRecord> 
     }
 
     /**
-     * Setter for <code>information_schema.key_column_usage.table_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.TABLE_NAME</code>.
      */
     public void setTableName(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.key_column_usage.table_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.TABLE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getTableName() {
@@ -121,14 +121,14 @@ public class KeyColumnUsageRecord extends TableRecordImpl<KeyColumnUsageRecord> 
     }
 
     /**
-     * Setter for <code>information_schema.key_column_usage.column_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.COLUMN_NAME</code>.
      */
     public void setColumnName(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.key_column_usage.column_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.COLUMN_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getColumnName() {
@@ -136,14 +136,14 @@ public class KeyColumnUsageRecord extends TableRecordImpl<KeyColumnUsageRecord> 
     }
 
     /**
-     * Setter for <code>information_schema.key_column_usage.ordinal_position</code>.
+     * Setter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.ORDINAL_POSITION</code>.
      */
     public void setOrdinalPosition(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.key_column_usage.ordinal_position</code>.
+     * Getter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.ORDINAL_POSITION</code>.
      */
     @Size(max = 2147483647)
     public String getOrdinalPosition() {
@@ -151,14 +151,14 @@ public class KeyColumnUsageRecord extends TableRecordImpl<KeyColumnUsageRecord> 
     }
 
     /**
-     * Setter for <code>information_schema.key_column_usage.position_in_unique_constraint</code>.
+     * Setter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.POSITION_IN_UNIQUE_CONSTRAINT</code>.
      */
     public void setPositionInUniqueConstraint(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.key_column_usage.position_in_unique_constraint</code>.
+     * Getter for <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.POSITION_IN_UNIQUE_CONSTRAINT</code>.
      */
     @Size(max = 2147483647)
     public String getPositionInUniqueConstraint() {

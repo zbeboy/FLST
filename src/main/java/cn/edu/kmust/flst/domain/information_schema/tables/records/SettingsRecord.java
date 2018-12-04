@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SettingsRecord extends TableRecordImpl<SettingsRecord> implements Record2<String, String> {
 
-    private static final long serialVersionUID = -39240873;
+    private static final long serialVersionUID = -2107234473;
 
     /**
-     * Setter for <code>information_schema.settings.name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SETTINGS.NAME</code>.
      */
     public void setName(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.settings.name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SETTINGS.NAME</code>.
      */
     @Size(max = 2147483647)
     public String getName() {
@@ -46,14 +46,14 @@ public class SettingsRecord extends TableRecordImpl<SettingsRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.settings.value</code>.
+     * Setter for <code>INFORMATION_SCHEMA.SETTINGS.VALUE</code>.
      */
     public void setValue(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.settings.value</code>.
+     * Getter for <code>INFORMATION_SCHEMA.SETTINGS.VALUE</code>.
      */
     @Size(max = 2147483647)
     public String getValue() {

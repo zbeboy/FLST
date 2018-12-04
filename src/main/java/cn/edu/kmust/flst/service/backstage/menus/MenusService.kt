@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.menus
 
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
-import cn.edu.kmust.flst.domain.public_.tables.records.MenusRecord
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.flst.tables.records.MenusRecord
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record

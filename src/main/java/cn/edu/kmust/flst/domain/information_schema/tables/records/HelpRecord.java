@@ -28,31 +28,31 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class HelpRecord extends TableRecordImpl<HelpRecord> implements Record5<Integer, String, String, String, String> {
 
-    private static final long serialVersionUID = -612198115;
+    private static final long serialVersionUID = -268226339;
 
     /**
-     * Setter for <code>information_schema.help.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.HELP.ID</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.help.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.HELP.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>information_schema.help.section</code>.
+     * Setter for <code>INFORMATION_SCHEMA.HELP.SECTION</code>.
      */
     public void setSection(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.help.section</code>.
+     * Getter for <code>INFORMATION_SCHEMA.HELP.SECTION</code>.
      */
     @Size(max = 2147483647)
     public String getSection() {
@@ -60,14 +60,14 @@ public class HelpRecord extends TableRecordImpl<HelpRecord> implements Record5<I
     }
 
     /**
-     * Setter for <code>information_schema.help.topic</code>.
+     * Setter for <code>INFORMATION_SCHEMA.HELP.TOPIC</code>.
      */
     public void setTopic(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.help.topic</code>.
+     * Getter for <code>INFORMATION_SCHEMA.HELP.TOPIC</code>.
      */
     @Size(max = 2147483647)
     public String getTopic() {
@@ -75,14 +75,14 @@ public class HelpRecord extends TableRecordImpl<HelpRecord> implements Record5<I
     }
 
     /**
-     * Setter for <code>information_schema.help.syntax</code>.
+     * Setter for <code>INFORMATION_SCHEMA.HELP.SYNTAX</code>.
      */
     public void setSyntax(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.help.syntax</code>.
+     * Getter for <code>INFORMATION_SCHEMA.HELP.SYNTAX</code>.
      */
     @Size(max = 2147483647)
     public String getSyntax() {
@@ -90,14 +90,14 @@ public class HelpRecord extends TableRecordImpl<HelpRecord> implements Record5<I
     }
 
     /**
-     * Setter for <code>information_schema.help.text</code>.
+     * Setter for <code>INFORMATION_SCHEMA.HELP.TEXT</code>.
      */
     public void setText(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.help.text</code>.
+     * Getter for <code>INFORMATION_SCHEMA.HELP.TEXT</code>.
      */
     @Size(max = 2147483647)
     public String getText() {

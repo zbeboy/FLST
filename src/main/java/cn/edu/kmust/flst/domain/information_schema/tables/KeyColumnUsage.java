@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class KeyColumnUsage extends TableImpl<KeyColumnUsageRecord> {
 
-    private static final long serialVersionUID = 1558881351;
+    private static final long serialVersionUID = -1472057369;
 
     /**
-     * The reference instance of <code>information_schema.key_column_usage</code>
+     * The reference instance of <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE</code>
      */
     public static final KeyColumnUsage KEY_COLUMN_USAGE = new KeyColumnUsage();
 
@@ -47,66 +47,66 @@ public class KeyColumnUsage extends TableImpl<KeyColumnUsageRecord> {
     }
 
     /**
-     * The column <code>information_schema.key_column_usage.constraint_catalog</code>.
+     * The column <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.CONSTRAINT_CATALOG</code>.
      */
-    public final TableField<KeyColumnUsageRecord, String> CONSTRAINT_CATALOG = createField("constraint_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<KeyColumnUsageRecord, String> CONSTRAINT_CATALOG = createField("CONSTRAINT_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.key_column_usage.constraint_schema</code>.
+     * The column <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.CONSTRAINT_SCHEMA</code>.
      */
-    public final TableField<KeyColumnUsageRecord, String> CONSTRAINT_SCHEMA = createField("constraint_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<KeyColumnUsageRecord, String> CONSTRAINT_SCHEMA = createField("CONSTRAINT_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.key_column_usage.constraint_name</code>.
+     * The column <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.CONSTRAINT_NAME</code>.
      */
-    public final TableField<KeyColumnUsageRecord, String> CONSTRAINT_NAME = createField("constraint_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<KeyColumnUsageRecord, String> CONSTRAINT_NAME = createField("CONSTRAINT_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.key_column_usage.table_catalog</code>.
+     * The column <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.TABLE_CATALOG</code>.
      */
-    public final TableField<KeyColumnUsageRecord, String> TABLE_CATALOG = createField("table_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<KeyColumnUsageRecord, String> TABLE_CATALOG = createField("TABLE_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.key_column_usage.table_schema</code>.
+     * The column <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.TABLE_SCHEMA</code>.
      */
-    public final TableField<KeyColumnUsageRecord, String> TABLE_SCHEMA = createField("table_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<KeyColumnUsageRecord, String> TABLE_SCHEMA = createField("TABLE_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.key_column_usage.table_name</code>.
+     * The column <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.TABLE_NAME</code>.
      */
-    public final TableField<KeyColumnUsageRecord, String> TABLE_NAME = createField("table_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<KeyColumnUsageRecord, String> TABLE_NAME = createField("TABLE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.key_column_usage.column_name</code>.
+     * The column <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.COLUMN_NAME</code>.
      */
-    public final TableField<KeyColumnUsageRecord, String> COLUMN_NAME = createField("column_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<KeyColumnUsageRecord, String> COLUMN_NAME = createField("COLUMN_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.key_column_usage.ordinal_position</code>.
+     * The column <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.ORDINAL_POSITION</code>.
      */
-    public final TableField<KeyColumnUsageRecord, String> ORDINAL_POSITION = createField("ordinal_position", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<KeyColumnUsageRecord, String> ORDINAL_POSITION = createField("ORDINAL_POSITION", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.key_column_usage.position_in_unique_constraint</code>.
+     * The column <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE.POSITION_IN_UNIQUE_CONSTRAINT</code>.
      */
-    public final TableField<KeyColumnUsageRecord, String> POSITION_IN_UNIQUE_CONSTRAINT = createField("position_in_unique_constraint", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<KeyColumnUsageRecord, String> POSITION_IN_UNIQUE_CONSTRAINT = createField("POSITION_IN_UNIQUE_CONSTRAINT", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>information_schema.key_column_usage</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE</code> table reference
      */
     public KeyColumnUsage() {
-        this(DSL.name("key_column_usage"), null);
+        this(DSL.name("KEY_COLUMN_USAGE"), null);
     }
 
     /**
-     * Create an aliased <code>information_schema.key_column_usage</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE</code> table reference
      */
     public KeyColumnUsage(String alias) {
         this(DSL.name(alias), KEY_COLUMN_USAGE);
     }
 
     /**
-     * Create an aliased <code>information_schema.key_column_usage</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.KEY_COLUMN_USAGE</code> table reference
      */
     public KeyColumnUsage(Name alias) {
         this(alias, KEY_COLUMN_USAGE);

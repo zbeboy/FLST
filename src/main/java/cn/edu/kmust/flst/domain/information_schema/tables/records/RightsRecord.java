@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RightsRecord extends TableRecordImpl<RightsRecord> implements Record7<String, String, String, String, String, String, Integer> {
 
-    private static final long serialVersionUID = -389905156;
+    private static final long serialVersionUID = 516434236;
 
     /**
-     * Setter for <code>information_schema.rights.grantee</code>.
+     * Setter for <code>INFORMATION_SCHEMA.RIGHTS.GRANTEE</code>.
      */
     public void setGrantee(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.rights.grantee</code>.
+     * Getter for <code>INFORMATION_SCHEMA.RIGHTS.GRANTEE</code>.
      */
     @Size(max = 2147483647)
     public String getGrantee() {
@@ -46,14 +46,14 @@ public class RightsRecord extends TableRecordImpl<RightsRecord> implements Recor
     }
 
     /**
-     * Setter for <code>information_schema.rights.granteetype</code>.
+     * Setter for <code>INFORMATION_SCHEMA.RIGHTS.GRANTEETYPE</code>.
      */
     public void setGranteetype(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.rights.granteetype</code>.
+     * Getter for <code>INFORMATION_SCHEMA.RIGHTS.GRANTEETYPE</code>.
      */
     @Size(max = 2147483647)
     public String getGranteetype() {
@@ -61,14 +61,14 @@ public class RightsRecord extends TableRecordImpl<RightsRecord> implements Recor
     }
 
     /**
-     * Setter for <code>information_schema.rights.grantedrole</code>.
+     * Setter for <code>INFORMATION_SCHEMA.RIGHTS.GRANTEDROLE</code>.
      */
     public void setGrantedrole(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.rights.grantedrole</code>.
+     * Getter for <code>INFORMATION_SCHEMA.RIGHTS.GRANTEDROLE</code>.
      */
     @Size(max = 2147483647)
     public String getGrantedrole() {
@@ -76,14 +76,14 @@ public class RightsRecord extends TableRecordImpl<RightsRecord> implements Recor
     }
 
     /**
-     * Setter for <code>information_schema.rights.rights</code>.
+     * Setter for <code>INFORMATION_SCHEMA.RIGHTS.RIGHTS</code>.
      */
     public void setRights(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.rights.rights</code>.
+     * Getter for <code>INFORMATION_SCHEMA.RIGHTS.RIGHTS</code>.
      */
     @Size(max = 2147483647)
     public String getRights() {
@@ -91,14 +91,14 @@ public class RightsRecord extends TableRecordImpl<RightsRecord> implements Recor
     }
 
     /**
-     * Setter for <code>information_schema.rights.table_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.RIGHTS.TABLE_SCHEMA</code>.
      */
     public void setTableSchema(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.rights.table_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.RIGHTS.TABLE_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getTableSchema() {
@@ -106,14 +106,14 @@ public class RightsRecord extends TableRecordImpl<RightsRecord> implements Recor
     }
 
     /**
-     * Setter for <code>information_schema.rights.table_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.RIGHTS.TABLE_NAME</code>.
      */
     public void setTableName(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.rights.table_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.RIGHTS.TABLE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getTableName() {
@@ -121,14 +121,14 @@ public class RightsRecord extends TableRecordImpl<RightsRecord> implements Recor
     }
 
     /**
-     * Setter for <code>information_schema.rights.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.RIGHTS.ID</code>.
      */
     public void setId(Integer value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.rights.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.RIGHTS.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(6);

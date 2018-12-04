@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RolesRecord extends TableRecordImpl<RolesRecord> implements Record3<String, String, Integer> {
 
-    private static final long serialVersionUID = 798572273;
+    private static final long serialVersionUID = 153304753;
 
     /**
-     * Setter for <code>information_schema.roles.name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.ROLES.NAME</code>.
      */
     public void setName(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.roles.name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.ROLES.NAME</code>.
      */
     @Size(max = 2147483647)
     public String getName() {
@@ -46,14 +46,14 @@ public class RolesRecord extends TableRecordImpl<RolesRecord> implements Record3
     }
 
     /**
-     * Setter for <code>information_schema.roles.remarks</code>.
+     * Setter for <code>INFORMATION_SCHEMA.ROLES.REMARKS</code>.
      */
     public void setRemarks(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.roles.remarks</code>.
+     * Getter for <code>INFORMATION_SCHEMA.ROLES.REMARKS</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -61,14 +61,14 @@ public class RolesRecord extends TableRecordImpl<RolesRecord> implements Record3
     }
 
     /**
-     * Setter for <code>information_schema.roles.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.ROLES.ID</code>.
      */
     public void setId(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.roles.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.ROLES.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(2);

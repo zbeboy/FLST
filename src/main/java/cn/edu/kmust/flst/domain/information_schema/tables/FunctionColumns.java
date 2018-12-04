@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class FunctionColumns extends TableImpl<FunctionColumnsRecord> {
 
-    private static final long serialVersionUID = -2018353142;
+    private static final long serialVersionUID = -607571094;
 
     /**
-     * The reference instance of <code>information_schema.function_columns</code>
+     * The reference instance of <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS</code>
      */
     public static final FunctionColumns FUNCTION_COLUMNS = new FunctionColumns();
 
@@ -47,106 +47,106 @@ public class FunctionColumns extends TableImpl<FunctionColumnsRecord> {
     }
 
     /**
-     * The column <code>information_schema.function_columns.alias_catalog</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.ALIAS_CATALOG</code>.
      */
-    public final TableField<FunctionColumnsRecord, String> ALIAS_CATALOG = createField("alias_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<FunctionColumnsRecord, String> ALIAS_CATALOG = createField("ALIAS_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.function_columns.alias_schema</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.ALIAS_SCHEMA</code>.
      */
-    public final TableField<FunctionColumnsRecord, String> ALIAS_SCHEMA = createField("alias_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<FunctionColumnsRecord, String> ALIAS_SCHEMA = createField("ALIAS_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.function_columns.alias_name</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.ALIAS_NAME</code>.
      */
-    public final TableField<FunctionColumnsRecord, String> ALIAS_NAME = createField("alias_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<FunctionColumnsRecord, String> ALIAS_NAME = createField("ALIAS_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.function_columns.java_class</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.JAVA_CLASS</code>.
      */
-    public final TableField<FunctionColumnsRecord, String> JAVA_CLASS = createField("java_class", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<FunctionColumnsRecord, String> JAVA_CLASS = createField("JAVA_CLASS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.function_columns.java_method</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.JAVA_METHOD</code>.
      */
-    public final TableField<FunctionColumnsRecord, String> JAVA_METHOD = createField("java_method", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<FunctionColumnsRecord, String> JAVA_METHOD = createField("JAVA_METHOD", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.function_columns.column_count</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_COUNT</code>.
      */
-    public final TableField<FunctionColumnsRecord, Integer> COLUMN_COUNT = createField("column_count", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<FunctionColumnsRecord, Integer> COLUMN_COUNT = createField("COLUMN_COUNT", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>information_schema.function_columns.pos</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.POS</code>.
      */
-    public final TableField<FunctionColumnsRecord, Integer> POS = createField("pos", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<FunctionColumnsRecord, Integer> POS = createField("POS", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>information_schema.function_columns.column_name</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_NAME</code>.
      */
-    public final TableField<FunctionColumnsRecord, String> COLUMN_NAME = createField("column_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<FunctionColumnsRecord, String> COLUMN_NAME = createField("COLUMN_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.function_columns.data_type</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.DATA_TYPE</code>.
      */
-    public final TableField<FunctionColumnsRecord, Integer> DATA_TYPE = createField("data_type", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<FunctionColumnsRecord, Integer> DATA_TYPE = createField("DATA_TYPE", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>information_schema.function_columns.type_name</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.TYPE_NAME</code>.
      */
-    public final TableField<FunctionColumnsRecord, String> TYPE_NAME = createField("type_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<FunctionColumnsRecord, String> TYPE_NAME = createField("TYPE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.function_columns.precision</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.PRECISION</code>.
      */
-    public final TableField<FunctionColumnsRecord, Integer> PRECISION = createField("precision", org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<FunctionColumnsRecord, Integer> PRECISION = createField("PRECISION", org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>information_schema.function_columns.scale</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.SCALE</code>.
      */
-    public final TableField<FunctionColumnsRecord, Short> SCALE = createField("scale", org.jooq.impl.SQLDataType.SMALLINT, this, "");
+    public final TableField<FunctionColumnsRecord, Short> SCALE = createField("SCALE", org.jooq.impl.SQLDataType.SMALLINT, this, "");
 
     /**
-     * The column <code>information_schema.function_columns.radix</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.RADIX</code>.
      */
-    public final TableField<FunctionColumnsRecord, Short> RADIX = createField("radix", org.jooq.impl.SQLDataType.SMALLINT, this, "");
+    public final TableField<FunctionColumnsRecord, Short> RADIX = createField("RADIX", org.jooq.impl.SQLDataType.SMALLINT, this, "");
 
     /**
-     * The column <code>information_schema.function_columns.nullable</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.NULLABLE</code>.
      */
-    public final TableField<FunctionColumnsRecord, Short> NULLABLE = createField("nullable", org.jooq.impl.SQLDataType.SMALLINT, this, "");
+    public final TableField<FunctionColumnsRecord, Short> NULLABLE = createField("NULLABLE", org.jooq.impl.SQLDataType.SMALLINT, this, "");
 
     /**
-     * The column <code>information_schema.function_columns.column_type</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_TYPE</code>.
      */
-    public final TableField<FunctionColumnsRecord, Short> COLUMN_TYPE = createField("column_type", org.jooq.impl.SQLDataType.SMALLINT, this, "");
+    public final TableField<FunctionColumnsRecord, Short> COLUMN_TYPE = createField("COLUMN_TYPE", org.jooq.impl.SQLDataType.SMALLINT, this, "");
 
     /**
-     * The column <code>information_schema.function_columns.remarks</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.REMARKS</code>.
      */
-    public final TableField<FunctionColumnsRecord, String> REMARKS = createField("remarks", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<FunctionColumnsRecord, String> REMARKS = createField("REMARKS", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.function_columns.column_default</code>.
+     * The column <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS.COLUMN_DEFAULT</code>.
      */
-    public final TableField<FunctionColumnsRecord, String> COLUMN_DEFAULT = createField("column_default", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<FunctionColumnsRecord, String> COLUMN_DEFAULT = createField("COLUMN_DEFAULT", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>information_schema.function_columns</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS</code> table reference
      */
     public FunctionColumns() {
-        this(DSL.name("function_columns"), null);
+        this(DSL.name("FUNCTION_COLUMNS"), null);
     }
 
     /**
-     * Create an aliased <code>information_schema.function_columns</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS</code> table reference
      */
     public FunctionColumns(String alias) {
         this(DSL.name(alias), FUNCTION_COLUMNS);
     }
 
     /**
-     * Create an aliased <code>information_schema.function_columns</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.FUNCTION_COLUMNS</code> table reference
      */
     public FunctionColumns(Name alias) {
         this(alias, FUNCTION_COLUMNS);

@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TypeInfoRecord extends TableRecordImpl<TypeInfoRecord> implements Record14<String, Integer, Integer, String, String, String, Boolean, Short, Short, Integer, Integer, Boolean, Short, Short> {
 
-    private static final long serialVersionUID = -136260906;
+    private static final long serialVersionUID = -1712294186;
 
     /**
-     * Setter for <code>information_schema.type_info.type_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.TYPE_NAME</code>.
      */
     public void setTypeName(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.type_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.TYPE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getTypeName() {
@@ -46,42 +46,42 @@ public class TypeInfoRecord extends TableRecordImpl<TypeInfoRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.type_info.data_type</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.DATA_TYPE</code>.
      */
     public void setDataType(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.data_type</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.DATA_TYPE</code>.
      */
     public Integer getDataType() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>information_schema.type_info.precision</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.PRECISION</code>.
      */
     public void setPrecision(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.precision</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.PRECISION</code>.
      */
     public Integer getPrecision() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>information_schema.type_info.prefix</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.PREFIX</code>.
      */
     public void setPrefix(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.prefix</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.PREFIX</code>.
      */
     @Size(max = 2147483647)
     public String getPrefix() {
@@ -89,14 +89,14 @@ public class TypeInfoRecord extends TableRecordImpl<TypeInfoRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.type_info.suffix</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.SUFFIX</code>.
      */
     public void setSuffix(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.suffix</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.SUFFIX</code>.
      */
     @Size(max = 2147483647)
     public String getSuffix() {
@@ -104,14 +104,14 @@ public class TypeInfoRecord extends TableRecordImpl<TypeInfoRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.type_info.params</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.PARAMS</code>.
      */
     public void setParams(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.params</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.PARAMS</code>.
      */
     @Size(max = 2147483647)
     public String getParams() {
@@ -119,112 +119,112 @@ public class TypeInfoRecord extends TableRecordImpl<TypeInfoRecord> implements R
     }
 
     /**
-     * Setter for <code>information_schema.type_info.auto_increment</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.AUTO_INCREMENT</code>.
      */
     public void setAutoIncrement(Boolean value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.auto_increment</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.AUTO_INCREMENT</code>.
      */
     public Boolean getAutoIncrement() {
         return (Boolean) get(6);
     }
 
     /**
-     * Setter for <code>information_schema.type_info.minimum_scale</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.MINIMUM_SCALE</code>.
      */
     public void setMinimumScale(Short value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.minimum_scale</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.MINIMUM_SCALE</code>.
      */
     public Short getMinimumScale() {
         return (Short) get(7);
     }
 
     /**
-     * Setter for <code>information_schema.type_info.maximum_scale</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.MAXIMUM_SCALE</code>.
      */
     public void setMaximumScale(Short value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.maximum_scale</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.MAXIMUM_SCALE</code>.
      */
     public Short getMaximumScale() {
         return (Short) get(8);
     }
 
     /**
-     * Setter for <code>information_schema.type_info.radix</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.RADIX</code>.
      */
     public void setRadix(Integer value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.radix</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.RADIX</code>.
      */
     public Integer getRadix() {
         return (Integer) get(9);
     }
 
     /**
-     * Setter for <code>information_schema.type_info.pos</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.POS</code>.
      */
     public void setPos(Integer value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.pos</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.POS</code>.
      */
     public Integer getPos() {
         return (Integer) get(10);
     }
 
     /**
-     * Setter for <code>information_schema.type_info.case_sensitive</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.CASE_SENSITIVE</code>.
      */
     public void setCaseSensitive(Boolean value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.case_sensitive</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.CASE_SENSITIVE</code>.
      */
     public Boolean getCaseSensitive() {
         return (Boolean) get(11);
     }
 
     /**
-     * Setter for <code>information_schema.type_info.nullable</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.NULLABLE</code>.
      */
     public void setNullable(Short value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.nullable</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.NULLABLE</code>.
      */
     public Short getNullable() {
         return (Short) get(12);
     }
 
     /**
-     * Setter for <code>information_schema.type_info.searchable</code>.
+     * Setter for <code>INFORMATION_SCHEMA.TYPE_INFO.SEARCHABLE</code>.
      */
     public void setSearchable(Short value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>information_schema.type_info.searchable</code>.
+     * Getter for <code>INFORMATION_SCHEMA.TYPE_INFO.SEARCHABLE</code>.
      */
     public Short getSearchable() {
         return (Short) get(13);

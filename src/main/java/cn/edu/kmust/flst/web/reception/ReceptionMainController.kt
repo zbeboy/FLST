@@ -1,9 +1,9 @@
 package cn.edu.kmust.flst.web.reception
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Article
-import cn.edu.kmust.flst.domain.public_.tables.pojos.ArticleEn
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Article
+import cn.edu.kmust.flst.domain.flst.tables.pojos.ArticleEn
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.article.ArticleEnService
 import cn.edu.kmust.flst.service.backstage.article.ArticleService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService

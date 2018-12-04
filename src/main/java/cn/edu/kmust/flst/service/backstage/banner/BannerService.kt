@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.banner
 
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Banner
-import cn.edu.kmust.flst.domain.public_.tables.records.BannerRecord
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Banner
+import cn.edu.kmust.flst.domain.flst.tables.records.BannerRecord
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record

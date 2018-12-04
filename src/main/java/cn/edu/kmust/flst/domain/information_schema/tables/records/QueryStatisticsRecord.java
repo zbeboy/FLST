@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class QueryStatisticsRecord extends TableRecordImpl<QueryStatisticsRecord> implements Record12<String, Integer, Double, Double, Double, Double, Double, Integer, Integer, Long, Double, Double> {
 
-    private static final long serialVersionUID = 977343963;
+    private static final long serialVersionUID = -1241679269;
 
     /**
-     * Setter for <code>information_schema.query_statistics.sql_statement</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.SQL_STATEMENT</code>.
      */
     public void setSqlStatement(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.sql_statement</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.SQL_STATEMENT</code>.
      */
     @Size(max = 2147483647)
     public String getSqlStatement() {
@@ -46,154 +46,154 @@ public class QueryStatisticsRecord extends TableRecordImpl<QueryStatisticsRecord
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.execution_count</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.EXECUTION_COUNT</code>.
      */
     public void setExecutionCount(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.execution_count</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.EXECUTION_COUNT</code>.
      */
     public Integer getExecutionCount() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.min_execution_time</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.MIN_EXECUTION_TIME</code>.
      */
     public void setMinExecutionTime(Double value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.min_execution_time</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.MIN_EXECUTION_TIME</code>.
      */
     public Double getMinExecutionTime() {
         return (Double) get(2);
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.max_execution_time</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.MAX_EXECUTION_TIME</code>.
      */
     public void setMaxExecutionTime(Double value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.max_execution_time</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.MAX_EXECUTION_TIME</code>.
      */
     public Double getMaxExecutionTime() {
         return (Double) get(3);
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.cumulative_execution_time</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.CUMULATIVE_EXECUTION_TIME</code>.
      */
     public void setCumulativeExecutionTime(Double value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.cumulative_execution_time</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.CUMULATIVE_EXECUTION_TIME</code>.
      */
     public Double getCumulativeExecutionTime() {
         return (Double) get(4);
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.average_execution_time</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.AVERAGE_EXECUTION_TIME</code>.
      */
     public void setAverageExecutionTime(Double value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.average_execution_time</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.AVERAGE_EXECUTION_TIME</code>.
      */
     public Double getAverageExecutionTime() {
         return (Double) get(5);
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.std_dev_execution_time</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.STD_DEV_EXECUTION_TIME</code>.
      */
     public void setStdDevExecutionTime(Double value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.std_dev_execution_time</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.STD_DEV_EXECUTION_TIME</code>.
      */
     public Double getStdDevExecutionTime() {
         return (Double) get(6);
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.min_row_count</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.MIN_ROW_COUNT</code>.
      */
     public void setMinRowCount(Integer value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.min_row_count</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.MIN_ROW_COUNT</code>.
      */
     public Integer getMinRowCount() {
         return (Integer) get(7);
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.max_row_count</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.MAX_ROW_COUNT</code>.
      */
     public void setMaxRowCount(Integer value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.max_row_count</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.MAX_ROW_COUNT</code>.
      */
     public Integer getMaxRowCount() {
         return (Integer) get(8);
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.cumulative_row_count</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.CUMULATIVE_ROW_COUNT</code>.
      */
     public void setCumulativeRowCount(Long value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.cumulative_row_count</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.CUMULATIVE_ROW_COUNT</code>.
      */
     public Long getCumulativeRowCount() {
         return (Long) get(9);
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.average_row_count</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.AVERAGE_ROW_COUNT</code>.
      */
     public void setAverageRowCount(Double value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.average_row_count</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.AVERAGE_ROW_COUNT</code>.
      */
     public Double getAverageRowCount() {
         return (Double) get(10);
     }
 
     /**
-     * Setter for <code>information_schema.query_statistics.std_dev_row_count</code>.
+     * Setter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.STD_DEV_ROW_COUNT</code>.
      */
     public void setStdDevRowCount(Double value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>information_schema.query_statistics.std_dev_row_count</code>.
+     * Getter for <code>INFORMATION_SCHEMA.QUERY_STATISTICS.STD_DEV_ROW_COUNT</code>.
      */
     public Double getStdDevRowCount() {
         return (Double) get(11);

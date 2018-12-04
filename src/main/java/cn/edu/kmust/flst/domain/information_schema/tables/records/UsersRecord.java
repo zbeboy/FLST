@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UsersRecord extends TableRecordImpl<UsersRecord> implements Record4<String, String, String, Integer> {
 
-    private static final long serialVersionUID = 1039272106;
+    private static final long serialVersionUID = -146853718;
 
     /**
-     * Setter for <code>information_schema.users.name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.USERS.NAME</code>.
      */
     public void setName(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.users.name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.USERS.NAME</code>.
      */
     @Size(max = 2147483647)
     public String getName() {
@@ -46,14 +46,14 @@ public class UsersRecord extends TableRecordImpl<UsersRecord> implements Record4
     }
 
     /**
-     * Setter for <code>information_schema.users.admin</code>.
+     * Setter for <code>INFORMATION_SCHEMA.USERS.ADMIN</code>.
      */
     public void setAdmin(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.users.admin</code>.
+     * Getter for <code>INFORMATION_SCHEMA.USERS.ADMIN</code>.
      */
     @Size(max = 2147483647)
     public String getAdmin() {
@@ -61,14 +61,14 @@ public class UsersRecord extends TableRecordImpl<UsersRecord> implements Record4
     }
 
     /**
-     * Setter for <code>information_schema.users.remarks</code>.
+     * Setter for <code>INFORMATION_SCHEMA.USERS.REMARKS</code>.
      */
     public void setRemarks(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.users.remarks</code>.
+     * Getter for <code>INFORMATION_SCHEMA.USERS.REMARKS</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -76,14 +76,14 @@ public class UsersRecord extends TableRecordImpl<UsersRecord> implements Record4
     }
 
     /**
-     * Setter for <code>information_schema.users.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.USERS.ID</code>.
      */
     public void setId(Integer value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.users.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.USERS.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(3);

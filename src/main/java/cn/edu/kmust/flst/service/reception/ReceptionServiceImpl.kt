@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.reception
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.banner.BannerService
 import cn.edu.kmust.flst.service.backstage.data.DataInfoService
 import cn.edu.kmust.flst.service.backstage.links.LinksService

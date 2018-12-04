@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TablePrivileges extends TableImpl<TablePrivilegesRecord> {
 
-    private static final long serialVersionUID = -2122461467;
+    private static final long serialVersionUID = 2036358917;
 
     /**
-     * The reference instance of <code>information_schema.table_privileges</code>
+     * The reference instance of <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code>
      */
     public static final TablePrivileges TABLE_PRIVILEGES = new TablePrivileges();
 
@@ -47,56 +47,56 @@ public class TablePrivileges extends TableImpl<TablePrivilegesRecord> {
     }
 
     /**
-     * The column <code>information_schema.table_privileges.grantor</code>.
+     * The column <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.GRANTOR</code>.
      */
-    public final TableField<TablePrivilegesRecord, String> GRANTOR = createField("grantor", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablePrivilegesRecord, String> GRANTOR = createField("GRANTOR", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.table_privileges.grantee</code>.
+     * The column <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.GRANTEE</code>.
      */
-    public final TableField<TablePrivilegesRecord, String> GRANTEE = createField("grantee", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablePrivilegesRecord, String> GRANTEE = createField("GRANTEE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.table_privileges.table_catalog</code>.
+     * The column <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.TABLE_CATALOG</code>.
      */
-    public final TableField<TablePrivilegesRecord, String> TABLE_CATALOG = createField("table_catalog", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablePrivilegesRecord, String> TABLE_CATALOG = createField("TABLE_CATALOG", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.table_privileges.table_schema</code>.
+     * The column <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.TABLE_SCHEMA</code>.
      */
-    public final TableField<TablePrivilegesRecord, String> TABLE_SCHEMA = createField("table_schema", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablePrivilegesRecord, String> TABLE_SCHEMA = createField("TABLE_SCHEMA", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.table_privileges.table_name</code>.
+     * The column <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.TABLE_NAME</code>.
      */
-    public final TableField<TablePrivilegesRecord, String> TABLE_NAME = createField("table_name", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablePrivilegesRecord, String> TABLE_NAME = createField("TABLE_NAME", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.table_privileges.privilege_type</code>.
+     * The column <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.PRIVILEGE_TYPE</code>.
      */
-    public final TableField<TablePrivilegesRecord, String> PRIVILEGE_TYPE = createField("privilege_type", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablePrivilegesRecord, String> PRIVILEGE_TYPE = createField("PRIVILEGE_TYPE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.table_privileges.is_grantable</code>.
+     * The column <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.IS_GRANTABLE</code>.
      */
-    public final TableField<TablePrivilegesRecord, String> IS_GRANTABLE = createField("is_grantable", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<TablePrivilegesRecord, String> IS_GRANTABLE = createField("IS_GRANTABLE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>information_schema.table_privileges</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code> table reference
      */
     public TablePrivileges() {
-        this(DSL.name("table_privileges"), null);
+        this(DSL.name("TABLE_PRIVILEGES"), null);
     }
 
     /**
-     * Create an aliased <code>information_schema.table_privileges</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code> table reference
      */
     public TablePrivileges(String alias) {
         this(DSL.name(alias), TABLE_PRIVILEGES);
     }
 
     /**
-     * Create an aliased <code>information_schema.table_privileges</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code> table reference
      */
     public TablePrivileges(Name alias) {
         this(alias, TABLE_PRIVILEGES);

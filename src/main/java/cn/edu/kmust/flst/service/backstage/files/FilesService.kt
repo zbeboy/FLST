@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.files
 
 
-import cn.edu.kmust.flst.domain.public_.tables.pojos.Files
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Files
 import cn.edu.kmust.flst.web.bean.backstage.files.FilesBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record

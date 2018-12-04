@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ConstantsRecord extends TableRecordImpl<ConstantsRecord> implements Record7<String, String, String, Integer, String, String, Integer> {
 
-    private static final long serialVersionUID = -995145308;
+    private static final long serialVersionUID = 568569252;
 
     /**
-     * Setter for <code>information_schema.constants.constant_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CONSTANTS.CONSTANT_CATALOG</code>.
      */
     public void setConstantCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.constants.constant_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CONSTANTS.CONSTANT_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getConstantCatalog() {
@@ -46,14 +46,14 @@ public class ConstantsRecord extends TableRecordImpl<ConstantsRecord> implements
     }
 
     /**
-     * Setter for <code>information_schema.constants.constant_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CONSTANTS.CONSTANT_SCHEMA</code>.
      */
     public void setConstantSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.constants.constant_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CONSTANTS.CONSTANT_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getConstantSchema() {
@@ -61,14 +61,14 @@ public class ConstantsRecord extends TableRecordImpl<ConstantsRecord> implements
     }
 
     /**
-     * Setter for <code>information_schema.constants.constant_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CONSTANTS.CONSTANT_NAME</code>.
      */
     public void setConstantName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.constants.constant_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CONSTANTS.CONSTANT_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getConstantName() {
@@ -76,28 +76,28 @@ public class ConstantsRecord extends TableRecordImpl<ConstantsRecord> implements
     }
 
     /**
-     * Setter for <code>information_schema.constants.data_type</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CONSTANTS.DATA_TYPE</code>.
      */
     public void setDataType(Integer value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.constants.data_type</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CONSTANTS.DATA_TYPE</code>.
      */
     public Integer getDataType() {
         return (Integer) get(3);
     }
 
     /**
-     * Setter for <code>information_schema.constants.remarks</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CONSTANTS.REMARKS</code>.
      */
     public void setRemarks(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.constants.remarks</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CONSTANTS.REMARKS</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -105,14 +105,14 @@ public class ConstantsRecord extends TableRecordImpl<ConstantsRecord> implements
     }
 
     /**
-     * Setter for <code>information_schema.constants.sql</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CONSTANTS.SQL</code>.
      */
     public void setSql(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.constants.sql</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CONSTANTS.SQL</code>.
      */
     @Size(max = 2147483647)
     public String getSql() {
@@ -120,14 +120,14 @@ public class ConstantsRecord extends TableRecordImpl<ConstantsRecord> implements
     }
 
     /**
-     * Setter for <code>information_schema.constants.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.CONSTANTS.ID</code>.
      */
     public void setId(Integer value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.constants.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.CONSTANTS.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(6);

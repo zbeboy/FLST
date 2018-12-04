@@ -31,10 +31,10 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class InDoubt extends TableImpl<InDoubtRecord> {
 
-    private static final long serialVersionUID = -1426347710;
+    private static final long serialVersionUID = -1398846302;
 
     /**
-     * The reference instance of <code>information_schema.in_doubt</code>
+     * The reference instance of <code>INFORMATION_SCHEMA.IN_DOUBT</code>
      */
     public static final InDoubt IN_DOUBT = new InDoubt();
 
@@ -47,31 +47,31 @@ public class InDoubt extends TableImpl<InDoubtRecord> {
     }
 
     /**
-     * The column <code>information_schema.in_doubt.transaction</code>.
+     * The column <code>INFORMATION_SCHEMA.IN_DOUBT.TRANSACTION</code>.
      */
-    public final TableField<InDoubtRecord, String> TRANSACTION = createField("transaction", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<InDoubtRecord, String> TRANSACTION = createField("TRANSACTION", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * The column <code>information_schema.in_doubt.state</code>.
+     * The column <code>INFORMATION_SCHEMA.IN_DOUBT.STATE</code>.
      */
-    public final TableField<InDoubtRecord, String> STATE = createField("state", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
+    public final TableField<InDoubtRecord, String> STATE = createField("STATE", org.jooq.impl.SQLDataType.VARCHAR(2147483647), this, "");
 
     /**
-     * Create a <code>information_schema.in_doubt</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.IN_DOUBT</code> table reference
      */
     public InDoubt() {
-        this(DSL.name("in_doubt"), null);
+        this(DSL.name("IN_DOUBT"), null);
     }
 
     /**
-     * Create an aliased <code>information_schema.in_doubt</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.IN_DOUBT</code> table reference
      */
     public InDoubt(String alias) {
         this(DSL.name(alias), IN_DOUBT);
     }
 
     /**
-     * Create an aliased <code>information_schema.in_doubt</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.IN_DOUBT</code> table reference
      */
     public InDoubt(Name alias) {
         this(alias, IN_DOUBT);

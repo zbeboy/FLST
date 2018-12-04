@@ -28,17 +28,17 @@ import org.jooq.impl.TableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DomainsRecord extends TableRecordImpl<DomainsRecord> implements Record14<String, String, String, String, String, Integer, Integer, Integer, String, Integer, String, String, String, Integer> {
 
-    private static final long serialVersionUID = 317090621;
+    private static final long serialVersionUID = -523546883;
 
     /**
-     * Setter for <code>information_schema.domains.domain_catalog</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.DOMAIN_CATALOG</code>.
      */
     public void setDomainCatalog(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.domain_catalog</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.DOMAIN_CATALOG</code>.
      */
     @Size(max = 2147483647)
     public String getDomainCatalog() {
@@ -46,14 +46,14 @@ public class DomainsRecord extends TableRecordImpl<DomainsRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.domains.domain_schema</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.DOMAIN_SCHEMA</code>.
      */
     public void setDomainSchema(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.domain_schema</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.DOMAIN_SCHEMA</code>.
      */
     @Size(max = 2147483647)
     public String getDomainSchema() {
@@ -61,14 +61,14 @@ public class DomainsRecord extends TableRecordImpl<DomainsRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.domains.domain_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.DOMAIN_NAME</code>.
      */
     public void setDomainName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.domain_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.DOMAIN_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getDomainName() {
@@ -76,14 +76,14 @@ public class DomainsRecord extends TableRecordImpl<DomainsRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.domains.column_default</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.COLUMN_DEFAULT</code>.
      */
     public void setColumnDefault(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.column_default</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.COLUMN_DEFAULT</code>.
      */
     @Size(max = 2147483647)
     public String getColumnDefault() {
@@ -91,14 +91,14 @@ public class DomainsRecord extends TableRecordImpl<DomainsRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.domains.is_nullable</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.IS_NULLABLE</code>.
      */
     public void setIsNullable(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.is_nullable</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.IS_NULLABLE</code>.
      */
     @Size(max = 2147483647)
     public String getIsNullable() {
@@ -106,56 +106,56 @@ public class DomainsRecord extends TableRecordImpl<DomainsRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.domains.data_type</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.DATA_TYPE</code>.
      */
     public void setDataType(Integer value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.data_type</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.DATA_TYPE</code>.
      */
     public Integer getDataType() {
         return (Integer) get(5);
     }
 
     /**
-     * Setter for <code>information_schema.domains.precision</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.PRECISION</code>.
      */
     public void setPrecision(Integer value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.precision</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.PRECISION</code>.
      */
     public Integer getPrecision() {
         return (Integer) get(6);
     }
 
     /**
-     * Setter for <code>information_schema.domains.scale</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.SCALE</code>.
      */
     public void setScale(Integer value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.scale</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.SCALE</code>.
      */
     public Integer getScale() {
         return (Integer) get(7);
     }
 
     /**
-     * Setter for <code>information_schema.domains.type_name</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.TYPE_NAME</code>.
      */
     public void setTypeName(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.type_name</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.TYPE_NAME</code>.
      */
     @Size(max = 2147483647)
     public String getTypeName() {
@@ -163,28 +163,28 @@ public class DomainsRecord extends TableRecordImpl<DomainsRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.domains.selectivity</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.SELECTIVITY</code>.
      */
     public void setSelectivity(Integer value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.selectivity</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.SELECTIVITY</code>.
      */
     public Integer getSelectivity() {
         return (Integer) get(9);
     }
 
     /**
-     * Setter for <code>information_schema.domains.check_constraint</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.CHECK_CONSTRAINT</code>.
      */
     public void setCheckConstraint(String value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.check_constraint</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.CHECK_CONSTRAINT</code>.
      */
     @Size(max = 2147483647)
     public String getCheckConstraint() {
@@ -192,14 +192,14 @@ public class DomainsRecord extends TableRecordImpl<DomainsRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.domains.remarks</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.REMARKS</code>.
      */
     public void setRemarks(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.remarks</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.REMARKS</code>.
      */
     @Size(max = 2147483647)
     public String getRemarks() {
@@ -207,14 +207,14 @@ public class DomainsRecord extends TableRecordImpl<DomainsRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.domains.sql</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.SQL</code>.
      */
     public void setSql(String value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.sql</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.SQL</code>.
      */
     @Size(max = 2147483647)
     public String getSql() {
@@ -222,14 +222,14 @@ public class DomainsRecord extends TableRecordImpl<DomainsRecord> implements Rec
     }
 
     /**
-     * Setter for <code>information_schema.domains.id</code>.
+     * Setter for <code>INFORMATION_SCHEMA.DOMAINS.ID</code>.
      */
     public void setId(Integer value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>information_schema.domains.id</code>.
+     * Getter for <code>INFORMATION_SCHEMA.DOMAINS.ID</code>.
      */
     public Integer getId() {
         return (Integer) get(13);
