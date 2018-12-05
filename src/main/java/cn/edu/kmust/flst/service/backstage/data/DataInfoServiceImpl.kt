@@ -33,9 +33,9 @@ open class DataInfoServiceImpl @Autowired constructor(dslContext: DSLContext) : 
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun save(dataInfo: List<DataInfo>) {
         dataInfo.forEach { data ->
-            create.mergeInto(DATA_INFO,DATA_INFO.DATA_KEY,DATA_INFO.DATA_VALUE)
+            create.mergeInto(DATA_INFO, DATA_INFO.DATA_KEY, DATA_INFO.DATA_VALUE)
                     .key(DATA_INFO.DATA_KEY)
-                    .values(data.dataKey,data.dataValue)
+                    .values(data.dataKey, data.dataValue)
                     .execute()
         }
 
