@@ -32,11 +32,12 @@ open class DataInfoServiceImpl @Autowired constructor(dslContext: DSLContext) : 
     @CacheEvict(cacheNames = ["data_info"], allEntries = true)
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false)
     override fun save(dataInfo: List<DataInfo>) {
-        val bind = create.batch(create.insertInto(DATA_INFO, DATA_INFO.DATA_KEY, DATA_INFO.DATA_VALUE).values("", null)
-                .onDuplicateKeyUpdate().set(DATA_INFO.DATA_VALUE, ""))
         dataInfo.forEach { data ->
-            bind.bind(data.dataKey, data.dataValue, data.dataValue)
+            create.mergeInto(DATA_INFO,DATA_INFO.DATA_KEY,DATA_INFO.DATA_VALUE)
+                    .key(DATA_INFO.DATA_KEY)
+                    .values(data.dataKey,data.dataValue)
+                    .execute()
         }
-        bind.execute()
+
     }
 }
