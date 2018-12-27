@@ -221,29 +221,28 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
      * @param selectConditionStep 条件
      */
     override fun sortCondition(bootstrapTableUtils: BootstrapTableUtils<ArticleEnBean>, selectConditionStep: SelectConditionStep<Record>?, selectJoinStep: SelectJoinStep<Record>?, type: Int) {
-        val orderColumnName = bootstrapTableUtils.sortName
+        val orderColumnName = if (StringUtils.hasLength(bootstrapTableUtils.sortName)) bootstrapTableUtils.sortName else "articleDateStr"
         val orderDir = bootstrapTableUtils.sortOrder
         val isAsc = "asc".equals(orderDir, ignoreCase = true)
         var sortField: Array<SortField<*>?>? = null
-        if (StringUtils.hasLength(orderColumnName)) {
-            if ("articleDateStr".equals(orderColumnName!!, ignoreCase = true)) {
-                sortField = arrayOfNulls(1)
-                if (isAsc) {
-                    sortField[0] = ARTICLE_EN.ARTICLE_DATE.asc()
-                } else {
-                    sortField[0] = ARTICLE_EN.ARTICLE_DATE.desc()
-                }
-            }
-
-            if ("articleSn".equals(orderColumnName, ignoreCase = true)) {
-                sortField = arrayOfNulls(1)
-                if (isAsc) {
-                    sortField[0] = ARTICLE_EN.ARTICLE_SN.asc()
-                } else {
-                    sortField[0] = ARTICLE_EN.ARTICLE_SN.desc()
-                }
+        if ("articleDateStr".equals(orderColumnName!!, ignoreCase = true)) {
+            sortField = arrayOfNulls(1)
+            if (isAsc) {
+                sortField[0] = ARTICLE_EN.ARTICLE_DATE.asc()
+            } else {
+                sortField[0] = ARTICLE_EN.ARTICLE_DATE.desc()
             }
         }
+
+        if ("articleSn".equals(orderColumnName, ignoreCase = true)) {
+            sortField = arrayOfNulls(1)
+            if (isAsc) {
+                sortField[0] = ARTICLE_EN.ARTICLE_SN.asc()
+            } else {
+                sortField[0] = ARTICLE_EN.ARTICLE_SN.desc()
+            }
+        }
+
         sortToFinish(selectConditionStep, selectJoinStep, type, *sortField!!)
     }
 
