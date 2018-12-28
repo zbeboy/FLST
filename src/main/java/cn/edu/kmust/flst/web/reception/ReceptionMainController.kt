@@ -324,6 +324,7 @@ open class ReceptionMainController {
     @ResponseBody
     fun articleData(@PathVariable("menuId") menuId: String, request: HttpServletRequest): BootstrapTableUtils<*>? {
         val language = localeResolver.resolveLocale(request).displayLanguage
+        request.setAttribute("extraSearch","{\"menuId\":\"$menuId\"}")
         var bootstrapTableUtils: BootstrapTableUtils<*>? = BootstrapTableUtils<Any>()
         val menu = menusService.findById(menuId)
         // 该栏目是否正常显示

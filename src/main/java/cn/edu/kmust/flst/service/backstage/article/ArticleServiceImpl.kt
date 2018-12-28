@@ -227,7 +227,9 @@ open class ArticleServiceImpl @Autowired constructor(dslContext: DSLContext) : B
                 sortField[0] = ARTICLE.ARTICLE_SN.desc()
             }
         }
-        sortToFinish(selectConditionStep, selectJoinStep, type, *sortField!!)
+        if(!ObjectUtils.isEmpty(sortField)){
+            sortToFinish(selectConditionStep, selectJoinStep, type, *sortField!!)
+        }
     }
 
     private fun sorter(condition: SelectConditionStep<Record>, sorterBean: SorterBean) {

@@ -242,8 +242,9 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
                 sortField[0] = ARTICLE_EN.ARTICLE_SN.desc()
             }
         }
-
-        sortToFinish(selectConditionStep, selectJoinStep, type, *sortField!!)
+        if(!ObjectUtils.isEmpty(sortField)){
+            sortToFinish(selectConditionStep, selectJoinStep, type, *sortField!!)
+        }
     }
 
     private fun sorter(condition: SelectConditionStep<Record>, sorterBean: SorterBean) {

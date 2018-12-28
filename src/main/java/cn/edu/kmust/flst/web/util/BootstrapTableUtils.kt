@@ -52,7 +52,9 @@ open class BootstrapTableUtils<T> {
         val sortOrderParam = request.getParameter("sortOrder")
         val pageSizeParam = request.getParameter("pageSize")
         val pageNumberParam = request.getParameter("pageNumber")
-        val extraSearchParam = request.getParameter("extraSearch")
+        val extraSearchParam = if (StringUtils.isNotBlank(request.getParameter("extraSearch")))
+            request.getParameter("extraSearch")
+        else request.getAttribute("extraSearch") as String
 
         if (NumberUtils.isDigits(pageSizeParam)) {
             this.pageSize = NumberUtils.toInt(pageSizeParam)
