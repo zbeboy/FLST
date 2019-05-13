@@ -113,7 +113,7 @@ $(document).ready(function () {
         if (data.rows.length > 0) {
             for (var j2 = 0; j2 < data.rows.length; j2++) {
                 var article = data.rows[j2];
-                $(data_id.templateData + i + '0').prepend(templateData1(web_path + ajax_url.article + '/' + article.articleId, article.articleTitle, article.articleDateStr));
+                $(data_id.templateData + i + '0').append(templateData1(web_path + ajax_url.article + '/' + article.articleId, article.articleTitle, article.articleDateStr));
             }
         }
     }
