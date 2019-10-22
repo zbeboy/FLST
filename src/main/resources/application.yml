@@ -1,7 +1,7 @@
 # spring setting
 spring:
       profiles:
-        active: secret,prod
+        active: secret,dev
       servlet:
               multipart:
                 max-request-size: 100MB
