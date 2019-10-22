@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.reception
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.records.MenusRecord
+import cn.edu.kmust.flst.domain.flst.tables.records.MenusRecord
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import org.jooq.Result
 import org.springframework.cache.annotation.Cacheable
@@ -30,11 +30,11 @@ open class NavServiceImpl : NavService {
         } else {
             "<li><a href=\"/\">Home</a></li>"
         }
-        val list1 = menusService.findByPIdAndMenuShowAndMenuFixed("0", 1, 0)
+        val list1 = menusService.findByPIdAndMenuShowAndMenuFixed("0", true, false)
         if (!ObjectUtils.isEmpty(list1)) {
             for (menu1 in list1) {
                 li += "<li"
-                val list2 = menusService.findByPIdAndMenuShowAndMenuFixed(menu1.menuId, 1, 0)
+                val list2 = menusService.findByPIdAndMenuShowAndMenuFixed(menu1.menuId, true, false)
                 if (!ObjectUtils.isEmpty(list2)) {
                     li += " class=\"dropdown\">"
                     li += "<a href=\"${getUrl(menu1.menuLink)}\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">${getMenuName(language, menu1)} <span class=\"caret\"></span></a>"
@@ -60,7 +60,7 @@ open class NavServiceImpl : NavService {
     fun generateHtml(menus: Result<MenusRecord>, next: String, language: String, request: HttpServletRequest): String {
         var li = next
         for (menu in menus) {
-            val list = menusService.findByPIdAndMenuShowAndMenuFixed(menu.menuId, 1, 0)
+            val list = menusService.findByPIdAndMenuShowAndMenuFixed(menu.menuId, true, false)
             if (!ObjectUtils.isEmpty(list)) {
                 li += "<li class=\"dropdown-submenu\"> "
                 li += "<a href=\"${getUrl(menu.menuLink)}\">${getMenuName(language, menu)}</a>"

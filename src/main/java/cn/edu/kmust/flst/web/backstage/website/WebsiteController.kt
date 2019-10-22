@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.web.backstage.website
 
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.pojos.DataInfo
+import cn.edu.kmust.flst.domain.flst.tables.pojos.DataInfo
 import cn.edu.kmust.flst.service.backstage.data.DataInfoService
 import cn.edu.kmust.flst.web.util.AjaxUtils
 import cn.edu.kmust.flst.web.vo.backstage.website.WebsiteVo

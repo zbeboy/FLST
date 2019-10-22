@@ -1,6 +1,6 @@
 package cn.edu.kmust.flst.service.reception
 
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Menus
 import org.springframework.ui.ModelMap
 import javax.servlet.http.HttpServletRequest
 

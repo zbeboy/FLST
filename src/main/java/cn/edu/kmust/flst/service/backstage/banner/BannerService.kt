@@ -1,7 +1,7 @@
 package cn.edu.kmust.flst.service.backstage.banner
 
-import cn.edu.kmust.flst.domain.tables.pojos.Banner
-import cn.edu.kmust.flst.domain.tables.records.BannerRecord
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Banner
+import cn.edu.kmust.flst.domain.flst.tables.records.BannerRecord
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
 import cn.edu.kmust.flst.web.util.BootstrapTableUtils
 import org.jooq.Record
@@ -35,7 +35,7 @@ interface BannerService {
      * @param bannerShow 是否显示
      * @return 数据
      */
-    fun findByMenuIdAndBannerShow(menuId: String, bannerShow: Byte): Result<BannerRecord>
+    fun findByMenuIdAndBannerShow(menuId: String, bannerShow: Boolean): Result<BannerRecord>
 
     /**
      * 分页查询

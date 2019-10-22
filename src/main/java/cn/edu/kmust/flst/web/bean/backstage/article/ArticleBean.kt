@@ -1,6 +1,6 @@
 package cn.edu.kmust.flst.web.bean.backstage.article
 
-import cn.edu.kmust.flst.domain.tables.pojos.Article
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Article
 
 /**
  * Created by zbeboy 2018-04-13 .

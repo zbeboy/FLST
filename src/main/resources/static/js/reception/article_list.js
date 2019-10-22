@@ -14,8 +14,7 @@ $(document).ready(function () {
         pageNumber: 0,
         pageSize: 10,
         sortName: 'articleDateStr',
-        sortOrder: 'desc',
-        extraSearch: JSON.stringify({menuId: init_page_param.menuId})
+        sortOrder: 'desc'
     };
 
     /**

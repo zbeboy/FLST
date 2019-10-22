@@ -1,6 +1,6 @@
 flst:
   constants:
-    document-root:
+    document-root: root
     static-images: pic
 
 spring:
@@ -10,7 +10,9 @@ spring:
     restart:
       enabled: true
   jooq:
-    sql-dialect: mysql
+    sql-dialect: h2
+  resources:
+    static-locations: ["classpath:/META-INF/resources/","classpath:/resources/","classpath:/static/","classpath:/public/","file://${user.dir}/${flst.constants.document-root}/${flst.constants.static-images}"]
 
 server:
   port: 8080

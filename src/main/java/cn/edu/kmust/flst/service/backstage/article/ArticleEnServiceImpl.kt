@@ -1,8 +1,8 @@
 package cn.edu.kmust.flst.service.backstage.article
 
-import cn.edu.kmust.flst.domain.Tables.*
-import cn.edu.kmust.flst.domain.tables.daos.ArticleEnDao
-import cn.edu.kmust.flst.domain.tables.pojos.ArticleEn
+import cn.edu.kmust.flst.domain.flst.Tables.*
+import cn.edu.kmust.flst.domain.flst.tables.daos.ArticleEnDao
+import cn.edu.kmust.flst.domain.flst.tables.pojos.ArticleEn
 import cn.edu.kmust.flst.service.plugin.BootstrapTablesPlugin
 import cn.edu.kmust.flst.service.util.SQLQueryUtils
 import cn.edu.kmust.flst.web.bean.backstage.article.ArticleEnBean
@@ -221,30 +221,30 @@ open class ArticleEnServiceImpl @Autowired constructor(dslContext: DSLContext) :
      * @param selectConditionStep 条件
      */
     override fun sortCondition(bootstrapTableUtils: BootstrapTableUtils<ArticleEnBean>, selectConditionStep: SelectConditionStep<Record>?, selectJoinStep: SelectJoinStep<Record>?, type: Int) {
-        val orderColumnName = bootstrapTableUtils.sortName
+        val orderColumnName = if (StringUtils.hasLength(bootstrapTableUtils.sortName)) bootstrapTableUtils.sortName else "articleDateStr"
         val orderDir = bootstrapTableUtils.sortOrder
         val isAsc = "asc".equals(orderDir, ignoreCase = true)
         var sortField: Array<SortField<*>?>? = null
-        if (StringUtils.hasLength(orderColumnName)) {
-            if ("articleDateStr".equals(orderColumnName!!, ignoreCase = true)) {
-                sortField = arrayOfNulls(1)
-                if (isAsc) {
-                    sortField[0] = ARTICLE_EN.ARTICLE_DATE.asc()
-                } else {
-                    sortField[0] = ARTICLE_EN.ARTICLE_DATE.desc()
-                }
-            }
-
-            if ("articleSn".equals(orderColumnName, ignoreCase = true)) {
-                sortField = arrayOfNulls(1)
-                if (isAsc) {
-                    sortField[0] = ARTICLE_EN.ARTICLE_SN.asc()
-                } else {
-                    sortField[0] = ARTICLE_EN.ARTICLE_SN.desc()
-                }
+        if ("articleDateStr".equals(orderColumnName!!, ignoreCase = true)) {
+            sortField = arrayOfNulls(1)
+            if (isAsc) {
+                sortField[0] = ARTICLE_EN.ARTICLE_DATE.asc()
+            } else {
+                sortField[0] = ARTICLE_EN.ARTICLE_DATE.desc()
             }
         }
-        sortToFinish(selectConditionStep, selectJoinStep, type, *sortField!!)
+
+        if ("articleSn".equals(orderColumnName, ignoreCase = true)) {
+            sortField = arrayOfNulls(1)
+            if (isAsc) {
+                sortField[0] = ARTICLE_EN.ARTICLE_SN.asc()
+            } else {
+                sortField[0] = ARTICLE_EN.ARTICLE_SN.desc()
+            }
+        }
+        if(!ObjectUtils.isEmpty(sortField)){
+            sortToFinish(selectConditionStep, selectJoinStep, type, *sortField!!)
+        }
     }
 
     private fun sorter(condition: SelectConditionStep<Record>, sorterBean: SorterBean) {

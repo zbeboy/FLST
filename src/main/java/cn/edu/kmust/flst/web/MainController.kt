@@ -1,8 +1,7 @@
 package cn.edu.kmust.flst.web
 
-import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.pojos.Menus
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Menus
 import cn.edu.kmust.flst.service.backstage.files.FilesService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.common.UploadService
@@ -10,7 +9,6 @@ import cn.edu.kmust.flst.service.reception.ReceptionService
 import cn.edu.kmust.flst.service.system.AuthoritiesService
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.util.AjaxUtils
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.ui.ModelMap
 import org.springframework.util.ObjectUtils
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.ResponseBody
 import org.springframework.web.servlet.LocaleResolver
 import org.springframework.web.servlet.ModelAndView
-import java.io.File
 import java.util.*
 import javax.annotation.Resource
 import javax.servlet.http.HttpServletRequest
@@ -46,9 +43,6 @@ open class MainController {
 
     @Resource
     open lateinit var filesService: FilesService
-
-    @Autowired
-    open lateinit var flstProperties: FLSTProperties
 
     /**
      * main page
@@ -100,13 +94,13 @@ open class MainController {
     @RequestMapping(value = ["/data/home/template"], method = [(RequestMethod.GET)])
     @ResponseBody
     fun templateData(request: HttpServletRequest): AjaxUtils<Menus> {
-        val ajaxUtils = AjaxUtils.of<Menus>();
-        val records = menusService.findByPIdAndMenuShowAndMenuFixed(Workbook.WEB_FIXED_HOME_ID, 1, 1)
+        val ajaxUtils = AjaxUtils.of<Menus>()
+        val records = menusService.findByPIdAndMenuShowAndMenuFixed(Workbook.WEB_FIXED_HOME_ID, true, true)
         var menus: List<Menus> = ArrayList()
         if (!ObjectUtils.isEmpty(records) && records.isNotEmpty) {
             menus = records.into(Menus::class.java)
             menus.forEach { i ->
-                i.menuLink = if (i.outLink != 1.toByte()) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
+                i.menuLink = if (!i.outLink) RequestUtils.getBaseUrl(request) + i.menuLink else i.menuLink
             }
         }
         return ajaxUtils.success().msg("获取数据成功").listData(menus)
@@ -133,7 +127,7 @@ open class MainController {
      * @return 后台欢迎页
      */
     @RequestMapping(value = ["/web/backstage"], method = [(RequestMethod.GET)])
-    open fun backstage(request: HttpServletRequest): String {
+    open fun backstage(): String {
         return "backstage"
     }
 
@@ -161,7 +155,7 @@ open class MainController {
      * @return 重置页面
      */
     @RequestMapping("/language/{language}")
-    fun language(request: HttpServletRequest, response: HttpServletResponse, @PathVariable("language")language: String): ModelAndView {
+    fun language(request: HttpServletRequest, response: HttpServletResponse, @PathVariable("language") language: String): ModelAndView {
         val languageLowerCase = language.toLowerCase()
         when (languageLowerCase) {
             "zh_cn" -> localeResolver.setLocale(request, response, Locale.CHINA)

@@ -13,3 +13,5 @@ hs_err_pid*
 /.idea/workspace.xml
 /logs/
 /src/main/resources/application-secret.yml
+/h2sql/
+/root/

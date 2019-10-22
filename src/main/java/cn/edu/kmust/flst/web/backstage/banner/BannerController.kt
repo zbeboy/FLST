@@ -2,13 +2,12 @@ package cn.edu.kmust.flst.web.backstage.banner
 
 import cn.edu.kmust.flst.config.FLSTProperties
 import cn.edu.kmust.flst.config.Workbook
-import cn.edu.kmust.flst.domain.tables.pojos.Banner
+import cn.edu.kmust.flst.domain.flst.tables.pojos.Banner
 import cn.edu.kmust.flst.service.backstage.banner.BannerService
 import cn.edu.kmust.flst.service.backstage.menus.MenusService
 import cn.edu.kmust.flst.service.common.UploadService
 import cn.edu.kmust.flst.service.system.UsersService
 import cn.edu.kmust.flst.service.util.DateTimeUtils
-import cn.edu.kmust.flst.service.util.FilesUtils
 import cn.edu.kmust.flst.service.util.RequestUtils
 import cn.edu.kmust.flst.web.bean.backstage.banner.BannerBean
 import cn.edu.kmust.flst.web.bean.backstage.menus.MenusBean
@@ -136,7 +135,7 @@ open class BannerController {
                 val banner = Banner()
                 banner.bannerLink = fileBeen[0].newName
                 banner.bannerDate = DateTimeUtils.getNow()
-                banner.bannerShow = 1
+                banner.bannerShow = true
                 banner.menuId = menuId
                 banner.bannerCreator = usersService.getUsernameFromSession()
                 val bannerId = bannerService.saveAndReturnId(banner)
@@ -165,19 +164,19 @@ open class BannerController {
         val map = HashMap<String, String>()
         if (!bindingResult.hasErrors()) {
             val banner = bannerService.findById(bannerEditVo.pk!!)
-            if(bannerEditVo.name == "bannerTitle"){
+            if (bannerEditVo.name == "bannerTitle") {
                 banner.bannerTitle = bannerEditVo.value
             }
 
-            if(bannerEditVo.name == "bannerTitleEn"){
+            if (bannerEditVo.name == "bannerTitleEn") {
                 banner.bannerTitleEn = bannerEditVo.value
             }
 
-            if(bannerEditVo.name == "bannerBrief"){
+            if (bannerEditVo.name == "bannerBrief") {
                 banner.bannerBrief = bannerEditVo.value
             }
 
-            if(bannerEditVo.name == "bannerBriefEn"){
+            if (bannerEditVo.name == "bannerBriefEn") {
                 banner.bannerBriefEn = bannerEditVo.value
             }
 
@@ -200,7 +199,7 @@ open class BannerController {
      */
     @RequestMapping(value = ["/web/backstage/banner/show"], method = [(RequestMethod.POST)])
     @ResponseBody
-    fun show(@RequestParam("bannerId") bannerId: Int, @RequestParam("bannerShow") bannerShow: Byte): AjaxUtils<*> {
+    fun show(@RequestParam("bannerId") bannerId: Int, @RequestParam("bannerShow") bannerShow: Boolean): AjaxUtils<*> {
         val banner = bannerService.findById(bannerId)
         banner.bannerShow = bannerShow
         bannerService.update(banner)
